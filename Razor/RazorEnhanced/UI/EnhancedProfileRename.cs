@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -6,7 +6,7 @@ namespace RazorEnhanced.UI
 {
     public partial class EnhancedProfileRename : Form
     {
-        private const string m_Title = "Enhanced Profile Rename";
+        private const string m_Title = "增强配置重命名";
 
         public EnhancedProfileRename()
         {
@@ -50,7 +50,7 @@ namespace RazorEnhanced.UI
 
         private void EnhancedProfileAdd_Load(object sender, EventArgs e)
         {
-            oldNameLabel.Text = "Old Name: " + RazorEnhanced.Profiles.LastUsed();
+            oldNameLabel.Text = "旧名称: " + RazorEnhanced.Profiles.LastUsed();
         }
     }
 }

@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using Assistant.UI;
 using System;
 using System.Collections.Generic;
@@ -139,13 +139,13 @@ namespace RazorEnhanced
                     if (RazorEnhanced.Settings.General.ReadBool("HotKeyEnable"))
                     {
                         RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", false);
-                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "Status: Disable");
+                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "状态: 禁用");
                         if (World.Player != null)
                             RazorEnhanced.Misc.SendMessage("HotKey: DISABLED", 37, false);
                     }
                     else
                     {
-                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "Status: Enable");
+                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "状态: 启用");
                         RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", true);
                         if (World.Player != null)
                             RazorEnhanced.Misc.SendMessage("HotKey: ENABLED", 168, false);
@@ -1671,12 +1671,12 @@ namespace RazorEnhanced
         internal static void Init()
         {
             // BLocco generico
-            Engine.MainWindow.HotKeyKeyMasterLabel.Text = "ON/OFF Key: " + KeyString(RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey"));
+            Engine.MainWindow.HotKeyKeyMasterLabel.Text = "开关键: " + KeyString(RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey"));
 
             if (RazorEnhanced.Settings.General.ReadBool("HotKeyEnable"))
-                Engine.MainWindow.HotKeyStatusLabel.Text = "Status: Enabled";
+                Engine.MainWindow.HotKeyStatusLabel.Text = "状态: 已启用";
             else
-                Engine.MainWindow.HotKeyStatusLabel.Text = "Status: Disabled";
+                Engine.MainWindow.HotKeyStatusLabel.Text = "状态: 已禁用";
 
             // Parametri lista
             Engine.MainWindow.HotKeyTreeView.Nodes.Clear();
@@ -2143,7 +2143,7 @@ namespace RazorEnhanced
             if (!RazorEnhanced.Settings.HotKey.AssignedKey(m_masterkey))
             {
                 RazorEnhanced.Settings.General.WriteKey("HotKeyMasterKey", RazorEnhanced.HotKey.m_masterkey);
-                Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "ON/OFF Key: " + KeyString(RazorEnhanced.HotKey.m_masterkey);
+                Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "开关键: " + KeyString(RazorEnhanced.HotKey.m_masterkey);
             }
             else
             {
@@ -2154,7 +2154,7 @@ namespace RazorEnhanced
                 {
                     RazorEnhanced.Settings.HotKey.UnassignKey(m_masterkey);
                     RazorEnhanced.Settings.General.WriteKey("HotKeyMasterKey", RazorEnhanced.HotKey.m_masterkey);
-                    Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "ON/OFF Key: " + KeyString(RazorEnhanced.HotKey.m_masterkey);
+                    Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "开关键: " + KeyString(RazorEnhanced.HotKey.m_masterkey);
                 }
             }
         }
@@ -2185,7 +2185,7 @@ namespace RazorEnhanced
         internal static void ClearMasterKey()
         {
             RazorEnhanced.Settings.General.WriteKey("HotKeyMasterKey", Keys.None);
-            Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "ON/OFF Key: " + KeyString(RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey"));
+            Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "开关键: " + KeyString(RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey"));
         }
 
         private static bool UseItemByIdHue(Assistant.Item cont, ushort find, int hue)

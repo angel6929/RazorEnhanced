@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -7,7 +7,7 @@ namespace RazorEnhanced.UI
 {
     public partial class EnhancedProfileClone : Form
     {
-        private const string m_Title = "Enhanced Profile Clone";
+        private const string m_Title = "增强配置克隆";
 
         public EnhancedProfileClone()
         {
@@ -73,7 +73,7 @@ namespace RazorEnhanced.UI
 
         private void EnhancedProfileAdd_Load(object sender, EventArgs e)
         {
-            cloneNameLabel.Text = "Old Name: " + RazorEnhanced.Profiles.LastUsed();
+            cloneNameLabel.Text = "旧名称: " + RazorEnhanced.Profiles.LastUsed();
         }
     }
 }

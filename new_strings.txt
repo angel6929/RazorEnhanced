@@ -1,0 +1,237 @@
+﻿[5x] ON/OFF Key: 
+[4x] null
+[3x] (use default)
+[3x] Cancel
+[3x] Door:
+[3x] Position:
+[3x] Min
+[3x] Linked to: 
+[2x] Window:
+[2x] Alias
+[2x] Status: Enable
+[2x] Roof:
+[2x] Wet:
+[2x] Inspect Alias
+[2x] None:
+[2x] Attributes
+[2x] Copy
+[2x] Not Set
+[2x] HoverOver:
+[2x] Impassable:
+[2x] New Name:
+[2x] Propreties List
+[2x] Default Props:
+[2x] Debug
+[2x] Razor Enhanced
+[2x] Item
+[2x] Old Name: 
+[2x] Z Level:
+[2x] Foliage:
+[2x] Translucent:
+[2x] UnLock
+[2x] None
+[2x] Grapics:
+[2x] Collecting Data...
+[2x] Status: Disable
+[2x] [band
+[2x] Damaging:
+[2x] NoShoot:
+[2x] S: 
+[2x] Max
+[2x] [bandself
+[2x] Wall:
+[2x] Props Editing
+[2x] Container:
+[2x] Props Name
+[2x] Surface:
+[2x] Bridge:
+[2x] X:0 Y:0
+[1x] Player
+[1x] Static Hue:
+[1x] web link
+[1x] SL
+[1x] % 生命
+[1x] Inspect Entities ( CTRL + I )
+[1x] Next Call
+[1x] Enhanced Script Editor
+[1x] CUO Client:
+[1x] Port:
+[1x] Visible:
+[1x] Root Container:
+[1x] UoMod (客户端 > 7.0.0.0)
+[1x] Direction:
+[1x] F: 
+[1x] Mobile Details
+[1x] Stam / MaxStam
+[1x] Left
+[1x] Next Breakpoint ( F9 )
+[1x] Exit
+[1x] Use OSI Encryption
+[1x] Paralized:
+[1x] Damageable:
+[1x] Ground:
+[1x] Enhanced AutoLoot Edit Item Props
+[1x] Comment Line
+[1x] H: 
+[1x] Enhanced Profile Rename
+[1x] L: 
+[1x] Hits / MaxHits
+[1x] South
+[1x] Check Update
+[1x] Save ( CTRL + S )
+[1x] Enhanced Mobile Inspector
+[1x] Command
+[1x] Launch CUO
+[1x] North
+[1x] Stam: 
+[1x] I: 
+[1x] Tithe: 
+[1x] Paste
+[1x] Record ( CTRL + R )
+[1x] Open ( CTRL + O )
+[1x] Copy value to Clipboard
+[1x] Poisoned:
+[1x] Inspect Gumps
+[1x] Movable:
+[1x] Select in Game
+[1x] M: 
+[1x] Send a message to the Alliance chat channel.
+[1x] Convert to by ID Line
+[1x] 0xFFFFFFFF
+[1x] Gump Log
+[1x] toolStrip1
+[1x] Shard Config
+[1x] Recording
+[1x] Hue Number:
+[1x] Weight: 
+[1x] War Mode:
+[1x] YellowHits:
+[1x] Item Details
+[1x] Right
+[1x] Whisper a message (optionally colored with Hue).
+[1x] Python
+[1x] Server Address:
+[1x] OK
+[1x] MobileID:
+[1x] Empty
+[1x] Show Timestamp
+[1x] Shard:
+[1x] UOS
+[1x] Next Line
+[1x] UO Folder:
+[1x] ms
+[1x] Inspect Gumps ( CTRL + G )
+[1x] Duration
+[1x] Razor Enhanced 官网
+[1x] Follower: 
+[1x] Potion:
+[1x] Next Breakpoint
+[1x] Multi:
+[1x] Old Name: null
+[1x] Select a Hue
+[1x] -1 表示全部
+[1x] Layer: 
+[1x] Smart CPU not available with Classic UO
+[1x] Enhanced Scavenger Edit Item Props
+[1x] Resume
+[1x] Optional
+[1x] Land Hue:
+[1x] Emote a message (optionally colored with Hue).
+[1x] Remove ( F8 )
+[1x] Flying:
+[1x] (will use 'findfound' at runtime)
+[1x] Amount:
+[1x] Enhanced Friend Manual Add Player
+[1x] Static List
+[1x] Cut
+[1x] Enhanced Add Profile
+[1x] Enhanced Gump Inspector
+[1x] Land ID:
+[1x] Profile Name:
+[1x] List Created!
+[1x] Wiki
+[1x] New Guild
+[1x] Mana: 
+[1x] --> 
+[1x] Enhanced Friend Manual Add Guild
+[1x] Next Line ( F10 )
+[1x] Debug ( F5 )
+[1x] Preview
+[1x] Corpse:
+[1x] > 
+[1x] Stop ( F4 )
+[1x] Close ( CTRL + E )
+[1x] Static Details
+[1x] Razor 设置
+[1x] Layer:
+[1x] Show a message over a mobile or item (Hue and Target required).
+[1x] W: 
+[1x] Land Flag
+[1x] Static Flag
+[1x] Breakpoint ( F7 )
+[1x] Ghost:
+[1x] Shard Selection
+[1x] Razor 消息色调
+[1x] Shared Objects
+[1x] Save As ( CTRL + SHIFT + S )
+[1x] D: 
+[1x] Hidden:
+[1x] Owned:
+[1x] message
+[1x] Next Return
+[1x] Play ( F6 )
+[1x] Status: Disabled
+[1x] CoM
+[1x] Search ( CTRL + F )
+[1x] Enhanced Profile Clone
+[1x] Send a system message (optionally colored with Hue).
+[1x] Notoriety:
+[1x] Mana / MaxMana
+[1x] Razor Splash Screen
+[1x] tiles
+[1x] Launch
+[1x] Undefined
+[1x] Send a message to the Party chat channel.
+[1x] Save As
+[1x] videoSourcePlayer
+[1x] Enhanced Item Inspector
+[1x] DPS 仪表
+[1x] Land Details
+[1x] T: 
+[1x] Send a message to the General chat channel.
+[1x] Welcome to Razor Enhanced
+[1x] Macro running...
+[1x] East
+[1x] Static ID:
+[1x] Clear on Play
+[1x] TB
+[1x] ItemID
+[1x] West
+[1x] Razor Enhanced 源码
+[1x] < 
+[1x] Send a message to the Guild chat channel.
+[1x] Dialog Box
+[1x] Move
+[1x] New Player
+[1x] Agent add List
+[1x] Timers
+[1x] UnComment Line
+[1x] Two Hand:
+[1x] Objects / Timers Inspector
+[1x] Razor 消息:
+[1x] Next Call ( F12 )
+[1x] Hits: 
+[1x] &Okay
+[1x] Yell a message (optionally colored with Hue).
+[1x] Next Return ( F11 )
+[1x] Say a message (optionally colored with Hue).
+[1x] C#
+[1x] Debug Mode!
+[1x] File Not Found
+[1x] Inspect Entities
+[1x] Profile to Clone: null
+[1x] Enhanced Static Inspector
+[1x] Select Client
+[1x] Patch client encryption
+[1x] Enhanced Dress Add Clear Layer
+[1x] Client Location:

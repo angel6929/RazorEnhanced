@@ -1,4 +1,4 @@
-using RazorEnhanced;
+﻿using RazorEnhanced;
 using System;
 using System.Windows.Forms;
 
@@ -120,7 +120,7 @@ namespace Assistant
         private void toolboxcountClearButton_Click(object sender, EventArgs e)
         {
             int index = toolboxcountComboBox.SelectedIndex;
-            toolboxcountNameTextBox.Text = "Empty";
+            toolboxcountNameTextBox.Text = "空";
             toolboxcountGraphTextBox.Text = "0x0000";
             toolboxcountHueTextBox.Text = "0x0000";
             toolboxcountHueWarningCheckBox.Checked = false;

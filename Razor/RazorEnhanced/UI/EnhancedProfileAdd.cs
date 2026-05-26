@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -6,7 +6,7 @@ namespace RazorEnhanced.UI
 {
     public partial class EnhancedProfileAdd : Form
     {
-        private const string m_Title = "Enhanced Profile Add";
+        private const string m_Title = "增强添加配置";
 
         public EnhancedProfileAdd()
         {

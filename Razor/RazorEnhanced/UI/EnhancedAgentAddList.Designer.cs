@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedAgentAddList
     {
@@ -53,7 +53,7 @@ namespace RazorEnhanced.UI
             this.agentcloseItemList.Name = "agentcloseItemList";
             this.agentcloseItemList.Size = new System.Drawing.Size(75, 25);
             this.agentcloseItemList.TabIndex = 2;
-            this.agentcloseItemList.Text = "Close";
+            this.agentcloseItemList.Text = "关闭";
             this.agentcloseItemList.UseVisualStyleBackColor = true;
             this.agentcloseItemList.Click += new System.EventHandler(this.EnhancedAgentCloseItemList_Click);
             // 
@@ -63,7 +63,7 @@ namespace RazorEnhanced.UI
             this.agentaddItemList.Name = "agentaddItemList";
             this.agentaddItemList.Size = new System.Drawing.Size(75, 25);
             this.agentaddItemList.TabIndex = 3;
-            this.agentaddItemList.Text = "Add";
+            this.agentaddItemList.Text = "添加";
             this.agentaddItemList.UseVisualStyleBackColor = true;
             this.agentaddItemList.Click += new System.EventHandler(this.EnhancedAgentAddList_Click);
             // 
@@ -79,7 +79,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedAgentAddList";
-            this.Text = "Agent add List";
+            this.Text = "代理添加列表";
             this.ResumeLayout(false);
             this.PerformLayout();
 

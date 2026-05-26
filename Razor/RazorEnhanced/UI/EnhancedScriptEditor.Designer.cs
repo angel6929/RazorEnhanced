@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedScriptEditor
     {
@@ -141,7 +141,7 @@ namespace RazorEnhanced.UI
             this.toolStripFileDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripFileDropDownButton.Name = "toolStripFileDropDownButton";
             this.toolStripFileDropDownButton.Size = new System.Drawing.Size(62, 28);
-            this.toolStripFileDropDownButton.Text = "File";
+            this.toolStripFileDropDownButton.Text = "文件";
             // 
             // toolStripButtonClose
             // 
@@ -149,8 +149,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonClose.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClose.Name = "toolStripButtonClose";
             this.toolStripButtonClose.Size = new System.Drawing.Size(59, 28);
-            this.toolStripButtonClose.Text = "New";
-            this.toolStripButtonClose.ToolTipText = "Close ( CTRL + E )";
+            this.toolStripButtonClose.Text = "新建";
+            this.toolStripButtonClose.ToolTipText = "关闭 ( CTRL + E )";
             this.toolStripButtonClose.Click += new System.EventHandler(this.ToolStripButtonClose_Click);
             // 
             // toolStripButtonOpen
@@ -159,8 +159,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOpen.Name = "toolStripButtonOpen";
             this.toolStripButtonOpen.Size = new System.Drawing.Size(64, 28);
-            this.toolStripButtonOpen.Text = "Open";
-            this.toolStripButtonOpen.ToolTipText = "Open ( CTRL + O )";
+            this.toolStripButtonOpen.Text = "打开";
+            this.toolStripButtonOpen.ToolTipText = "打开 ( CTRL + O )";
             this.toolStripButtonOpen.Click += new System.EventHandler(this.ToolStripButtonOpen_Click);
             // 
             // toolStripButtonSave
@@ -169,8 +169,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(59, 28);
-            this.toolStripButtonSave.Text = "Save";
-            this.toolStripButtonSave.ToolTipText = "Save ( CTRL + S )";
+            this.toolStripButtonSave.Text = "保存";
+            this.toolStripButtonSave.ToolTipText = "保存 ( CTRL + S )";
             this.toolStripButtonSave.Click += new System.EventHandler(this.ToolStripButtonSave_Click);
             // 
             // toolStripButtonSaveAs
@@ -179,8 +179,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
             this.toolStripButtonSaveAs.Size = new System.Drawing.Size(75, 28);
-            this.toolStripButtonSaveAs.Text = "Save As";
-            this.toolStripButtonSaveAs.ToolTipText = "Save As ( CTRL + SHIFT + S )";
+            this.toolStripButtonSaveAs.Text = "另存为";
+            this.toolStripButtonSaveAs.ToolTipText = "另存为 ( CTRL + SHIFT + S )";
             this.toolStripButtonSaveAs.Click += new System.EventHandler(this.ToolStripButtonSaveAs_Click);
             // 
             // toolStripSeparator1
@@ -194,8 +194,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonPlay.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPlay.Name = "toolStripButtonPlay";
             this.toolStripButtonPlay.Size = new System.Drawing.Size(57, 28);
-            this.toolStripButtonPlay.Text = "Play";
-            this.toolStripButtonPlay.ToolTipText = "Play ( F6 )";
+            this.toolStripButtonPlay.Text = "播放";
+            this.toolStripButtonPlay.ToolTipText = "播放 ( F6 )";
             this.toolStripButtonPlay.Click += new System.EventHandler(this.ToolStripButtonPlay_Click);
             // 
             // toolStripSeparator3
@@ -209,8 +209,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStop.Name = "toolStripButtonStop";
             this.toolStripButtonStop.Size = new System.Drawing.Size(59, 28);
-            this.toolStripButtonStop.Text = "Stop";
-            this.toolStripButtonStop.ToolTipText = "Stop ( F4 )";
+            this.toolStripButtonStop.Text = "停止";
+            this.toolStripButtonStop.ToolTipText = "停止 ( F4 )";
             this.toolStripButtonStop.Click += new System.EventHandler(this.ToolStripButtonStop_Click);
             // 
             // toolStripButtonGumps
@@ -219,8 +219,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonGumps.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGumps.Name = "toolStripButtonGumps";
             this.toolStripButtonGumps.Size = new System.Drawing.Size(72, 28);
-            this.toolStripButtonGumps.Text = "Record";
-            this.toolStripButtonGumps.ToolTipText = "Record ( CTRL + R )";
+            this.toolStripButtonGumps.Text = "录制";
+            this.toolStripButtonGumps.ToolTipText = "录制 ( CTRL + R )";
             this.toolStripButtonGumps.Click += new System.EventHandler(this.ToolStripRecord_Click);
             // 
             // toolStripSeparator8
@@ -234,8 +234,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSearch.Name = "toolStripButtonSearch";
             this.toolStripButtonSearch.Size = new System.Drawing.Size(70, 28);
-            this.toolStripButtonSearch.Text = "Search";
-            this.toolStripButtonSearch.ToolTipText = "Search ( CTRL + F )";
+            this.toolStripButtonSearch.Text = "搜索";
+            this.toolStripButtonSearch.ToolTipText = "搜索 ( CTRL + F )";
             this.toolStripButtonSearch.Click += new System.EventHandler(this.ToolStripButtonSearch_Click);
             // 
             // toolStripSeparator2
@@ -249,8 +249,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonInspect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInspect.Name = "toolStripButtonInspect";
             this.toolStripButtonInspect.Size = new System.Drawing.Size(114, 28);
-            this.toolStripButtonInspect.Text = "Inspect Entities";
-            this.toolStripButtonInspect.ToolTipText = "Inspect Entities ( CTRL + I )";
+            this.toolStripButtonInspect.Text = "检查实体";
+            this.toolStripButtonInspect.ToolTipText = "检查实体 ( CTRL + I )";
             this.toolStripButtonInspect.Click += new System.EventHandler(this.ToolStripButtonInspect_Click);
             // 
             // toolStripSeparator5
@@ -264,8 +264,8 @@ namespace RazorEnhanced.UI
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(114, 28);
-            this.toolStripButton2.Text = "Inspect Gumps";
-            this.toolStripButton2.ToolTipText = "Inspect Gumps ( CTRL + G )";
+            this.toolStripButton2.Text = "检查 Gumps";
+            this.toolStripButton2.ToolTipText = "检查 Gumps ( CTRL + G )";
             this.toolStripButton2.Click += new System.EventHandler(this.ToolStripInspectGump_Click);
             // 
             // toolStripSeparator6
@@ -279,8 +279,8 @@ namespace RazorEnhanced.UI
             this.inspectaliasbutton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.inspectaliasbutton.Name = "inspectaliasbutton";
             this.inspectaliasbutton.Size = new System.Drawing.Size(101, 28);
-            this.inspectaliasbutton.Text = "Inspect Alias";
-            this.inspectaliasbutton.ToolTipText = "Inspect Alias";
+            this.inspectaliasbutton.Text = "检查别名";
+            this.inspectaliasbutton.ToolTipText = "检查别名";
             this.inspectaliasbutton.Click += new System.EventHandler(this.ToolStripInspectAlias_Click);
             // 
             // toolStripSeparator7
@@ -316,8 +316,8 @@ namespace RazorEnhanced.UI
             this.toolStripDropDownDebugButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownDebugButton.Name = "toolStripDropDownDebugButton";
             this.toolStripDropDownDebugButton.Size = new System.Drawing.Size(79, 28);
-            this.toolStripDropDownDebugButton.Text = "Debug";
-            this.toolStripDropDownDebugButton.ToolTipText = "Debug";
+            this.toolStripDropDownDebugButton.Text = "调试";
+            this.toolStripDropDownDebugButton.ToolTipText = "调试";
             // 
             // toolStripButtonDebug
             // 
@@ -325,8 +325,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDebug.Name = "toolStripButtonDebug";
             this.toolStripButtonDebug.Size = new System.Drawing.Size(107, 28);
-            this.toolStripButtonDebug.Text = "Debug Mode!";
-            this.toolStripButtonDebug.ToolTipText = "Debug ( F5 )";
+            this.toolStripButtonDebug.Text = "调试模式!";
+            this.toolStripButtonDebug.ToolTipText = "调试 ( F5 )";
             this.toolStripButtonDebug.Click += new System.EventHandler(this.ToolStripButtonDebug_Click);
             // 
             // toolStripNextCall
@@ -335,8 +335,8 @@ namespace RazorEnhanced.UI
             this.toolStripNextCall.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripNextCall.Name = "toolStripNextCall";
             this.toolStripNextCall.Size = new System.Drawing.Size(83, 28);
-            this.toolStripNextCall.Text = "Next Call";
-            this.toolStripNextCall.ToolTipText = "Next Call ( F12 )";
+            this.toolStripNextCall.Text = "下一调用";
+            this.toolStripNextCall.ToolTipText = "下一调用 ( F12 )";
             this.toolStripNextCall.Click += new System.EventHandler(this.ToolStripNextCall_Click);
             // 
             // toolStripButtonNextLine
@@ -345,8 +345,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonNextLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNextLine.Name = "toolStripButtonNextLine";
             this.toolStripButtonNextLine.Size = new System.Drawing.Size(85, 28);
-            this.toolStripButtonNextLine.Text = "Next Line";
-            this.toolStripButtonNextLine.ToolTipText = "Next Line ( F10 )";
+            this.toolStripButtonNextLine.Text = "下一行";
+            this.toolStripButtonNextLine.ToolTipText = "下一行 ( F10 )";
             this.toolStripButtonNextLine.Click += new System.EventHandler(this.ToolStripButtonNextLine_Click);
             // 
             // toolStripButtonNextReturn
@@ -355,8 +355,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonNextReturn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNextReturn.Name = "toolStripButtonNextReturn";
             this.toolStripButtonNextReturn.Size = new System.Drawing.Size(98, 28);
-            this.toolStripButtonNextReturn.Text = "Next Return";
-            this.toolStripButtonNextReturn.ToolTipText = "Next Return ( F11 )";
+            this.toolStripButtonNextReturn.Text = "下一返回";
+            this.toolStripButtonNextReturn.ToolTipText = "下一返回 ( F11 )";
             this.toolStripButtonNextReturn.Click += new System.EventHandler(this.ToolStripButtonNextReturn_Click);
             // 
             // toolStripButtonNextBreakpoint
@@ -365,8 +365,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonNextBreakpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNextBreakpoint.Name = "toolStripButtonNextBreakpoint";
             this.toolStripButtonNextBreakpoint.Size = new System.Drawing.Size(120, 28);
-            this.toolStripButtonNextBreakpoint.Text = "Next Breakpoint";
-            this.toolStripButtonNextBreakpoint.ToolTipText = "Next Breakpoint ( F9 )";
+            this.toolStripButtonNextBreakpoint.Text = "下一断点";
+            this.toolStripButtonNextBreakpoint.ToolTipText = "下一断点 ( F9 )";
             this.toolStripButtonNextBreakpoint.Click += new System.EventHandler(this.ToolStripButtonNextBreakpoint_Click);
             // 
             // toolStripButtonAddBreakpoint
@@ -375,8 +375,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonAddBreakpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddBreakpoint.Name = "toolStripButtonAddBreakpoint";
             this.toolStripButtonAddBreakpoint.Size = new System.Drawing.Size(57, 28);
-            this.toolStripButtonAddBreakpoint.Text = "Add";
-            this.toolStripButtonAddBreakpoint.ToolTipText = "Breakpoint ( F7 )";
+            this.toolStripButtonAddBreakpoint.Text = "添加";
+            this.toolStripButtonAddBreakpoint.ToolTipText = "断点 ( F7 )";
             this.toolStripButtonAddBreakpoint.Click += new System.EventHandler(this.ToolStripButtonAddBreakpoint_Click);
             // 
             // toolStripButtonRemoveBreakpoints
@@ -385,8 +385,8 @@ namespace RazorEnhanced.UI
             this.toolStripButtonRemoveBreakpoints.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveBreakpoints.Name = "toolStripButtonRemoveBreakpoints";
             this.toolStripButtonRemoveBreakpoints.Size = new System.Drawing.Size(78, 28);
-            this.toolStripButtonRemoveBreakpoints.Text = "Remove";
-            this.toolStripButtonRemoveBreakpoints.ToolTipText = "Remove ( F8 )";
+            this.toolStripButtonRemoveBreakpoints.Text = "移除";
+            this.toolStripButtonRemoveBreakpoints.ToolTipText = "移除 ( F8 )";
             this.toolStripButtonRemoveBreakpoints.Click += new System.EventHandler(this.ToolStripButtonRemoveBreakpoints_Click);
             // 
             // statusStrip1
@@ -512,7 +512,7 @@ namespace RazorEnhanced.UI
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Text = "复制";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
@@ -520,7 +520,7 @@ namespace RazorEnhanced.UI
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Text = "粘贴";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
             // cutToolStripMenuItem
@@ -528,7 +528,7 @@ namespace RazorEnhanced.UI
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Text = "剪切";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
@@ -541,7 +541,7 @@ namespace RazorEnhanced.UI
             this.commentSelectLineToolStripMenuItem.Name = "commentSelectLineToolStripMenuItem";
             this.commentSelectLineToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.commentSelectLineToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.commentSelectLineToolStripMenuItem.Text = "Comment Line";
+            this.commentSelectLineToolStripMenuItem.Text = "注释行";
             this.commentSelectLineToolStripMenuItem.Click += new System.EventHandler(this.CommentSelectLineToolStripMenuItem_Click);
             // 
             // unCommentLineToolStripMenuItem
@@ -549,7 +549,7 @@ namespace RazorEnhanced.UI
             this.unCommentLineToolStripMenuItem.Name = "unCommentLineToolStripMenuItem";
             this.unCommentLineToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.unCommentLineToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.unCommentLineToolStripMenuItem.Text = "UnComment Line";
+            this.unCommentLineToolStripMenuItem.Text = "取消注释行";
             this.unCommentLineToolStripMenuItem.Click += new System.EventHandler(this.UnCommentLineToolStripMenuItem_Click);
             // 
             // convertToByIdMenuItem
@@ -557,7 +557,7 @@ namespace RazorEnhanced.UI
             this.convertToByIdMenuItem.Name = "convertToByIdMenuItem";
             this.convertToByIdMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.convertToByIdMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.convertToByIdMenuItem.Text = "Convert to by ID Line";
+            this.convertToByIdMenuItem.Text = "转换为 ID 行";
             this.convertToByIdMenuItem.Click += new System.EventHandler(this.ConvertToByIdToolStripMenuItem_Click);
             // 
             // outputConsole
@@ -589,7 +589,7 @@ namespace RazorEnhanced.UI
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Text = "清空";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem1
@@ -597,7 +597,7 @@ namespace RazorEnhanced.UI
             this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
             this.copyToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copyToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
-            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Text = "复制";
             this.copyToolStripMenuItem1.Click += new System.EventHandler(this.CopyToolStripMenuItem1_Click);
             // 
             // autoclearToolStripMenuItem
@@ -606,14 +606,14 @@ namespace RazorEnhanced.UI
             this.autoclearToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.autoclearToolStripMenuItem.Name = "autoclearToolStripMenuItem";
             this.autoclearToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.autoclearToolStripMenuItem.Text = "Clear on Play";
+            this.autoclearToolStripMenuItem.Text = "播放时清空";
             this.autoclearToolStripMenuItem.Click += new System.EventHandler(this.autoclearToolStripMenuItem_Click);
             // 
             // timeToolStripMenuItem
             // 
             this.timeToolStripMenuItem.Name = "timeToolStripMenuItem";
             this.timeToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.timeToolStripMenuItem.Text = "Show Timestamp";
+            this.timeToolStripMenuItem.Text = "显示时间戳";
             this.timeToolStripMenuItem.Click += new System.EventHandler(this.timeToolStripMenuItem_Click);
             // 
             // splitDebugger
@@ -668,7 +668,7 @@ namespace RazorEnhanced.UI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "EnhancedScriptEditor";
-            this.Text = "Enhanced Script Editor";
+            this.Text = "增强脚本编辑器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EnhancedScriptEditor_FormClosing);
             this.Load += new System.EventHandler(this.EnhancedScriptEditor_Load);
             this.toolStrip1.ResumeLayout(false);

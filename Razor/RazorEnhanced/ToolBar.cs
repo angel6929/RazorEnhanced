@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -131,7 +131,7 @@ namespace RazorEnhanced
             {
                 int percent = hits * 100 / (maxhits == 0 ? 1 : maxhits);
 
-                m_labelTextHitsBHV.Text = "Hits: " + hits.ToString() + " / " + maxhits.ToString();
+                m_labelTextHitsBHV.Text = "生命: " + hits.ToString() + " / " + maxhits.ToString();
                 m_labelBarHitsBHV.Size = Settings.General.ReadString("ToolBoxStyleComboBox") == "Vertical" ? new Size(percent, 10) : new Size(percent, 5);
                 m_labelBarHitsBHV.BackColor = GetColor(percent);
             }
@@ -158,7 +158,7 @@ namespace RazorEnhanced
             {
                 int percent = stam * 100 / (maxstam == 0 ? 1 : maxstam);
 
-                m_labelTextStaminaBHV.Text = "Stam: " + stam.ToString() + " / " + maxstam.ToString();
+                m_labelTextStaminaBHV.Text = "体力: " + stam.ToString() + " / " + maxstam.ToString();
                 m_labelBarStaminaBHV.Size = Settings.General.ReadString("ToolBoxStyleComboBox") == "Vertical" ? new Size(percent, 10) : new Size(percent, 5);
                 m_labelBarStaminaBHV.BackColor = GetColor(percent);
             }
@@ -185,7 +185,7 @@ namespace RazorEnhanced
             {
                 int percent = mana * 100 / (maxmana == 0 ? 1 : maxmana);
 
-                m_labelTextManaBHV.Text = "Mana: " + mana.ToString() + " / " + maxmana.ToString();
+                m_labelTextManaBHV.Text = "魔法: " + mana.ToString() + " / " + maxmana.ToString();
                 m_labelBarManaBHV.Size = Settings.General.ReadString("ToolBoxStyleComboBox") == "Vertical" ? new Size(percent, 10) : new Size(percent, 5);
                 m_labelBarManaBHV.BackColor = GetColor(percent);
             }
@@ -210,7 +210,7 @@ namespace RazorEnhanced
 
             if (Settings.General.ReadString("ToolBoxSizeComboBox") == "Big")
             {
-                m_labelTextTitheBHV.Text = "Tithe: " + tithe.ToString();
+                m_labelTextTitheBHV.Text = "信仰: " + tithe.ToString();
             }
             else
             {
@@ -232,7 +232,7 @@ namespace RazorEnhanced
 
             if (Settings.General.ReadString("ToolBoxSizeComboBox") == "Big")
             {
-                m_labelTextWeightBHV.Text = "Weight: " + weight.ToString() + " / " + maxweight.ToString();
+                m_labelTextWeightBHV.Text = "重量: " + weight.ToString() + " / " + maxweight.ToString();
             }
             else
             {
@@ -255,7 +255,7 @@ namespace RazorEnhanced
 
             if (Settings.General.ReadString("ToolBoxSizeComboBox") == "Big")
             {
-                m_labelTextFollowerBHV.Text = "Follower: " + World.Player.Followers.ToString() + " / " + World.Player.FollowersMax.ToString();
+                m_labelTextFollowerBHV.Text = "随从: " + World.Player.Followers.ToString() + " / " + World.Player.FollowersMax.ToString();
             }
             else
             {
@@ -551,12 +551,12 @@ namespace RazorEnhanced
             menuItem = new MenuItem();
             if (m_lock)
             {
-                menuItem.Text = "UnLock";
+                menuItem.Text = "解锁";
                 menuItem.Click += new System.EventHandler(menuItemUnLock_Click);
             }
             else
             {
-                menuItem.Text = "Lock";
+                menuItem.Text = "锁定";
                 menuItem.Click += new System.EventHandler(menuItemLock_Click);
             }
             cm.MenuItems.Add(menuItem);

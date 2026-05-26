@@ -1,4 +1,4 @@
-using IronPython.Runtime.Operations;
+﻿using IronPython.Runtime.Operations;
 using RazorEnhanced;
 using RazorEnhanced.UI;
 using System;
@@ -110,7 +110,7 @@ namespace Assistant
                     // 2/15/2021 added back to avoid hotkey issue,
                     //    removed bad file entries at load in settings so should never happen
                     ListViewItem listitem = new();
-                    listitem.Text = "File Not Found";
+                    listitem.Text = "文件未找到";
                     listitem.SubItems.Add("Error");
                     listitem.SubItems.Add("No");
                     listitem.SubItems.Add("No");
@@ -286,8 +286,8 @@ namespace Assistant
             label.Text = promptText;
             textBox.Text = value;
 
-            buttonMove.Text = "Move";
-            buttonCancel.Text = "Cancel";
+            buttonMove.Text = "移动";
+            buttonCancel.Text = "取消";
             buttonMove.DialogResult = DialogResult.OK;
             buttonCancel.DialogResult = DialogResult.Cancel;
 
@@ -649,9 +649,9 @@ namespace Assistant
                 Keys key = (Keys)Convert.ToInt32(row["HotKey"]);
                 scriptListView.Items[i].SubItems[5].Text = HotKey.KeyString(key);
                 if (passkey)
-                    scriptListView.Items[i].SubItems[6].Text = "Yes";
+                    scriptListView.Items[i].SubItems[6].Text = "是";
                 else
-                    scriptListView.Items[i].SubItems[6].Text = "No";
+                    scriptListView.Items[i].SubItems[6].Text = "否";
                 i++;
             }
             scriptListView.EndUpdate();
@@ -879,9 +879,9 @@ namespace Assistant
                 script.AutoStart = scriptautostartcheckbox.Checked;
 
                 if (scriptautostartcheckbox.Checked)
-                    scriptListView.SelectedItems[0].SubItems[3].Text = "Yes";
+                    scriptListView.SelectedItems[0].SubItems[3].Text = "是";
                 else
-                    scriptListView.SelectedItems[0].SubItems[3].Text = "No";
+                    scriptListView.SelectedItems[0].SubItems[3].Text = "否";
 
             }
         }
@@ -931,9 +931,9 @@ namespace Assistant
                 item.Preload = scriptpreload.Checked;
 
                 if (scriptpreload.Checked)
-                    scriptListView.SelectedItems[0].SubItems[8].Text = "Yes";
+                    scriptListView.SelectedItems[0].SubItems[8].Text = "是";
                 else
-                    scriptListView.SelectedItems[0].SubItems[8].Text = "No";
+                    scriptListView.SelectedItems[0].SubItems[8].Text = "否";
             }
         }
         private void scriptpreloadcheckbox_CheckedChanged(object sender, EventArgs e)
@@ -982,9 +982,9 @@ namespace Assistant
 
 
                 if (scriptloopmodecheckbox.Checked)
-                    scriptListView.SelectedItems[0].SubItems[2].Text = "Yes";
+                    scriptListView.SelectedItems[0].SubItems[2].Text = "是";
                 else
-                    scriptListView.SelectedItems[0].SubItems[2].Text = "No";
+                    scriptListView.SelectedItems[0].SubItems[2].Text = "否";
 
             }
         }
@@ -1034,9 +1034,9 @@ namespace Assistant
                 item.Wait = scriptwaitmodecheckbox.Checked;
 
                 if (scriptwaitmodecheckbox.Checked)
-                    scriptListView.SelectedItems[0].SubItems[4].Text = "Yes";
+                    scriptListView.SelectedItems[0].SubItems[4].Text = "是";
                 else
-                    scriptListView.SelectedItems[0].SubItems[4].Text = "No";
+                    scriptListView.SelectedItems[0].SubItems[4].Text = "否";
 
             }
         }

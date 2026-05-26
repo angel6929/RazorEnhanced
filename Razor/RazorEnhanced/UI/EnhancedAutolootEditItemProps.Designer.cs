@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedAutolootEditItemProps
     {
@@ -79,19 +79,19 @@ namespace RazorEnhanced.UI
             // 
             // ColumnHeader3
             // 
-            ColumnHeader3.Text = "Color";
+            ColumnHeader3.Text = "颜色";
             // 
             // columnHeader8
             // 
-            columnHeader8.Text = "Color";
+            columnHeader8.Text = "颜色";
             // 
             // columnHeader12
             // 
-            columnHeader12.Text = "Color";
+            columnHeader12.Text = "颜色";
             // 
             // columnHeader16
             // 
-            columnHeader16.Text = "Color";
+            columnHeader16.Text = "颜色";
             // 
             // columnHeader4
             // 
@@ -100,12 +100,12 @@ namespace RazorEnhanced.UI
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Item Name";
+            this.columnHeader1.Text = "物品名";
             this.columnHeader1.Width = 105;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Graphics";
+            this.columnHeader2.Text = "图形";
             // 
             // columnHeader5
             // 
@@ -114,12 +114,12 @@ namespace RazorEnhanced.UI
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Item Name";
+            this.columnHeader6.Text = "物品名";
             this.columnHeader6.Width = 105;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Graphics";
+            this.columnHeader7.Text = "图形";
             // 
             // columnHeader9
             // 
@@ -128,12 +128,12 @@ namespace RazorEnhanced.UI
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "Item Name";
+            this.columnHeader10.Text = "物品名";
             this.columnHeader10.Width = 105;
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Graphics";
+            this.columnHeader11.Text = "图形";
             // 
             // columnHeader13
             // 
@@ -142,12 +142,12 @@ namespace RazorEnhanced.UI
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "Item Name";
+            this.columnHeader14.Text = "物品名";
             this.columnHeader14.Width = 105;
             // 
             // columnHeader15
             // 
-            this.columnHeader15.Text = "Graphics";
+            this.columnHeader15.Text = "图形";
             // 
             // groupBox1
             // 
@@ -157,7 +157,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(608, 199);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Propreties List";
+            this.groupBox1.Text = "属性列表";
             // 
             // autolootpropGridView
             // 
@@ -179,20 +179,20 @@ namespace RazorEnhanced.UI
             // 
             // ScavengerPropsName
             // 
-            this.ScavengerPropsName.HeaderText = "Props Name";
+            this.ScavengerPropsName.HeaderText = "属性名";
             this.ScavengerPropsName.Name = "ScavengerPropsName";
             this.ScavengerPropsName.Width = 488;
             // 
             // ScavengerMinPropsValue
             // 
-            this.ScavengerMinPropsValue.HeaderText = "Min";
+            this.ScavengerMinPropsValue.HeaderText = "最小";
             this.ScavengerMinPropsValue.Name = "ScavengerMinPropsValue";
             this.ScavengerMinPropsValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ScavengerMinPropsValue.Width = 40;
             // 
             // ScavengerMaxPropValue
             // 
-            this.ScavengerMaxPropValue.HeaderText = "Max";
+            this.ScavengerMaxPropValue.HeaderText = "最大";
             this.ScavengerMaxPropValue.Name = "ScavengerMaxPropValue";
             this.ScavengerMaxPropValue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ScavengerMaxPropValue.Width = 40;
@@ -211,7 +211,7 @@ namespace RazorEnhanced.UI
             this.groupBox2.Size = new System.Drawing.Size(218, 113);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Item";
+            this.groupBox2.Text = "物品";
             // 
             // imagepanel
             // 
@@ -255,7 +255,7 @@ namespace RazorEnhanced.UI
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 14);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Color:";
+            this.label3.Text = "颜色:";
             // 
             // label2
             // 
@@ -264,7 +264,7 @@ namespace RazorEnhanced.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 14);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Grapics:";
+            this.label2.Text = "图形:";
             // 
             // label1
             // 
@@ -273,7 +273,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.label1.Text = "名称:";
             // 
             // groupBox3
             // 
@@ -285,7 +285,7 @@ namespace RazorEnhanced.UI
             this.groupBox3.Size = new System.Drawing.Size(384, 113);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Props Editing";
+            this.groupBox3.Text = "属性编辑";
             // 
             // label6
             // 
@@ -294,7 +294,7 @@ namespace RazorEnhanced.UI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 14);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Default Props:";
+            this.label6.Text = "默认属性:";
             // 
             // bAddProp
             // 
@@ -302,7 +302,7 @@ namespace RazorEnhanced.UI
             this.bAddProp.Name = "bAddProp";
             this.bAddProp.Size = new System.Drawing.Size(75, 25);
             this.bAddProp.TabIndex = 6;
-            this.bAddProp.Text = "Add";
+            this.bAddProp.Text = "添加";
             this.bAddProp.UseVisualStyleBackColor = true;
             this.bAddProp.Click += new System.EventHandler(this.bAddProp_Click);
             // 
@@ -326,7 +326,7 @@ namespace RazorEnhanced.UI
             // 
             this.deleteRowToolStripMenuItem.Name = "deleteRowToolStripMenuItem";
             this.deleteRowToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.deleteRowToolStripMenuItem.Text = "Delete Row";
+            this.deleteRowToolStripMenuItem.Text = "删除行";
             this.deleteRowToolStripMenuItem.Click += new System.EventHandler(this.deleteRowToolStripMenuItem_Click);
             // 
             // razorButton1
@@ -335,7 +335,7 @@ namespace RazorEnhanced.UI
             this.razorButton1.Name = "razorButton1";
             this.razorButton1.Size = new System.Drawing.Size(75, 25);
             this.razorButton1.TabIndex = 5;
-            this.razorButton1.Text = "Close";
+            this.razorButton1.Text = "关闭";
             this.razorButton1.UseVisualStyleBackColor = true;
             this.razorButton1.Click += new System.EventHandler(this.razorButton1_Click);
             // 
@@ -352,7 +352,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedAutolootEditItemProps";
-            this.Text = "Enhanced AutoLoot Edit Item Props";
+            this.Text = "增强自动拾取编辑物品属性";
             this.Load += new System.EventHandler(this.EnhancedScavengerEditItemProps_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.autolootpropGridView)).EndInit();

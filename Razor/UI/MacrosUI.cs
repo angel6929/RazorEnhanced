@@ -1411,7 +1411,7 @@ namespace Assistant
             // Update button states immediately
             btnMacroStop.Enabled = true;
             btnMacroPlay.Enabled = false;
-            lblMacroStatus.Text = "Macro running...";
+            lblMacroStatus.Text = "宏运行中...";
             lblMacroStatus.ForeColor = Color.Green;
         }
         private void BtnMacroStop_Click(object sender, EventArgs e)
@@ -1427,7 +1427,7 @@ namespace Assistant
             // Update button states immediately
             btnMacroStop.Enabled = false;
             btnMacroPlay.Enabled = true;
-            lblMacroStatus.Text = "Ready";
+            lblMacroStatus.Text = "就绪";
             lblMacroStatus.ForeColor = Color.Black;
         }
         private void BtnMacroSave_Click(object sender, EventArgs e)
@@ -2924,7 +2924,7 @@ namespace Assistant
                 SaveDefaultItemPresetsToFile(jsonFilePath, defaultPresets);
 
                 btnCreateList.Enabled = false;
-                btnCreateList.Text = "List Created!";
+                btnCreateList.Text = "列表已创建!";
                 Misc.SendMessage("Default MacroItemsCount.json created.", 88);
             };
 
@@ -4805,7 +4805,7 @@ namespace Assistant
 
                 if (useFound)
                 {
-                    txtSerial.Text = "(will use 'findfound' at runtime)";
+                    txtSerial.Text = "(运行时将使用 'findfound')";
                 }
                 else
                 {
@@ -7799,9 +7799,9 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
                 if (useDefaults)
                 {
-                    txtSourceBag.Text = "(use default)";
-                    txtDestBag.Text = "(use default)";
-                    txtDragDelay.Text = "(use default)";
+                    txtSourceBag.Text = "(使用默认)";
+                    txtDestBag.Text = "(使用默认)";
+                    txtDragDelay.Text = "(使用默认)";
                 }
                 else
                 {
@@ -10504,35 +10504,35 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 switch (type)
                 {
                     case MessagingAction.MessageType.Say:
-                        lblInfo.Text = "Say a message (optionally colored with Hue).";
+                        lblInfo.Text = "说话消息（可选用 Hue 着色）。";
                         dialog.Height = 260;
                         lblInfo.Top = 140;
                         btnOK.Top = 180;
                         btnCancel.Top = 180;
                         break;
                     case MessagingAction.MessageType.Yell:
-                        lblInfo.Text = "Yell a message (optionally colored with Hue).";
+                        lblInfo.Text = "大喊消息（可选用 Hue 着色）。";
                         dialog.Height = 260;
                         lblInfo.Top = 140;
                         btnOK.Top = 180;
                         btnCancel.Top = 180;
                         break;
                     case MessagingAction.MessageType.Whisper:
-                        lblInfo.Text = "Whisper a message (optionally colored with Hue).";
+                        lblInfo.Text = "耳语消息（可选用 Hue 着色）。";
                         dialog.Height = 260;
                         lblInfo.Top = 140;
                         btnOK.Top = 180;
                         btnCancel.Top = 180;
                         break;
                     case MessagingAction.MessageType.Emote:
-                        lblInfo.Text = "Emote a message (optionally colored with Hue).";
+                        lblInfo.Text = "表情消息（可选用 Hue 着色）。";
                         dialog.Height = 260;
                         lblInfo.Top = 140;
                         btnOK.Top = 180;
                         btnCancel.Top = 180;
                         break;
                     case MessagingAction.MessageType.Overhead:
-                        lblInfo.Text = "Show a message over a mobile or item (Hue and Target required).";
+                        lblInfo.Text = "在生物或物品上显示消息（需要 Hue 和 Target）。";
                         dialog.Height = 380;
                         lblInfo.Top = 220;
                         lblHint.Top = 180;
@@ -10540,35 +10540,35 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         btnCancel.Top = 260;
                         break;
                     case MessagingAction.MessageType.System:
-                        lblInfo.Text = "Send a system message (optionally colored with Hue).";
+                        lblInfo.Text = "发送系统消息（可选用 Hue 着色）。";
                         dialog.Height = 260;
                         lblInfo.Top = 140;
                         btnOK.Top = 180;
                         btnCancel.Top = 180;
                         break;
                     case MessagingAction.MessageType.General:
-                        lblInfo.Text = "Send a message to the General chat channel.";
+                        lblInfo.Text = "发送消息到通用聊天频道。";
                         dialog.Height = 220;
                         lblInfo.Top = 100;
                         btnOK.Top = 140;
                         btnCancel.Top = 140;
                         break;
                     case MessagingAction.MessageType.Guild:
-                        lblInfo.Text = "Send a message to the Guild chat channel.";
+                        lblInfo.Text = "发送消息到公会聊天频道。";
                         dialog.Height = 220;
                         lblInfo.Top = 100;
                         btnOK.Top = 140;
                         btnCancel.Top = 140;
                         break;
                     case MessagingAction.MessageType.Alliance:
-                        lblInfo.Text = "Send a message to the Alliance chat channel.";
+                        lblInfo.Text = "发送消息到联盟聊天频道。";
                         dialog.Height = 220;
                         lblInfo.Top = 100;
                         btnOK.Top = 140;
                         btnCancel.Top = 140;
                         break;
                     case MessagingAction.MessageType.Party:
-                        lblInfo.Text = "Send a message to the Party chat channel.";
+                        lblInfo.Text = "发送消息到队伍聊天频道。";
                         dialog.Height = 220;
                         lblInfo.Top = 100;
                         btnOK.Top = 140;

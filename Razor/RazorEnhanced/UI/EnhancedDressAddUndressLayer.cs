@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace RazorEnhanced.UI
 {
     public partial class EnhancedDressAddUndressLayer : Form
     {
-        private const string m_Title = "Enhanced Dress Add Clear Layer";
+        private const string m_Title = "增强穿戴添加清空层";
 
         public EnhancedDressAddUndressLayer()
         {

@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class RE_MessageBox
     {
@@ -43,7 +43,7 @@ namespace RazorEnhanced.UI
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 25);
             this.okButton.TabIndex = 0;
-            this.okButton.Text = "OK";
+            this.okButton.Text = "确定";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // webLink
@@ -55,7 +55,7 @@ namespace RazorEnhanced.UI
             this.webLink.Size = new System.Drawing.Size(47, 14);
             this.webLink.TabIndex = 1;
             this.webLink.TabStop = true;
-            this.webLink.Text = "web link";
+            this.webLink.Text = "网络链接";
             this.webLink.Visible = false;
             // 
             // message
@@ -65,7 +65,7 @@ namespace RazorEnhanced.UI
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(51, 14);
             this.message.TabIndex = 2;
-            this.message.Text = "message";
+            this.message.Text = "消息";
             // 
             // cancelButton
             // 
@@ -75,7 +75,7 @@ namespace RazorEnhanced.UI
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
             this.cancelButton.TabIndex = 3;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "取消";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // noButton
@@ -87,7 +87,7 @@ namespace RazorEnhanced.UI
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(75, 25);
             this.noButton.TabIndex = 4;
-            this.noButton.Text = "No";
+            this.noButton.Text = "否";
             this.noButton.UseVisualStyleBackColor = true;
             // 
             // RE_MessageBox
@@ -105,7 +105,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "RE_MessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Dialog Box";
+            this.Text = "对话框";
             this.ResumeLayout(false);
             this.PerformLayout();
 

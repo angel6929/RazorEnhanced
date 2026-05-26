@@ -1,4 +1,4 @@
-using Microsoft.Win32.SafeHandles;
+﻿using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -179,7 +179,7 @@ namespace Assistant
             //if (!Assistant.Client.IsOSI)
             //{
             //    Engine.MainWnd.g  generalTab.Controls  smartCPU .Enabled = false;
-            //    this.smartCPU.Text = "Smart CPU not available with Classic UO";
+            //    this.smartCPU.Text = "Classic UO 不支持智能 CPU";
             //}
             Application.Run(Engine.MainWnd);
         }

@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedDressAddUndressLayer
     {
@@ -49,7 +49,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(221, 69);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Layer";
+            this.groupBox1.Text = "图层";
             // 
             // layerlist
             // 
@@ -67,7 +67,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Layer: ";
+            this.label1.Text = "层: ";
             // 
             // bClose
             // 
@@ -76,7 +76,7 @@ namespace RazorEnhanced.UI
             this.bClose.Name = "bClose";
             this.bClose.Size = new System.Drawing.Size(57, 20);
             this.bClose.TabIndex = 3;
-            this.bClose.Text = "Close";
+            this.bClose.Text = "关闭";
             this.bClose.UseVisualStyleBackColor = true;
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
@@ -87,7 +87,7 @@ namespace RazorEnhanced.UI
             this.bAddItem.Name = "bAddItem";
             this.bAddItem.Size = new System.Drawing.Size(57, 20);
             this.bAddItem.TabIndex = 2;
-            this.bAddItem.Text = "Add";
+            this.bAddItem.Text = "添加";
             this.bAddItem.UseVisualStyleBackColor = true;
             this.bAddItem.Click += new System.EventHandler(this.bAddItem_Click);
             // 
@@ -103,7 +103,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedDressAddUndressLayer";
-            this.Text = "Enhanced Dress Add Clear Layer";
+            this.Text = "增强穿戴添加清空层";
             this.Load += new System.EventHandler(this.EnhancedDressAddUndressLayer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

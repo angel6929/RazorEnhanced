@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedObjectInspector
     {
@@ -69,7 +69,7 @@ namespace RazorEnhanced.UI
             this.objecttabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.objecttabPage.Size = new System.Drawing.Size(367, 331);
             this.objecttabPage.TabIndex = 0;
-            this.objecttabPage.Text = "Shared Objects";
+            this.objecttabPage.Text = "共享对象";
             this.objecttabPage.UseVisualStyleBackColor = true;
             // 
             // sharedobjectGridView
@@ -96,7 +96,7 @@ namespace RazorEnhanced.UI
             // Alias
             // 
             this.Alias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Alias.HeaderText = "Alias";
+            this.Alias.HeaderText = "别名";
             this.Alias.MinimumWidth = 8;
             this.Alias.Name = "Alias";
             this.Alias.ReadOnly = true;
@@ -105,7 +105,7 @@ namespace RazorEnhanced.UI
             // Value
             // 
             this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Value.HeaderText = "Value";
+            this.Value.HeaderText = "值";
             this.Value.MinimumWidth = 8;
             this.Value.Name = "Value";
             this.Value.ReadOnly = true;
@@ -118,7 +118,7 @@ namespace RazorEnhanced.UI
             this.timerstabPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.timerstabPage.Size = new System.Drawing.Size(367, 332);
             this.timerstabPage.TabIndex = 1;
-            this.timerstabPage.Text = "Timers";
+            this.timerstabPage.Text = "计时器";
             this.timerstabPage.UseVisualStyleBackColor = true;
             // 
             // timerGridView
@@ -144,7 +144,7 @@ namespace RazorEnhanced.UI
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Alias";
+            this.dataGridViewTextBoxColumn1.HeaderText = "别名";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -153,7 +153,7 @@ namespace RazorEnhanced.UI
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Duration";
+            this.dataGridViewTextBoxColumn2.HeaderText = "持续时间";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -170,7 +170,7 @@ namespace RazorEnhanced.UI
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 25);
             this.close.TabIndex = 3;
-            this.close.Text = "Close";
+            this.close.Text = "关闭";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
@@ -183,7 +183,7 @@ namespace RazorEnhanced.UI
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial", 8F);
             this.Name = "EnhancedObjectInspector";
-            this.Text = "Objects / Timers Inspector";
+            this.Text = "对象 / 计时器检查器";
             this.Load += new System.EventHandler(this.EnhancedObjectInspector_Load);
             this.tabControl1.ResumeLayout(false);
             this.objecttabPage.ResumeLayout(false);

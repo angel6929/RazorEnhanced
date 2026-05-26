@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedLauncher
     {
@@ -67,7 +67,7 @@ namespace RazorEnhanced.UI
             this.openclientlocation.FileName = "client.exe";
             this.openclientlocation.Filter = "Executable Files|Client.exe";
             this.openclientlocation.RestoreDirectory = true;
-            this.openclientlocation.Title = "Select Client";
+            this.openclientlocation.Title = "选择客户端";
             // 
             // label1
             // 
@@ -76,7 +76,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Shard:";
+            this.label1.Text = "区:";
             // 
             // groupBox1
             // 
@@ -89,7 +89,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(373, 55);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Shard Selection";
+            this.groupBox1.Text = "区选择";
             // 
             // removeShard
             // 
@@ -97,7 +97,7 @@ namespace RazorEnhanced.UI
             this.removeShard.Name = "removeShard";
             this.removeShard.Size = new System.Drawing.Size(60, 23);
             this.removeShard.TabIndex = 3;
-            this.removeShard.Text = "Remove";
+            this.removeShard.Text = "移除";
             this.removeShard.UseVisualStyleBackColor = true;
             this.removeShard.Click += new System.EventHandler(this.RazorButton2_Click);
             // 
@@ -107,7 +107,7 @@ namespace RazorEnhanced.UI
             this.addShard.Name = "addShard";
             this.addShard.Size = new System.Drawing.Size(60, 23);
             this.addShard.TabIndex = 2;
-            this.addShard.Text = "Add";
+            this.addShard.Text = "添加";
             this.addShard.UseVisualStyleBackColor = true;
             this.addShard.Click += new System.EventHandler(this.RazorButton1_Click);
             // 
@@ -143,7 +143,7 @@ namespace RazorEnhanced.UI
             this.groupBox2.Size = new System.Drawing.Size(373, 165);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Shard Config";
+            this.groupBox2.Text = "区配置";
             // 
             // cuoPathClick
             // 
@@ -163,7 +163,7 @@ namespace RazorEnhanced.UI
             this.cuoClientLabel.Name = "cuoClientLabel";
             this.cuoClientLabel.Size = new System.Drawing.Size(249, 14);
             this.cuoClientLabel.TabIndex = 32;
-            this.cuoClientLabel.Text = "Optional";
+            this.cuoClientLabel.Text = "可选";
             this.cuoClientLabel.Click += new System.EventHandler(this.CuoClient_Click);
             // 
             // label4
@@ -173,7 +173,7 @@ namespace RazorEnhanced.UI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 14);
             this.label4.TabIndex = 31;
-            this.label4.Text = "CUO Client:";
+            this.label4.Text = "CUO 客户端:";
             // 
             // osiEnc
             // 
@@ -181,7 +181,7 @@ namespace RazorEnhanced.UI
             this.osiEnc.Name = "osiEnc";
             this.osiEnc.Size = new System.Drawing.Size(140, 24);
             this.osiEnc.TabIndex = 51;
-            this.osiEnc.Text = "Use OSI Encryption";
+            this.osiEnc.Text = "使用 OSI 加密";
             this.osiEnc.CheckedChanged += new System.EventHandler(this.OsiEnc_CheckedChanged);
             // 
             // patchEnc
@@ -191,7 +191,7 @@ namespace RazorEnhanced.UI
             this.patchEnc.Name = "patchEnc";
             this.patchEnc.Size = new System.Drawing.Size(140, 24);
             this.patchEnc.TabIndex = 50;
-            this.patchEnc.Text = "Patch client encryption";
+            this.patchEnc.Text = "补丁客户端加密";
             this.patchEnc.UseVisualStyleBackColor = false;
             this.patchEnc.CheckedChanged += new System.EventHandler(this.PatchEncy_CheckedChanged);
             // 
@@ -216,7 +216,7 @@ namespace RazorEnhanced.UI
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 14);
             this.label7.TabIndex = 42;
-            this.label7.Text = "Port:";
+            this.label7.Text = "端口:";
             // 
             // hostLabel
             // 
@@ -238,7 +238,7 @@ namespace RazorEnhanced.UI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 14);
             this.label6.TabIndex = 40;
-            this.label6.Text = "Server Address:";
+            this.label6.Text = "服务器地址:";
             // 
             // button1
             // 
@@ -258,7 +258,7 @@ namespace RazorEnhanced.UI
             this.clientFolderLabel.Name = "clientFolderLabel";
             this.clientFolderLabel.Size = new System.Drawing.Size(249, 14);
             this.clientFolderLabel.TabIndex = 22;
-            this.clientFolderLabel.Text = "Not Set";
+            this.clientFolderLabel.Text = "未设置";
             // 
             // label5
             // 
@@ -267,7 +267,7 @@ namespace RazorEnhanced.UI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 14);
             this.label5.TabIndex = 21;
-            this.label5.Text = "UO Folder:";
+            this.label5.Text = "UO 目录:";
             // 
             // bNameCopy
             // 
@@ -287,7 +287,7 @@ namespace RazorEnhanced.UI
             this.clientPathLabel.Name = "clientPathLabel";
             this.clientPathLabel.Size = new System.Drawing.Size(249, 14);
             this.clientPathLabel.TabIndex = 12;
-            this.clientPathLabel.Text = "Not Set";
+            this.clientPathLabel.Text = "未设置";
             this.m_Tip.SetToolTip(this.clientPathLabel, "Not Set");
             // 
             // label2
@@ -297,7 +297,7 @@ namespace RazorEnhanced.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 14);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Client Location:";
+            this.label2.Text = "客户端位置:";
             // 
             // checkupdatebutton
             // 
@@ -306,7 +306,7 @@ namespace RazorEnhanced.UI
             this.checkupdatebutton.Name = "checkupdatebutton";
             this.checkupdatebutton.Size = new System.Drawing.Size(84, 23);
             this.checkupdatebutton.TabIndex = 102;
-            this.checkupdatebutton.Text = "Check Update";
+            this.checkupdatebutton.Text = "检查更新";
             this.checkupdatebutton.Click += new System.EventHandler(this.Checkupdatebutton_Click);
             // 
             // quit
@@ -316,7 +316,7 @@ namespace RazorEnhanced.UI
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(84, 23);
             this.quit.TabIndex = 103;
-            this.quit.Text = "Exit";
+            this.quit.Text = "退出";
             this.quit.Click += new System.EventHandler(this.Quit_Click);
             // 
             // launch
@@ -326,7 +326,7 @@ namespace RazorEnhanced.UI
             this.launch.Name = "launch";
             this.launch.Size = new System.Drawing.Size(84, 23);
             this.launch.TabIndex = 100;
-            this.launch.Text = "Launch";
+            this.launch.Text = "启动";
             this.launch.Click += new System.EventHandler(this.Okay_Click);
             // 
             // launchCUO
@@ -337,7 +337,7 @@ namespace RazorEnhanced.UI
             this.launchCUO.Name = "launchCUO";
             this.launchCUO.Size = new System.Drawing.Size(84, 23);
             this.launchCUO.TabIndex = 101;
-            this.launchCUO.Text = "Launch CUO";
+            this.launchCUO.Text = "启动 CUO";
             this.launchCUO.Click += new System.EventHandler(this.LaunchCUO_Click);
             // 
             // EnhancedLauncher
@@ -355,7 +355,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedLauncher";
-            this.Text = "Welcome to Razor Enhanced";
+            this.Text = "欢迎使用 Razor Enhanced";
             this.Load += new System.EventHandler(this.EnhancedLauncher_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

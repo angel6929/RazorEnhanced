@@ -1,4 +1,4 @@
-using RazorEnhanced;
+﻿using RazorEnhanced;
 using RazorEnhanced.UI;
 using System;
 using System.IO;
@@ -85,7 +85,7 @@ namespace Assistant
                 linkName = linkName.Substring(0, 25);
                 linkName += "...";
             }
-            profilelinklabel.Text = "Linked to: " + linkName;
+            profilelinklabel.Text = "已链接到: " + linkName;
         }
 
         private void profilesLinkButton_Click(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace Assistant
                 linkName = linkName.Substring(0, 25);
                 linkName += "...";
             }
-            profilelinklabel.Text = "Linked to: " + linkName;
+            profilelinklabel.Text = "已链接到: " + linkName;
             Misc.SendMessage("Profile: " + profilesComboBox.Text + " linked to player: " + RazorEnhanced.Profiles.GetLinkName(profilesComboBox.Text), false);
         }
 
@@ -120,7 +120,7 @@ namespace Assistant
                 linkName = linkName.Substring(0, 25);
                 linkName += "...";
             }
-            profilelinklabel.Text = "Linked to: " + linkName;
+            profilelinklabel.Text = "已链接到: " + linkName;
         }
 
         private void profilesRenameButton_Click(object sender, EventArgs e)

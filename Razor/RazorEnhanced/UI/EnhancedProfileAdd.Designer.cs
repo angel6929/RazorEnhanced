@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedProfileAdd
     {
@@ -54,7 +54,7 @@ namespace RazorEnhanced.UI
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 25);
             this.close.TabIndex = 2;
-            this.close.Text = "Close";
+            this.close.Text = "关闭";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
@@ -64,7 +64,7 @@ namespace RazorEnhanced.UI
             this.profileadd.Name = "profileadd";
             this.profileadd.Size = new System.Drawing.Size(75, 25);
             this.profileadd.TabIndex = 3;
-            this.profileadd.Text = "Add";
+            this.profileadd.Text = "添加";
             this.profileadd.UseVisualStyleBackColor = true;
             this.profileadd.Click += new System.EventHandler(this.profileadd_Click);
             // 
@@ -75,7 +75,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 14);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Profile Name:";
+            this.label1.Text = "配置名:";
             // 
             // EnhancedProfileAdd
             // 
@@ -90,7 +90,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedProfileAdd";
-            this.Text = "Enhanced Add Profile";
+            this.Text = "增强添加配置";
             this.Load += new System.EventHandler(this.EnhancedProfileAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

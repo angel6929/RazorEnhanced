@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedChangeLog
     {
@@ -54,7 +54,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedChangeLog";
-            this.Text = "ChangeLog";
+            this.Text = "更新日志";
             this.Load += new System.EventHandler(this.EnhancedChangeLog_Load);
             this.ResumeLayout(false);
 

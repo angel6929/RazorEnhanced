@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace RazorEnhanced.UI
@@ -8,7 +8,7 @@ namespace RazorEnhanced.UI
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Button clear;
-        private const string m_Title = "Enhanced Gump Inspector";
+        private const string m_Title = "增强 Gump 检查器";
         public static System.Windows.Forms.ListBox EnhancedGumpInspectorListBox;
 
         public EnhancedGumpInspector()

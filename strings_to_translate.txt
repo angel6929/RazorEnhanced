@@ -1,0 +1,424 @@
+﻿[14x] Remove
+[12x] Add
+[11x] X
+[10x] Set
+[10x] 0x00000000
+[7x] Clone
+[7x] No
+[7x] Yes
+[7x] Enable
+[7x] Both
+[6x] Item Name
+[6x] Graphics
+[6x] Color
+[6x] Add Item
+[5x] Set Bag
+[5x] Clear
+[5x] Preload
+[4x] Here Graphics item ID
+[4x] Stop
+[4x] Hot Keys
+[4x] Serial:
+[4x] Loop
+[4x] Here item color, use -1 for all color
+[4x] Here the item name
+[4x] Check This for enable item in list
+[3x] +
+[3x] Status
+[3x] 0
+[3x] Wait
+[3x] #
+[3x] Autostart OnLogin
+[3x] Key:
+[3x] Name:
+[3x] KeyPass
+[3x] Amount
+[3x] Drag Item Delay (ms)
+[3x] Open
+[3x] General
+[3x] -
+[3x] A.S.
+[3x] Name
+[3x] Filename
+[3x] Serial
+[2x] Add Target
+[2x] Razor Enhanced
+[2x] Idle
+[2x] Here Item Amount to sell
+[2x] -1
+[2x] 100%
+[2x] Flags
+[2x] ...
+[2x] Unavailable / CUO
+[2x] Filters
+[2x] Max Range
+[2x] AutoStart at Login
+[2x] Pass Key To UO
+[2x] Set Blade
+[2x] Delay (ms)
+[2x] X:0 Y:0
+[2x] Misc
+[2x] Source:
+[2x] Blade Serial:
+[2x] Opacity
+[2x] New
+[2x] Play
+[2x] Close
+[2x] Organizer Log
+[2x] Props
+[2x] Delete
+[2x] Destination:
+[2x] Color:
+[2x] Style:
+[2x] Wait before interrupt
+[2x] Layout
+[2x] Loop Mode
+[2x] Restock
+[2x] Open On Login
+[2x] Add Manual
+[2x] Edit Props
+[1x] Take Screen Shot Now
+[1x] Slot:
+[1x] Selector
+[1x] Spell Format:
+[1x] Settings
+[1x] Ethereal Delay:
+[1x] Show Stamina
+[1x] Script Info
+[1x] Grey
+[1x] Razor Enhanced wiki
+[1x] Show Launcher Window
+[1x] Use UO3D Equip and UnEquip
+[1x] Advanced
+[1x] Status: Enabled
+[1x] ClearList
+[1x] 100
+[1x] Override Speech Hue
+[1x] Max:
+[1x] Copy All
+[1x] Script
+[1x] Miscellaneous
+[1x] Harmful
+[1x] Warnings and Errors
+[1x] Reset  +/-
+[1x] Map Integration
+[1x] Help / Status
+[1x] Set all locks:
+[1x] Stealth
+[1x] Prop
+[1x] AutoLoot Bag
+[1x] Bag
+[1x] Log Script Error
+[1x] Options
+[1x] Set -1 for no limit
+[1x] DPS Meter
+[1x] Codec:
+[1x] Path:
+[1x] Check For Updates
+[1x] Scavenger Bag
+[1x] Poison Messages
+[1x] Show Script Error Message
+[1x] Counter / Stat Bar
+[1x] Friends
+[1x] % hits
+[1x] Dress List:
+[1x] Auto-Stack Ore/Fish/Logs at Feet
+[1x] Agents
+[1x] Show Names of New/Inc Mobiles
+[1x] Razor messages:
+[1x] Block run if Stealthed
+[1x] UoMod (Client > 7.0.0.0)
+[1x] Force Game Size:
+[1x] Show Follower
+[1x] Guild Friend
+[1x] [bandself
+[1x] Show Names of New/Inc Corpses
+[1x] Video Settings
+[1x] +/-
+[1x] Script Operation
+[1x] Disable
+[1x] Object delay:
+[1x] Block BigHeal if no need
+[1x] Block heal if Mortalled
+[1x] Restock List:
+[1x] Rename
+[1x] Color Flag Self Highlight
+[1x] Send text for self heal
+[1x] Queues
+[1x] videoSourcePlayer
+[1x] No Open Corpse
+[1x] Target (Char/Mob) Name
+[1x] Repeating Sys Messages
+[1x] Undress Bag
+[1x] Yellow
+[1x] Taskbar
+[1x] Show Start/Stop Message
+[1x] Group:
+[1x] Inspect
+[1x] Heal Target:
+[1x] Mount Delay:
+[1x] Autoloot
+[1x] Size:
+[1x] Target Hue ID
+[1x] Video Recorder
+[1x] Profiles
+[1x] Enable Bandage Heal
+[1x] New Graphic
+[1x] Organizer List:
+[1x] Value
+[1x] Containers
+[1x] Changelog
+[1x] Increase FPS
+[1x] Dress / Arm
+[1x] Item Count
+[1x] Mount Serial:
+[1x] Organizer
+[1x] Shortcut
+[1x] Get Data
+[1x] Inspect Gump
+[1x] Vendor Sell:
+[1x] Body Filter
+[1x] Skills
+[1x] Auto Unequip hands before casting
+[1x] Dress
+[1x] Neutral
+[1x] Human
+[1x] Show Tithe
+[1x] Set Dest
+[1x] Up
+[1x] Overrides
+[1x] Damage Max:
+[1x] Organizer Bags
+[1x] Visual
+[1x] Show Mana
+[1x] Enable Buy List
+[1x] Layer
+[1x] Automatically open doors
+[1x] Razor Enhanced Website
+[1x] Set Source
+[1x] Friend List:
+[1x] Target Body ID
+[1x] FPS: 
+[1x] Save Change
+[1x] New Color
+[1x] Show Static Field
+[1x] ms
+[1x] Compare Item Name
+[1x] Custom Delay:
+[1x] Razor Enhanced {0}
+[1x] Green
+[1x] Text Current Target
+[1x] Scavenger List:
+[1x] Snooping Messages
+[1x] Auto Death Screen Capture
+[1x] Show Weight
+[1x] Range
+[1x] Open new corpses within
+[1x] Test Target
+[1x] Buy Log
+[1x] Show target flag on single click
+[1x] Display Changes
+[1x] Guild
+[1x] Move To
+[1x] Many thanks also for developer of UO.DLL and ULTIMA.DLL
+[1x] Graphics:
+[1x] TB
+[1x] Count stealth steps
+[1x] Down
+[1x] Scavenger
+[1x] Journal Filter Text
+[1x] Vendor Sell
+[1x] Remember passwords 
+[1x] Suppress Dmg Display
+[1x] Include party member in Friend List
+[1x] Select Enhanced Map
+[1x] Edit
+[1x] Show Hits
+[1x] Technical
+[1x] Auto search new containers
+[1x] Notoriety Color
+[1x] Status:
+[1x] Sell Bag
+[1x] UOS
+[1x] Mobile Graphics Change Filter
+[1x] Friend
+[1x] Status Window
+[1x] Autoaccept party from Friends
+[1x] Many thanks to Hotride for his  FPS multiclient patch! Hotride is the author of O
+[1x] Slots:
+[1x] Min Dmg:
+[1x] Auto Un/Re-equip hands for potions
+[1x] Beneficial
+[1x] Ready
+[1x] Auto-Queue Object Delay actions 
+[1x] Show Agent Message
+[1x] Show Action-Queue status messages
+[1x] Border: 
+[1x] Block ChivaHeal if no need
+[1x] System Tray
+[1x] Faction Friend
+[1x] Color Flag Highlight
+[1x] Opacity: 100%
+[1x] Show Heal Countdown
+[1x] Hue
+[1x] Override Spell Hues:
+[1x] Limit
+[1x] Grey (Aggro)
+[1x] tiles
+[1x] Other:
+[1x] UnLink
+[1x] Use Custom Bandage
+[1x] Block heal if Hidden
+[1x] Razor Settings
+[1x] Scripting
+[1x] Auto Remount
+[1x] Lock
+[1x] Blue
+[1x] Show Filed Message
+[1x] Start
+[1x] Show party members mana/stam
+[1x] Tiles:
+[1x] Show Warning
+[1x] Python
+[1x] Pause
+[1x] Default Client Priority:
+[1x] Damage Display
+[1x] Record
+[1x] Undres
+[1x] Modify
+[1x] Use smart last target
+[1x] Targets
+[1x] Playback
+[1x] CoM
+[1x] Razor Enhanced Discord
+[1x] Enable Sell List
+[1x] C#
+[1x] Prevent attacking friends in warmode
+[1x] Show in:
+[1x] Hot Key
+[1x] Slots V:
+[1x] Auto Script Reload
+[1x] Global Sound
+[1x] User Friend
+[1x] Autoloot Log
+[1x] Rec Status:
+[1x] Auto Carver
+[1x] Grid Item
+[1x] Move Up
+[1x] MIN
+[1x] Remove Conflict Item
+[1x] Queue Last Target and Target Self
+[1x] Max Range:
+[1x] Use Pre-AOS status window
+[1x] Yellow Hits
+[1x] Lock ToolBar
+[1x] To
+[1x] Delete Row
+[1x] Block Heal if Poison/Mortal
+[1x] Use packets for Druid/Cleric spells
+[1x] UO Eventine Discord
+[1x] Stop Record
+[1x] Null (0x00000000)
+[1x] Base
+[1x] UO Eventine
+[1x] Body ID
+[1x] Scavenger Log
+[1x] Block heal if Poisoned
+[1x] Spell Grid
+[1x] Link
+[1x] Restock Bags
+[1x] Ghost
+[1x] Text Flags Highlight
+[1x] Show Paperdoll Slot
+[1x] Master Key
+[1x] Image Format:
+[1x] Search
+[1x] Base Total:
+[1x] Slots H:
+[1x] Time with Buff
+[1x] -1 for all
+[1x] Autoloot List:
+[1x] Use Normal Target
+[1x] Health Format:
+[1x] Cap
+[1x] Restock Log
+[1x] Friend Log
+[1x] Ignore pouches
+[1x] Block Party Invite
+[1x] Use smart CPU usage reduction
+[1x] Use Smart Always on Top
+[1x] Enable autoloot
+[1x] Move Down
+[1x] Sell Log
+[1x] Here amount limit to move
+[1x] Allow looting while hidden
+[1x] Set Origin
+[1x] Warmode
+[1x] Show Target on Head
+[1x] Apply
+[1x] Warning:
+[1x] File
+[1x] Start Below:
+[1x] Enable Remote Control
+[1x] Linked to: None
+[1x] Ignore Count
+[1x] Poisoned
+[1x] Paralized
+[1x] Toolbars
+[1x] Red
+[1x] Bone Cutter
+[1x] Bandage Heal
+[1x] Old Graphic
+[1x] More Filters:
+[1x] Skill Name
+[1x] Target:
+[1x] Enable scavenger
+[1x] Save
+[1x] Razor Message Hue
+[1x] Clear Slot
+[1x] Use DEX formula delay
+[1x] Set Target
+[1x] Range check Last Target
+[1x] Min:
+[1x] Last Target Highlight:
+[1x] Self:
+[1x] Enable Packet Logging
+[1x] Warning Message Hue
+[1x] Damage
+[1x] Add Clear Layer
+[1x] Copy Selected
+[1x] Item List
+[1x] Targetting
+[1x] Macros
+[1x] Here amount to move, use -1 for all item
+[1x] Lock Grid
+[1x] [band
+[1x] Filter
+[1x] Monster Messages
+[1x] Screen Shots
+[1x] ID:
+[1x] Details
+[1x] Block MiniHeal if no need
+[1x] Razor Enhanced Source
+[1x] Block Trade Request
+[1x] Orange
+[1x] Full Screen
+[1x] Modify Key
+[1x] Bandage Heal Log
+[1x] Abilitie/Spell:
+[1x] Vendor Buy:
+[1x] Set Mount
+[1x] Damage Min:
+[1x] ON/OFF Key: None
+[1x] Read Current
+[1x] Vendor Buy
+[1x] Spells / Potions
+[1x] Color Filter
+[1x] SL
+[1x] Action
+[1x] Block dismount in war mode
+[1x] Include Timestamp on images
+[1x] UO Only
+[1x] Show health above Mobiles
+[1x] Disable if hidden
+[1x] Virtual

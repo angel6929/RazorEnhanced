@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedFriendAddPlayerManual
     {
@@ -48,7 +48,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.label1.Text = "名称:";
             // 
             // groupBox1
             // 
@@ -63,7 +63,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(221, 81);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Player";
+            this.groupBox1.Text = "玩家";
             // 
             // tSerial
             // 
@@ -86,7 +86,7 @@ namespace RazorEnhanced.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 14);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Serial:";
+            this.label2.Text = "序列号:";
             // 
             // tName
             // 
@@ -108,7 +108,7 @@ namespace RazorEnhanced.UI
             this.bAddPlayer.Name = "bAddPlayer";
             this.bAddPlayer.Size = new System.Drawing.Size(57, 20);
             this.bAddPlayer.TabIndex = 2;
-            this.bAddPlayer.Text = "Add";
+            this.bAddPlayer.Text = "添加";
             this.bAddPlayer.UseVisualStyleBackColor = true;
             this.bAddPlayer.Click += new System.EventHandler(this.bAddPlayer_Click);
             // 
@@ -119,7 +119,7 @@ namespace RazorEnhanced.UI
             this.bClose.Name = "bClose";
             this.bClose.Size = new System.Drawing.Size(57, 20);
             this.bClose.TabIndex = 3;
-            this.bClose.Text = "Close";
+            this.bClose.Text = "关闭";
             this.bClose.UseVisualStyleBackColor = true;
             this.bClose.Click += new System.EventHandler(this.bClose_Click);
             // 
@@ -135,7 +135,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedFriendAddPlayerManual";
-            this.Text = "Enhanced Friend Manual Add Player";
+            this.Text = "增强好友手动添加玩家";
             this.Load += new System.EventHandler(this.EnhancedFriendManualAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

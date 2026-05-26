@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -114,8 +114,8 @@ namespace RazorEnhanced.UI
             Assistant.Item tempdata2;
             if (m_itemTarg.OnGround)
             {
-                lContainer.Text = "None";
-                lRootContainer.Text = "None";
+                lContainer.Text = "无";
+                lRootContainer.Text = "无";
             }
             else
             {
@@ -135,14 +135,14 @@ namespace RazorEnhanced.UI
                     tempdata = (Assistant.PlayerData)m_itemTarg.RootContainer;
                     lRootContainer.Text = tempdata.Serial.ToString();
                     if (tempdata.Serial == Assistant.World.Player.Serial)
-                        lOwned.Text = "Yes";
+                        lOwned.Text = "是";
                 }
                 if (m_itemTarg.RootContainer is Assistant.Item)
                 {
                     tempdata2 = (Assistant.Item)m_itemTarg.RootContainer;
                     lRootContainer.Text = tempdata2.Serial.ToString();
                     if (tempdata2.Serial == Assistant.World.Player.Backpack.Serial)
-                        lOwned.Text = "Yes";
+                        lOwned.Text = "是";
                 }
             }
 

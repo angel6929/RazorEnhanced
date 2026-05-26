@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedProfileClone
     {
@@ -55,7 +55,7 @@ namespace RazorEnhanced.UI
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 25);
             this.close.TabIndex = 2;
-            this.close.Text = "Close";
+            this.close.Text = "关闭";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
@@ -65,7 +65,7 @@ namespace RazorEnhanced.UI
             this.profileadd.Name = "profileadd";
             this.profileadd.Size = new System.Drawing.Size(75, 25);
             this.profileadd.TabIndex = 3;
-            this.profileadd.Text = "Clone";
+            this.profileadd.Text = "克隆";
             this.profileadd.UseVisualStyleBackColor = true;
             this.profileadd.Click += new System.EventHandler(this.profileadd_Click);
             // 
@@ -76,7 +76,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 14);
             this.label1.TabIndex = 5;
-            this.label1.Text = "New Name:";
+            this.label1.Text = "新名称:";
             // 
             // cloneNameLabel
             // 
@@ -85,7 +85,7 @@ namespace RazorEnhanced.UI
             this.cloneNameLabel.Name = "cloneNameLabel";
             this.cloneNameLabel.Size = new System.Drawing.Size(101, 14);
             this.cloneNameLabel.TabIndex = 6;
-            this.cloneNameLabel.Text = "Profile to Clone: null";
+            this.cloneNameLabel.Text = "待克隆配置: null";
             // 
             // EnhancedProfileClone
             // 
@@ -101,7 +101,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedProfileClone";
-            this.Text = "Enhanced Profile Clone";
+            this.Text = "增强配置克隆";
             this.Load += new System.EventHandler(this.EnhancedProfileAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

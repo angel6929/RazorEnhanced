@@ -1,4 +1,4 @@
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Assistant
@@ -83,7 +83,7 @@ namespace Assistant
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Hue Number:";
+            this.label1.Text = "色调编号:";
             //
             // hueNum
             //
@@ -100,7 +100,7 @@ namespace Assistant
             this.inGame.Name = "inGame";
             this.inGame.Size = new System.Drawing.Size(149, 23);
             this.inGame.TabIndex = 2;
-            this.inGame.Text = "Select in Game";
+            this.inGame.Text = "在游戏中选择";
             this.inGame.Click += new System.EventHandler(this.inGame_Click);
             //
             // preview
@@ -110,7 +110,7 @@ namespace Assistant
             this.preview.Name = "preview";
             this.preview.Size = new System.Drawing.Size(149, 23);
             this.preview.TabIndex = 3;
-            this.preview.Text = "Preview";
+            this.preview.Text = "预览";
             this.preview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             //
             // okay
@@ -119,7 +119,7 @@ namespace Assistant
             this.okay.Name = "okay";
             this.okay.Size = new System.Drawing.Size(62, 23);
             this.okay.TabIndex = 4;
-            this.okay.Text = "&Okay";
+            this.okay.Text = "&确定";
             this.okay.Click += new System.EventHandler(this.okay_Click);
             //
             // cancel
@@ -129,7 +129,7 @@ namespace Assistant
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(62, 23);
             this.cancel.TabIndex = 5;
-            this.cancel.Text = "Cancel";
+            this.cancel.Text = "取消";
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
             //
             // HueEntry
@@ -151,7 +151,7 @@ namespace Assistant
             this.Name = "HueEntry";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select a Hue";
+            this.Text = "选择色调";
             this.Load += new System.EventHandler(this.HueEntry_Load);
             this.ResumeLayout(false);
         }

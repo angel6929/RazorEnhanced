@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedStaticInspector
     {
@@ -127,7 +127,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(343, 66);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General";
+            this.groupBox1.Text = "常规";
             // 
             // lPosition
             // 
@@ -145,7 +145,7 @@ namespace RazorEnhanced.UI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 14);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Position:";
+            this.label5.Text = "位置:";
             // 
             // bPositionCopy
             // 
@@ -185,7 +185,7 @@ namespace RazorEnhanced.UI
             this.groupBoxStaticDetails.Size = new System.Drawing.Size(343, 109);
             this.groupBoxStaticDetails.TabIndex = 9;
             this.groupBoxStaticDetails.TabStop = false;
-            this.groupBoxStaticDetails.Text = "Static Details";
+            this.groupBoxStaticDetails.Text = "静态详情";
             // 
             // lStaticHue
             // 
@@ -203,7 +203,7 @@ namespace RazorEnhanced.UI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 14);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Static Hue:";
+            this.label6.Text = "静态色调:";
             // 
             // bStaticHue
             // 
@@ -242,7 +242,7 @@ namespace RazorEnhanced.UI
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 14);
             this.label8.TabIndex = 26;
-            this.label8.Text = "Static ID:";
+            this.label8.Text = "静态ID:";
             // 
             // bStaticID
             // 
@@ -273,7 +273,7 @@ namespace RazorEnhanced.UI
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 14);
             this.label10.TabIndex = 23;
-            this.label10.Text = "Z Level:";
+            this.label10.Text = "Z 层级:";
             // 
             // bStaticZ
             // 
@@ -323,7 +323,7 @@ namespace RazorEnhanced.UI
             this.groupBox3.Size = new System.Drawing.Size(157, 307);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Land Flag";
+            this.groupBox3.Text = "地块标志";
             // 
             // lLandFlagWet
             // 
@@ -341,7 +341,7 @@ namespace RazorEnhanced.UI
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(29, 14);
             this.label22.TabIndex = 44;
-            this.label22.Text = "Wet:";
+            this.label22.Text = "潮湿:";
             // 
             // lLandFlagNone
             // 
@@ -350,7 +350,7 @@ namespace RazorEnhanced.UI
             this.lLandFlagNone.Name = "lLandFlagNone";
             this.lLandFlagNone.Size = new System.Drawing.Size(26, 14);
             this.lLandFlagNone.TabIndex = 22;
-            this.lLandFlagNone.Text = "Yes";
+            this.lLandFlagNone.Text = "是";
             // 
             // lLandFlagDoor
             // 
@@ -368,7 +368,7 @@ namespace RazorEnhanced.UI
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(33, 14);
             this.label21.TabIndex = 42;
-            this.label21.Text = "Door:";
+            this.label21.Text = "门:";
             // 
             // lLandFlagRoof
             // 
@@ -386,7 +386,7 @@ namespace RazorEnhanced.UI
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(33, 14);
             this.label20.TabIndex = 40;
-            this.label20.Text = "Roof:";
+            this.label20.Text = "屋顶:";
             // 
             // lLandFlagHoverOver
             // 
@@ -404,7 +404,7 @@ namespace RazorEnhanced.UI
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(63, 14);
             this.label19.TabIndex = 38;
-            this.label19.Text = "HoverOver:";
+            this.label19.Text = "悬停:";
             // 
             // lLandFlagFoliage
             // 
@@ -422,7 +422,7 @@ namespace RazorEnhanced.UI
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 14);
             this.label18.TabIndex = 36;
-            this.label18.Text = "Foliage:";
+            this.label18.Text = "树叶:";
             // 
             // lLandFlagNoShoot
             // 
@@ -440,7 +440,7 @@ namespace RazorEnhanced.UI
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 14);
             this.label9.TabIndex = 34;
-            this.label9.Text = "NoShoot:";
+            this.label9.Text = "不可射击:";
             // 
             // lLandFlagWindow
             // 
@@ -458,7 +458,7 @@ namespace RazorEnhanced.UI
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 14);
             this.label7.TabIndex = 32;
-            this.label7.Text = "Window:";
+            this.label7.Text = "窗口:";
             // 
             // lLandFlagBridge
             // 
@@ -476,7 +476,7 @@ namespace RazorEnhanced.UI
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 14);
             this.label15.TabIndex = 30;
-            this.label15.Text = "Bridge:";
+            this.label15.Text = "桥:";
             // 
             // lLandFlagSurface
             // 
@@ -494,7 +494,7 @@ namespace RazorEnhanced.UI
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(49, 14);
             this.label17.TabIndex = 28;
-            this.label17.Text = "Surface:";
+            this.label17.Text = "表面:";
             // 
             // lLandFlagImpassable
             // 
@@ -512,7 +512,7 @@ namespace RazorEnhanced.UI
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(64, 14);
             this.label16.TabIndex = 26;
-            this.label16.Text = "Impassable:";
+            this.label16.Text = "不可通过:";
             // 
             // lLandFlagDamaging
             // 
@@ -548,7 +548,7 @@ namespace RazorEnhanced.UI
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(57, 14);
             this.label14.TabIndex = 21;
-            this.label14.Text = "Damaging:";
+            this.label14.Text = "伤害:";
             // 
             // label13
             // 
@@ -557,7 +557,7 @@ namespace RazorEnhanced.UI
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 14);
             this.label13.TabIndex = 20;
-            this.label13.Text = "Wall:";
+            this.label13.Text = "墙:";
             // 
             // label12
             // 
@@ -566,7 +566,7 @@ namespace RazorEnhanced.UI
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(67, 14);
             this.label12.TabIndex = 19;
-            this.label12.Text = "Translucent:";
+            this.label12.Text = "半透明:";
             // 
             // label11
             // 
@@ -575,7 +575,7 @@ namespace RazorEnhanced.UI
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 14);
             this.label11.TabIndex = 18;
-            this.label11.Text = "None:";
+            this.label11.Text = "无:";
             // 
             // groupBoxStaticList
             // 
@@ -585,7 +585,7 @@ namespace RazorEnhanced.UI
             this.groupBoxStaticList.Size = new System.Drawing.Size(150, 307);
             this.groupBoxStaticList.TabIndex = 23;
             this.groupBoxStaticList.TabStop = false;
-            this.groupBoxStaticList.Text = "Static List";
+            this.groupBoxStaticList.Text = "静态列表";
             // 
             // listBoxStatic
             // 
@@ -614,7 +614,7 @@ namespace RazorEnhanced.UI
             this.groupBox5.Size = new System.Drawing.Size(343, 104);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Land Details";
+            this.groupBox5.Text = "地块详情";
             // 
             // lLandHue
             // 
@@ -632,7 +632,7 @@ namespace RazorEnhanced.UI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 14);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Land Hue:";
+            this.label4.Text = "地块色调:";
             // 
             // bLandHue
             // 
@@ -663,7 +663,7 @@ namespace RazorEnhanced.UI
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 14);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Land ID:";
+            this.label3.Text = "地块ID:";
             // 
             // bLandID
             // 
@@ -694,7 +694,7 @@ namespace RazorEnhanced.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 14);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Z Level:";
+            this.label2.Text = "Z 层级:";
             // 
             // bLandZ
             // 
@@ -744,7 +744,7 @@ namespace RazorEnhanced.UI
             this.groupBoxStaticFlag.Size = new System.Drawing.Size(157, 307);
             this.groupBoxStaticFlag.TabIndex = 46;
             this.groupBoxStaticFlag.TabStop = false;
-            this.groupBoxStaticFlag.Text = "Static Flag";
+            this.groupBoxStaticFlag.Text = "静态标志";
             // 
             // lStaticFlagWet
             // 
@@ -762,7 +762,7 @@ namespace RazorEnhanced.UI
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(29, 14);
             this.label23.TabIndex = 44;
-            this.label23.Text = "Wet:";
+            this.label23.Text = "潮湿:";
             // 
             // lStaticFlagNone
             // 
@@ -771,7 +771,7 @@ namespace RazorEnhanced.UI
             this.lStaticFlagNone.Name = "lStaticFlagNone";
             this.lStaticFlagNone.Size = new System.Drawing.Size(26, 14);
             this.lStaticFlagNone.TabIndex = 22;
-            this.lStaticFlagNone.Text = "Yes";
+            this.lStaticFlagNone.Text = "是";
             // 
             // lStaticFlagDoor
             // 
@@ -789,7 +789,7 @@ namespace RazorEnhanced.UI
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(33, 14);
             this.label26.TabIndex = 42;
-            this.label26.Text = "Door:";
+            this.label26.Text = "门:";
             // 
             // lStaticFlagRoof
             // 
@@ -807,7 +807,7 @@ namespace RazorEnhanced.UI
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(33, 14);
             this.label28.TabIndex = 40;
-            this.label28.Text = "Roof:";
+            this.label28.Text = "屋顶:";
             // 
             // lStaticFlagHoverOver
             // 
@@ -825,7 +825,7 @@ namespace RazorEnhanced.UI
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(63, 14);
             this.label30.TabIndex = 38;
-            this.label30.Text = "HoverOver:";
+            this.label30.Text = "悬停:";
             // 
             // lStaticFlagFoliage
             // 
@@ -843,7 +843,7 @@ namespace RazorEnhanced.UI
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(44, 14);
             this.label32.TabIndex = 36;
-            this.label32.Text = "Foliage:";
+            this.label32.Text = "树叶:";
             // 
             // lStaticFlagNoShot
             // 
@@ -861,7 +861,7 @@ namespace RazorEnhanced.UI
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(51, 14);
             this.label34.TabIndex = 34;
-            this.label34.Text = "NoShoot:";
+            this.label34.Text = "不可射击:";
             // 
             // lStaticFlagWindow
             // 
@@ -879,7 +879,7 @@ namespace RazorEnhanced.UI
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(50, 14);
             this.label36.TabIndex = 32;
-            this.label36.Text = "Window:";
+            this.label36.Text = "窗口:";
             // 
             // lStaticFlagBridge
             // 
@@ -897,7 +897,7 @@ namespace RazorEnhanced.UI
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(41, 14);
             this.label38.TabIndex = 30;
-            this.label38.Text = "Bridge:";
+            this.label38.Text = "桥:";
             // 
             // lStaticFlagSurface
             // 
@@ -915,7 +915,7 @@ namespace RazorEnhanced.UI
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(49, 14);
             this.label40.TabIndex = 28;
-            this.label40.Text = "Surface:";
+            this.label40.Text = "表面:";
             // 
             // lStaticFlagImpassable
             // 
@@ -933,7 +933,7 @@ namespace RazorEnhanced.UI
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(64, 14);
             this.label42.TabIndex = 26;
-            this.label42.Text = "Impassable:";
+            this.label42.Text = "不可通过:";
             // 
             // lStaticFlagDamaging
             // 
@@ -969,7 +969,7 @@ namespace RazorEnhanced.UI
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(57, 14);
             this.label46.TabIndex = 21;
-            this.label46.Text = "Damaging:";
+            this.label46.Text = "伤害:";
             // 
             // label47
             // 
@@ -978,7 +978,7 @@ namespace RazorEnhanced.UI
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(30, 14);
             this.label47.TabIndex = 20;
-            this.label47.Text = "Wall:";
+            this.label47.Text = "墙:";
             // 
             // label48
             // 
@@ -987,7 +987,7 @@ namespace RazorEnhanced.UI
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(67, 14);
             this.label48.TabIndex = 19;
-            this.label48.Text = "Translucent:";
+            this.label48.Text = "半透明:";
             // 
             // label49
             // 
@@ -996,7 +996,7 @@ namespace RazorEnhanced.UI
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(35, 14);
             this.label49.TabIndex = 18;
-            this.label49.Text = "None:";
+            this.label49.Text = "无:";
             // 
             // razorButton1
             // 
@@ -1004,7 +1004,7 @@ namespace RazorEnhanced.UI
             this.razorButton1.Name = "razorButton1";
             this.razorButton1.Size = new System.Drawing.Size(75, 29);
             this.razorButton1.TabIndex = 10;
-            this.razorButton1.Text = "Close";
+            this.razorButton1.Text = "关闭";
             this.razorButton1.UseVisualStyleBackColor = true;
             this.razorButton1.Click += new System.EventHandler(this.razorButton1_Click);
             // 
@@ -1023,7 +1023,7 @@ namespace RazorEnhanced.UI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EnhancedStaticInspector";
-            this.Text = "Enhanced Static Inspector";
+            this.Text = "增强静态检查器";
             this.Load += new System.EventHandler(this.EnhancedStaticInspector_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

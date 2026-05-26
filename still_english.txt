@@ -1,0 +1,37 @@
+﻿[4x] null
+[3x] A.S.
+[2x] [band
+[2x] [bandself
+[2x] X:0 Y:0
+[2x] S: 
+[2x] Razor Enhanced
+[1x] T: 
+[1x] ms
+[1x] Razor Enhanced wiki
+[1x] F: 
+[1x] TB
+[1x] --> 
+[1x] W: 
+[1x] < 
+[1x] M: 
+[1x] Razor Enhanced Discord
+[1x] toolStrip1
+[1x] Python
+[1x] tiles
+[1x] Razor Enhanced {0}
+[1x] Wiki
+[1x] 0xFFFFFFFF
+[1x] UOS
+[1x] videoSourcePlayer
+[1x] UO Eventine
+[1x] H: 
+[1x] UO Eventine Discord
+[1x] L: 
+[1x] C#
+[1x] FPS: 
+[1x] D: 
+[1x] > 
+[1x] ID:
+[1x] SL
+[1x] CoM
+[1x] I: 

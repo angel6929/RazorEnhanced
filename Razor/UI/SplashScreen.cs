@@ -1,4 +1,4 @@
-using System.Threading;
+﻿using System.Threading;
 using System.Windows.Forms;
 
 namespace Assistant
@@ -104,7 +104,7 @@ namespace Assistant
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Razor Splash Screen";
+            this.Text = "Razor 启动画面";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.Load += new System.EventHandler(this.SplashScreen_Load);

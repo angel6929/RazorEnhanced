@@ -42,6 +42,8 @@ namespace Ultima
     /// </summary>
     public unsafe class DataReader
     {
+        internal static NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
+
         private byte* _data;
         private GCHandle _handle;
 

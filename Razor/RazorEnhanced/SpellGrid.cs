@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using Assistant.UI;
 using System;
 using System.Collections.Generic;
@@ -917,12 +917,12 @@ namespace RazorEnhanced
             menuItem = new MenuItem();
             if (m_lock)
             {
-                menuItem.Text = "UnLock";
+                menuItem.Text = "解锁";
                 menuItem.Click += new System.EventHandler(menuItemUnLock_Click);
             }
             else
             {
-                menuItem.Text = "Lock";
+                menuItem.Text = "锁定";
                 menuItem.Click += new System.EventHandler(menuItemLock_Click);
             }
             cm.MenuItems.Add(menuItem);

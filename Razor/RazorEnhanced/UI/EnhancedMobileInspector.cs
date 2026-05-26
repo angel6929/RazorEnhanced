@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -225,15 +225,15 @@ namespace RazorEnhanced.UI
 
             switch (m_mobile.Direction & Assistant.Direction.mask)
             {
-                case Assistant.Direction.north: lDirection.Text = "North"; break;
-                case Assistant.Direction.south: lDirection.Text = "South"; break;
-                case Assistant.Direction.west: lDirection.Text = "West"; break;
-                case Assistant.Direction.east: lDirection.Text = "East"; break;
-                case Assistant.Direction.right: lDirection.Text = "Right"; break;
-                case Assistant.Direction.left: lDirection.Text = "Left"; break;
-                case Assistant.Direction.down: lDirection.Text = "Down"; break;
-                case Assistant.Direction.up: lDirection.Text = "Up"; break;
-                default: lDirection.Text = "Undefined"; break;
+                case Assistant.Direction.north: lDirection.Text = "北"; break;
+                case Assistant.Direction.south: lDirection.Text = "南"; break;
+                case Assistant.Direction.west: lDirection.Text = "西"; break;
+                case Assistant.Direction.east: lDirection.Text = "东"; break;
+                case Assistant.Direction.right: lDirection.Text = "右"; break;
+                case Assistant.Direction.left: lDirection.Text = "左"; break;
+                case Assistant.Direction.down: lDirection.Text = "下"; break;
+                case Assistant.Direction.up: lDirection.Text = "上"; break;
+                default: lDirection.Text = "未定义"; break;
             }
 
             // Flag

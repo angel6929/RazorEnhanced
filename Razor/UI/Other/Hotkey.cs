@@ -1,4 +1,4 @@
-using RazorEnhanced;
+﻿using RazorEnhanced;
 using System;
 using System.Windows.Forms;
 
@@ -87,7 +87,7 @@ namespace Assistant
 
         private void hotkeyEnableButton_Click(object sender, EventArgs e)
         {
-            Assistant.Engine.MainWindow.HotKeyStatusLabel.Text = "Status: Enable";
+            Assistant.Engine.MainWindow.HotKeyStatusLabel.Text = "状态: 启用";
             RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", true);
             if (World.Player != null)
                 RazorEnhanced.Misc.SendMessage("HotKey: ENABLED", 168, false);
@@ -96,7 +96,7 @@ namespace Assistant
         private void hotkeyDisableButton_Click(object sender, EventArgs e)
         {
             RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", false);
-            Assistant.Engine.MainWindow.HotKeyStatusLabel.Text = "Status: Disable";
+            Assistant.Engine.MainWindow.HotKeyStatusLabel.Text = "状态: 禁用";
             if (World.Player != null)
                 RazorEnhanced.Misc.SendMessage("HotKey: DISABLED", 37, false);
         }

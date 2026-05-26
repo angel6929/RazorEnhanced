@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedGumpInspector
     {
@@ -44,7 +44,7 @@ namespace RazorEnhanced.UI
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(75, 25);
             this.close.TabIndex = 2;
-            this.close.Text = "Close";
+            this.close.Text = "关闭";
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.closeGumpInspector_Click);
             // 
@@ -54,7 +54,7 @@ namespace RazorEnhanced.UI
             this.clear.Name = "clear";
             this.clear.Size = new System.Drawing.Size(75, 25);
             this.clear.TabIndex = 4;
-            this.clear.Text = "Clear";
+            this.clear.Text = "清空";
             this.clear.UseVisualStyleBackColor = true;
             this.clear.Click += new System.EventHandler(this.razorButton1_Click);
             // 
@@ -65,7 +65,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(496, 401);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gump Log";
+            this.groupBox1.Text = "Gump 日志";
             // 
             // groupBox2
             // 
@@ -76,7 +76,7 @@ namespace RazorEnhanced.UI
             this.groupBox2.Size = new System.Drawing.Size(108, 93);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Command";
+            this.groupBox2.Text = "命令";
             // 
             // razorButton1
             // 
@@ -84,7 +84,7 @@ namespace RazorEnhanced.UI
             this.razorButton1.Name = "razorButton1";
             this.razorButton1.Size = new System.Drawing.Size(75, 34);
             this.razorButton1.TabIndex = 5;
-            this.razorButton1.Text = "Copy value to Clipboard";
+            this.razorButton1.Text = "复制值到剪贴板";
             this.razorButton1.UseVisualStyleBackColor = true;
             this.razorButton1.Click += new System.EventHandler(this.razorButton1_Click_1);
             // 
@@ -100,7 +100,7 @@ namespace RazorEnhanced.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EnhancedGumpInspector";
-            this.Text = "Enhanced Gump Inspector";
+            this.Text = "增强 Gump 检查器";
             this.Load += new System.EventHandler(this.EnhancedGumpInspector_Load);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

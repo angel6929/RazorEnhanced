@@ -1,4 +1,4 @@
-using RazorEnhanced;
+﻿using RazorEnhanced;
 using System;
 using System.Windows.Forms;
 
@@ -18,7 +18,7 @@ namespace Assistant
             DPSMeter.Clear();
             DPSMeter.Enabled = DPSMeterStopButton.Enabled = DPSMeterPauseButton.Enabled = true;
             DPSMeterStartButton.Enabled = DpsMeterGridView.Enabled = false;
-            DPSMeterStatusLabel.Text = "Collecting Data...";
+            DPSMeterStatusLabel.Text = "收集数据中...";
             Misc.SendMessage("DPS METER: Collecting Data...", false);
         }
 
@@ -26,7 +26,7 @@ namespace Assistant
         {
             DPSMeterStartButton.Enabled = DpsMeterGridView.Enabled = true;
             DPSMeterStopButton.Enabled = DPSMeter.Enabled = DPSMeterPauseButton.Enabled = false;
-            DPSMeterStatusLabel.Text = "Idle";
+            DPSMeterStatusLabel.Text = "空闲";
             DPSMeter.ShowResult(DpsMeterGridView);
             Misc.SendMessage("DPS METER: Stop.", false);
         }
@@ -41,9 +41,9 @@ namespace Assistant
         {
             if (DPSMeter.Enabled)
             {
-                DPSMeterStatusLabel.Text = "Pause";
+                DPSMeterStatusLabel.Text = "暂停";
                 DPSMeter.Enabled = false;
-                DPSMeterPauseButton.Text = "Resume";
+                DPSMeterPauseButton.Text = "恢复";
                 DPSMeter.ShowResult(DpsMeterGridView);
                 DpsMeterGridView.Enabled = true;
                 Misc.SendMessage("DPS METER: Pause.", false);
@@ -51,8 +51,8 @@ namespace Assistant
             else
             {
                 DpsMeterGridView.Rows.Clear();
-                DPSMeterPauseButton.Text = "Pause";
-                DPSMeterStatusLabel.Text = "Collecting Data...";
+                DPSMeterPauseButton.Text = "暂停";
+                DPSMeterStatusLabel.Text = "收集数据中...";
                 DPSMeter.Enabled = true;
                 DpsMeterGridView.Enabled = false;
                 Misc.SendMessage("DPS METER: Collecting Data...", false);

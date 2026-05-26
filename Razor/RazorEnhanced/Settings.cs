@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using JsonData;
 using System;
 using System.Collections.Generic;
@@ -4870,7 +4870,7 @@ namespace RazorEnhanced
                 if (RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey") == key)
                 {
                     RazorEnhanced.Settings.General.WriteKey("HotKeyMasterKey", Keys.None);
-                    Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "ON/OFF Key: " + RazorEnhanced.HotKey.KeyString(RazorEnhanced.HotKey.MasterKey);
+                    Assistant.Engine.MainWindow.HotKeyKeyMasterLabel.Text = "开关键: " + RazorEnhanced.HotKey.KeyString(RazorEnhanced.HotKey.MasterKey);
                 }
 
                 foreach (DataRow row in m_Dataset.Tables["HOTKEYS"].Rows)

@@ -1,4 +1,4 @@
-namespace RazorEnhanced.UI
+﻿namespace RazorEnhanced.UI
 {
     partial class EnhancedMobileInspector
     {
@@ -119,7 +119,7 @@ namespace RazorEnhanced.UI
             this.groupBox1.Size = new System.Drawing.Size(371, 181);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "General";
+            this.groupBox1.Text = "常规";
             // 
             // imagepanel
             // 
@@ -187,7 +187,7 @@ namespace RazorEnhanced.UI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 14);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Position:";
+            this.label5.Text = "位置:";
             // 
             // label4
             // 
@@ -196,7 +196,7 @@ namespace RazorEnhanced.UI
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 14);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Color:";
+            this.label4.Text = "颜色:";
             // 
             // bPositionCopy
             // 
@@ -231,7 +231,7 @@ namespace RazorEnhanced.UI
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 14);
             this.label3.TabIndex = 3;
-            this.label3.Text = "MobileID:";
+            this.label3.Text = "生物ID:";
             // 
             // bItemIdCopy
             // 
@@ -253,7 +253,7 @@ namespace RazorEnhanced.UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 14);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Serial:";
+            this.label2.Text = "序列号:";
             // 
             // bSerialCopy
             // 
@@ -275,7 +275,7 @@ namespace RazorEnhanced.UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name:";
+            this.label1.Text = "名称:";
             // 
             // groupBox2
             // 
@@ -302,7 +302,7 @@ namespace RazorEnhanced.UI
             this.groupBox2.Size = new System.Drawing.Size(371, 187);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Mobile Details";
+            this.groupBox2.Text = "生物详情";
             // 
             // pStam
             // 
@@ -382,7 +382,7 @@ namespace RazorEnhanced.UI
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 14);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Direction:";
+            this.label6.Text = "方向:";
             // 
             // label7
             // 
@@ -391,7 +391,7 @@ namespace RazorEnhanced.UI
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 14);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Notoriety:";
+            this.label7.Text = "声望:";
             // 
             // bOwnedCopy
             // 
@@ -426,7 +426,7 @@ namespace RazorEnhanced.UI
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 14);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Stam / MaxStam";
+            this.label8.Text = "体力 / 最大体力";
             // 
             // bAmountCopy
             // 
@@ -448,7 +448,7 @@ namespace RazorEnhanced.UI
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 14);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Mana / MaxMana";
+            this.label9.Text = "魔法 / 最大魔法";
             // 
             // bRContainerCopy
             // 
@@ -470,7 +470,7 @@ namespace RazorEnhanced.UI
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 14);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Hits / MaxHits";
+            this.label10.Text = "生命 / 最大生命";
             // 
             // bContainerCopy
             // 
@@ -506,7 +506,7 @@ namespace RazorEnhanced.UI
             this.groupBox3.Size = new System.Drawing.Size(122, 238);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Flags";
+            this.groupBox3.Text = "标志";
             // 
             // lFlagFlying
             // 
@@ -533,7 +533,7 @@ namespace RazorEnhanced.UI
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(38, 14);
             this.label15.TabIndex = 30;
-            this.label15.Text = "Flying:";
+            this.label15.Text = "飞行:";
             // 
             // lFlagParalized
             // 
@@ -551,7 +551,7 @@ namespace RazorEnhanced.UI
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(54, 14);
             this.label17.TabIndex = 28;
-            this.label17.Text = "Paralized:";
+            this.label17.Text = "麻痹:";
             // 
             // lFlagBlessed
             // 
@@ -569,7 +569,7 @@ namespace RazorEnhanced.UI
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(61, 14);
             this.label16.TabIndex = 26;
-            this.label16.Text = "YellowHits:";
+            this.label16.Text = "黄色生命:";
             // 
             // lFlagHidden
             // 
@@ -605,7 +605,7 @@ namespace RazorEnhanced.UI
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 14);
             this.label14.TabIndex = 21;
-            this.label14.Text = "Hidden:";
+            this.label14.Text = "隐身:";
             // 
             // label13
             // 
@@ -614,7 +614,7 @@ namespace RazorEnhanced.UI
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 14);
             this.label13.TabIndex = 20;
-            this.label13.Text = "War Mode:";
+            this.label13.Text = "战斗模式:";
             // 
             // label12
             // 
@@ -623,7 +623,7 @@ namespace RazorEnhanced.UI
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(54, 14);
             this.label12.TabIndex = 19;
-            this.label12.Text = "Poisoned:";
+            this.label12.Text = "中毒:";
             // 
             // label11
             // 
@@ -632,7 +632,7 @@ namespace RazorEnhanced.UI
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 14);
             this.label11.TabIndex = 18;
-            this.label11.Text = "Ghost:";
+            this.label11.Text = "幽灵:";
             // 
             // razorButton1
             // 
@@ -640,7 +640,7 @@ namespace RazorEnhanced.UI
             this.razorButton1.Name = "razorButton1";
             this.razorButton1.Size = new System.Drawing.Size(75, 28);
             this.razorButton1.TabIndex = 10;
-            this.razorButton1.Text = "Close";
+            this.razorButton1.Text = "关闭";
             this.razorButton1.UseVisualStyleBackColor = true;
             this.razorButton1.Click += new System.EventHandler(this.RazorButton1_Click);
             // 
@@ -652,7 +652,7 @@ namespace RazorEnhanced.UI
             this.groupBox4.Size = new System.Drawing.Size(316, 373);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Attributes";
+            this.groupBox4.Text = "属性";
             // 
             // listBoxAttributes
             // 
@@ -676,7 +676,7 @@ namespace RazorEnhanced.UI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EnhancedMobileInspector";
-            this.Text = "Enhanced Mobile Inspector";
+            this.Text = "增强生物检查器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EnhancedMobileInspector_FormClosing);
             this.Load += new System.EventHandler(this.EnhancedMobileInspector_Load);
             this.groupBox1.ResumeLayout(false);

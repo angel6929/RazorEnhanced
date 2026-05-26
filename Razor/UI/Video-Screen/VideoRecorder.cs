@@ -1,4 +1,4 @@
-using Accord.Video.DirectShow;
+﻿using Accord.Video.DirectShow;
 using RazorEnhanced;
 using System;
 using System.Drawing;
@@ -173,7 +173,7 @@ namespace Assistant
                 return;
             }
             RazorEnhanced.Misc.SendMessage("Start Video Record", false);
-            Engine.MainWindow.videoRecStatuslabel.Text = "Recording";
+            Engine.MainWindow.videoRecStatuslabel.Text = "录制中";
             Engine.MainWindow.videoRecStatuslabel.ForeColor = Color.Red;
 
             Engine.MainWindow.videosettinggroupBox.Enabled = false;
@@ -190,7 +190,7 @@ namespace Assistant
                 return;
 
             RazorEnhanced.Misc.SendMessage("Stop Video Record", false);
-            Engine.MainWindow.videoRecStatuslabel.Text = "Idle";
+            Engine.MainWindow.videoRecStatuslabel.Text = "空闲";
             Engine.MainWindow.videoRecStatuslabel.ForeColor = Color.Green;
             VideoCapture.Stop();
             Engine.MainWindow.ReloadVideoList();

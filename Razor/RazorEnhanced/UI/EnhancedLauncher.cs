@@ -1,4 +1,4 @@
-using AutoUpdaterDotNET;
+﻿using AutoUpdaterDotNET;
 using System;
 using System.IO;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace RazorEnhanced.UI
 {
     internal partial class EnhancedLauncher : Form
     {
-        private const string m_Title = "Welcome to Razor Enhanced";
+        private const string m_Title = "欢迎使用 Razor Enhanced";
 
         public EnhancedLauncher()
         {

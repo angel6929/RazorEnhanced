@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace RazorEnhanced.UI
 {
     public partial class EnhancedFriendAddPlayerManual : Form
     {
-        private const string m_Title = "Enhanced Friend Manual Add Player";
+        private const string m_Title = "增强好友手动添加玩家";
 
         public EnhancedFriendAddPlayerManual()
         {
@@ -17,7 +17,7 @@ namespace RazorEnhanced.UI
 
         private void EnhancedFriendManualAdd_Load(object sender, EventArgs e)
         {
-            tName.Text = "New Player";
+            tName.Text = "新玩家";
             tSerial.Text = "0x00000000";
         }
 
