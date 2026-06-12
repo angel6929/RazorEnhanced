@@ -1003,6 +1003,18 @@ namespace RazorEnhanced.UI
             Save();
         }
 
+        private void ToolStripButtonFormat_Click(object sender, EventArgs e)
+        {
+            FormatDocument();
+        }
+
+        private void ToolStripButtonUndoFormat_Click(object sender, EventArgs e)
+        {
+            // 撤销格式化：格式化通过 InsertText 写入，撤销一次即可还原
+            fastColoredTextBoxEditor.Undo();
+            SetErrorBox("已撤销上一步(可继续 Ctrl+Z 撤销更多)");
+        }
+
         private void ToolStripButtonSaveAs_Click(object sender, EventArgs e)
         {
             SaveAs();
@@ -1360,6 +1372,40 @@ namespace RazorEnhanced.UI
             }
         }
 
+        // 手动格式化/规范化当前脚本(快捷键 Ctrl+Shift+F)。目前支持 Python：
+        // 去行尾空格、Tab转4空格、压缩多余空行、补文件末尾换行、逗号/括号/运算符按 PEP8 规范空格。
+        // 仅改动“代码区”，绝不修改字符串与注释内容；可用 Ctrl+Z 撤销。
+        private void FormatDocument()
+        {
+            if (m_Script == null) return;
+            if (m_Script.GetLanguage() != ScriptLanguage.PYTHON)
+            {
+                SetErrorBox("格式化目前仅支持 Python 脚本");
+                return;
+            }
+            try
+            {
+                string original = fastColoredTextBoxEditor.Text;
+                string formatted = PyCodeFormatter.Format(original);
+                if (formatted == original)
+                {
+                    SetErrorBox("代码已是规范格式，无需改动");
+                    return;
+                }
+                int caretLine = fastColoredTextBoxEditor.Selection.Start.iLine;
+                fastColoredTextBoxEditor.SelectAll();
+                fastColoredTextBoxEditor.InsertText(formatted);   // 走 InsertText 以支持撤销
+                int line = Math.Min(caretLine, Math.Max(0, fastColoredTextBoxEditor.LinesCount - 1));
+                fastColoredTextBoxEditor.Selection.Start = new FastColoredTextBoxNS.Place(0, line);
+                fastColoredTextBoxEditor.DoCaretVisible();
+                SetErrorBox("已按 Python 规范格式化");
+            }
+            catch (Exception ex)
+            {
+                SetErrorBox("格式化失败: " + ex.Message);
+            }
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             switch (keyData)
@@ -1396,6 +1442,11 @@ namespace RazorEnhanced.UI
 
                 case (Keys.Control | Keys.R):
                     ScriptRecord();
+                    return true;
+
+                //Format / 规范化当前脚本(Ctrl+Shift+F)
+                case (Keys.Control | Keys.Shift | Keys.F):
+                    FormatDocument();
                     return true;
 
                 //Start with Debug
@@ -1941,4 +1992,305 @@ namespace RazorEnhanced.UI
     }
 
     #endregion
+
+    /// <summary>
+    /// 轻量 Python 代码格式化器（零依赖）。
+    /// 安全规则：去行尾空格、Tab→4空格、压缩多余空行(≤2)、补文件末尾换行；
+    /// 在“代码区”按 PEP8 规范空格（逗号后空格、括号内紧贴、二元运算符两侧空格、
+    /// 一元/解包运算符紧贴操作数、关键字参数 = 紧贴等）。
+    /// 字符串(含三引号/前缀 f r b u)与注释内容【原样保留，绝不修改】。
+    /// </summary>
+    internal static class PyCodeFormatter
+    {
+        private enum K { Word, Num, Str, Comment, BinOp, UnOp, TightEq, LParen, LBrack, LBrace, Close, Comma, Colon, Semi, Dot, Other }
+
+        private struct Tok { public string Text; public K Kind; }
+
+        // 期待值的关键字（其后的 +/-/* 等应视为一元/起始，而非二元）
+        private static readonly HashSet<string> ValueKeywords = new HashSet<string>
+        {
+            "return","yield","and","or","not","in","is","if","elif","else","while",
+            "assert","lambda","del","raise","from","with","await","print","exec"
+        };
+
+        // 多字符运算符（按长度优先匹配）
+        private static readonly string[] Operators =
+        {
+            "**=","//=",">>=","<<=","==","!=","<=",">=","->",":=",
+            "+=","-=","*=","/=","%=","&=","|=","^=","**","//","<<",">>",
+            "+","-","*","/","%","<",">","=","&","|","^","~","@"
+        };
+
+        // 总是二元的运算符（不会作一元）
+        private static readonly HashSet<string> AlwaysBinary = new HashSet<string>
+        {
+            "==","!=","<=",">=","->",":=","+=","-=","*=","/=","%=","&=","|=","^=",
+            "**=","//=",">>=","<<=","<<",">>","<",">","&","|","^"
+        };
+
+        public static string Format(string code)
+        {
+            if (string.IsNullOrEmpty(code)) return code ?? "";
+            code = code.Replace("\r\n", "\n").Replace("\r", "\n");
+            string[] raw = code.Split('\n');
+
+            var outLines = new List<string>(raw.Length);
+            bool inTriple = false;
+            char tripleChar = '"';
+            int depth = 0;
+
+            foreach (string rawLine in raw)
+            {
+                if (inTriple)
+                {
+                    // 处于跨行三引号字符串内部：整行原样保留，仅检测是否在本行闭合
+                    outLines.Add(TrimEndKeepNL(rawLine));
+                    if (rawLine.IndexOf(new string(tripleChar, 3), StringComparison.Ordinal) >= 0)
+                        inTriple = false;
+                    continue;
+                }
+
+                // 取出前导缩进，Tab → 4 空格
+                int i = 0;
+                var indent = new System.Text.StringBuilder();
+                while (i < rawLine.Length && (rawLine[i] == ' ' || rawLine[i] == '\t'))
+                {
+                    indent.Append(rawLine[i] == '\t' ? "    " : " ");
+                    i++;
+                }
+                string rest = rawLine.Substring(i);
+
+                List<Tok> toks = Tokenize(rest, ref depth, ref inTriple, ref tripleChar);
+                string body = Emit(toks);
+                string line = (indent.ToString() + body);
+                // 去行尾空格（保留空行为长度0）
+                line = line.TrimEnd();
+                outLines.Add(line);
+            }
+
+            // 压缩 3 行以上连续空行为最多 2 行
+            var collapsed = new List<string>(outLines.Count);
+            int blanks = 0;
+            foreach (var l in outLines)
+            {
+                if (l.Length == 0)
+                {
+                    blanks++;
+                    if (blanks <= 2) collapsed.Add(l);
+                }
+                else { blanks = 0; collapsed.Add(l); }
+            }
+            // 去掉首尾多余空行
+            while (collapsed.Count > 0 && collapsed[0].Length == 0) collapsed.RemoveAt(0);
+            while (collapsed.Count > 0 && collapsed[collapsed.Count - 1].Length == 0) collapsed.RemoveAt(collapsed.Count - 1);
+
+            return string.Join("\n", collapsed) + "\n";
+        }
+
+        private static string TrimEndKeepNL(string s) => s.TrimEnd();
+
+        // 把一行(已去前导缩进)切成 token；字符串/注释作为不可改的整体 token
+        private static List<Tok> Tokenize(string s, ref int depth, ref bool inTriple, ref char tripleChar)
+        {
+            var toks = new List<Tok>();
+            int n = s.Length, i = 0;
+            while (i < n)
+            {
+                char c = s[i];
+
+                if (c == ' ' || c == '\t') { i++; continue; }
+
+                // 注释：到行尾
+                if (c == '#')
+                {
+                    string com = s.Substring(i);
+                    // # 后补一个空格(不含 shebang #!)，注释正文不改
+                    if (com.Length > 1 && com[1] != ' ' && com[1] != '!' && com[1] != '#')
+                        com = "# " + com.Substring(1);
+                    toks.Add(new Tok { Text = com, Kind = K.Comment });
+                    break;
+                }
+
+                // 字符串前缀 (f/r/b/u 及组合) + 引号
+                if ((c == 'f' || c == 'F' || c == 'r' || c == 'R' || c == 'b' || c == 'B' || c == 'u' || c == 'U'))
+                {
+                    int j = i;
+                    while (j < n && "fFrRbBuU".IndexOf(s[j]) >= 0 && (j - i) < 2) j++;
+                    if (j < n && (s[j] == '"' || s[j] == '\'') && (j - i) >= 1)
+                    {
+                        string prefix = s.Substring(i, j - i);
+                        string lit = ScanString(s, ref j, ref inTriple, ref tripleChar);
+                        toks.Add(new Tok { Text = prefix + lit, Kind = K.Str });
+                        i = j;
+                        if (inTriple) break;
+                        continue;
+                    }
+                }
+
+                // 普通字符串
+                if (c == '"' || c == '\'')
+                {
+                    int j = i;
+                    string lit = ScanString(s, ref j, ref inTriple, ref tripleChar);
+                    toks.Add(new Tok { Text = lit, Kind = K.Str });
+                    i = j;
+                    if (inTriple) break;
+                    continue;
+                }
+
+                // 数字（含 . 指数 0x 等），避免 1e-10 被拆开
+                if (char.IsDigit(c) || (c == '.' && i + 1 < n && char.IsDigit(s[i + 1])))
+                {
+                    int j = i + 1;
+                    while (j < n)
+                    {
+                        char d = s[j];
+                        if (char.IsLetterOrDigit(d) || d == '.' || d == '_') { j++; }
+                        else if ((d == '+' || d == '-') && j > 0 && (s[j - 1] == 'e' || s[j - 1] == 'E')) { j++; }
+                        else break;
+                    }
+                    toks.Add(new Tok { Text = s.Substring(i, j - i), Kind = K.Num });
+                    i = j;
+                    continue;
+                }
+
+                // 标识符/关键字
+                if (char.IsLetter(c) || c == '_')
+                {
+                    int j = i + 1;
+                    while (j < n && (char.IsLetterOrDigit(s[j]) || s[j] == '_')) j++;
+                    toks.Add(new Tok { Text = s.Substring(i, j - i), Kind = K.Word });
+                    i = j;
+                    continue;
+                }
+
+                // 括号
+                if (c == '(') { toks.Add(new Tok { Text = "(", Kind = K.LParen }); depth++; i++; continue; }
+                if (c == '[') { toks.Add(new Tok { Text = "[", Kind = K.LBrack }); depth++; i++; continue; }
+                if (c == '{') { toks.Add(new Tok { Text = "{", Kind = K.LBrace }); depth++; i++; continue; }
+                if (c == ')' || c == ']' || c == '}') { toks.Add(new Tok { Text = c.ToString(), Kind = K.Close }); if (depth > 0) depth--; i++; continue; }
+
+                if (c == ',') { toks.Add(new Tok { Text = ",", Kind = K.Comma }); i++; continue; }
+                if (c == ':') { toks.Add(new Tok { Text = ":", Kind = K.Colon }); i++; continue; }
+                if (c == ';') { toks.Add(new Tok { Text = ";", Kind = K.Semi }); i++; continue; }
+                if (c == '.') { toks.Add(new Tok { Text = ".", Kind = K.Dot }); i++; continue; }
+
+                // 运算符（最长匹配）
+                string op = MatchOperator(s, i);
+                if (op != null)
+                {
+                    Tok prev = toks.Count > 0 ? toks[toks.Count - 1] : default(Tok);
+                    bool hasPrev = toks.Count > 0;
+                    K k;
+                    if (op == "~") k = K.UnOp;
+                    else if (op == "=") k = depth > 0 ? K.TightEq : K.BinOp;
+                    else if (AlwaysBinary.Contains(op)) k = K.BinOp;
+                    else
+                    {
+                        // +,-,*,/,//,%,**,@ : 看前一个 token 是否“操作数”决定一元/二元
+                        bool prevOperand = hasPrev && (prev.Kind == K.Close || prev.Kind == K.Num || prev.Kind == K.Str ||
+                                            (prev.Kind == K.Word && !ValueKeywords.Contains(prev.Text)));
+                        k = prevOperand ? K.BinOp : K.UnOp;
+                    }
+                    toks.Add(new Tok { Text = op, Kind = k });
+                    i += op.Length;
+                    continue;
+                }
+
+                // 其它单字符（如 \ 续行符、? 等）原样
+                toks.Add(new Tok { Text = c.ToString(), Kind = K.Other });
+                i++;
+            }
+            return toks;
+        }
+
+        // 扫描从 s[j] 处的引号字符串字面量，返回字面量文本(含引号)；j 推进到末尾之后。
+        // 处理三引号跨行：未闭合则设置 inTriple。
+        private static string ScanString(string s, ref int j, ref bool inTriple, ref char tripleChar)
+        {
+            int n = s.Length;
+            char q = s[j];
+            // 三引号
+            if (j + 2 < n && s[j + 1] == q && s[j + 2] == q)
+            {
+                int start = j;
+                int k = j + 3;
+                string close = new string(q, 3);
+                int idx = s.IndexOf(close, k, StringComparison.Ordinal);
+                if (idx < 0)
+                {
+                    inTriple = true; tripleChar = q;
+                    j = n;
+                    return s.Substring(start); // 到行尾，后续行原样保留
+                }
+                j = idx + 3;
+                return s.Substring(start, j - start);
+            }
+            // 单/双引号
+            int st = j;
+            j++;
+            while (j < n)
+            {
+                if (s[j] == '\\') { j += 2; continue; }
+                if (s[j] == q) { j++; break; }
+                j++;
+            }
+            return s.Substring(st, Math.Min(j, n) - st);
+        }
+
+        private static string MatchOperator(string s, int i)
+        {
+            foreach (var op in Operators)
+                if (i + op.Length <= s.Length && string.CompareOrdinal(s, i, op, 0, op.Length) == 0)
+                    return op;
+            return null;
+        }
+
+        private static bool IsOperand(K k) => k == K.Word || k == K.Num || k == K.Str || k == K.Close;
+
+        private static string Emit(List<Tok> toks)
+        {
+            var sb = new System.Text.StringBuilder();
+            for (int idx = 0; idx < toks.Count; idx++)
+            {
+                if (idx > 0) sb.Append(Sep(toks[idx - 1], toks[idx]));
+                sb.Append(toks[idx].Text);
+            }
+            return sb.ToString();
+        }
+
+        // 决定两个相邻 token 之间是 "" 还是 " "
+        private static string Sep(Tok prev, Tok cur)
+        {
+            K pk = prev.Kind, ck = cur.Kind;
+
+            // 注释前：行首注释无空格(缩进已处理)，行内注释一个空格
+            if (ck == K.Comment) return " ";
+
+            // 这些之前不留空格
+            if (ck == K.Comma || ck == K.Semi || ck == K.Colon || ck == K.Close || ck == K.Dot) return "";
+            // 这些之后不留空格
+            if (pk == K.LParen || pk == K.LBrack || pk == K.LBrace || pk == K.Dot) return "";
+            // 一元/解包运算符紧贴右侧操作数
+            if (pk == K.UnOp) return "";
+            // 关键字参数 = 两侧紧贴
+            if (pk == K.TightEq || ck == K.TightEq) return "";
+            // 逗号后一个空格
+            if (pk == K.Comma) return " ";
+            // 冒号后保持紧贴(切片/字典/注解安全)
+            if (pk == K.Colon) return "";
+            // 左括号/下标：紧贴(函数调用/索引)否则空格
+            if (ck == K.LParen || ck == K.LBrack)
+                return (pk == K.Word || pk == K.Num || pk == K.Str || pk == K.Close) ? "" : " ";
+            if (ck == K.LBrace) return " ";
+            // 一元运算符前：紧跟开括号则不留空格(如 (-1)),否则一个空格(如 = -1)
+            if (ck == K.UnOp)
+                return (pk == K.LParen || pk == K.LBrack || pk == K.LBrace) ? "" : " ";
+            // 二元运算符两侧空格
+            if (ck == K.BinOp || pk == K.BinOp) return " ";
+            // 两个操作数之间(关键字与值等)一个空格
+            if (IsOperand(pk) && (ck == K.Word || ck == K.Num || ck == K.Str)) return " ";
+            return " ";
+        }
+    }
 }

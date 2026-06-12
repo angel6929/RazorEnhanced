@@ -152,8 +152,26 @@ namespace FastColoredTextBoxNS
                 //classic mode
                 for (int i = range.Start.iChar; i < range.End.iChar; i++)
                 {
-                    //draw char
-                    gr.DrawString(line[i].c.ToString(), f, ForeBrush, x, y, stringFormat);
+                    char c = line[i].c;
+                    SizeF size = FastColoredTextBox.GetCharSize(f, c);
+
+                    // 全角字符(中日韩)实际字宽约为半角格的 2 倍，若按固定 CharWidth 步进直接绘制
+                    // 会与右侧字符重叠/折叠。这里把超宽字符水平缩放收进一个字符格内(保持原高度)，
+                    // 既消除重叠，又保证每个字符仍只占 1 格 —— 光标/选区/点击命中等定位逻辑不受影响。
+                    if (size.Width > range.tb.CharWidth + 1)
+                    {
+                        var gs = gr.Save();
+                        float k = range.tb.CharWidth / size.Width;
+                        gr.TranslateTransform(x, y);
+                        gr.ScaleTransform(k, 1f);
+                        gr.DrawString(c.ToString(), f, ForeBrush, 0, 0, stringFormat);
+                        gr.Restore(gs);
+                    }
+                    else
+                    {
+                        //draw char
+                        gr.DrawString(c.ToString(), f, ForeBrush, x, y, stringFormat);
+                    }
                     x += dx;
                 }
             }

@@ -36,6 +36,8 @@
             this.toolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFormat = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonUndoFormat = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonPlay = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -136,7 +138,9 @@
             this.toolStripButtonClose,
             this.toolStripButtonOpen,
             this.toolStripButtonSave,
-            this.toolStripButtonSaveAs});
+            this.toolStripButtonSaveAs,
+            this.toolStripButtonFormat,
+            this.toolStripButtonUndoFormat});
             this.toolStripFileDropDownButton.Image = global::Assistant.Properties.Resources.document_open_7;
             this.toolStripFileDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripFileDropDownButton.Name = "toolStripFileDropDownButton";
@@ -182,9 +186,29 @@
             this.toolStripButtonSaveAs.Text = "另存为";
             this.toolStripButtonSaveAs.ToolTipText = "另存为 ( CTRL + SHIFT + S )";
             this.toolStripButtonSaveAs.Click += new System.EventHandler(this.ToolStripButtonSaveAs_Click);
-            // 
+            //
+            // toolStripButtonFormat
+            //
+            this.toolStripButtonFormat.Image = global::Assistant.Properties.Resources.applications_utilities;
+            this.toolStripButtonFormat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFormat.Name = "toolStripButtonFormat";
+            this.toolStripButtonFormat.Size = new System.Drawing.Size(75, 28);
+            this.toolStripButtonFormat.Text = "格式化";
+            this.toolStripButtonFormat.ToolTipText = "格式化 ( CTRL + SHIFT + F )";
+            this.toolStripButtonFormat.Click += new System.EventHandler(this.ToolStripButtonFormat_Click);
+            //
+            // toolStripButtonUndoFormat
+            //
+            this.toolStripButtonUndoFormat.Image = global::Assistant.Properties.Resources.cancella;
+            this.toolStripButtonUndoFormat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUndoFormat.Name = "toolStripButtonUndoFormat";
+            this.toolStripButtonUndoFormat.Size = new System.Drawing.Size(95, 28);
+            this.toolStripButtonUndoFormat.Text = "撤销格式化";
+            this.toolStripButtonUndoFormat.ToolTipText = "撤销格式化 ( CTRL + Z )";
+            this.toolStripButtonUndoFormat.Click += new System.EventHandler(this.ToolStripButtonUndoFormat_Click);
+            //
             // toolStripSeparator1
-            // 
+            //
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
@@ -702,6 +726,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonOpen;
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveAs;
         private System.Windows.Forms.ToolStripButton toolStripButtonClose;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFormat;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUndoFormat;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonStop;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddBreakpoint;
