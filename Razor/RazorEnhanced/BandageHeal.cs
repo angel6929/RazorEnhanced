@@ -1,4 +1,4 @@
-using Assistant;
+﻿using Assistant;
 using Assistant.UI;
 using System;
 using System.Collections.Generic;
@@ -372,25 +372,25 @@ namespace RazorEnhanced
                     {
                         if (NoBandageMsgCount <= 0)
                         {
-                            Player.HeadMessage(10, "Bandage not found");
+                            Player.HeadMessage(10, "未找到绷带");
                             NoBandageMsgCount = 10;
                         }
                         NoBandageMsgCount--;
-                        AddLog("Bandage not found");
+                        AddLog("未找到绷带");
                         Thread.Sleep(1000); // If no bandaids dont loop too quickly
                         return;
                     }
 
                     if (bandageamount < 11 && bandageamount > 1)    // don't warn on last bandaid to avoid constant message for everlasting bandage
                     {
-                        Player.HeadMessage(10, $"Warning: Low bandage: {bandageamount} left");
-                        AddLog($"Warning: Low bandage: {bandageamount} left");
+                        Player.HeadMessage(10, $"警告: 绷带不足, 剩 {bandageamount}");
+                        AddLog($"警告: 绷带不足, 剩 {bandageamount}");
                     }
-                    AddLog($"Using bandage (0x{bandage.Serial:X}) on Target ({target.Name} - {target.Serial:X})");
+                    AddLog($"对目标使用绷带 (0x{bandage.Serial:X}) (目标: {target.Name} - {target.Serial:X})");
                 }
                 else
                 {
-                    AddLog($"Using bandage on Target ({target.Name} - {target.Serial:X})");
+                    AddLog($"对目标使用绷带 (目标: {target.Name} - {target.Serial:X})");
                 }
 
 
