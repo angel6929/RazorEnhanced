@@ -68,6 +68,7 @@ namespace Assistant
         private const byte ExpectedCuoSuoxVersion = 0x01;
         private const ushort ExpectedCuoSuoxBuildId = 1;
         private const int ExpectedCuoBindingMagic = unchecked((int)0xc82a3dfc);
+        private static bool _cuoBindingRejected;
 
         public static string UOFilePath { get; set; }
         public override Process ClientProcess => m_ClientProcess;
@@ -444,6 +445,11 @@ namespace Assistant
 
         private void OnConnected()
         {
+            if (_cuoBindingRejected)
+            {
+                return;
+            }
+
             if (!VerifyCuoBinding(true, out string failure))
             {
                 RejectCuoBinding(failure);
@@ -479,6 +485,11 @@ namespace Assistant
 
         private void OnInitialize()
         {
+            if (_cuoBindingRejected)
+            {
+                return;
+            }
+
             if (!VerifyCuoBinding(false, out string failure))
             {
                 RejectCuoBinding(failure);
@@ -648,16 +659,44 @@ namespace Assistant
 
         private static void RejectCuoBinding(string reason)
         {
+            if (_cuoBindingRejected)
+            {
+                return;
+            }
+
+            _cuoBindingRejected = true;
+
+            HideMainWindowForBindingReject();
+
             try
             {
-                RazorEnhanced.UI.RE_MessageBox.Show("RA绑定验证失败",
-                    reason + "\r\n\r\n此版本 RazorEnhanced 只能通过绑定版 ClassicUO 连接指定服务器后使用。",
+                RazorEnhanced.UI.RE_MessageBox.Show("客户端验证失败",
+                    "未使用阳光大陆专属客户端，请使用阳光大陆专属客户端登录游戏。",
                     ok: "确定", no: null, cancel: null, backColor: null);
             }
             catch
             {
             }
 
+            CloseMainWindowForBindingReject();
+        }
+
+        private static void HideMainWindowForBindingReject()
+        {
+            try
+            {
+                Engine.MainWindow?.SafeAction(s =>
+                {
+                    s.Hide();
+                });
+            }
+            catch
+            {
+            }
+        }
+
+        private static void CloseMainWindowForBindingReject()
+        {
             try
             {
                 Engine.MainWindow?.SafeAction(s =>

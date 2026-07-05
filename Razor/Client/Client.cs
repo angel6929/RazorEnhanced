@@ -230,8 +230,8 @@ namespace Assistant
         {
             if (IsOSI)
             {
-                RazorEnhanced.UI.RE_MessageBox.Show("RA绑定验证失败",
-                    "此版本 RazorEnhanced 只能通过绑定版 ClassicUO 加载，不能以独立/OSI 客户端模式运行。",
+                RazorEnhanced.UI.RE_MessageBox.Show("客户端验证失败",
+                    "未使用阳光大陆专属客户端，请使用阳光大陆专属客户端登录游戏。",
                     ok: "确定", no: null, cancel: null, backColor: null);
                 Shards.ShowLauncher = true;
                 return;
