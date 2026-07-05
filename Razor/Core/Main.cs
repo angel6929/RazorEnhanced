@@ -162,8 +162,7 @@ namespace Assistant
             {
                 if (m_Version == null)
                 {
-                    Version v = Assembly.GetCallingAssembly().GetName().Version;
-                    m_Version = String.Format("{0}.{1}.{2}.{3}", v.Major, v.Minor, v.Build, v.Revision); //v.Revision
+                    m_Version = "20260705（阳光大陆专用版）";
                 }
 
                 return m_Version;
