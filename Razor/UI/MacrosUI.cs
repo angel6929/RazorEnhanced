@@ -421,8 +421,7 @@ namespace Assistant
             contextMenu.Items.Add(removeMenuItem);
             contextMenu.Items.Add(saveMacroItem);
 
-            // Enable/disable options based on selection
-            contextMenu.Opening += (s, e) =>
+            void UpdateMacroActionsContextMenuState()
             {
                 bool singleSelection = macroActionsListView.SelectedIndices.Count == 1;
                 bool hasSelection = macroActionsListView.SelectedIndices.Count > 0;
@@ -512,9 +511,27 @@ namespace Assistant
                 }
 
                 removeMenuItem.Enabled = removeLinesItem.Enabled || removeAllItem.Enabled;
-            };
+            }
 
-            macroActionsListView.ContextMenuStrip = contextMenu;
+            contextMenu.Opening += (s, e) => UpdateMacroActionsContextMenuState();
+
+            macroActionsListView.MouseDown += (s, e) =>
+            {
+                if (e.Button != MouseButtons.Right)
+                    return;
+
+                var hit = macroActionsListView.HitTest(e.Location);
+                if (hit.Item != null && !hit.Item.Selected)
+                {
+                    macroActionsListView.SelectedItems.Clear();
+                    hit.Item.Selected = true;
+                    hit.Item.Focused = true;
+                }
+
+                UpdateMacroActionsContextMenuState();
+                contextMenu.PerformLayout();
+                contextMenu.Show(macroActionsListView, e.Location);
+            };
         }
 
         private int GetInsertPosition()
