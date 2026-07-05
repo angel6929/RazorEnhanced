@@ -64,6 +64,11 @@ namespace Assistant
     }
     public class ClassicUOClient : Client
     {
+        private const string ExpectedCuoSuoxFingerprint = "c82a3dfc4977570a99885c4cc6d8ebc1d128922c2b30a6f2543bba9afe706414";
+        private const byte ExpectedCuoSuoxVersion = 0x01;
+        private const ushort ExpectedCuoSuoxBuildId = 1;
+        private const int ExpectedCuoBindingMagic = unchecked((int)0xc82a3dfc);
+
         public static string UOFilePath { get; set; }
         public override Process ClientProcess => m_ClientProcess;
         public override bool ClientRunning => m_ClientRunning;
@@ -439,6 +444,12 @@ namespace Assistant
 
         private void OnConnected()
         {
+            if (!VerifyCuoBinding(true, out string failure))
+            {
+                RejectCuoBinding(failure);
+                return;
+            }
+
             base.OnConnected();
             bool ReWindowVisible = false;
             foreach (Screen screen in Screen.AllScreens)
@@ -468,8 +479,206 @@ namespace Assistant
 
         private void OnInitialize()
         {
-
+            if (!VerifyCuoBinding(false, out string failure))
+            {
+                RejectCuoBinding(failure);
+            }
         }
+
+        private static bool VerifyCuoBinding(bool requireActiveSession, out string failure)
+        {
+            failure = null;
+
+            if (TryVerifyNativeCuoBinding(requireActiveSession, out failure, out bool nativeHandled))
+            {
+                return true;
+            }
+
+            if (nativeHandled)
+            {
+                return false;
+            }
+
+            Assembly cuoAssembly = CUOAssembly;
+            if (cuoAssembly == null)
+            {
+                failure = "无法读取 ClassicUO 主程序集。";
+                return false;
+            }
+
+            Type bindingType = cuoAssembly.GetType("ClassicUO.Security.CuoBinding", false);
+            if (bindingType == null)
+            {
+                failure = "当前 ClassicUO 不是绑定版，缺少绑定验证接口。";
+                return false;
+            }
+
+            string fingerprint = ReadStaticString(bindingType, "SuoxPublicKeyFingerprint");
+            if (!StringComparer.OrdinalIgnoreCase.Equals(fingerprint, ExpectedCuoSuoxFingerprint))
+            {
+                failure = "ClassicUO 绑定密钥指纹不匹配。";
+                return false;
+            }
+
+            byte version = ReadStaticByte(bindingType, "SuoxVersion");
+            if (version != ExpectedCuoSuoxVersion)
+            {
+                failure = "ClassicUO 绑定协议版本不匹配。";
+                return false;
+            }
+
+            ushort buildId = ReadStaticUInt16(bindingType, "SuoxBuildId");
+            if (buildId != ExpectedCuoSuoxBuildId)
+            {
+                failure = "ClassicUO 绑定构建号不匹配。";
+                return false;
+            }
+
+            if (requireActiveSession && !ReadStaticBool(bindingType, "SuoxActive"))
+            {
+                failure = "ClassicUO 尚未通过服务器绑定握手。";
+                return false;
+            }
+
+            return true;
+        }
+
+        private static bool TryVerifyNativeCuoBinding(bool requireActiveSession, out string failure, out bool handled)
+        {
+            failure = null;
+            handled = false;
+
+            IntPtr cuoModule = GetModuleHandle("cuo.dll");
+            if (cuoModule == IntPtr.Zero)
+            {
+                return false;
+            }
+
+            IntPtr magicPtr = GetProcAddress(cuoModule, "CuoBinding_GetMagic");
+            IntPtr statusPtr = GetProcAddress(cuoModule, "CuoBinding_GetStatus");
+            if (magicPtr == IntPtr.Zero || statusPtr == IntPtr.Zero)
+            {
+                return false;
+            }
+
+            handled = true;
+
+            CuoBindingNativeCall getMagic =
+                (CuoBindingNativeCall)Marshal.GetDelegateForFunctionPointer(magicPtr, typeof(CuoBindingNativeCall));
+            CuoBindingNativeCall getStatus =
+                (CuoBindingNativeCall)Marshal.GetDelegateForFunctionPointer(statusPtr, typeof(CuoBindingNativeCall));
+
+            if (getMagic() != ExpectedCuoBindingMagic)
+            {
+                failure = "ClassicUO 绑定密钥指纹不匹配。";
+                return false;
+            }
+
+            int status = getStatus();
+            if ((status & 0x01) == 0)
+            {
+                failure = "当前 ClassicUO 不是绑定版，缺少绑定验证接口。";
+                return false;
+            }
+
+            byte version = (byte)((status >> 8) & 0xFF);
+            if (version != ExpectedCuoSuoxVersion)
+            {
+                failure = "ClassicUO 绑定协议版本不匹配。";
+                return false;
+            }
+
+            ushort buildId = (ushort)((status >> 16) & 0xFFFF);
+            if (buildId != ExpectedCuoSuoxBuildId)
+            {
+                failure = "ClassicUO 绑定构建号不匹配。";
+                return false;
+            }
+
+            if (requireActiveSession && (status & 0x02) == 0)
+            {
+                failure = "ClassicUO 尚未通过服务器绑定握手。";
+                return false;
+            }
+
+            return true;
+        }
+
+        private static string ReadStaticString(Type type, string name)
+        {
+            object value = ReadStaticMember(type, name);
+            return value as string;
+        }
+
+        private static byte ReadStaticByte(Type type, string name)
+        {
+            object value = ReadStaticMember(type, name);
+            return value == null ? (byte)0 : Convert.ToByte(value);
+        }
+
+        private static ushort ReadStaticUInt16(Type type, string name)
+        {
+            object value = ReadStaticMember(type, name);
+            return value == null ? (ushort)0 : Convert.ToUInt16(value);
+        }
+
+        private static bool ReadStaticBool(Type type, string name)
+        {
+            object value = ReadStaticMember(type, name);
+            return value != null && Convert.ToBoolean(value);
+        }
+
+        private static object ReadStaticMember(Type type, string name)
+        {
+            BindingFlags flags = BindingFlags.Public | BindingFlags.Static;
+            FieldInfo field = type.GetField(name, flags);
+            if (field != null)
+            {
+                return field.GetValue(null);
+            }
+
+            PropertyInfo property = type.GetProperty(name, flags);
+            if (property != null)
+            {
+                return property.GetValue(null, null);
+            }
+
+            return null;
+        }
+
+        private static void RejectCuoBinding(string reason)
+        {
+            try
+            {
+                RazorEnhanced.UI.RE_MessageBox.Show("RA绑定验证失败",
+                    reason + "\r\n\r\n此版本 RazorEnhanced 只能通过绑定版 ClassicUO 连接指定服务器后使用。",
+                    ok: "确定", no: null, cancel: null, backColor: null);
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                Engine.MainWindow?.SafeAction(s =>
+                {
+                    s.CanClose = true;
+                    s.Close();
+                });
+            }
+            catch
+            {
+            }
+        }
+
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        private delegate int CuoBindingNativeCall();
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
+        private static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
 
         public override void SetConnectionInfo(IPAddress addr, int port)
         {
@@ -652,4 +861,3 @@ namespace Assistant
 
     }
 }
-
