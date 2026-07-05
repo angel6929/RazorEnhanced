@@ -57,75 +57,75 @@ namespace Assistant
         {
             ContextMenuStrip contextMenu = new ContextMenuStrip();
 
-            ToolStripMenuItem insertSetAbilityItem = new ToolStripMenuItem("Set Ability");
+            ToolStripMenuItem insertSetAbilityItem = new ToolStripMenuItem("设置能力");
             insertSetAbilityItem.Click += InsertSetAbilityMenuItem_Click;
 
-            ToolStripMenuItem insertTargetResourceItem = new ToolStripMenuItem("Target Resource");
+            ToolStripMenuItem insertTargetResourceItem = new ToolStripMenuItem("目标资源");
             insertTargetResourceItem.Click += InsertTargetResourceMenuItem_Click;
 
-            ToolStripMenuItem insertBandageItem = new ToolStripMenuItem("Bandage");
+            ToolStripMenuItem insertBandageItem = new ToolStripMenuItem("绷带");
             insertBandageItem.Click += InsertBandageMenuItem_Click;
 
-            ToolStripMenuItem insertMovementActionItem = new ToolStripMenuItem("Movement");
+            ToolStripMenuItem insertMovementActionItem = new ToolStripMenuItem("移动");
             insertMovementActionItem.Click += InsertMovementActionMenuItem_Click;
 
-            ToolStripMenuItem insertMessagingItem = new ToolStripMenuItem("Messaging");
+            ToolStripMenuItem insertMessagingItem = new ToolStripMenuItem("消息");
             insertMessagingItem.Click += InsertMessagingMenuItem_Click;
 
-            ToolStripMenuItem insertActionsMenuItem = new ToolStripMenuItem("Actions");
+            ToolStripMenuItem insertActionsMenuItem = new ToolStripMenuItem("动作");
 
-            ToolStripMenuItem insertMoveItemActionItem = new ToolStripMenuItem("Move Item");
+            ToolStripMenuItem insertMoveItemActionItem = new ToolStripMenuItem("移动物品");
             insertMoveItemActionItem.Click += InsertMoveItemActionMenuItem_Click;
 
-            ToolStripMenuItem insertDoubleClickItem = new ToolStripMenuItem("Double Click");
+            ToolStripMenuItem insertDoubleClickItem = new ToolStripMenuItem("双击");
             insertDoubleClickItem.Click += InsertDoubleClickMenuItem_Click;
 
-            ToolStripMenuItem insertTargetItem = new ToolStripMenuItem("Target");
+            ToolStripMenuItem insertTargetItem = new ToolStripMenuItem("目标");
             insertTargetItem.Click += InsertTargetMenuItem_Click;
 
-            ToolStripMenuItem insertAttackEntityItem = new ToolStripMenuItem("Attack");
+            ToolStripMenuItem insertAttackEntityItem = new ToolStripMenuItem("攻击");
             insertAttackEntityItem.Click += InsertAttackEntityMenuItem_Click;
 
-            ToolStripMenuItem insertCastSpellItem = new ToolStripMenuItem("Cast Spell");
+            ToolStripMenuItem insertCastSpellItem = new ToolStripMenuItem("施放法术");
             insertCastSpellItem.Click += InsertCastSpellMenuItem_Click;
 
-            ToolStripMenuItem insertUseSkillItem = new ToolStripMenuItem("Use Skill");
+            ToolStripMenuItem insertUseSkillItem = new ToolStripMenuItem("使用技能");
             insertUseSkillItem.Click += InsertUseSkillMenuItem_Click;
 
-            ToolStripMenuItem insertUsePotionItem = new ToolStripMenuItem("Use Potion");
+            ToolStripMenuItem insertUsePotionItem = new ToolStripMenuItem("使用药水");
             insertUsePotionItem.Click += InsertUsePotionMenuItem_Click;
 
-            ToolStripMenuItem insertInvokeVirtueItem = new ToolStripMenuItem("Invoke Virtue");
+            ToolStripMenuItem insertInvokeVirtueItem = new ToolStripMenuItem("启用美德");
             insertInvokeVirtueItem.Click += InsertInvokeVirtueMenuItem_Click;
 
-            ToolStripMenuItem insertRunOrganizerOnceItem = new ToolStripMenuItem("Run Organizer Once");
+            ToolStripMenuItem insertRunOrganizerOnceItem = new ToolStripMenuItem("运行整理器一次");
             insertRunOrganizerOnceItem.Click += InsertRunOrganizerOnceMenuItem_Click;
 
-            ToolStripMenuItem insertToggleWarModeItem = new ToolStripMenuItem("Toggle War Mode");
+            ToolStripMenuItem insertToggleWarModeItem = new ToolStripMenuItem("切换战争模式");
             insertToggleWarModeItem.Click += InsertToggleWarModeMenuItem_Click;
 
-            ToolStripMenuItem insertMountItem = new ToolStripMenuItem("Mount");
+            ToolStripMenuItem insertMountItem = new ToolStripMenuItem("骑乘");
             insertMountItem.Click += InsertMountMenuItem_Click;
 
-            ToolStripMenuItem insertFlyItem = new ToolStripMenuItem("Fly");
+            ToolStripMenuItem insertFlyItem = new ToolStripMenuItem("飞行");
             insertFlyItem.Click += InsertFlyMenuItem_Click;
 
-            ToolStripMenuItem insertUseEmoteItem = new ToolStripMenuItem("Use Emote");
+            ToolStripMenuItem insertUseEmoteItem = new ToolStripMenuItem("使用表情");
             insertUseEmoteItem.Click += InsertUseEmoteMenuItem_Click;
 
-            ToolStripMenuItem insertArmDisarmItem = new ToolStripMenuItem("Arm/Disarm");
+            ToolStripMenuItem insertArmDisarmItem = new ToolStripMenuItem("装备/卸下");
             insertArmDisarmItem.Click += InsertArmDisarmMenuItem_Click;
 
-            ToolStripMenuItem insertRenameMobileItem = new ToolStripMenuItem("Rename Mobile");
+            ToolStripMenuItem insertRenameMobileItem = new ToolStripMenuItem("重命名生物");
             insertRenameMobileItem.Click += InsertRenameMobileMenuItem_Click;
 
-            ToolStripMenuItem insertPromptResponseItem = new ToolStripMenuItem("Prompt Response");
+            ToolStripMenuItem insertPromptResponseItem = new ToolStripMenuItem("提示响应");
             insertPromptResponseItem.Click += InsertPromptResponseMenuItem_Click;
 
-            ToolStripMenuItem insertGumpResponseItem = new ToolStripMenuItem("Gump Response");
+            ToolStripMenuItem insertGumpResponseItem = new ToolStripMenuItem("界面响应");
             insertGumpResponseItem.Click += InsertGumpResponseMenuItem_Click;
 
-            ToolStripMenuItem insertDropItem = new ToolStripMenuItem("Drop");
+            ToolStripMenuItem insertDropItem = new ToolStripMenuItem("丢弃");
             insertDropItem.Click += InsertDropMenuItem_Click;
 
             insertActionsMenuItem.DropDownItems.Add(insertMessagingItem);
@@ -154,30 +154,30 @@ namespace Assistant
             insertActionsMenuItem.DropDownItems.Add(insertRenameMobileItem);
             insertActionsMenuItem.DropDownItems.Add(insertPromptResponseItem);
 
-            ToolStripMenuItem insertControlMenuItem = new ToolStripMenuItem("Control");
+            ToolStripMenuItem insertControlMenuItem = new ToolStripMenuItem("控制");
 
-            ToolStripMenuItem insertPauseItem = new ToolStripMenuItem("Pause");
+            ToolStripMenuItem insertPauseItem = new ToolStripMenuItem("暂停");
             insertPauseItem.Click += InsertPauseMenuItem_Click;
 
-            ToolStripMenuItem insertResyncItem = new ToolStripMenuItem("Resync");
+            ToolStripMenuItem insertResyncItem = new ToolStripMenuItem("重新同步");
             insertResyncItem.Click += InsertResyncMenuItem_Click;
 
-            ToolStripMenuItem insertCommentItem = new ToolStripMenuItem("Comment");
+            ToolStripMenuItem insertCommentItem = new ToolStripMenuItem("注释");
             insertCommentItem.Click += InsertCommentMenuItem_Click;
 
-            ToolStripMenuItem insertUseContextMenuItem = new ToolStripMenuItem("Use Context Menu");
+            ToolStripMenuItem insertUseContextMenuItem = new ToolStripMenuItem("使用上下文菜单");
             insertUseContextMenuItem.Click += InsertUseContextMenuMenuItem_Click;
 
-            ToolStripMenuItem insertClearJournalItem = new ToolStripMenuItem("Clear Journal");
+            ToolStripMenuItem insertClearJournalItem = new ToolStripMenuItem("清空日志");
             insertClearJournalItem.Click += InsertClearJournalMenuItem_Click;
 
-            ToolStripMenuItem insertWaitForTargetItem = new ToolStripMenuItem("Wait For Target");
+            ToolStripMenuItem insertWaitForTargetItem = new ToolStripMenuItem("等待目标");
             insertWaitForTargetItem.Click += InsertWaitForTargetMenuItem_Click;
 
-            ToolStripMenuItem insertWaitForGumpItem = new ToolStripMenuItem("Wait For Gump");
+            ToolStripMenuItem insertWaitForGumpItem = new ToolStripMenuItem("等待界面");
             insertWaitForGumpItem.Click += InsertWaitForGumpMenuItem_Click;
 
-            ToolStripMenuItem insertDisconnectItem = new ToolStripMenuItem("Disconnect");
+            ToolStripMenuItem insertDisconnectItem = new ToolStripMenuItem("断开连接");
             insertDisconnectItem.Click += InsertDisconnectMenuItem_Click;
 
             insertControlMenuItem.DropDownItems.Add(insertPauseItem);
@@ -191,51 +191,51 @@ namespace Assistant
             insertControlMenuItem.DropDownItems.Add(new ToolStripSeparator());
             insertControlMenuItem.DropDownItems.Add(insertDisconnectItem);
 
-            ToolStripMenuItem insertMenuItem = new ToolStripMenuItem("Insert");
+            ToolStripMenuItem insertMenuItem = new ToolStripMenuItem("插入");
 
-            ToolStripMenuItem saveMacroItem = new ToolStripMenuItem("Save Macro");
+            ToolStripMenuItem saveMacroItem = new ToolStripMenuItem("保存宏");
             saveMacroItem.Click += SaveMacroMenuItem_Click;
 
-            ToolStripMenuItem moveUpItem = new ToolStripMenuItem("Move Up");
+            ToolStripMenuItem moveUpItem = new ToolStripMenuItem("上移");
             moveUpItem.Click += MoveUpMenuItem_Click;
 
-            ToolStripMenuItem moveDownItem = new ToolStripMenuItem("Move Down");
+            ToolStripMenuItem moveDownItem = new ToolStripMenuItem("下移");
             moveDownItem.Click += MoveDownMenuItem_Click;
 
-            ToolStripMenuItem copyItem = new ToolStripMenuItem("Copy");
+            ToolStripMenuItem copyItem = new ToolStripMenuItem("复制");
             copyItem.Click += CopyMenuItem_Click;
 
-            ToolStripMenuItem pasteItem = new ToolStripMenuItem("Paste After");
+            ToolStripMenuItem pasteItem = new ToolStripMenuItem("粘贴到后面");
             pasteItem.Click += PasteMenuItem_Click;
 
-            ToolStripMenuItem insertIfItem = new ToolStripMenuItem("If Condition");
+            ToolStripMenuItem insertIfItem = new ToolStripMenuItem("如果条件");
             insertIfItem.Click += InsertIfMenuItem_Click;
 
-            ToolStripMenuItem insertElseIfItem = new ToolStripMenuItem("ElseIf Condition");
+            ToolStripMenuItem insertElseIfItem = new ToolStripMenuItem("否则如果条件");
             insertElseIfItem.Click += InsertElseIfMenuItem_Click;
 
-            ToolStripMenuItem insertElseItem = new ToolStripMenuItem("Else");
+            ToolStripMenuItem insertElseItem = new ToolStripMenuItem("否则");
             insertElseItem.Click += InsertElseMenuItem_Click;
 
-            ToolStripMenuItem insertEndIfItem = new ToolStripMenuItem("EndIf");
+            ToolStripMenuItem insertEndIfItem = new ToolStripMenuItem("结束如果");
             insertEndIfItem.Click += InsertEndIfMenuItem_Click;
 
-            ToolStripMenuItem insertWhileItem = new ToolStripMenuItem("While");
+            ToolStripMenuItem insertWhileItem = new ToolStripMenuItem("当条件满足时");
             insertWhileItem.Click += InsertWhileMenuItem_Click;
 
-            ToolStripMenuItem insertEndWhileItem = new ToolStripMenuItem("EndWhile");
+            ToolStripMenuItem insertEndWhileItem = new ToolStripMenuItem("结束当条件");
             insertEndWhileItem.Click += InsertEndWhileMenuItem_Click;
 
-            ToolStripMenuItem insertForItem = new ToolStripMenuItem("For Loop");
+            ToolStripMenuItem insertForItem = new ToolStripMenuItem("循环");
             insertForItem.Click += InsertForMenuItem_Click;
 
-            ToolStripMenuItem insertEndForItem = new ToolStripMenuItem("EndFor");
+            ToolStripMenuItem insertEndForItem = new ToolStripMenuItem("结束循环");
             insertEndForItem.Click += InsertEndForMenuItem_Click;
 
-            ToolStripMenuItem insertSetAliasItem = new ToolStripMenuItem("Set Alias");
+            ToolStripMenuItem insertSetAliasItem = new ToolStripMenuItem("设置别名");
             insertSetAliasItem.Click += InsertSetAliasMenuItem_Click;
 
-            ToolStripMenuItem insertRemoveAliasItem = new ToolStripMenuItem("Remove Alias");
+            ToolStripMenuItem insertRemoveAliasItem = new ToolStripMenuItem("移除别名");
             insertRemoveAliasItem.Click += InsertRemoveAliasMenuItem_Click;
 
             insertMenuItem.DropDownItems.Add(insertActionsMenuItem);
@@ -256,120 +256,120 @@ namespace Assistant
             insertMenuItem.DropDownItems.Add(insertRemoveAliasItem);
 
 
-            ToolStripMenuItem removeMenuItem = new ToolStripMenuItem("Remove");
+            ToolStripMenuItem removeMenuItem = new ToolStripMenuItem("移除");
 
-            ToolStripMenuItem removeLinesItem = new ToolStripMenuItem("Line(s)");
+            ToolStripMenuItem removeLinesItem = new ToolStripMenuItem("选中行");
             removeLinesItem.Click += RemoveActionMenuItem_Click;
 
-            ToolStripMenuItem removeAllItem = new ToolStripMenuItem("All");
+            ToolStripMenuItem removeAllItem = new ToolStripMenuItem("全部");
             removeAllItem.Click += RemoveAllActionsMenuItem_Click;
 
             removeMenuItem.DropDownItems.Add(removeLinesItem);
             removeMenuItem.DropDownItems.Add(removeAllItem);
 
-            ToolStripMenuItem editMoveItemActionItem = new ToolStripMenuItem("Edit Move Item");
+            ToolStripMenuItem editMoveItemActionItem = new ToolStripMenuItem("编辑移动物品");
             editMoveItemActionItem.Click += EditMoveItemActionMenuItem_Click;
 
-            ToolStripMenuItem editPromptResponseItem = new ToolStripMenuItem("Edit Prompt Response");
+            ToolStripMenuItem editPromptResponseItem = new ToolStripMenuItem("编辑提示响应");
             editPromptResponseItem.Click += EditPromptResponseMenuItem_Click;
 
-            ToolStripMenuItem editSetAbilityActionItem = new ToolStripMenuItem("Edit Set Ability");
+            ToolStripMenuItem editSetAbilityActionItem = new ToolStripMenuItem("编辑设置能力");
             editSetAbilityActionItem.Click += EditSetAbilityActionMenuItem_Click;
 
-            ToolStripMenuItem editBandageActionItem = new ToolStripMenuItem("Edit Bandage");
+            ToolStripMenuItem editBandageActionItem = new ToolStripMenuItem("编辑绷带");
             editBandageActionItem.Click += EditBandageActionMenuItem_Click;
 
-            ToolStripMenuItem editMovementActionItem = new ToolStripMenuItem("Edit Movement");
+            ToolStripMenuItem editMovementActionItem = new ToolStripMenuItem("编辑移动");
             editMovementActionItem.Click += EditMovementActionMenuItem_Click;
 
-            ToolStripMenuItem editMessagingItem = new ToolStripMenuItem("Edit Messaging");
+            ToolStripMenuItem editMessagingItem = new ToolStripMenuItem("编辑消息");
             editMessagingItem.Click += EditMessagingMenuItem_Click;
 
-            ToolStripMenuItem editUseContextMenuItem = new ToolStripMenuItem("Edit Use Context Menu");
+            ToolStripMenuItem editUseContextMenuItem = new ToolStripMenuItem("编辑使用上下文菜单");
             editUseContextMenuItem.Click += EditUseContextMenuMenuItem_Click;
 
-            ToolStripMenuItem editArmDisarmItem = new ToolStripMenuItem("Edit Arm/Disarm");
+            ToolStripMenuItem editArmDisarmItem = new ToolStripMenuItem("编辑装备/卸下");
             editArmDisarmItem.Click += EditArmDisarmMenuItem_Click;
 
-            ToolStripMenuItem editDoubleClickItem = new ToolStripMenuItem("Edit Double Click");
+            ToolStripMenuItem editDoubleClickItem = new ToolStripMenuItem("编辑双击");
             editDoubleClickItem.Click += EditDoubleClickMenuItem_Click;
 
-            ToolStripMenuItem editTargetItem = new ToolStripMenuItem("Edit Target");
+            ToolStripMenuItem editTargetItem = new ToolStripMenuItem("编辑目标");
             editTargetItem.Click += EditTargetMenuItem_Click;
 
-            ToolStripMenuItem editRunOrganizerOnceItem = new ToolStripMenuItem("Edit Run Organizer Once");
+            ToolStripMenuItem editRunOrganizerOnceItem = new ToolStripMenuItem("编辑运行整理器一次");
             editRunOrganizerOnceItem.Click += EditRunOrganizerOnceMenuItem_Click;
 
-            ToolStripMenuItem editMountItem = new ToolStripMenuItem("Edit Mount");
+            ToolStripMenuItem editMountItem = new ToolStripMenuItem("编辑骑乘");
             editMountItem.Click += EditMountMenuItem_Click;
 
-            ToolStripMenuItem editAttackEntityItem = new ToolStripMenuItem("Edit Attack");
+            ToolStripMenuItem editAttackEntityItem = new ToolStripMenuItem("编辑攻击");
             editAttackEntityItem.Click += EditAttackEntityMenuItem_Click;
 
-            ToolStripMenuItem editPauseItem = new ToolStripMenuItem("Edit Pause");
+            ToolStripMenuItem editPauseItem = new ToolStripMenuItem("编辑暂停");
             editPauseItem.Click += EditPauseMenuItem_Click;
 
-            ToolStripMenuItem editForItem = new ToolStripMenuItem("Edit For Loop");
+            ToolStripMenuItem editForItem = new ToolStripMenuItem("编辑循环");
             editForItem.Click += EditForMenuItem_Click;
 
-            ToolStripMenuItem editCommentItem = new ToolStripMenuItem("Edit Comment");
+            ToolStripMenuItem editCommentItem = new ToolStripMenuItem("编辑注释");
             editCommentItem.Click += EditCommentMenuItem_Click;
 
-            ToolStripMenuItem editIfItem = new ToolStripMenuItem("Edit If Condition");
+            ToolStripMenuItem editIfItem = new ToolStripMenuItem("编辑如果条件");
             editIfItem.Click += EditIfMenuItem_Click;
 
-            ToolStripMenuItem editElseIfItem = new ToolStripMenuItem("Edit ElseIf Condition");
+            ToolStripMenuItem editElseIfItem = new ToolStripMenuItem("编辑否则如果条件");
             editElseIfItem.Click += EditElseIfMenuItem_Click;
 
-            ToolStripMenuItem editWhileItem = new ToolStripMenuItem("Edit While Condition");
+            ToolStripMenuItem editWhileItem = new ToolStripMenuItem("编辑当条件");
             editWhileItem.Click += EditWhileMenuItem_Click;
 
-            ToolStripMenuItem editInvokeVirtueItem = new ToolStripMenuItem("Edit Invoke Virtue");
+            ToolStripMenuItem editInvokeVirtueItem = new ToolStripMenuItem("编辑启用美德");
             editInvokeVirtueItem.Click += EditInvokeVirtueMenuItem_Click;
 
-            ToolStripMenuItem editUseEmoteItem = new ToolStripMenuItem("Edit Use Emote");
+            ToolStripMenuItem editUseEmoteItem = new ToolStripMenuItem("编辑使用表情");
             editUseEmoteItem.Click += EditUseEmoteMenuItem_Click;
 
-            ToolStripMenuItem editWaitForTargetItem = new ToolStripMenuItem("Edit Wait For Target");
+            ToolStripMenuItem editWaitForTargetItem = new ToolStripMenuItem("编辑等待目标");
             editWaitForTargetItem.Click += EditWaitForTargetMenuItem_Click;
 
-            ToolStripMenuItem editUsePotionItem = new ToolStripMenuItem("Edit Use Potion");
+            ToolStripMenuItem editUsePotionItem = new ToolStripMenuItem("编辑使用药水");
             editUsePotionItem.Click += EditUsePotionMenuItem_Click;
 
-            ToolStripMenuItem editUseSkillItem = new ToolStripMenuItem("Edit Use Skill");
+            ToolStripMenuItem editUseSkillItem = new ToolStripMenuItem("编辑使用技能");
             editUseSkillItem.Click += EditUseSkillMenuItem_Click;
 
-            ToolStripMenuItem editCastSpellItem = new ToolStripMenuItem("Edit Cast Spell");
+            ToolStripMenuItem editCastSpellItem = new ToolStripMenuItem("编辑施放法术");
             editCastSpellItem.Click += EditCastSpellMenuItem_Click;
 
-            ToolStripMenuItem editToggleWarModeItem = new ToolStripMenuItem("Edit Toggle War Mode");
+            ToolStripMenuItem editToggleWarModeItem = new ToolStripMenuItem("编辑切换战争模式");
             editToggleWarModeItem.Click += EditToggleWarModeMenuItem_Click;
 
-            ToolStripMenuItem editFlyItem = new ToolStripMenuItem("Edit Fly");
+            ToolStripMenuItem editFlyItem = new ToolStripMenuItem("编辑飞行");
             editFlyItem.Click += EditFlyMenuItem_Click;
 
-            ToolStripMenuItem editSetAliasItem = new ToolStripMenuItem("Edit Set Alias");
+            ToolStripMenuItem editSetAliasItem = new ToolStripMenuItem("编辑设置别名");
             editSetAliasItem.Click += EditSetAliasMenuItem_Click;
 
-            ToolStripMenuItem editRemoveAliasItem = new ToolStripMenuItem("Edit Remove Alias");
+            ToolStripMenuItem editRemoveAliasItem = new ToolStripMenuItem("编辑移除别名");
             editRemoveAliasItem.Click += EditRemoveAliasMenuItem_Click;
 
-            ToolStripMenuItem editRenameMobileItem = new ToolStripMenuItem("Edit Rename Mobile");
+            ToolStripMenuItem editRenameMobileItem = new ToolStripMenuItem("编辑重命名生物");
             editRenameMobileItem.Click += EditRenameMobileMenuItem_Click;
 
-            ToolStripMenuItem editTargetResourceActionItem = new ToolStripMenuItem("Edit Target Resource");
+            ToolStripMenuItem editTargetResourceActionItem = new ToolStripMenuItem("编辑目标资源");
             editTargetResourceActionItem.Click += EditTargetResourceActionMenuItem_Click;
 
-            ToolStripMenuItem editWaitForGumpItem = new ToolStripMenuItem("Edit Wait For Gump");
+            ToolStripMenuItem editWaitForGumpItem = new ToolStripMenuItem("编辑等待界面");
             editWaitForGumpItem.Click += EditWaitForGumpMenuItem_Click;
 
-            ToolStripMenuItem editGumpResponseItem = new ToolStripMenuItem("Edit Gump Response");
+            ToolStripMenuItem editGumpResponseItem = new ToolStripMenuItem("编辑界面响应");
             editGumpResponseItem.Click += EditGumpResponseMenuItem_Click;
 
-            ToolStripMenuItem editDropItem = new ToolStripMenuItem("Edit Drop");
+            ToolStripMenuItem editDropItem = new ToolStripMenuItem("编辑丢弃");
             editDropItem.Click += EditDropMenuItem_Click;
 
-            ToolStripMenuItem startRecordingFromHereItem = new ToolStripMenuItem("Start Recording From Here");
+            ToolStripMenuItem startRecordingFromHereItem = new ToolStripMenuItem("从这里开始录制");
             startRecordingFromHereItem.Click += (s, e) => StartRecordingFromHereMenuItem_Click(s, e);
 
 
@@ -1508,16 +1508,16 @@ namespace Assistant
         {
             var contextMenu = new ContextMenuStrip();
 
-            var saveMacroItem = new ToolStripMenuItem("Save Macro");
+            var saveMacroItem = new ToolStripMenuItem("保存宏");
             saveMacroItem.Click += (s, e) => BtnMacroSave_Click(s, e);
 
-            var deleteMacroItem = new ToolStripMenuItem("Delete Macro");
+            var deleteMacroItem = new ToolStripMenuItem("删除宏");
             deleteMacroItem.Click += (s, e) => BtnMacroDelete_Click(s, e);
 
-            var renameMacroItem = new ToolStripMenuItem("Rename Macro");
+            var renameMacroItem = new ToolStripMenuItem("重命名宏");
             renameMacroItem.Click += (s, e) => RenameMacroMenuItem_Click(s, e);
 
-            var reloadMacroItem = new ToolStripMenuItem("Reload Macros");
+            var reloadMacroItem = new ToolStripMenuItem("重新加载宏");
             reloadMacroItem.Click += (s, e) =>
             {
                 MacroManager.LoadMacrosFromFiles();
@@ -1637,8 +1637,8 @@ namespace Assistant
 
             Label textLabel = new Label { Left = 20, Top = 20, Text = text, Width = 350 };
             TextBox textBox = new TextBox { Left = 20, Top = 50, Width = 350, Text = defaultValue };
-            Button confirmation = new Button { Text = "OK", Left = 200, Width = 80, Top = 80, DialogResult = DialogResult.OK };
-            Button cancel = new Button { Text = "Cancel", Left = 290, Width = 80, Top = 80, DialogResult = DialogResult.Cancel };
+            Button confirmation = new Button { Text = "确定", Left = 200, Width = 80, Top = 80, DialogResult = DialogResult.OK };
+            Button cancel = new Button { Text = "取消", Left = 290, Width = 80, Top = 80, DialogResult = DialogResult.Cancel };
 
             confirmation.Click += (s, ev) => { prompt.Close(); };
             cancel.Click += (s, ev) => { prompt.Close(); };
@@ -1823,15 +1823,15 @@ namespace Assistant
         {
             switch (type)
             {
-                case IfAction.ConditionType.PlayerStats: return "PlayerStats";
-                case IfAction.ConditionType.PlayerStatus: return "PlayerStatus";
-                case IfAction.ConditionType.Find: return "Find"; // CHANGED FROM FindType
-                case IfAction.ConditionType.InRange: return "InRange";
-                case IfAction.ConditionType.InJournal: return "InJournal";
-                case IfAction.ConditionType.BuffExists: return "BuffExists";
-                case IfAction.ConditionType.TargetExists: return "TargetExists";
-                case IfAction.ConditionType.Count: return "Count";
-                case IfAction.ConditionType.Skill: return "Skill";
+                case IfAction.ConditionType.PlayerStats: return "玩家属性";
+                case IfAction.ConditionType.PlayerStatus: return "玩家状态";
+                case IfAction.ConditionType.Find: return "查找";
+                case IfAction.ConditionType.InRange: return "范围内";
+                case IfAction.ConditionType.InJournal: return "日志中";
+                case IfAction.ConditionType.BuffExists: return "增益存在";
+                case IfAction.ConditionType.TargetExists: return "目标存在";
+                case IfAction.ConditionType.Count: return "计数";
+                case IfAction.ConditionType.Skill: return "技能";
                 default: return type.ToString();
             }
         }
@@ -1841,15 +1841,24 @@ namespace Assistant
             switch (displayName)
             {
                 case "PlayerStats": return IfAction.ConditionType.PlayerStats;
+                case "玩家属性": return IfAction.ConditionType.PlayerStats;
                 case "PlayerStatus": return IfAction.ConditionType.PlayerStatus;
+                case "玩家状态": return IfAction.ConditionType.PlayerStatus;
                 case "Find": return IfAction.ConditionType.Find; // CHANGED FROM FindType
+                case "查找": return IfAction.ConditionType.Find;
                 case "FindType": return IfAction.ConditionType.Find; // BACKWARD COMPATIBILITY
                 case "InRange": return IfAction.ConditionType.InRange;
+                case "范围内": return IfAction.ConditionType.InRange;
                 case "InJournal": return IfAction.ConditionType.InJournal;
+                case "日志中": return IfAction.ConditionType.InJournal;
                 case "BuffExists": return IfAction.ConditionType.BuffExists;
+                case "增益存在": return IfAction.ConditionType.BuffExists;
                 case "TargetExists": return IfAction.ConditionType.TargetExists;
+                case "目标存在": return IfAction.ConditionType.TargetExists;
                 case "Count": return IfAction.ConditionType.Count;
+                case "计数": return IfAction.ConditionType.Count;
                 case "Skill": return IfAction.ConditionType.Skill;
+                case "技能": return IfAction.ConditionType.Skill;
                 default:
                     Enum.TryParse(displayName, out IfAction.ConditionType type);
                     return type;
@@ -2295,13 +2304,13 @@ namespace Assistant
                 Width = 480,
                 Height = 600,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Configure If/ElseIf/While Condition",
+                Text = "配置 If/ElseIf/While 条件",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
             // === CONDITION TYPE (Top = 20) ===
-            Label lblType = new Label { Left = 20, Top = 20, Text = "Condition Type:", Width = 120 };
+            Label lblType = new Label { Left = 20, Top = 20, Text = "条件类型:", Width = 120 };
             ComboBox cmbType = new ComboBox
             {
                 Left = 150,
@@ -2318,7 +2327,7 @@ namespace Assistant
             }
 
             // === PLAYER STAT SELECTOR (Top = 60) ===
-            Label lblStatType = new Label { Left = 20, Top = 60, Text = "Player Stat:", Width = 120 };
+            Label lblStatType = new Label { Left = 20, Top = 60, Text = "玩家属性:", Width = 120 };
             ComboBox cmbStatType = new ComboBox
             {
                 Left = 150,
@@ -2326,10 +2335,10 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbStatType.Items.AddRange(new string[] { "Hit Points", "Mana", "Stamina", "Weight", "Str", "Dex", "Int" });
+            cmbStatType.Items.AddRange(new string[] { "生命值", "魔法值", "耐力", "重量", "力量", "敏捷", "智力" });
 
             // === PLAYER STATUS SELECTOR (Top = 60) ===
-            Label lblStatusType = new Label { Left = 20, Top = 60, Text = "Player Status:", Width = 120 };
+            Label lblStatusType = new Label { Left = 20, Top = 60, Text = "玩家状态:", Width = 120 };
             ComboBox cmbStatusType = new ComboBox
             {
                 Left = 150,
@@ -2337,10 +2346,10 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbStatusType.Items.AddRange(new string[] { "Poisoned", "Paralyzed", "Hidden", "Mounted", "Is Alive", "Right Hand Equipped", "Left Hand Equipped" });
+            cmbStatusType.Items.AddRange(new string[] { "中毒", "麻痹", "隐藏", "已骑乘", "存活", "右手已装备", "左手已装备" });
 
             // === INRANGE MODE SELECTOR (Top = 60) ===
-            Label lblRangeMode = new Label { Left = 20, Top = 60, Text = "Range Check:", Width = 120 };
+            Label lblRangeMode = new Label { Left = 20, Top = 60, Text = "范围检查:", Width = 120 };
             ComboBox cmbRangeMode = new ComboBox
             {
                 Left = 150,
@@ -2348,10 +2357,10 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbRangeMode.Items.AddRange(new string[] { "Last Target", "Specific Serial", "Item Type", "Mobile Type" });
+            cmbRangeMode.Items.AddRange(new string[] { "最后目标", "指定序列号", "物品类型", "生物类型" });
 
             // === RANGE SERIAL (Top = 100) ===
-            Label lblRangeSerial = new Label { Left = 20, Top = 100, Text = "Serial:", Width = 120 };
+            Label lblRangeSerial = new Label { Left = 20, Top = 100, Text = "序列号:", Width = 120 };
             TextBox txtRangeSerial = new TextBox
             {
                 Left = 150,
@@ -2362,14 +2371,14 @@ namespace Assistant
 
             Button btnTargetRangeSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 98,
                 Width = 80
             };
 
             // === RANGE GRAPHIC (Top = 140) ===
-            Label lblRangeGraphic = new Label { Left = 20, Top = 140, Text = "Graphic (hex):", Width = 120 };
+            Label lblRangeGraphic = new Label { Left = 20, Top = 140, Text = "图形编号(十六进制):", Width = 120 };
             TextBox txtRangeGraphic = new TextBox
             {
                 Left = 150,
@@ -2380,18 +2389,18 @@ namespace Assistant
 
             Button btnTargetRangeType = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 138,
                 Width = 80
             };
 
             // === RANGE COLOR (Top = 180) ===
-            Label lblRangeColor = new Label { Left = 20, Top = 180, Text = "Color (-1 = any):", Width = 120 };
+            Label lblRangeColor = new Label { Left = 20, Top = 180, Text = "颜色(-1 = 任意):", Width = 120 };
             TextBox txtRangeColor = new TextBox { Left = 150, Top = 180, Width = 290, Text = ifAction.RangeColor.ToString() };
 
             // === NEW FIND MODE SELECTOR (Top = 60) ===
-            Label lblFindMode = new Label { Left = 20, Top = 60, Text = "Find Mode:", Width = 120 };
+            Label lblFindMode = new Label { Left = 20, Top = 60, Text = "查找模式:", Width = 120 };
             ComboBox cmbFindMode = new ComboBox
             {
                 Left = 150,
@@ -2399,11 +2408,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbFindMode.Items.AddRange(new string[] { "Item", "Mobile" });
+            cmbFindMode.Items.AddRange(new string[] { "物品", "生物" });
             cmbFindMode.SelectedIndex = (int)ifAction.FindEntityMode;
 
             // === FIND LOCATION SELECTOR (Top = 100) ===
-            Label lblFindLocation = new Label { Left = 20, Top = 100, Text = "Find Location:", Width = 120 };
+            Label lblFindLocation = new Label { Left = 20, Top = 100, Text = "查找位置:", Width = 120 };
             ComboBox cmbFindLocation = new ComboBox
             {
                 Left = 150,
@@ -2411,11 +2420,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbFindLocation.Items.AddRange(new string[] { "Backpack", "Container", "Ground" });
+            cmbFindLocation.Items.AddRange(new string[] { "背包", "容器", "地面" });
             cmbFindLocation.SelectedIndex = (int)ifAction.FindEntityLocation;
 
             // === FIND CONTAINER SERIAL (Top = 140) ===
-            Label lblFindContainer = new Label { Left = 20, Top = 140, Text = "Container Serial:", Width = 120 };
+            Label lblFindContainer = new Label { Left = 20, Top = 140, Text = "容器序列号:", Width = 120 };
             TextBox txtFindContainer = new TextBox
             {
                 Left = 150,
@@ -2426,30 +2435,30 @@ namespace Assistant
 
             Button btnTargetContainer = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 138,
                 Width = 80
             };
 
             // === FIND RANGE (Top = 180) ===
-            Label lblFindRange = new Label { Left = 20, Top = 180, Text = "Range (tiles):", Width = 120 };
+            Label lblFindRange = new Label { Left = 20, Top = 180, Text = "范围(格):", Width = 120 };
             TextBox txtFindRange = new TextBox { Left = 150, Top = 180, Width = 290, Text = ifAction.FindRange.ToString() };
 
             // === FIND GRAPHIC (Top = 220) ===
-            Label lblFindGraphic = new Label { Left = 20, Top = 220, Text = "Graphic (hex):", Width = 120 };
+            Label lblFindGraphic = new Label { Left = 20, Top = 220, Text = "图形编号(十六进制):", Width = 120 };
             TextBox txtFindGraphic = new TextBox { Left = 150, Top = 220, Width = 200, Text = $"0x{ifAction.Graphic:X4}" };
 
             Button btnTargetFindType = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 218,
                 Width = 80
             };
 
             // === FIND COLOR (Top = 260) ===
-            Label lblFindColor = new Label { Left = 20, Top = 260, Text = "Color (-1 = any):", Width = 120 };
+            Label lblFindColor = new Label { Left = 20, Top = 260, Text = "颜色(-1 = 任意):", Width = 120 };
             TextBox txtFindColor = new TextBox { Left = 150, Top = 260, Width = 290, Text = ifAction.Color.ToString() };
 
 
@@ -2459,7 +2468,7 @@ namespace Assistant
                 Left = 150,
                 Top = 300,
                 Width = 290,
-                Text = "Store found serial to 'findfound' alias",
+                Text = "将找到的序列号保存到 'findfound' 别名",
                 Checked = ifAction.FindStoreSerial
             };
 
@@ -2469,14 +2478,14 @@ namespace Assistant
                 Top = 325,
                 Width = 290,
                 Height = 30,
-                Text = "Use Target.SetAlias('findfound') to use the found item/mobile",
+                Text = "使用 Target.SetAlias('findfound') 可引用找到的物品/生物",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
 
             // === BOOLEAN CHECK (Top = 100) ===
-            Label lblBoolValue = new Label { Left = 20, Top = 100, Text = "Check For:", Width = 120 };
+            Label lblBoolValue = new Label { Left = 20, Top = 100, Text = "检查:", Width = 120 };
             ComboBox cmbBoolValue = new ComboBox
             {
                 Left = 150,
@@ -2484,11 +2493,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbBoolValue.Items.AddRange(new string[] { "Is True", "Is False" });
+            cmbBoolValue.Items.AddRange(new string[] { "为真", "为假" });
             cmbBoolValue.SelectedIndex = ifAction.BooleanValue ? 0 : 1;
 
             // === OPERATOR (Top = 220) ===
-            Label lblOp = new Label { Left = 20, Top = 220, Text = "Operator:", Width = 120 };
+            Label lblOp = new Label { Left = 20, Top = 220, Text = "运算符:", Width = 120 };
             ComboBox cmbOp = new ComboBox
             {
                 Left = 150,
@@ -2499,7 +2508,7 @@ namespace Assistant
             cmbOp.Items.AddRange(new string[] { ">", "<", "=", ">=", "<=", "!=" });
 
             // === MAX VALUE TOKEN (Top = 260) ===
-            Label lblValueToken = new Label { Left = 20, Top = 260, Text = "Use Max Value:", Width = 120 };
+            Label lblValueToken = new Label { Left = 20, Top = 260, Text = "使用最大值:", Width = 120 };
             ComboBox cmbValueToken = new ComboBox
             {
                 Left = 150,
@@ -2507,10 +2516,10 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbValueToken.Items.AddRange(new string[] { "None", "{maxhp}", "{maxstam}", "{maxmana}" });
+            cmbValueToken.Items.AddRange(new string[] { "无", "{maxhp}", "{maxstam}", "{maxmana}" });
 
             // === VALUE (Top = 300) ===
-            Label lblValue = new Label { Left = 20, Top = 300, Text = "Value:", Width = 120 };
+            Label lblValue = new Label { Left = 20, Top = 300, Text = "数值:", Width = 120 };
             TextBox txtValue = new TextBox
             {
                 Left = 150,
@@ -2539,7 +2548,7 @@ namespace Assistant
             };
 
             // === ITEM PRESET (Top = 60) ===
-            Label lblPreset = new Label { Left = 20, Top = 60, Text = "Item Preset:", Width = 120 };
+            Label lblPreset = new Label { Left = 20, Top = 60, Text = "物品预设:", Width = 120 };
             ComboBox cmbPreset = new ComboBox
             {
                 Left = 150,
@@ -2572,22 +2581,22 @@ namespace Assistant
             // === TARGET ITEM BUTTON (Top = 95) ===
             Button btnSelectItem = new Button
             {
-                Text = "Target Item to Get Type",
+                Text = "选择物品以获取类型",
                 Left = 150,
                 Top = 95,
                 Width = 290
             };
 
             // === GRAPHIC (Top = 130) ===
-            Label lblGraphic = new Label { Left = 20, Top = 130, Text = "Graphic (hex):", Width = 120 };
+            Label lblGraphic = new Label { Left = 20, Top = 130, Text = "图形编号(十六进制):", Width = 120 };
             TextBox txtGraphic = new TextBox { Left = 150, Top = 130, Width = 290, Text = $"0x{ifAction.Graphic:X4}" };
 
             // === COLOR (Top = 170) ===
-            Label lblColor = new Label { Left = 20, Top = 170, Text = "Color (-1 = any):", Width = 120 };
+            Label lblColor = new Label { Left = 20, Top = 170, Text = "颜色(-1 = 任意):", Width = 120 };
             TextBox txtColor = new TextBox { Left = 150, Top = 170, Width = 290, Text = ifAction.Color.ToString() };
 
             // === SKILL SELECTOR (Top = 60) ===
-            Label lblSkill = new Label { Left = 20, Top = 60, Text = "Skill Name:", Width = 120 };
+            Label lblSkill = new Label { Left = 20, Top = 60, Text = "技能名称:", Width = 120 };
             ComboBox cmbSkill = new ComboBox
             {
                 Left = 150,
@@ -2600,7 +2609,7 @@ namespace Assistant
                 cmbSkill.SelectedItem = ifAction.SkillName;
 
             // === JOURNAL TEXT (Top = 60) ===
-            Label lblJournalText = new Label { Left = 20, Top = 60, Text = "Journal Text:", Width = 120 };
+            Label lblJournalText = new Label { Left = 20, Top = 60, Text = "日志文本:", Width = 120 };
             TextBox txtJournalText = new TextBox
             {
                 Left = 150,
@@ -2609,7 +2618,7 @@ namespace Assistant
                 Text = ifAction.ValueToken ?? ""
             };
 
-            Label lblJournalCheck = new Label { Left = 20, Top = 100, Text = "Check For:", Width = 120 };
+            Label lblJournalCheck = new Label { Left = 20, Top = 100, Text = "检查:", Width = 120 };
             ComboBox cmbJournalCheck = new ComboBox
             {
                 Left = 150,
@@ -2617,11 +2626,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbJournalCheck.Items.AddRange(new string[] { "Text Found", "Text Not Found" });
+            cmbJournalCheck.Items.AddRange(new string[] { "找到文本", "未找到文本" });
             cmbJournalCheck.SelectedIndex = ifAction.BooleanValue ? 0 : 1;
 
             // === BUFF SELECTOR (Top = 60) ===
-            Label lblBuff = new Label { Left = 20, Top = 60, Text = "Buff Name:", Width = 120 };
+            Label lblBuff = new Label { Left = 20, Top = 60, Text = "增益名称:", Width = 120 };
             ComboBox cmbBuff = new ComboBox
             {
                 Left = 150,
@@ -2636,7 +2645,7 @@ namespace Assistant
             if (!string.IsNullOrEmpty(ifAction.BuffName))
                 cmbBuff.SelectedItem = ifAction.BuffName;
 
-            Label lblBuffCheck = new Label { Left = 20, Top = 100, Text = "Check For:", Width = 120 };
+            Label lblBuffCheck = new Label { Left = 20, Top = 100, Text = "检查:", Width = 120 };
             ComboBox cmbBuffCheck = new ComboBox
             {
                 Left = 150,
@@ -2644,7 +2653,7 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbBuffCheck.Items.AddRange(new string[] { "Buff Active", "Buff Not Active" });
+            cmbBuffCheck.Items.AddRange(new string[] { "增益生效", "增益未生效" });
             cmbBuffCheck.SelectedIndex = ifAction.BooleanValue ? 0 : 1;
 
             // === PRESET CHANGE HANDLERS ===
@@ -2904,7 +2913,7 @@ namespace Assistant
 
             Button btnCreateList = new Button
             {
-                Text = "Custom List",
+                Text = "自定义列表",
                 Left = 20,
                 Top = 95,
                 Width = 100,
@@ -2932,7 +2941,7 @@ namespace Assistant
             // === BUTTONS (Top = 520 with more margin) ===
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 240,
                 Width = 90,
                 Top = 520,
@@ -2941,7 +2950,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 340,
                 Width = 90,
                 Top = 520,
@@ -3577,7 +3586,7 @@ namespace Assistant
                     valueToken = txtJournalText.Text;
                     value = 0;
                 }
-                else if (cmbValueToken.SelectedItem != null && cmbValueToken.SelectedItem.ToString() != "None")
+                else if (cmbValueToken.SelectedIndex > 0 && cmbValueToken.SelectedItem != null)
                 {
                     valueToken = cmbValueToken.SelectedItem.ToString();
                     value = 0;
@@ -4205,7 +4214,7 @@ namespace Assistant
 
             if (newAction == null)
             {
-                MessageBox.Show("Failed to copy action.", "Paste Error",
+                MessageBox.Show("复制动作失败。", "粘贴错误",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -4335,7 +4344,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for iterations.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -4389,7 +4398,7 @@ namespace Assistant
                 {
                     MessageBox.Show(
                         "Please enter a valid positive number for iterations.",
-                        "Invalid Input",
+                        "输入无效",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
@@ -4426,7 +4435,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for iterations.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -4477,7 +4486,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for milliseconds.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -4536,7 +4545,7 @@ namespace Assistant
                 {
                     MessageBox.Show(
                         "Please enter a valid positive number for milliseconds.",
-                        "Invalid Input",
+                        "输入无效",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
@@ -4573,7 +4582,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for milliseconds.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -4710,14 +4719,14 @@ namespace Assistant
                 Width = 450,
                 Height = 320,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Set Alias",
+                Text = "设置别名",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Alias Name
-            Label lblAliasName = new Label { Left = 20, Top = 20, Text = "Alias Name:", Width = 100 };
+            Label lblAliasName = new Label { Left = 20, Top = 20, Text = "别名名称:", Width = 100 };
             TextBox txtAliasName = new TextBox
             {
                 Left = 130,
@@ -4732,12 +4741,12 @@ namespace Assistant
                 Left = 130,
                 Top = 55,
                 Width = 290,
-                Text = "Use 'findfound' serial (from Find condition)",
+                Text = "使用 'findfound' 序列号（来自查找条件）",
                 Checked = useFoundSerial
             };
 
             // Serial input
-            Label lblSerial = new Label { Left = 20, Top = 90, Text = "Serial (hex):", Width = 100 };
+            Label lblSerial = new Label { Left = 20, Top = 90, Text = "序列号(十六进制):", Width = 100 };
             TextBox txtSerial = new TextBox
             {
                 Left = 130,
@@ -4750,7 +4759,7 @@ namespace Assistant
             // Target button
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 88,
                 Width = 80,
@@ -4820,7 +4829,7 @@ namespace Assistant
                 Top = 125,
                 Width = 290,
                 Height = 80,
-                Text = "Tip: Use 'findfound' to get the serial from a Find condition.\n\n" +
+                Text = "提示：使用 'findfound' 可获取查找条件得到的序列号。\n\n" +
                        "Note: Setting 'found' alias will also update 'findfound' for UOSteam compatibility.",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
@@ -4828,7 +4837,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 230,
                 Width = 90,
                 Top = 230,
@@ -4837,7 +4846,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 330,
                 Width = 90,
                 Top = 230,
@@ -4861,7 +4870,7 @@ namespace Assistant
                 // Validate alias name
                 if (string.IsNullOrWhiteSpace(txtAliasName.Text))
                 {
-                    MessageBox.Show("Alias name cannot be empty.", "Invalid Input",
+                    MessageBox.Show("别名名称不能为空。", "输入无效",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, aliasName, serial, useFoundSerial);
                 }
@@ -4878,8 +4887,8 @@ namespace Assistant
                     {
                         if (!int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                         {
-                            MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, aliasName, serial, useFoundSerial);
                         }
                     }
@@ -4995,13 +5004,13 @@ namespace Assistant
                 Width = 400,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Remove Alias",
+                Text = "移除别名",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblAliasName = new Label { Left = 20, Top = 20, Text = "Alias Name:", Width = 100 };
+            Label lblAliasName = new Label { Left = 20, Top = 20, Text = "别名名称:", Width = 100 };
             TextBox txtAliasName = new TextBox
             {
                 Left = 130,
@@ -5016,14 +5025,14 @@ namespace Assistant
                 Top = 55,
                 Width = 240,
                 Height = 40,
-                Text = "Removes the alias from shared values",
+                Text = "从共享值中移除该别名",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 180,
                 Width = 90,
                 Top = 110,
@@ -5032,7 +5041,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 280,
                 Width = 90,
                 Top = 110,
@@ -5051,7 +5060,7 @@ namespace Assistant
             {
                 if (string.IsNullOrWhiteSpace(txtAliasName.Text))
                 {
-                    MessageBox.Show("Alias name cannot be empty.", "Invalid Input",
+                    MessageBox.Show("别名名称不能为空。", "输入无效",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, aliasName);
                 }
@@ -5170,7 +5179,7 @@ namespace Assistant
                 Width = 300,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Select Emote",
+                Text = "选择表情",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
@@ -5180,7 +5189,7 @@ namespace Assistant
             {
                 Left = 20,
                 Top = 20,
-                Text = "Choose emote:",
+                Text = "选择表情:",
                 Width = 250
             };
 
@@ -5197,7 +5206,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 110,
                 Width = 80,
                 Top = 90,
@@ -5206,7 +5215,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 200,
                 Width = 80,
                 Top = 90,
@@ -5455,7 +5464,7 @@ namespace Assistant
                 Width = 300,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Toggle War Mode",
+                Text = "切换战争模式",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
@@ -5465,7 +5474,7 @@ namespace Assistant
             {
                 Left = 20,
                 Top = 20,
-                Text = "War Mode State:",
+                Text = "战争模式状态:",
                 Width = 250
             };
 
@@ -5476,12 +5485,12 @@ namespace Assistant
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbWarMode.Items.AddRange(new string[] { "ON (War)", "OFF (Peace)" });
+            cmbWarMode.Items.AddRange(new string[] { "开启（战争）", "关闭（和平）" });
             cmbWarMode.SelectedIndex = currentWarMode ? 0 : 1;
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 110,
                 Width = 80,
                 Top = 90,
@@ -5490,7 +5499,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 200,
                 Width = 80,
                 Top = 90,
@@ -5621,7 +5630,7 @@ namespace Assistant
                 Width = 300,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Gargoyle Fly",
+                Text = "石像鬼飞行",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
@@ -5631,7 +5640,7 @@ namespace Assistant
             {
                 Left = 20,
                 Top = 20,
-                Text = "Flying State:",
+                Text = "飞行状态:",
                 Width = 250
             };
 
@@ -5642,12 +5651,12 @@ namespace Assistant
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbFly.Items.AddRange(new string[] { "ON (Flying)", "OFF (Ground)" });
+            cmbFly.Items.AddRange(new string[] { "开启（飞行）", "关闭（地面）" });
             cmbFly.SelectedIndex = currentFlying ? 0 : 1;
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 110,
                 Width = 80,
                 Top = 90,
@@ -5656,7 +5665,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 200,
                 Width = 80,
                 Top = 90,
@@ -5855,14 +5864,14 @@ namespace Assistant
                 Width = 450,
                 Height = 450,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Attack",
+                Text = "攻击",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Attack Mode selector
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Attack Mode:", Width = 100 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "攻击模式:", Width = 100 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 130,
@@ -5870,11 +5879,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Last Target", "Specific Serial", "Alias", "Nearest", "Farthest", "By Type" });
+            cmbMode.Items.AddRange(new string[] { "最后目标", "指定序列号", "别名", "最近", "最远", "按类型" });
             cmbMode.SelectedIndex = (int)mode;
 
             // Serial input
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Serial (hex):", Width = 100 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "序列号(十六进制):", Width = 100 };
             TextBox txtSerial = new TextBox
             {
                 Left = 130,
@@ -5885,14 +5894,14 @@ namespace Assistant
 
             Button btnTargetSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 58,
                 Width = 80
             };
 
             // Alias input
-            Label lblAlias = new Label { Left = 20, Top = 60, Text = "Alias Name:", Width = 100 };
+            Label lblAlias = new Label { Left = 20, Top = 60, Text = "别名名称:", Width = 100 };
             TextBox txtAlias = new TextBox
             {
                 Left = 130,
@@ -5907,13 +5916,13 @@ namespace Assistant
                 Top = 95,
                 Width = 290,
                 Height = 30,
-                Text = "Use 'findfound', 'enemy', or any custom alias",
+                Text = "可使用 'findfound'、'enemy' 或任意自定义别名",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             // Notoriety filter for Nearest/Farthest
-            Label lblNotoriety = new Label { Left = 20, Top = 60, Text = "Notoriety Filter:", Width = 100 };
+            Label lblNotoriety = new Label { Left = 20, Top = 60, Text = "声望过滤:", Width = 100 };
             ComboBox cmbNotoriety = new ComboBox
             {
                 Left = 130,
@@ -5937,7 +5946,7 @@ namespace Assistant
             cmbNotoriety.SelectedIndex = (int)notoriety;
 
             // By Type: Graphic input
-            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "Graphic (hex):", Width = 100 };
+            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "图形编号(十六进制):", Width = 100 };
             TextBox txtGraphic = new TextBox
             {
                 Left = 130,
@@ -5948,14 +5957,14 @@ namespace Assistant
 
             Button btnTargetType = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 58,
                 Width = 80
             };
 
             // By Type: Color input
-            Label lblColor = new Label { Left = 20, Top = 100, Text = "Color (-1 = any):", Width = 100 };
+            Label lblColor = new Label { Left = 20, Top = 100, Text = "颜色(-1 = 任意):", Width = 100 };
             TextBox txtColor = new TextBox
             {
                 Left = 130,
@@ -5965,7 +5974,7 @@ namespace Assistant
             };
 
             // By Type: Selector
-            Label lblSelector = new Label { Left = 20, Top = 140, Text = "Selector:", Width = 100 };
+            Label lblSelector = new Label { Left = 20, Top = 140, Text = "选择方式:", Width = 100 };
             ComboBox cmbSelector = new ComboBox
             {
                 Left = 130,
@@ -5973,12 +5982,13 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbSelector.Items.AddRange(new string[] { "Nearest", "Farthest", "Random" });
-            cmbSelector.SelectedItem = selector;
+            string[] selectorValues = { "Nearest", "Farthest", "Random" };
+            cmbSelector.Items.AddRange(new string[] { "最近", "最远", "随机" });
+            cmbSelector.SelectedIndex = Array.IndexOf(selectorValues, selector);
             if (cmbSelector.SelectedIndex == -1) cmbSelector.SelectedIndex = 0;
 
             // Range (for Nearest/Farthest/ByType)
-            Label lblRange = new Label { Left = 20, Top = 180, Text = "Range (-1 = any):", Width = 100 };
+            Label lblRange = new Label { Left = 20, Top = 180, Text = "范围(-1 = 任意):", Width = 100 };
             TextBox txtRange = new TextBox
             {
                 Left = 130,
@@ -6049,7 +6059,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 230,
                 Width = 90,
                 Top = 390,
@@ -6058,7 +6068,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 330,
                 Width = 90,
                 Top = 390,
@@ -6195,15 +6205,15 @@ namespace Assistant
                         {
                             if (!int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                             {
-                                MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                                    "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                                    "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Serial cannot be empty for Serial mode.",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("序列号模式下序列号不能为空。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
                         break;
@@ -6211,7 +6221,7 @@ namespace Assistant
                     case AttackAction.AttackMode.Alias:
                         if (string.IsNullOrWhiteSpace(txtAlias.Text))
                         {
-                            MessageBox.Show("Alias name cannot be empty.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("别名名称不能为空。", "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
                         newAliasName = txtAlias.Text.Trim().ToLower();
@@ -6221,7 +6231,7 @@ namespace Assistant
                     case AttackAction.AttackMode.Farthest:
                         if (!int.TryParse(txtRange.Text, out newRange))
                         {
-                            MessageBox.Show("Invalid range value.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("范围值无效。", "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
                         break;
@@ -6231,28 +6241,28 @@ namespace Assistant
                         string graphicStr = txtGraphic.Text.Replace("0x", "").Replace("0X", "").Trim();
                         if (string.IsNullOrEmpty(graphicStr) || !int.TryParse(graphicStr, System.Globalization.NumberStyles.HexNumber, null, out newGraphic))
                         {
-                            MessageBox.Show("Invalid graphic value. Please enter a hex value (e.g., 0x0001).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("图形编号无效。请输入十六进制值（例如 0x0001）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
 
                         // Parse color
                         if (!int.TryParse(txtColor.Text, out newColor))
                         {
-                            MessageBox.Show("Invalid color value. Please enter a number (-1 for any color).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("颜色值无效。请输入数字（-1 表示任意颜色）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
 
                         // Parse range
                         if (!int.TryParse(txtRange.Text, out newRange))
                         {
-                            MessageBox.Show("Invalid range value. Please enter a number (-1 for unlimited).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("范围值无效。请输入数字（-1 表示不限制）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, aliasName, notoriety, range, graphic, color, selector);
                         }
 
-                        newSelector = cmbSelector.SelectedItem.ToString();
+                        newSelector = selectorValues[cmbSelector.SelectedIndex];
                         break;
                 }
 
@@ -6371,7 +6381,7 @@ namespace Assistant
                 Width = 300,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Select Virtue",
+                Text = "选择美德",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
@@ -6381,7 +6391,7 @@ namespace Assistant
             {
                 Left = 20,
                 Top = 20,
-                Text = "Choose virtue:",
+                Text = "选择美德:",
                 Width = 250
             };
 
@@ -6398,7 +6408,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 110,
                 Width = 80,
                 Top = 90,
@@ -6407,7 +6417,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 200,
                 Width = 80,
                 Top = 90,
@@ -6451,7 +6461,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for milliseconds.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -6506,7 +6516,7 @@ namespace Assistant
                 {
                     MessageBox.Show(
                         "Please enter a valid positive number for milliseconds.",
-                        "Invalid Input",
+                        "输入无效",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
@@ -6543,7 +6553,7 @@ namespace Assistant
             {
                 MessageBox.Show(
                     "Please enter a valid positive number for milliseconds.",
-                    "Invalid Input",
+                    "输入无效",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
@@ -6682,7 +6692,7 @@ namespace Assistant
                 Width = 300,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Select Potion Type",
+                Text = "选择药水类型",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
@@ -6692,7 +6702,7 @@ namespace Assistant
             {
                 Left = 20,
                 Top = 20,
-                Text = "Choose potion type:",
+                Text = "选择药水类型:",
                 Width = 250
             };
 
@@ -6709,7 +6719,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 100,
                 Width = 80,
                 Top = 90,
@@ -6718,7 +6728,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 190,
                 Width = 80,
                 Top = 90,
@@ -7010,13 +7020,13 @@ namespace Assistant
                 Width = 420,
                 Height = 250,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Select Skill and Target",
+                Text = "选择技能和目标",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblSkill = new Label { Left = 20, Top = 20, Text = "Skill:", Width = 80 };
+            Label lblSkill = new Label { Left = 20, Top = 20, Text = "技能:", Width = 80 };
             ComboBox cmbSkill = new ComboBox
             {
                 Left = 110,
@@ -7030,7 +7040,7 @@ namespace Assistant
             if (cmbSkill.SelectedIndex == -1 && cmbSkill.Items.Count > 0)
                 cmbSkill.SelectedIndex = 0;
 
-            Label lblTarget = new Label { Left = 20, Top = 60, Text = "Target (serial/alias):", Width = 120 };
+            Label lblTarget = new Label { Left = 20, Top = 60, Text = "目标(序列号/别名):", Width = 120 };
             TextBox txtTarget = new TextBox
             {
                 Left = 150,
@@ -7041,7 +7051,7 @@ namespace Assistant
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 150,
                 Top = 90,
                 Width = 80
@@ -7067,13 +7077,13 @@ namespace Assistant
                 Top = 120,
                 Width = 230,
                 Height = 40,
-                Text = "Leave blank for no target.\nYou can use a serial (0x...) or an alias (e.g. 'findfound').",
+                Text = "留空表示无目标。\n可使用序列号(0x...)或别名（例如 'findfound'）。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Button btnOK = new Button { Text = "OK", Left = 180, Width = 80, Top = 170, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 270, Width = 80, Top = 170, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 180, Width = 80, Top = 170, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 270, Width = 80, Top = 170, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblSkill);
             dialog.Controls.Add(cmbSkill);
@@ -7195,13 +7205,13 @@ namespace Assistant
                 Width = 420,
                 Height = 250,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Select Spell and Target",
+                Text = "选择法术和目标",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblSpell = new Label { Left = 20, Top = 20, Text = "Spell:", Width = 80 };
+            Label lblSpell = new Label { Left = 20, Top = 20, Text = "法术:", Width = 80 };
             ComboBox cmbSpell = new ComboBox
             {
                 Left = 110,
@@ -7217,7 +7227,7 @@ namespace Assistant
             if (cmbSpell.SelectedIndex == -1 && cmbSpell.Items.Count > 0)
                 cmbSpell.SelectedIndex = 0;
 
-            Label lblTarget = new Label { Left = 20, Top = 60, Text = "Target (serial/alias):", Width = 120 };
+            Label lblTarget = new Label { Left = 20, Top = 60, Text = "目标(序列号/别名):", Width = 120 };
             TextBox txtTarget = new TextBox
             {
                 Left = 150,
@@ -7228,7 +7238,7 @@ namespace Assistant
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 150,
                 Top = 90,
                 Width = 80
@@ -7254,13 +7264,13 @@ namespace Assistant
                 Top = 120,
                 Width = 230,
                 Height = 40,
-                Text = "Leave blank for no target.\nYou can use a serial (0x...) or an alias (e.g. 'findfound').",
+                Text = "留空表示无目标。\n可使用序列号(0x...)或别名（例如 'findfound'）。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Button btnOK = new Button { Text = "OK", Left = 180, Width = 80, Top = 170, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 270, Width = 80, Top = 170, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 180, Width = 80, Top = 170, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 270, Width = 80, Top = 170, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblSpell);
             dialog.Controls.Add(cmbSpell);
@@ -7392,14 +7402,14 @@ namespace Assistant
                 Width = 450,
                 Height = 280,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Mount Action",
+                Text = "骑乘动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Mode selector
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Action Mode:", Width = 100 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "动作模式:", Width = 100 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 130,
@@ -7407,11 +7417,11 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Mount", "Dismount" });
+            cmbMode.Items.AddRange(new string[] { "骑乘", "下马" });
             cmbMode.SelectedIndex = shouldMount ? 0 : 1;
 
             // Mount Serial input
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Mount Serial (hex):", Width = 110 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "坐骑序列号(十六进制):", Width = 110 };
             TextBox txtSerial = new TextBox
             {
                 Left = 130,
@@ -7422,7 +7432,7 @@ namespace Assistant
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 58,
                 Width = 80
@@ -7434,7 +7444,7 @@ namespace Assistant
                 Top = 90,
                 Width = 290,
                 Height = 50,
-                Text = "Leave empty (0x00000000) to mount last used mount.\nOtherwise, specify mount serial (works with pets and ethereal mounts).",
+                Text = "留空(0x00000000)表示骑乘上次使用的坐骑。\n否则请指定坐骑序列号（适用于宠物和虚化坐骑）。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -7483,7 +7493,7 @@ namespace Assistant
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 230,
                 Width = 90,
                 Top = 190,
@@ -7492,7 +7502,7 @@ namespace Assistant
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 330,
                 Width = 90,
                 Top = 190,
@@ -7547,7 +7557,7 @@ namespace Assistant
                         if (!int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                         {
                             MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345) or leave empty for last mount.",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, shouldMount, mountSerial);
                         }
                     }
@@ -7681,14 +7691,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 500,
                 Height = 400,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Run Organizer Once",
+                Text = "运行整理器一次",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Organizer List Name
-            Label lblOrganizerName = new Label { Left = 20, Top = 20, Text = "Organizer List:", Width = 120 };
+            Label lblOrganizerName = new Label { Left = 20, Top = 20, Text = "整理器列表:", Width = 120 };
             ComboBox cmbOrganizerName = new ComboBox
             {
                 Left = 150,
@@ -7719,12 +7729,12 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Left = 150,
                 Top = 55,
                 Width = 310,
-                Text = "Use list defaults (bags and delay)",
+                Text = "使用列表默认设置（容器和延迟）",
                 Checked = (sourceBag == -1 && destinationBag == -1 && dragDelay == -1)
             };
 
             // Source Bag
-            Label lblSourceBag = new Label { Left = 20, Top = 95, Text = "Source Bag:", Width = 120 };
+            Label lblSourceBag = new Label { Left = 20, Top = 95, Text = "来源容器:", Width = 120 };
             TextBox txtSourceBag = new TextBox
             {
                 Left = 150,
@@ -7736,7 +7746,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetSource = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 380,
                 Top = 93,
                 Width = 80,
@@ -7744,7 +7754,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Destination Bag
-            Label lblDestBag = new Label { Left = 20, Top = 135, Text = "Destination Bag:", Width = 120 };
+            Label lblDestBag = new Label { Left = 20, Top = 135, Text = "目标容器:", Width = 120 };
             TextBox txtDestBag = new TextBox
             {
                 Left = 150,
@@ -7756,7 +7766,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetDest = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 380,
                 Top = 133,
                 Width = 80,
@@ -7764,7 +7774,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Drag Delay
-            Label lblDragDelay = new Label { Left = 20, Top = 175, Text = "Drag Delay (ms):", Width = 120 };
+            Label lblDragDelay = new Label { Left = 20, Top = 175, Text = "拖拽延迟(毫秒):", Width = 120 };
             TextBox txtDragDelay = new TextBox
             {
                 Left = 150,
@@ -7780,9 +7790,9 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 210,
                 Width = 310,
                 Height = 80,
-                Text = "Leave settings as default (-1) to use the organizer list's configured values.\n\n" +
-                       "Or specify custom values to override for this macro execution.\n\n" +
-                       "Macro will pause until organizer completes.",
+                Text = "保留默认值(-1)将使用整理器列表中的配置。\n\n" +
+                       "也可以指定自定义值，仅覆盖本次宏执行。\n\n" +
+                       "宏会暂停，直到整理器执行完成。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -7865,7 +7875,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 270,
                 Width = 90,
                 Top = 310,
@@ -7874,7 +7884,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 370,
                 Width = 90,
                 Top = 310,
@@ -7903,7 +7913,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 // Validate organizer list selection
                 if (cmbOrganizerName.SelectedItem == null)
                 {
-                    MessageBox.Show("Please select an organizer list.", "Invalid Input",
+                    MessageBox.Show("请选择整理器列表。", "输入无效",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, organizerName, sourceBag, destinationBag, dragDelay);
                 }
@@ -7924,7 +7934,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         {
                             if (!int.TryParse(sourceStr, System.Globalization.NumberStyles.HexNumber, null, out newSourceBag))
                             {
-                                MessageBox.Show("Invalid source bag serial.", "Invalid Input",
+                                MessageBox.Show("来源容器序列号无效。", "输入无效",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return (false, organizerName, sourceBag, destinationBag, dragDelay);
                             }
@@ -7939,7 +7949,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         {
                             if (!int.TryParse(destStr, System.Globalization.NumberStyles.HexNumber, null, out newDestBag))
                             {
-                                MessageBox.Show("Invalid destination bag serial.", "Invalid Input",
+                                MessageBox.Show("目标容器序列号无效。", "输入无效",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return (false, organizerName, sourceBag, destinationBag, dragDelay);
                             }
@@ -7951,8 +7961,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                     {
                         if (!int.TryParse(txtDragDelay.Text, out newDragDelay) || newDragDelay < 0)
                         {
-                            MessageBox.Show("Invalid drag delay. Please enter a positive number in milliseconds.",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("拖拽延迟无效。请输入正整数毫秒。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, organizerName, sourceBag, destinationBag, dragDelay);
                         }
                     }
@@ -8110,14 +8120,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 480,
                 Height = 500,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Target Configuration",
+                Text = "目标配置",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // === TARGET MODE SELECTOR (Top = 20) ===
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Target Mode:", Width = 100 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "目标模式:", Width = 100 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 130,
@@ -8125,11 +8135,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 310,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Serial", "Type", "Self", "Alias", "Location", "Last Target" });
+            cmbMode.Items.AddRange(new string[] { "序列号", "类型", "自己", "别名", "位置", "最后目标" });
             cmbMode.SelectedIndex = (int)mode;
 
             // === SERIAL MODE CONTROLS (Top = 60) ===
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Serial (hex):", Width = 100 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "序列号(十六进制):", Width = 100 };
             TextBox txtSerial = new TextBox
             {
                 Left = 130,
@@ -8140,7 +8150,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 58,
                 Width = 100
@@ -8152,13 +8162,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 90,
                 Width = 310,
                 Height = 30,
-                Text = "Target a specific entity by its serial number",
+                Text = "通过序列号指定目标实体",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             // === TYPE MODE CONTROLS (Top = 60) ===
-            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "Graphic (hex):", Width = 100 };
+            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "图形编号(十六进制):", Width = 100 };
             TextBox txtGraphic = new TextBox
             {
                 Left = 130,
@@ -8169,13 +8179,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetType = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 340,
                 Top = 58,
                 Width = 100
             };
 
-            Label lblColor = new Label { Left = 20, Top = 100, Text = "Color (-1 = any):", Width = 100 };
+            Label lblColor = new Label { Left = 20, Top = 100, Text = "颜色(-1 = 任意):", Width = 100 };
             TextBox txtColor = new TextBox
             {
                 Left = 130,
@@ -8184,7 +8194,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Text = color.ToString()
             };
 
-            Label lblSelector = new Label { Left = 20, Top = 140, Text = "Selector:", Width = 100 };
+            Label lblSelector = new Label { Left = 20, Top = 140, Text = "选择方式:", Width = 100 };
             ComboBox cmbSelector = new ComboBox
             {
                 Left = 130,
@@ -8192,8 +8202,9 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 310,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbSelector.Items.AddRange(new string[] { "Nearest", "Farthest", "Random" });
-            cmbSelector.SelectedItem = selector ?? "Nearest";
+            string[] selectorValues = { "Nearest", "Farthest", "Random" };
+            cmbSelector.Items.AddRange(new string[] { "最近", "最远", "随机" });
+            cmbSelector.SelectedIndex = Array.IndexOf(selectorValues, selector ?? "Nearest");
             if (cmbSelector.SelectedIndex == -1) cmbSelector.SelectedIndex = 0;
 
             Label lblTypeNote = new Label
@@ -8202,7 +8213,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 310,
                 Height = 40,
-                Text = "Target by item/mobile type. Selector chooses which matching entity to target.",
+                Text = "按物品/生物类型选择目标。选择方式决定使用哪个匹配实体。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -8214,13 +8225,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 310,
                 Height = 50,
-                Text = "Target yourself (the player character).\nNo additional configuration needed.",
+                Text = "以自己（玩家角色）为目标。\n无需额外配置。",
                 ForeColor = Color.DarkGreen,
                 Font = new Font(Control.DefaultFont, FontStyle.Bold)
             };
 
             // === ALIAS MODE CONTROLS (Top = 60) ===
-            Label lblAlias = new Label { Left = 20, Top = 60, Text = "Alias Name:", Width = 100 };
+            Label lblAlias = new Label { Left = 20, Top = 60, Text = "别名名称:", Width = 100 };
             TextBox txtAlias = new TextBox
             {
                 Left = 130,
@@ -8235,7 +8246,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 90,
                 Width = 310,
                 Height = 60,
-                Text = "Use 'findfound' (from Find condition), 'enemy', 'friend', or any custom alias.\n\nAlias must be set before this action executes.",
+                Text = "可使用 'findfound'（来自查找条件）、'enemy'、'friend' 或任意自定义别名。\n\n别名必须在此动作执行前设置。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -8247,14 +8258,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 310,
                 Height = 25,
-                Text = "Target specific coordinates (ground/tile)",
+                Text = "指定坐标（地面/格子）",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             Button btnTargetLocation = new Button
             {
-                Text = "Target Location",
+                Text = "选择位置",
                 Left = 130,
                 Top = 90,
                 Width = 310
@@ -8275,7 +8286,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 130,
                 Width = 190,
                 Height = 80,
-                Text = "Target a location to get coordinates, or manually enter X, Y, Z values.",
+                Text = "选择一个位置获取坐标，或手动输入 X、Y、Z。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -8287,7 +8298,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 310,
                 Height = 50,
-                Text = "Target the last entity you targeted.\nUses Target.Last() internally.",
+                Text = "以最后一次选择的实体为目标。\n内部使用 Target.Last()。",
                 ForeColor = Color.DarkBlue,
                 Font = new Font(Control.DefaultFont, FontStyle.Bold)
             };
@@ -8392,7 +8403,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             // === BUTTONS (Bottom of dialog) ===
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 250,
                 Width = 90,
                 Top = 420,
@@ -8401,7 +8412,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 350,
                 Width = 90,
                 Top = 420,
@@ -8556,14 +8567,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         string serialStr = txtSerial.Text.Replace("0x", "").Replace("0X", "").Trim();
                         if (string.IsNullOrEmpty(serialStr))
                         {
-                            MessageBox.Show("Serial cannot be empty for Serial mode.", "Invalid Input",
+                            MessageBox.Show("序列号模式下序列号不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         if (!int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                         {
-                            MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         break;
@@ -8572,23 +8583,23 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         string graphicStr = txtGraphic.Text.Replace("0x", "").Replace("0X", "").Trim();
                         if (string.IsNullOrEmpty(graphicStr))
                         {
-                            MessageBox.Show("Graphic cannot be empty for Type mode.", "Invalid Input",
+                            MessageBox.Show("类型模式下图形编号不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         if (!int.TryParse(graphicStr, System.Globalization.NumberStyles.HexNumber, null, out newGraphic))
                         {
-                            MessageBox.Show("Invalid graphic value. Please enter a hex value (e.g., 0x0E21).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("图形编号无效。请输入十六进制值（例如 0x0E21）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         if (!int.TryParse(txtColor.Text, out newColor))
                         {
-                            MessageBox.Show("Invalid color value. Please enter a number (-1 for any color).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("颜色值无效。请输入数字（-1 表示任意颜色）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
-                        newSelector = cmbSelector.SelectedItem.ToString();
+                        newSelector = selectorValues[cmbSelector.SelectedIndex];
                         break;
 
                     case TargetAction.TargetMode.Self:
@@ -8599,7 +8610,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                     case TargetAction.TargetMode.Alias:
                         if (string.IsNullOrWhiteSpace(txtAlias.Text))
                         {
-                            MessageBox.Show("Alias name cannot be empty.", "Invalid Input",
+                            MessageBox.Show("别名名称不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
@@ -8609,19 +8620,19 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                     case TargetAction.TargetMode.Location:
                         if (!int.TryParse(txtX.Text, out newX))
                         {
-                            MessageBox.Show("Invalid X coordinate.", "Invalid Input",
+                            MessageBox.Show("X 坐标无效。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         if (!int.TryParse(txtY.Text, out newY))
                         {
-                            MessageBox.Show("Invalid Y coordinate.", "Invalid Input",
+                            MessageBox.Show("Y 坐标无效。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
                         if (!int.TryParse(txtZ.Text, out newZ))
                         {
-                            MessageBox.Show("Invalid Z coordinate.", "Invalid Input",
+                            MessageBox.Show("Z 坐标无效。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName, x, y, z);
                         }
@@ -8766,14 +8777,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 480,
                 Height = 450,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Double Click Configuration",
+                Text = "双击配置",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // === DOUBLE CLICK MODE SELECTOR (Top = 20) ===
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Double Click Mode:", Width = 120 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "双击模式:", Width = 120 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 150,
@@ -8781,11 +8792,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Serial", "Type", "Self", "Alias", "Last Target" });
+            cmbMode.Items.AddRange(new string[] { "序列号", "类型", "自己", "别名", "最后目标" });
             cmbMode.SelectedIndex = (int)mode;
 
             // === SERIAL MODE CONTROLS (Top = 60) ===
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Serial (hex):", Width = 120 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "序列号(十六进制):", Width = 120 };
             TextBox txtSerial = new TextBox
             {
                 Left = 150,
@@ -8796,7 +8807,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 58,
                 Width = 100
@@ -8808,13 +8819,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 90,
                 Width = 290,
                 Height = 30,
-                Text = "Double-click a specific item or mobile by its serial",
+                Text = "通过序列号双击指定物品或生物",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             // === TYPE MODE CONTROLS (Top = 60) ===
-            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "Graphic (hex):", Width = 120 };
+            Label lblGraphic = new Label { Left = 20, Top = 60, Text = "图形编号(十六进制):", Width = 120 };
             TextBox txtGraphic = new TextBox
             {
                 Left = 150,
@@ -8825,13 +8836,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetType = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 58,
                 Width = 100
             };
 
-            Label lblColor = new Label { Left = 20, Top = 100, Text = "Color (-1 = any):", Width = 120 };
+            Label lblColor = new Label { Left = 20, Top = 100, Text = "颜色(-1 = 任意):", Width = 120 };
             TextBox txtColor = new TextBox
             {
                 Left = 150,
@@ -8840,7 +8851,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Text = color.ToString()
             };
 
-            Label lblSelector = new Label { Left = 20, Top = 140, Text = "Selector:", Width = 120 };
+            Label lblSelector = new Label { Left = 20, Top = 140, Text = "选择方式:", Width = 120 };
             ComboBox cmbSelector = new ComboBox
             {
                 Left = 150,
@@ -8848,8 +8859,9 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 310,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbSelector.Items.AddRange(new string[] { "Nearest", "Farthest", "Random" });
-            cmbSelector.SelectedItem = selector ?? "Nearest";
+            string[] selectorValues = { "Nearest", "Farthest", "Random" };
+            cmbSelector.Items.AddRange(new string[] { "最近", "最远", "随机" });
+            cmbSelector.SelectedIndex = Array.IndexOf(selectorValues, selector ?? "Nearest");
             if (cmbSelector.SelectedIndex == -1) cmbSelector.SelectedIndex = 0;
 
             Label lblTypeNote = new Label
@@ -8858,7 +8870,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 310,
                 Height = 40,
-                Text = "Double-click by item/mobile type. Selector chooses which matching entity to use.",
+                Text = "按物品/生物类型双击。选择方式决定使用哪个匹配实体。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -8870,13 +8882,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 310,
                 Height = 50,
-                Text = "Double-click yourself (opens paperdoll).\nNo additional configuration needed.",
+                Text = "双击自己（打开纸娃娃）。\n无需额外配置。",
                 ForeColor = Color.DarkGreen,
                 Font = new Font(Control.DefaultFont, FontStyle.Bold)
             };
 
             // === ALIAS MODE CONTROLS (Top = 60) ===
-            Label lblAlias = new Label { Left = 20, Top = 60, Text = "Alias Name:", Width = 120 };
+            Label lblAlias = new Label { Left = 20, Top = 60, Text = "别名名称:", Width = 120 };
             TextBox txtAlias = new TextBox
             {
                 Left = 150,
@@ -8891,7 +8903,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 90,
                 Width = 310,
                 Height = 60,
-                Text = "Use 'findfound' (from Find condition), or any custom alias.\n\nAlias must be set before this action executes.",
+                Text = "可使用 'findfound'（来自查找条件）或任意自定义别名。\n\n别名必须在此动作执行前设置。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -8903,7 +8915,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 310,
                 Height = 50,
-                Text = "Double-click the last entity you targeted.\nUses the 'last' alias internally.",
+                Text = "双击最后一次选择的实体。\n内部使用 'last' 别名。",
                 ForeColor = Color.DarkBlue,
                 Font = new Font(Control.DefaultFont, FontStyle.Bold)
             };
@@ -8992,7 +9004,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             // === BUTTONS (Bottom of dialog) ===
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 250,
                 Width = 90,
                 Top = 370,
@@ -9001,7 +9013,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 350,
                 Width = 90,
                 Top = 370,
@@ -9193,14 +9205,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         string serialStr = txtSerial.Text.Replace("0x", "").Replace("0X", "").Trim();
                         if (string.IsNullOrEmpty(serialStr))
                         {
-                            MessageBox.Show("Serial cannot be empty for Serial mode.", "Invalid Input",
+                            MessageBox.Show("序列号模式下序列号不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
                         if (!int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                         {
-                            MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
                         break;
@@ -9209,23 +9221,23 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                         string graphicStr = txtGraphic.Text.Replace("0x", "").Replace("0X", "").Trim();
                         if (string.IsNullOrEmpty(graphicStr))
                         {
-                            MessageBox.Show("Graphic cannot be empty for Type mode.", "Invalid Input",
+                            MessageBox.Show("类型模式下图形编号不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
                         if (!int.TryParse(graphicStr, System.Globalization.NumberStyles.HexNumber, null, out newGraphic))
                         {
-                            MessageBox.Show("Invalid graphic value. Please enter a hex value (e.g., 0x0E21).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("图形编号无效。请输入十六进制值（例如 0x0E21）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
                         if (!int.TryParse(txtColor.Text, out newColor))
                         {
-                            MessageBox.Show("Invalid color value. Please enter a number (-1 for any color).",
-                                "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("颜色值无效。请输入数字（-1 表示任意颜色）。",
+                                "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
-                        newSelector = cmbSelector.SelectedItem.ToString();
+                        newSelector = selectorValues[cmbSelector.SelectedIndex];
                         break;
 
                     case DoubleClickAction.DoubleClickMode.Self:
@@ -9236,7 +9248,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                     case DoubleClickAction.DoubleClickMode.Alias:
                         if (string.IsNullOrWhiteSpace(txtAlias.Text))
                         {
-                            MessageBox.Show("Alias name cannot be empty.", "Invalid Input",
+                            MessageBox.Show("别名名称不能为空。", "输入无效",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return (false, mode, serial, graphic, color, selector, aliasName);
                         }
@@ -9358,14 +9370,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 250,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Arm/Disarm Action",
+                Text = "装备/卸下动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Mode selector
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Mode:", Width = 80 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "模式:", Width = 80 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 110,
@@ -9373,11 +9385,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 120,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Arm", "Disarm" });
-            cmbMode.SelectedItem = string.IsNullOrEmpty(mode) ? "Arm" : mode;
+            string[] modeValues = { "Arm", "Disarm" };
+            cmbMode.Items.AddRange(new string[] { "装备", "卸下" });
+            cmbMode.SelectedIndex = Array.IndexOf(modeValues, string.IsNullOrEmpty(mode) ? "Arm" : mode);
+            if (cmbMode.SelectedIndex == -1) cmbMode.SelectedIndex = 0;
 
             // Serial input (only for Arm)
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Item Serial (hex):", Width = 120 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "物品序列号(十六进制):", Width = 120 };
             TextBox txtSerial = new TextBox
             {
                 Left = 150,
@@ -9388,7 +9402,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 150,
                 Top = 90,
                 Width = 80
@@ -9428,7 +9442,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Hand selector
-            Label lblHand = new Label { Left = 20, Top = 130, Text = "Hand:", Width = 120 };
+            Label lblHand = new Label { Left = 20, Top = 130, Text = "手部:", Width = 120 };
             ComboBox cmbHand = new ComboBox
             {
                 Left = 150,
@@ -9436,22 +9450,23 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 200,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
+            string[] handValues = { "Left", "Right", "Both" };
             // Default options
-            cmbHand.Items.AddRange(new string[] { "Left", "Right" });
-            cmbHand.SelectedItem = hand;
+            cmbHand.Items.AddRange(new string[] { "左手", "右手" });
+            cmbHand.SelectedIndex = Array.IndexOf(handValues, hand);
             if (cmbHand.SelectedIndex == -1) cmbHand.SelectedIndex = 1; // Default to Right
 
             // Update hand options based on mode
             void UpdateHandOptions()
             {
-                string selected = cmbHand.SelectedItem?.ToString() ?? "Right";
+                string selected = handValues[Math.Max(0, cmbHand.SelectedIndex)];
                 cmbHand.Items.Clear();
-                if (cmbMode.SelectedItem.ToString() == "Disarm")
-                    cmbHand.Items.AddRange(new string[] { "Left", "Right", "Both" });
+                if (modeValues[cmbMode.SelectedIndex] == "Disarm")
+                    cmbHand.Items.AddRange(new string[] { "左手", "右手", "双手" });
                 else
-                    cmbHand.Items.AddRange(new string[] { "Left", "Right" });
+                    cmbHand.Items.AddRange(new string[] { "左手", "右手" });
 
-                cmbHand.SelectedItem = selected;
+                cmbHand.SelectedIndex = Array.IndexOf(handValues, selected);
                 if (cmbHand.SelectedIndex == -1) cmbHand.SelectedIndex = 1;
             }
             cmbMode.SelectedIndexChanged += (s, ev) => UpdateHandOptions();
@@ -9460,7 +9475,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             // Enable/disable serial controls based on mode
             void UpdateSerialControls()
             {
-                bool isArm = cmbMode.SelectedItem.ToString() == "Arm";
+                bool isArm = modeValues[cmbMode.SelectedIndex] == "Arm";
                 lblSerial.Enabled = txtSerial.Enabled = btnTarget.Enabled = isArm;
             }
             cmbMode.SelectedIndexChanged += (s, ev) => UpdateSerialControls();
@@ -9468,7 +9483,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 150,
                 Width = 80,
                 Top = 180,
@@ -9477,7 +9492,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 240,
                 Width = 80,
                 Top = 180,
@@ -9498,19 +9513,19 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string newMode = cmbMode.SelectedItem.ToString();
+                string newMode = modeValues[cmbMode.SelectedIndex];
                 int newSerial = 0;
                 if (newMode == "Arm")
                 {
                     string serialStr = txtSerial.Text.Replace("0x", "").Replace("0X", "").Trim();
                     if (string.IsNullOrEmpty(serialStr) || !int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                     {
-                        MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                            "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                            "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return (false, newMode, serial, hand);
                     }
                 }
-                string newHand = cmbHand.SelectedItem?.ToString() ?? "Right";
+                string newHand = handValues[cmbHand.SelectedIndex];
                 return (true, newMode, newSerial, newHand);
             }
 
@@ -9629,13 +9644,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 290,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Use Context Menu Action",
+                Text = "使用上下文菜单动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblTarget = new Label { Left = 20, Top = 20, Text = "Target (serial/alias):", Width = 120 };
+            Label lblTarget = new Label { Left = 20, Top = 20, Text = "目标(序列号/别名):", Width = 120 };
             TextBox txtTarget = new TextBox
             {
                 Left = 150,
@@ -9646,7 +9661,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 150,
                 Top = 50,
                 Width = 80
@@ -9672,7 +9687,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 }));
             };
 
-            Label lblMenuIndex = new Label { Left = 20, Top = 90, Text = "Menu Index:", Width = 120 };
+            Label lblMenuIndex = new Label { Left = 20, Top = 90, Text = "菜单序号:", Width = 120 };
             TextBox txtMenuIndex = new TextBox
             {
                 Left = 150,
@@ -9681,7 +9696,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Text = menuIndex >= 0 ? menuIndex.ToString() : ""
             };
 
-            Label lblMenuName = new Label { Left = 20, Top = 130, Text = "Menu Name (optional):", Width = 120 };
+            Label lblMenuName = new Label { Left = 20, Top = 130, Text = "菜单名称(可选):", Width = 120 };
             TextBox txtMenuName = new TextBox
             {
                 Left = 150,
@@ -9696,12 +9711,12 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 370,
                 Height = 40,
-                Text = "If Menu Name is set, it will be used instead of Menu Index.\nYou can use a serial (0x...) or an alias (e.g. 'findfound')."
+                Text = "如果设置了菜单名称，将优先使用菜单名称而不是菜单序号。\n可使用序列号(0x...)或别名（例如 'findfound'）。"
             };
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 150,
                 Width = 80,
                 Top = 210,
@@ -9710,7 +9725,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 240,
                 Width = 80,
                 Top = 210,
@@ -9739,8 +9754,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 {
                     if (!int.TryParse(txtMenuIndex.Text, out newMenuIndex))
                     {
-                        MessageBox.Show("Invalid menu index. Please enter a number or specify a menu name.",
-                            "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("菜单序号无效。请输入数字或指定菜单名称。",
+                            "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return (false, targetSerialOrAlias, menuIndex, menuName);
                     }
                 }
@@ -9857,13 +9872,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 200,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Rename Mobile Action",
+                Text = "重命名生物动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblSerial = new Label { Left = 20, Top = 20, Text = "Mobile Serial (hex):", Width = 120 };
+            Label lblSerial = new Label { Left = 20, Top = 20, Text = "生物序列号(十六进制):", Width = 120 };
             TextBox txtSerial = new TextBox
             {
                 Left = 150,
@@ -9874,7 +9889,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 18,
                 Width = 40
@@ -9912,7 +9927,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 }));
             };
 
-            Label lblName = new Label { Left = 20, Top = 60, Text = "New Name:", Width = 120 };
+            Label lblName = new Label { Left = 20, Top = 60, Text = "新名称:", Width = 120 };
             TextBox txtName = new TextBox
             {
                 Left = 150,
@@ -9923,7 +9938,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 150,
                 Width = 80,
                 Top = 110,
@@ -9932,7 +9947,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 240,
                 Width = 80,
                 Top = 110,
@@ -9955,15 +9970,15 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 int newSerial = 0;
                 if (string.IsNullOrEmpty(serialStr) || !int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial))
                 {
-                    MessageBox.Show("Invalid serial value. Please enter a hex serial (e.g., 0x00012345).",
-                        "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("序列号无效。请输入十六进制序列号（例如 0x00012345）。",
+                        "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, serial, name);
                 }
 
                 string newName = txtName.Text.Trim();
                 if (string.IsNullOrEmpty(newName))
                 {
-                    MessageBox.Show("Name cannot be empty.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("名称不能为空。", "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, serial, name);
                 }
 
@@ -10372,14 +10387,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 500,
                 Height = 640,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Messaging Action",
+                Text = "消息动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Message Type
-            Label lblType = new Label { Left = 20, Top = 20, Text = "Message Type:", Width = 120 };
+            Label lblType = new Label { Left = 20, Top = 20, Text = "消息类型:", Width = 120 };
             ComboBox cmbType = new ComboBox
             {
                 Left = 150,
@@ -10387,11 +10402,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 300,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbType.Items.AddRange(Enum.GetNames(typeof(MessagingAction.MessageType)));
+            cmbType.Items.AddRange(new string[] { "说话", "大喊", "耳语", "表情", "头顶", "系统", "通用", "公会", "联盟", "队伍" });
             cmbType.SelectedIndex = (int)action.Type;
 
             // Message
-            Label lblMessage = new Label { Left = 20, Top = 60, Text = "Message:", Width = 120 };
+            Label lblMessage = new Label { Left = 20, Top = 60, Text = "消息:", Width = 120 };
             TextBox txtMessage = new TextBox
             {
                 Left = 150,
@@ -10401,7 +10416,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Hue
-            Label lblHue = new Label { Left = 20, Top = 100, Text = "Hue:", Width = 120 };
+            Label lblHue = new Label { Left = 20, Top = 100, Text = "色相:", Width = 120 };
             TextBox txtHue = new TextBox
             {
                 Left = 150,
@@ -10411,7 +10426,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // TargetSerialOrAlias (for Overhead)
-            Label lblTarget = new Label { Left = 20, Top = 140, Text = "Target (serial/alias):", Width = 120 };
+            Label lblTarget = new Label { Left = 20, Top = 140, Text = "目标(序列号/别名):", Width = 120 };
             TextBox txtTarget = new TextBox
             {
                 Left = 150,
@@ -10421,7 +10436,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTarget = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 390,
                 Top = 138,
                 Width = 60
@@ -10451,7 +10466,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 300,
                 Height = 40,
-                Text = "Leave blank for no target.\nYou can use a serial (0x...) or an alias (e.g. 'findfound').",
+                Text = "留空表示无目标。\n可使用序列号(0x...)或别名（例如 'findfound'）。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -10470,7 +10485,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             // OK/Cancel
             Button btnOK = new Button
             {
-                Text = "OK",
+                Text = "确定",
                 Left = 250,
                 Width = 90,
                 Top = 300,
@@ -10478,7 +10493,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnCancel = new Button
             {
-                Text = "Cancel",
+                Text = "取消",
                 Left = 350,
                 Width = 90,
                 Top = 300,
@@ -10610,13 +10625,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                     type != MessagingAction.MessageType.Emote &&
                     type != MessagingAction.MessageType.System)
                 {
-                    MessageBox.Show("Message cannot be empty.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("消息不能为空。", "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, type, action.Message, action.Hue, action.TargetSerialOrAlias);
                 }
 
                 if (type == MessagingAction.MessageType.Overhead && string.IsNullOrWhiteSpace(targetSerialOrAlias))
                 {
-                    MessageBox.Show("Target is required for Overhead messages.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("头顶消息必须指定目标。", "输入无效", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return (false, type, action.Message, action.Hue, action.TargetSerialOrAlias);
                 }
 
@@ -10711,14 +10726,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 450,
                 Height = 400,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Movement Action",
+                Text = "移动动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
             // Movement Type selector
-            Label lblType = new Label { Left = 20, Top = 20, Text = "Movement Type:", Width = 120 };
+            Label lblType = new Label { Left = 20, Top = 20, Text = "移动类型:", Width = 120 };
             ComboBox cmbType = new ComboBox
             {
                 Left = 150,
@@ -10726,11 +10741,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbType.Items.AddRange(Enum.GetNames(typeof(MovementAction.MovementType)));
+            cmbType.Items.AddRange(new string[] { "行走", "奔跑", "寻路" });
             cmbType.SelectedIndex = (int)action.Type;
 
             // Direction for Walk/Run
-            Label lblDirection = new Label { Left = 20, Top = 60, Text = "Direction:", Width = 120 };
+            Label lblDirection = new Label { Left = 20, Top = 60, Text = "方向:", Width = 120 };
             ComboBox cmbDirection = new ComboBox
             {
                 Left = 150,
@@ -10738,11 +10753,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbDirection.Items.AddRange(new string[] { "North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest" });
-            cmbDirection.SelectedItem = string.IsNullOrEmpty(action.Direction) ? "North" : action.Direction;
+            string[] directionValues = { "North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest" };
+            cmbDirection.Items.AddRange(new string[] { "北", "东北", "东", "东南", "南", "西南", "西", "西北" });
+            cmbDirection.SelectedIndex = Array.IndexOf(directionValues, string.IsNullOrEmpty(action.Direction) ? "North" : action.Direction);
+            if (cmbDirection.SelectedIndex == -1) cmbDirection.SelectedIndex = 0;
 
             // Pathfind fields (mirroring ShowPathfindToDialog)
-            Label lblMode = new Label { Left = 20, Top = 100, Text = "Pathfind Mode:", Width = 120 };
+            Label lblMode = new Label { Left = 20, Top = 100, Text = "寻路模式:", Width = 120 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 150,
@@ -10750,7 +10767,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(new string[] { "Coordinates", "Specific Serial", "Alias" });
+            cmbMode.Items.AddRange(new string[] { "坐标", "指定序列号", "别名" });
             cmbMode.SelectedIndex = (int)action.Mode;
 
             // Coordinates section
@@ -10760,14 +10777,14 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 135,
                 Width = 250,
                 Height = 25,
-                Text = "Set static coordinates to pathfind to",
+                Text = "设置要寻路到的固定坐标",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             Button btnTargetCoords = new Button
             {
-                Text = "Target Location/Entity",
+                Text = "选择位置/实体",
                 Left = 150,
                 Top = 165,
                 Width = 250
@@ -10781,7 +10798,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             TextBox txtZ = new TextBox { Left = 280, Top = 205, Width = 60, Text = action.Z.ToString() };
 
             // Serial section
-            Label lblSerial = new Label { Left = 20, Top = 140, Text = "Serial (hex):", Width = 120 };
+            Label lblSerial = new Label { Left = 20, Top = 140, Text = "序列号(十六进制):", Width = 120 };
             TextBox txtSerial = new TextBox
             {
                 Left = 150,
@@ -10792,7 +10809,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             Button btnTargetSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 350,
                 Top = 138,
                 Width = 80
@@ -10804,13 +10821,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 250,
                 Height = 40,
-                Text = "Pathfind to this entity's location at runtime\n(follows the entity if it moves)",
+                Text = "运行时寻路到该实体位置\n（实体移动时会跟随）",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             // Alias section
-            Label lblAlias = new Label { Left = 20, Top = 140, Text = "Alias Name:", Width = 120 };
+            Label lblAlias = new Label { Left = 20, Top = 140, Text = "别名名称:", Width = 120 };
             TextBox txtAlias = new TextBox
             {
                 Left = 150,
@@ -10825,7 +10842,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 170,
                 Width = 250,
                 Height = 50,
-                Text = "Use 'findfound' or custom alias.\nPathfind to the entity's current location at runtime.",
+                Text = "可使用 'findfound' 或自定义别名。\n运行时寻路到该实体当前位置。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
@@ -10885,8 +10902,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 }));
             };
 
-            Button btnOK = new Button { Text = "OK", Left = 200, Width = 80, Top = 320, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 80, Top = 320, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 320, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 320, DialogResult = DialogResult.Cancel };
 
             // Visibility logic
             void UpdateVisibility()
@@ -11051,7 +11068,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 var type = (MovementAction.MovementType)cmbType.SelectedIndex;
                 if (type == MovementAction.MovementType.Walk || type == MovementAction.MovementType.Run)
                 {
-                    string dir = cmbDirection.SelectedItem?.ToString() ?? "North";
+                    string dir = directionValues[cmbDirection.SelectedIndex];
                     return (true, new MovementAction(type, dir));
                 }
                 else if (type == MovementAction.MovementType.Pathfind)
@@ -11165,13 +11182,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 260,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Bandage Action",
+                Text = "绷带动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblMode = new Label { Left = 20, Top = 20, Text = "Target Mode:", Width = 100 };
+            Label lblMode = new Label { Left = 20, Top = 20, Text = "目标模式:", Width = 100 };
             ComboBox cmbMode = new ComboBox
             {
                 Left = 130,
@@ -11179,7 +11196,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 250,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbMode.Items.AddRange(Enum.GetNames(typeof(BandageAction.BandageTargetMode)));
+            cmbMode.Items.AddRange(new string[] { "自己", "序列号", "别名" });
             cmbMode.SelectedIndex = (int)action.TargetMode;
 
             // Self mode
@@ -11189,13 +11206,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 60,
                 Width = 250,
                 Height = 40,
-                Text = "Bandage yourself (uses BandageHeal agent settings if enabled).",
+                Text = "给自己打绷带（如启用，将使用绷带治疗代理设置）。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
             // Serial mode
-            Label lblSerial = new Label { Left = 20, Top = 60, Text = "Target Serial (hex):", Width = 100 };
+            Label lblSerial = new Label { Left = 20, Top = 60, Text = "目标序列号(十六进制):", Width = 100 };
             TextBox txtSerial = new TextBox
             {
                 Left = 130,
@@ -11205,7 +11222,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetSerial = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 300,
                 Top = 58,
                 Width = 80
@@ -11233,7 +11250,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Alias mode
-            Label lblAlias = new Label { Left = 20, Top = 60, Text = "Alias Name:", Width = 100 };
+            Label lblAlias = new Label { Left = 20, Top = 60, Text = "别名名称:", Width = 100 };
             TextBox txtAlias = new TextBox
             {
                 Left = 130,
@@ -11247,13 +11264,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 90,
                 Width = 250,
                 Height = 40,
-                Text = "Use 'findfound' or any custom alias.",
+                Text = "可使用 'findfound' 或任意自定义别名。",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Button btnOK = new Button { Text = "OK", Left = 200, Width = 80, Top = 180, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 80, Top = 180, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 180, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 180, DialogResult = DialogResult.Cancel };
 
 
             // Visibility logic
@@ -11420,13 +11437,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 260,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Target Resource Action",
+                Text = "目标资源动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblToolType = new Label { Left = 20, Top = 20, Text = "Tool Type (hex):", Width = 110 };
+            Label lblToolType = new Label { Left = 20, Top = 20, Text = "工具类型(十六进制):", Width = 110 };
             TextBox txtToolType = new TextBox
             {
                 Left = 130,
@@ -11436,13 +11453,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetTool = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 260,
                 Top = 18,
                 Width = 80
             };
 
-            Label lblToolColor = new Label { Left = 20, Top = 60, Text = "Tool Color (-1 = any):", Width = 110 };
+            Label lblToolColor = new Label { Left = 20, Top = 60, Text = "工具颜色(-1 = 任意):", Width = 110 };
             TextBox txtToolColor = new TextBox
             {
                 Left = 130,
@@ -11451,7 +11468,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Text = action.ToolColor.ToString()
             };
 
-            Label lblResource = new Label { Left = 20, Top = 100, Text = "Resource:", Width = 110 };
+            Label lblResource = new Label { Left = 20, Top = 100, Text = "资源:", Width = 110 };
             ComboBox cmbResource = new ComboBox
             {
                 Left = 130,
@@ -11460,8 +11477,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
 
-            Button btnOK = new Button { Text = "OK", Left = 200, Width = 80, Top = 190, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 80, Top = 190, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 190, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 190, DialogResult = DialogResult.Cancel };
 
 
             btnTargetTool.Click += (s, ev) =>
@@ -11503,7 +11520,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             else
                 cmbResource.SelectedIndex = cmbResource.Items.Count - 1;
 
-            Label lblResourceNum = new Label { Left = 20, Top = 140, Text = "Resource Number:", Width = 110 };
+            Label lblResourceNum = new Label { Left = 20, Top = 140, Text = "资源编号:", Width = 110 };
             TextBox txtResourceNum = new TextBox
             {
                 Left = 130,
@@ -11653,13 +11670,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 350,
                 Height = 180,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Set Ability Action",
+                Text = "设置能力动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblAbility = new Label { Left = 20, Top = 30, Text = "Ability:", Width = 80 };
+            Label lblAbility = new Label { Left = 20, Top = 30, Text = "能力:", Width = 80 };
             ComboBox cmbAbility = new ComboBox
             {
                 Left = 110,
@@ -11667,12 +11684,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 200,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbAbility.Items.AddRange(new string[] { "Primary", "Secondary", "Stun", "Disarm", "Clear" });
-            cmbAbility.SelectedItem = currentAbility;
+            string[] abilityValues = { "Primary", "Secondary", "Stun", "Disarm", "Clear" };
+            cmbAbility.Items.AddRange(new string[] { "主能力", "副能力", "击晕", "缴械", "清除" });
+            cmbAbility.SelectedIndex = Array.IndexOf(abilityValues, currentAbility);
             if (cmbAbility.SelectedIndex == -1) cmbAbility.SelectedIndex = 0;
 
-            Button btnOK = new Button { Text = "OK", Left = 110, Width = 80, Top = 80, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 200, Width = 80, Top = 80, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 110, Width = 80, Top = 80, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 200, Width = 80, Top = 80, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblAbility);
             dialog.Controls.Add(cmbAbility);
@@ -11683,7 +11701,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                string ability = cmbAbility.SelectedItem.ToString();
+                string ability = abilityValues[cmbAbility.SelectedIndex];
                 return (true, ability);
             }
             return (false, currentAbility);
@@ -11775,20 +11793,20 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 400,
                 Height = 200,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Prompt Response",
+                Text = "提示响应",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblResponse = new Label { Left = 20, Top = 20, Text = "Response Text:", Width = 100 };
+            Label lblResponse = new Label { Left = 20, Top = 20, Text = "响应文本:", Width = 100 };
             TextBox txtResponse = new TextBox { Left = 130, Top = 20, Width = 220, Text = response ?? "" };
 
-            Label lblTimeout = new Label { Left = 20, Top = 60, Text = "Timeout (ms):", Width = 100 };
+            Label lblTimeout = new Label { Left = 20, Top = 60, Text = "超时(毫秒):", Width = 100 };
             TextBox txtTimeout = new TextBox { Left = 130, Top = 60, Width = 100, Text = timeout.ToString() };
 
-            Button btnOK = new Button { Text = "OK", Left = 180, Width = 80, Top = 110, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 270, Width = 80, Top = 110, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 180, Width = 80, Top = 110, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 270, Width = 80, Top = 110, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblResponse);
             dialog.Controls.Add(txtResponse);
@@ -11884,21 +11902,21 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 400,
                 Height = 200,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Wait For Gump",
+                Text = "等待界面",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
 
-            Label lblGumpId = new Label { Left = 20, Top = 20, Text = "Gump ID (0 = any):", Width = 120 };
+            Label lblGumpId = new Label { Left = 20, Top = 20, Text = "界面 ID (0 = 任意):", Width = 120 };
             TextBox txtGumpId = new TextBox { Left = 150, Top = 20, Width = 100, Text = gumpId.ToString() };
 
-            Label lblTimeout = new Label { Left = 20, Top = 60, Text = "Timeout (ms):", Width = 120 };
+            Label lblTimeout = new Label { Left = 20, Top = 60, Text = "超时(毫秒):", Width = 120 };
             TextBox txtTimeout = new TextBox { Left = 150, Top = 60, Width = 100, Text = timeout.ToString() };
 
-            Button btnOK = new Button { Text = "OK", Left = 180, Width = 80, Top = 110, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 270, Width = 80, Top = 110, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 180, Width = 80, Top = 110, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 270, Width = 80, Top = 110, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblGumpId);
             dialog.Controls.Add(txtGumpId);
@@ -12001,30 +12019,30 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 500,
                 Height = 350,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Gump Response",
+                Text = "界面响应",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblGumpId = new Label { Left = 20, Top = 20, Text = "Gump ID (-1 = any):", Width = 150 };
+            Label lblGumpId = new Label { Left = 20, Top = 20, Text = "界面 ID (-1 = 任意):", Width = 150 };
             TextBox txtGumpId = new TextBox { Left = 180, Top = 20, Width = 100, Text = gumpId == 0 ? "-1" : gumpId.ToString() };
             //TextBox txtGumpId = new TextBox { Left = 180, Top = 20, Width = 100, Text = gumpId == 0 ? "-1" : $"0x{gumpId:X8}" };
 
-            Label lblButtonId = new Label { Left = 20, Top = 60, Text = "Button ID:", Width = 150 };
+            Label lblButtonId = new Label { Left = 20, Top = 60, Text = "按钮 ID:", Width = 150 };
             TextBox txtButtonId = new TextBox { Left = 180, Top = 60, Width = 100, Text = buttonId.ToString() };
 
-            Label lblSwitches = new Label { Left = 20, Top = 100, Text = "Switches (comma):", Width = 150 };
+            Label lblSwitches = new Label { Left = 20, Top = 100, Text = "开关(逗号分隔):", Width = 150 };
             TextBox txtSwitches = new TextBox { Left = 180, Top = 100, Width = 280, Text = string.Join(",", switches ?? new List<int>()) };
 
-            Label lblTextIds = new Label { Left = 20, Top = 140, Text = "Text IDs (comma):", Width = 150 };
+            Label lblTextIds = new Label { Left = 20, Top = 140, Text = "文本 ID(逗号分隔):", Width = 150 };
             TextBox txtTextIds = new TextBox { Left = 180, Top = 140, Width = 280, Text = string.Join(",", textIds ?? new List<int>()) };
 
-            Label lblTextEntries = new Label { Left = 20, Top = 180, Text = "Text Entries (one per line):", Width = 150 };
+            Label lblTextEntries = new Label { Left = 20, Top = 180, Text = "文本输入(每行一个):", Width = 150 };
             TextBox txtTextEntries = new TextBox { Left = 180, Top = 180, Width = 280, Height = 60, Multiline = true, ScrollBars = ScrollBars.Vertical, Text = string.Join(Environment.NewLine, textEntries ?? new List<string>()) };
 
-            Button btnOK = new Button { Text = "OK", Left = 280, Width = 80, Top = 270, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 370, Width = 80, Top = 270, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 280, Width = 80, Top = 270, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 370, Width = 80, Top = 270, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblGumpId);
             dialog.Controls.Add(txtGumpId);
@@ -12149,13 +12167,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 520,
                 Height = 370,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Move Item",
+                Text = "移动物品",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblTargetType = new Label { Left = 20, Top = 20, Text = "Target Type:", Width = 100 };
+            Label lblTargetType = new Label { Left = 20, Top = 20, Text = "目标类型:", Width = 100 };
             ComboBox cmbTargetType = new ComboBox
             {
                 Left = 130,
@@ -12163,10 +12181,10 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 160,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbTargetType.Items.AddRange(new string[] { "Entity (Container/Mobile)", "Ground" });
+            cmbTargetType.Items.AddRange(new string[] { "实体（容器/生物）", "地面" });
             cmbTargetType.SelectedIndex = (int)action.TargetType;
 
-            Label lblItemSerial = new Label { Left = 20, Top = 60, Text = "Item Serial/Alias:", Width = 120 };
+            Label lblItemSerial = new Label { Left = 20, Top = 60, Text = "物品序列号/别名:", Width = 120 };
             TextBox txtItemSerial = new TextBox
             {
                 Left = 150,
@@ -12176,7 +12194,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetItem = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 58,
                 Width = 80
@@ -12187,12 +12205,12 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 85,
                 Width = 300,
                 Height = 20,
-                Text = "Serial (0x...) or alias (e.g. 'findfound')",
+                Text = "序列号(0x...)或别名（例如 'findfound'）",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Label lblAmount = new Label { Left = 20, Top = 110, Text = "Amount (-1 = all):", Width = 120 };
+            Label lblAmount = new Label { Left = 20, Top = 110, Text = "数量(-1 = 全部):", Width = 120 };
             TextBox txtAmount = new TextBox
             {
                 Left = 150,
@@ -12202,7 +12220,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Entity fields
-            Label lblTargetSerial = new Label { Left = 20, Top = 150, Text = "Target Serial/Alias:", Width = 120 };
+            Label lblTargetSerial = new Label { Left = 20, Top = 150, Text = "目标序列号/别名:", Width = 120 };
             TextBox txtTargetSerial = new TextBox
             {
                 Left = 150,
@@ -12212,7 +12230,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetEntity = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 148,
                 Width = 80
@@ -12223,12 +12241,12 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Top = 175,
                 Width = 300,
                 Height = 20,
-                Text = "Serial (0x...) or alias (e.g. 'backpack')",
+                Text = "序列号(0x...)或别名（例如 'backpack'）",
                 ForeColor = Color.Gray,
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Label lblX = new Label { Left = 20, Top = 200, Text = "X (container/ground):", Width = 120 };
+            Label lblX = new Label { Left = 20, Top = 200, Text = "X(容器/地面):", Width = 120 };
             TextBox txtX = new TextBox
             {
                 Left = 150,
@@ -12237,7 +12255,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Text = action.X.ToString()
             };
 
-            Label lblY = new Label { Left = 220, Top = 200, Text = "Y (container/ground):", Width = 120 };
+            Label lblY = new Label { Left = 220, Top = 200, Text = "Y(容器/地面):", Width = 120 };
             TextBox txtY = new TextBox
             {
                 Left = 340,
@@ -12247,7 +12265,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
 
             // Ground only
-            Label lblZ = new Label { Left = 20, Top = 240, Text = "Z (ground only):", Width = 120 };
+            Label lblZ = new Label { Left = 20, Top = 240, Text = "Z(仅地面):", Width = 120 };
             TextBox txtZ = new TextBox
             {
                 Left = 150,
@@ -12296,8 +12314,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             cmbTargetType.SelectedIndexChanged += (s, ev) => UpdateVisibility();
             UpdateVisibility();
 
-            Button btnOK = new Button { Text = "OK", Left = 200, Width = 80, Top = 290, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 80, Top = 290, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 290, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 290, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblTargetType);
             dialog.Controls.Add(cmbTargetType);
@@ -12464,13 +12482,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Width = 420,
                 Height = 300,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
-                Text = "Drop Action",
+                Text = "丢弃动作",
                 StartPosition = FormStartPosition.CenterScreen,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblSerial = new Label { Left = 20, Top = 20, Text = "Item Serial (hex):", Width = 120 };
+            Label lblSerial = new Label { Left = 20, Top = 20, Text = "物品序列号(十六进制):", Width = 120 };
             TextBox txtSerial = new TextBox
             {
                 Left = 150,
@@ -12480,7 +12498,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetItem = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 360,
                 Top = 18,
                 Width = 40
@@ -12500,7 +12518,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 }));
             };
 
-            Label lblContainer = new Label { Left = 20, Top = 60, Text = "Container Serial (hex, 0xFFFFFFFF = ground):", Width = 250 };
+            Label lblContainer = new Label { Left = 20, Top = 60, Text = "容器序列号(十六进制，0xFFFFFFFF = 地面):", Width = 250 };
             TextBox txtContainer = new TextBox
             {
                 Left = 270,
@@ -12510,7 +12528,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             };
             Button btnTargetContainer = new Button
             {
-                Text = "Target",
+                Text = "目标",
                 Left = 400,
                 Top = 58,
                 Width = 40
@@ -12539,8 +12557,8 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             Label lblZ = new Label { Left = 260, Top = 100, Text = "Z:", Width = 30 };
             TextBox txtZ = new TextBox { Left = 300, Top = 100, Width = 60, Text = z.ToString() };
 
-            Button btnOK = new Button { Text = "OK", Left = 200, Width = 80, Top = 180, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 80, Top = 180, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 180, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 180, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblSerial);
             dialog.Controls.Add(txtSerial);
