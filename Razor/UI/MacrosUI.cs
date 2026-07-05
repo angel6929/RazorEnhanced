@@ -721,15 +721,27 @@ namespace Assistant
                 else if (action is RazorEnhanced.Macros.Actions.MoveItemAction moveItemAction)
                 {
                     string details;
+                    string sourceDisplay;
+                    if (moveItemAction.SourceType == MoveItemAction.MoveSourceType.Type)
+                    {
+                        string colorDisplay = moveItemAction.ItemColor == -1 ? "任意" : $"0x{moveItemAction.ItemColor:X4}";
+                        string containerDisplay = string.IsNullOrWhiteSpace(moveItemAction.SourceContainerSerialOrAlias) ? "背包" : moveItemAction.SourceContainerSerialOrAlias;
+                        sourceDisplay = $"类型: 0x{moveItemAction.ItemGraphic:X4}, 颜色: {colorDisplay}, 来源: {containerDisplay}";
+                    }
+                    else
+                    {
+                        sourceDisplay = $"物品: {moveItemAction.ItemSerialOrAlias}";
+                    }
+
                     if (moveItemAction.TargetType == MoveItemAction.MoveTargetType.Entity)
                     {
-                        details = $"Item: {moveItemAction.ItemSerialOrAlias} → Target: {moveItemAction.TargetSerialOrAlias}, Amount: {moveItemAction.Amount}";
+                        details = $"{sourceDisplay} → 目标: {moveItemAction.TargetSerialOrAlias}, 数量: {moveItemAction.Amount}";
                         if (moveItemAction.X > 0 || moveItemAction.Y > 0)
                             details += $" @ ({moveItemAction.X},{moveItemAction.Y})";
                     }
                     else
                     {
-                        details = $"Item: {moveItemAction.ItemSerialOrAlias} → Ground ({moveItemAction.X},{moveItemAction.Y},{moveItemAction.Z}), Amount: {moveItemAction.Amount}";
+                        details = $"{sourceDisplay} → 地面 ({moveItemAction.X},{moveItemAction.Y},{moveItemAction.Z}), 数量: {moveItemAction.Amount}";
                     }
                     item.SubItems.Add(details);
                     item.ForeColor = Color.SaddleBrown;
@@ -12165,7 +12177,7 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             Form dialog = new Form
             {
                 Width = 520,
-                Height = 370,
+                Height = 470,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = "移动物品",
                 StartPosition = FormStartPosition.CenterScreen,
@@ -12184,11 +12196,22 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             cmbTargetType.Items.AddRange(new string[] { "实体（容器/生物）", "地面" });
             cmbTargetType.SelectedIndex = (int)action.TargetType;
 
-            Label lblItemSerial = new Label { Left = 20, Top = 60, Text = "物品序列号/别名:", Width = 120 };
+            Label lblSourceType = new Label { Left = 20, Top = 60, Text = "物品来源:", Width = 100 };
+            ComboBox cmbSourceType = new ComboBox
+            {
+                Left = 130,
+                Top = 60,
+                Width = 160,
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            cmbSourceType.Items.AddRange(new string[] { "序列号/别名", "类型" });
+            cmbSourceType.SelectedIndex = (int)action.SourceType;
+
+            Label lblItemSerial = new Label { Left = 20, Top = 100, Text = "物品序列号/别名:", Width = 120 };
             TextBox txtItemSerial = new TextBox
             {
                 Left = 150,
-                Top = 60,
+                Top = 100,
                 Width = 200,
                 Text = action.ItemSerialOrAlias ?? ""
             };
@@ -12196,13 +12219,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             {
                 Text = "目标",
                 Left = 360,
-                Top = 58,
+                Top = 98,
                 Width = 80
             };
             Label lblItemHint = new Label
             {
                 Left = 150,
-                Top = 85,
+                Top = 125,
                 Width = 300,
                 Height = 20,
                 Text = "序列号(0x...)或别名（例如 'findfound'）",
@@ -12210,21 +12233,70 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Label lblAmount = new Label { Left = 20, Top = 110, Text = "数量(-1 = 全部):", Width = 120 };
+            Label lblItemGraphic = new Label { Left = 20, Top = 100, Text = "物品类型:", Width = 120 };
+            TextBox txtItemGraphic = new TextBox
+            {
+                Left = 150,
+                Top = 100,
+                Width = 120,
+                Text = action.ItemGraphic == 0 ? "" : $"0x{action.ItemGraphic:X4}"
+            };
+            Button btnTargetType = new Button
+            {
+                Text = "取类型",
+                Left = 280,
+                Top = 98,
+                Width = 80
+            };
+            Label lblItemColor = new Label { Left = 20, Top = 140, Text = "颜色(-1 = 任意):", Width = 120 };
+            TextBox txtItemColor = new TextBox
+            {
+                Left = 150,
+                Top = 140,
+                Width = 120,
+                Text = action.ItemColor.ToString()
+            };
+            Label lblSourceContainer = new Label { Left = 20, Top = 180, Text = "来源容器:", Width = 120 };
+            TextBox txtSourceContainer = new TextBox
+            {
+                Left = 150,
+                Top = 180,
+                Width = 200,
+                Text = action.SourceContainerSerialOrAlias ?? ""
+            };
+            Button btnTargetSourceContainer = new Button
+            {
+                Text = "目标",
+                Left = 360,
+                Top = 178,
+                Width = 80
+            };
+            Label lblSourceHint = new Label
+            {
+                Left = 150,
+                Top = 205,
+                Width = 330,
+                Height = 20,
+                Text = "留空表示背包；-1/world 表示全世界；也可填容器别名",
+                ForeColor = Color.Gray,
+                Font = new Font(Control.DefaultFont, FontStyle.Italic)
+            };
+
+            Label lblAmount = new Label { Left = 20, Top = 230, Text = "数量(-1 = 全部):", Width = 120 };
             TextBox txtAmount = new TextBox
             {
                 Left = 150,
-                Top = 110,
+                Top = 230,
                 Width = 120,
                 Text = action.Amount.ToString()
             };
 
             // Entity fields
-            Label lblTargetSerial = new Label { Left = 20, Top = 150, Text = "目标序列号/别名:", Width = 120 };
+            Label lblTargetSerial = new Label { Left = 20, Top = 270, Text = "目标序列号/别名:", Width = 120 };
             TextBox txtTargetSerial = new TextBox
             {
                 Left = 150,
-                Top = 150,
+                Top = 270,
                 Width = 200,
                 Text = action.TargetSerialOrAlias ?? ""
             };
@@ -12232,13 +12304,13 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             {
                 Text = "目标",
                 Left = 360,
-                Top = 148,
+                Top = 268,
                 Width = 80
             };
             Label lblTargetHint = new Label
             {
                 Left = 150,
-                Top = 175,
+                Top = 295,
                 Width = 300,
                 Height = 20,
                 Text = "序列号(0x...)或别名（例如 'backpack'）",
@@ -12246,37 +12318,37 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 Font = new Font(Control.DefaultFont, FontStyle.Italic)
             };
 
-            Label lblX = new Label { Left = 20, Top = 200, Text = "X(容器/地面):", Width = 120 };
+            Label lblX = new Label { Left = 20, Top = 320, Text = "X(容器/地面):", Width = 120 };
             TextBox txtX = new TextBox
             {
                 Left = 150,
-                Top = 200,
+                Top = 320,
                 Width = 60,
                 Text = action.X.ToString()
             };
 
-            Label lblY = new Label { Left = 220, Top = 200, Text = "Y(容器/地面):", Width = 120 };
+            Label lblY = new Label { Left = 220, Top = 320, Text = "Y(容器/地面):", Width = 120 };
             TextBox txtY = new TextBox
             {
                 Left = 340,
-                Top = 200,
+                Top = 320,
                 Width = 60,
                 Text = action.Y.ToString()
             };
 
             // Ground only
-            Label lblZ = new Label { Left = 20, Top = 240, Text = "Z(仅地面):", Width = 120 };
+            Label lblZ = new Label { Left = 20, Top = 360, Text = "Z(仅地面):", Width = 120 };
             TextBox txtZ = new TextBox
             {
                 Left = 150,
-                Top = 240,
+                Top = 360,
                 Width = 60,
                 Text = action.Z.ToString()
             };
 
             btnTargetItem.Click += (s, ev) =>
             {
-                Misc.SendMessage("Target an item to move...", 88);
+                Misc.SendMessage("请选择要移动的物品...", 88);
                 Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial serial, Assistant.Point3D p, ushort gfx) =>
                 {
                     if (serial.IsValid && serial != 0)
@@ -12289,9 +12361,48 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 }));
             };
 
+            btnTargetType.Click += (s, ev) =>
+            {
+                Misc.SendMessage("请选择一个物品以读取类型和颜色...", 88);
+                Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial serial, Assistant.Point3D p, ushort gfx) =>
+                {
+                    if (serial.IsValid && serial != 0)
+                    {
+                        dialog.Invoke(new Action(() =>
+                        {
+                            var item = Items.FindBySerial((int)serial);
+                            if (item != null)
+                            {
+                                txtItemGraphic.Text = $"0x{item.ItemID:X4}";
+                                txtItemColor.Text = "-1";
+                            }
+                            else if (gfx != 0)
+                            {
+                                txtItemGraphic.Text = $"0x{gfx:X4}";
+                            }
+                        }));
+                    }
+                }));
+            };
+
+            btnTargetSourceContainer.Click += (s, ev) =>
+            {
+                Misc.SendMessage("请选择来源容器...", 88);
+                Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial serial, Assistant.Point3D p, ushort gfx) =>
+                {
+                    if (serial.IsValid && serial != 0)
+                    {
+                        dialog.Invoke(new Action(() =>
+                        {
+                            txtSourceContainer.Text = $"0x{(int)serial:X8}";
+                        }));
+                    }
+                }));
+            };
+
             btnTargetEntity.Click += (s, ev) =>
             {
-                Misc.SendMessage("Target a container or mobile...", 88);
+                Misc.SendMessage("请选择目标容器或生物...", 88);
                 Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial serial, Assistant.Point3D p, ushort gfx) =>
                 {
                     if (serial.IsValid && serial != 0)
@@ -12307,22 +12418,39 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             void UpdateVisibility()
             {
                 bool isEntity = cmbTargetType.SelectedIndex == 0;
+                bool isTypeSource = cmbSourceType.SelectedIndex == (int)MoveItemAction.MoveSourceType.Type;
+                lblItemSerial.Visible = txtItemSerial.Visible = btnTargetItem.Visible = lblItemHint.Visible = !isTypeSource;
+                lblItemGraphic.Visible = txtItemGraphic.Visible = btnTargetType.Visible = isTypeSource;
+                lblItemColor.Visible = txtItemColor.Visible = isTypeSource;
+                lblSourceContainer.Visible = txtSourceContainer.Visible = btnTargetSourceContainer.Visible = lblSourceHint.Visible = isTypeSource;
                 lblTargetSerial.Visible = txtTargetSerial.Visible = btnTargetEntity.Visible = lblTargetHint.Visible = isEntity;
                 lblX.Visible = txtX.Visible = lblY.Visible = txtY.Visible = true;
                 lblZ.Visible = txtZ.Visible = !isEntity;
             }
             cmbTargetType.SelectedIndexChanged += (s, ev) => UpdateVisibility();
+            cmbSourceType.SelectedIndexChanged += (s, ev) => UpdateVisibility();
             UpdateVisibility();
 
-            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 290, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 290, DialogResult = DialogResult.Cancel };
+            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 390, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 390, DialogResult = DialogResult.Cancel };
 
             dialog.Controls.Add(lblTargetType);
             dialog.Controls.Add(cmbTargetType);
+            dialog.Controls.Add(lblSourceType);
+            dialog.Controls.Add(cmbSourceType);
             dialog.Controls.Add(lblItemSerial);
             dialog.Controls.Add(txtItemSerial);
             dialog.Controls.Add(btnTargetItem);
             dialog.Controls.Add(lblItemHint);
+            dialog.Controls.Add(lblItemGraphic);
+            dialog.Controls.Add(txtItemGraphic);
+            dialog.Controls.Add(btnTargetType);
+            dialog.Controls.Add(lblItemColor);
+            dialog.Controls.Add(txtItemColor);
+            dialog.Controls.Add(lblSourceContainer);
+            dialog.Controls.Add(txtSourceContainer);
+            dialog.Controls.Add(btnTargetSourceContainer);
+            dialog.Controls.Add(lblSourceHint);
             dialog.Controls.Add(lblAmount);
             dialog.Controls.Add(txtAmount);
             dialog.Controls.Add(lblTargetSerial);
@@ -12344,7 +12472,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             {
                 var newAction = new MoveItemAction();
                 newAction.TargetType = (MoveItemAction.MoveTargetType)cmbTargetType.SelectedIndex;
+                newAction.SourceType = (MoveItemAction.MoveSourceType)cmbSourceType.SelectedIndex;
                 newAction.ItemSerialOrAlias = txtItemSerial.Text.Trim();
+                newAction.ItemGraphic = ParseMoveItemNumber(txtItemGraphic.Text.Trim());
+                newAction.ItemColor = ParseMoveItemNumber(txtItemColor.Text.Trim(), -1);
+                newAction.SourceContainerSerialOrAlias = txtSourceContainer.Text.Trim();
                 int.TryParse(txtAmount.Text, out int amount);
                 newAction.Amount = amount;
 
@@ -12370,6 +12502,24 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
                 return (true, newAction);
             }
             return (false, action);
+        }
+
+        private int ParseMoveItemNumber(string value, int defaultValue = 0)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return defaultValue;
+
+            if (value.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+            {
+                if (int.TryParse(value.Substring(2), System.Globalization.NumberStyles.HexNumber, null, out int hexValue))
+                    return hexValue;
+                return defaultValue;
+            }
+
+            if (int.TryParse(value, out int intValue))
+                return intValue;
+
+            return defaultValue;
         }
 
 
