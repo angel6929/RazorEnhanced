@@ -231,7 +231,7 @@ namespace Assistant
             if (IsOSI)
             {
                 RazorEnhanced.UI.RE_MessageBox.Show("客户端验证失败",
-                    "未使用阳光大陆专属客户端，请使用阳光大陆专属客户端登录游戏。",
+                    "RA和当前客户端不匹配，RA不可以启动。\r\n\r\n请使用阳光大陆专用客户端登录游戏，才能使用这个RA。",
                     ok: "确定", no: null, cancel: null, backColor: null);
                 Shards.ShowLauncher = true;
                 return;

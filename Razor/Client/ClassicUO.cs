@@ -56,9 +56,11 @@ namespace Assistant
 
             ClassicUOClient cuo = new();
             Client.Instance = cuo;
-            cuo.InitPlugin(plugin);
 
-            cuo.RunUI();
+            if (cuo.InitPlugin(plugin))
+            {
+                cuo.RunUI();
+            }
         }
 
     }
@@ -204,6 +206,13 @@ namespace Assistant
                 (byte)(header->ClientVersion >> 8), (byte)header->ClientVersion);
             m_ClientRunning = true;
             m_ClientWindow = header->HWND;
+
+            if (!VerifyCuoBinding(false, out string failure))
+            {
+                RejectCuoBinding(failure);
+                return false;
+            }
+
             _tick = Tick;
             _recv = OnRecv;
             _send = OnSend;
@@ -671,7 +680,7 @@ namespace Assistant
             try
             {
                 RazorEnhanced.UI.RE_MessageBox.Show("客户端验证失败",
-                    "未使用阳光大陆专属客户端，请使用阳光大陆专属客户端登录游戏。",
+                    "RA和当前客户端不匹配，RA不可以启动。\r\n\r\n请使用阳光大陆专用客户端登录游戏，才能使用这个RA。",
                     ok: "确定", no: null, cancel: null, backColor: null);
             }
             catch
