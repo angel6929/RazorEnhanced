@@ -15,6 +15,52 @@ namespace Assistant
     {
         // Macro UI Controls
         private int? m_RecordFromActionIndex = null;
+        private static readonly Dictionary<string, string> s_macroActionDisplayNames = new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            { "Arm/Disarm", "装备/卸下" },
+            { "Attack", "攻击" },
+            { "Bandage", "绷带" },
+            { "Cast Spell", "施法" },
+            { "Clear Journal", "清空日志" },
+            { "Comment", "注释" },
+            { "Disconnect", "断开连接" },
+            { "Double-Click", "双击" },
+            { "Drop", "丢弃" },
+            { "Else", "否则" },
+            { "ElseIf", "否则如果" },
+            { "EndFor", "结束循环" },
+            { "EndIf", "结束判断" },
+            { "EndWhile", "结束条件循环" },
+            { "Fly", "飞行" },
+            { "For", "循环" },
+            { "Gump Response", "界面响应" },
+            { "If", "如果" },
+            { "Invoke Virtue", "使用美德" },
+            { "Messaging", "发送消息" },
+            { "Mount", "骑乘" },
+            { "Move Item", "移动物品" },
+            { "Movement", "移动" },
+            { "Pause", "暂停" },
+            { "Pick Up", "拿起物品" },
+            { "Prompt Response", "提示响应" },
+            { "Query String Response", "询问响应" },
+            { "Remove Alias", "移除别名" },
+            { "Rename Mobile", "重命名生物" },
+            { "Resync", "重新同步" },
+            { "Run Organizer Once", "运行整理器一次" },
+            { "Set Ability", "设置能力" },
+            { "Set Alias", "设置别名" },
+            { "Target", "目标" },
+            { "Target Resource", "采集资源" },
+            { "Toggle War Mode", "切换战斗模式" },
+            { "Use Context Menu", "使用右键菜单" },
+            { "Use Emote", "使用表情" },
+            { "Use Potion", "使用药水" },
+            { "Use Skill", "使用技能" },
+            { "Wait for Gump", "等待界面" },
+            { "Wait for Target", "等待目标" },
+            { "While", "当条件成立时" }
+        };
 
         private void InitializeMacroTab()
         {
@@ -547,6 +593,15 @@ namespace Assistant
             // If multiple selected or none selected (but actions exist), insert at end
             return macroActionsListView.Items.Count;
         }
+
+        private static string GetMacroActionDisplayName(MacroAction action)
+        {
+            string actionName = action.GetActionName();
+            return s_macroActionDisplayNames.TryGetValue(actionName, out string displayName)
+                ? displayName
+                : actionName;
+        }
+
         private void DisplayMacroActions(Macro macro)
         {
             macroActionsListView.Items.Clear();
@@ -565,7 +620,7 @@ namespace Assistant
                 }
 
                 string indent = new string(' ', indentLevel * 4);
-                var item = new ListViewItem($"{actionNum}. {indent}{action.GetActionName()}");
+                var item = new ListViewItem($"{actionNum}. {indent}{GetMacroActionDisplayName(action)}");
 
                 // Special formatting for each action type
                 if (action is RazorEnhanced.Macros.Actions.ArmDisarmAction armDisarmAction)
