@@ -9,8 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.10")]
 [assembly: AssemblyTitle("Razor Enhanced")]
 [assembly: AssemblyDescription("The bleeding edge UO tool")]
-[assembly: AssemblyCompany("www.razorenhanced.net")]
-[assembly: AssemblyProduct("Razor Enhanced")]
+[assembly: AssemblyCompany("Sunnyland2026")]
+[assembly: AssemblyProduct("Enhanced Razor 20260705（阳光大陆专用版）")]
+[assembly: AssemblyTrademark("SUNNYLAND_RA_BINDING_V1_C82A3DFC_20260705")]
 [assembly: ComVisibleAttribute(false)]
 
 //
@@ -41,4 +42,3 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 //[assembly: AssemblyKeyName("")]
-
