@@ -1,0 +1,3005 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RazorEnhanced Python 脚本培训文档</title><style>
+:root{--bg:#eef2f6;--panel:#fff;--ink:#172033;--muted:#657286;--line:#d9e1ea;--brand:#1768a8;--brand-dark:#0f3f68;--accent:#19a0a6;--code-bg:#101827;--sidebar:#0f1724}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","Noto Sans CJK SC","Segoe UI",Arial,sans-serif;font-size:14px;line-height:1.72}a{color:inherit}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;background:linear-gradient(180deg,var(--sidebar) 0%,#101b2d 100%);color:#d8e6f5;border-right:1px solid rgba(255,255,255,.08)}.sidebar-inner{padding:28px 22px 30px}.brand-mark{display:inline-flex;align-items:center;height:30px;padding:0 10px;border:1px solid rgba(255,255,255,.18);border-radius:6px;color:#9ce7ff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.sidebar h1{margin:18px 0 8px;font-size:21px;line-height:1.35;color:#fff}.sidebar .desc{margin:0 0 18px;color:#aebed1;font-size:12px}.doc-meta{display:grid;gap:8px;margin:18px 0 20px;padding:14px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);border-radius:8px;font-size:12px}.doc-meta div{display:flex;justify-content:space-between;gap:12px}.doc-meta span:first-child{color:#91a4ba}.doc-meta span:last-child{color:#eaf4ff;text-align:right}.toc-title{margin:18px 0 8px;color:#7dd7ff;font-size:13px;font-weight:700}.toc-list,.toc-list ol{list-style:none;margin:0;padding:0}.toc-list ol{margin:3px 0 6px 10px;padding-left:10px;border-left:1px solid rgba(255,255,255,.1)}.toc-list a{display:block;padding:5px 8px;border-radius:5px;color:#c9d8e8;text-decoration:none;font-size:12px;line-height:1.45}.toc-list a:hover{background:rgba(125,215,255,.12);color:#fff}.toc-level-1>a,.toc-level-2>a{font-weight:700;color:#eef7ff}.main{min-width:0;padding:34px}.page{max-width:1160px;margin:0 auto;background:var(--panel);border:1px solid #dce4ee;box-shadow:0 18px 50px rgba(15,31,55,.10)}.hero{padding:44px 52px 38px;background:linear-gradient(135deg,#10233d 0%,#174a72 55%,#1f7d82 100%);color:#fff}.hero-kicker{color:#9ce7ff;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h2{margin:16px 0 12px;color:#fff;border:0;padding:0;font-size:34px;line-height:1.24}.hero p{max-width:760px;margin:0;color:#dbeafe;font-size:15px}.content{padding:42px 52px 56px}.content>p:first-child{padding:16px 18px;margin-top:0;background:#f2f8fc;border-left:4px solid var(--accent);color:#31445a}h1{display:none}h2{margin:40px 0 14px;padding-bottom:9px;border-bottom:2px solid #d8e5f0;color:var(--brand-dark);font-size:24px;line-height:1.35;scroll-margin-top:22px}h3{margin:28px 0 10px;padding-left:11px;border-left:4px solid var(--brand);color:#174a72;font-size:18px;line-height:1.4;scroll-margin-top:22px}h4{margin:20px 0 8px;color:#263b55;font-size:15px}p{margin:8px 0 12px}ul,ol{padding-left:22px;margin:8px 0 16px}li{margin:4px 0}strong{color:#10233d}code{font-family:Consolas,"Cascadia Mono","Microsoft YaHei Mono",monospace;background:#edf3f8;color:#9a3412;border:1px solid #dce6ef;border-radius:4px;padding:1px 5px;font-size:.92em}pre{margin:12px 0 18px;padding:16px 18px;background:var(--code-bg);color:#e6edf7;border-radius:8px;overflow:auto;border:1px solid #243247;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}pre code{background:transparent;border:0;color:inherit;padding:0;font-size:12.5px;line-height:1.65}.table-wrap{width:100%;overflow-x:auto;margin:12px 0 20px;border:1px solid var(--line);border-radius:8px}table{width:100%;min-width:760px;border-collapse:collapse;font-size:12px}th{background:#153f63;color:#fff;text-align:left;padding:9px 10px;border-right:1px solid rgba(255,255,255,.16);white-space:nowrap}td{padding:8px 10px;border-top:1px solid var(--line);border-right:1px solid var(--line);vertical-align:top}tr:nth-child(even) td{background:#f7f9fc}.footer{display:flex;justify-content:space-between;gap:16px;padding:18px 52px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:#fbfdff}@media(max-width:980px){.layout{display:block}.sidebar{position:relative;height:auto}.main{padding:16px}.hero,.content,.footer{padding-left:24px;padding-right:24px}.hero h2{font-size:27px}}@media print{body{background:#fff}.layout{display:block}.sidebar{display:none}.main{padding:0}.page{max-width:none;box-shadow:none;border:0}pre,.table-wrap{break-inside:avoid}}
+</style></head>
+<body><div class="layout"><aside class="sidebar"><div class="sidebar-inner"><div class="brand-mark">Sunnyland 2026</div><h1>RazorEnhanced Python 脚本培训文档</h1><p class="desc">面向玩家脚本编写的 RazorEnhanced Python / IronPython 技术手册。</p><div class="doc-meta"><div><span>文档类型</span><span>技术培训手册</span></div><div><span>适用平台</span><span>RazorEnhanced Python</span></div><div><span>整理</span><span>JACK</span></div></div><div class="toc-title">目录</div><ol class="toc-list"><li class="toc-level-2"><a href="#一-python-脚本基础写法">一、Python 脚本基础写法</a><ol><li class="toc-level-3"><a href="#1-基本结构">1. 基本结构</a></li><li class="toc-level-3"><a href="#2-循环">2. 循环</a></li><li class="toc-level-3"><a href="#3-条件判断">3. 条件判断</a></li><li class="toc-level-3"><a href="#4-列表">4. 列表</a></li><li class="toc-level-3"><a href="#5-函数">5. 函数</a></li><li class="toc-level-3"><a href="#6-异常保护">6. 异常保护</a></li></ol></li><li class="toc-level-2"><a href="#二-常用对象模型">二、常用对象模型</a><ol><li class="toc-level-3"><a href="#1-item-物品对象常用属性">1. Item 物品对象常用属性</a></li><li class="toc-level-3"><a href="#2-mobile-生物对象常用属性">2. Mobile 生物对象常用属性</a></li><li class="toc-level-3"><a href="#3-player-玩家对象常用属性">3. Player 玩家对象常用属性</a></li></ol></li><li class="toc-level-2"><a href="#三-常见脚本场景模板">三、常见脚本场景模板</a><ol><li class="toc-level-3"><a href="#1-背包找物品并使用">1. 背包找物品并使用</a></li><li class="toc-level-3"><a href="#2-从材料箱补材料">2. 从材料箱补材料</a></li><li class="toc-level-3"><a href="#3-遍历容器内容">3. 遍历容器内容</a></li><li class="toc-level-3"><a href="#4-选择目标箱">4. 选择目标箱</a></li><li class="toc-level-3"><a href="#5-读取-journal-判断结果">5. 读取 Journal 判断结果</a></li><li class="toc-level-3"><a href="#6-gump-制作按钮">6. Gump 制作按钮</a></li><li class="toc-level-3"><a href="#7-自动攻击最近敌人">7. 自动攻击最近敌人</a></li><li class="toc-level-3"><a href="#8-定时器防止动作过快">8. 定时器防止动作过快</a></li></ol></li><li class="toc-level-2"><a href="#四-接口速查表">四、接口速查表</a><ol><li class="toc-level-3"><a href="#items-物品接口">Items 物品接口</a></li><li class="toc-level-3"><a href="#mobiles-生物接口">Mobiles 生物接口</a></li><li class="toc-level-3"><a href="#player-玩家接口">Player 玩家接口</a></li><li class="toc-level-3"><a href="#target-目标接口">Target 目标接口</a></li><li class="toc-level-3"><a href="#gumps-界面接口">Gumps 界面接口</a></li><li class="toc-level-3"><a href="#journal-日志接口">Journal 日志接口</a></li><li class="toc-level-3"><a href="#misc-杂项接口">Misc 杂项接口</a></li><li class="toc-level-3"><a href="#spells-法术接口">Spells 法术接口</a></li><li class="toc-level-3"><a href="#timer-定时器接口">Timer 定时器接口</a></li><li class="toc-level-3"><a href="#statics-地图静态接口">Statics 地图静态接口</a></li><li class="toc-level-3"><a href="#pathfinding-寻路接口">PathFinding 寻路接口</a></li><li class="toc-level-3"><a href="#代理-列表接口">代理/列表接口</a></li><li class="toc-level-3"><a href="#vendor-商人接口">Vendor 商人接口</a></li></ol></li><li class="toc-level-2"><a href="#五-完整示例">五、完整示例</a><ol><li class="toc-level-3"><a href="#示例-1-自动绷带自己">示例 1：自动绷带自己</a></li><li class="toc-level-3"><a href="#示例-2-自动丢弃指定成品">示例 2：自动丢弃指定成品</a></li><li class="toc-level-3"><a href="#示例-3-找最近敌人并攻击">示例 3：找最近敌人并攻击</a></li><li class="toc-level-3"><a href="#示例-4-制作菜单点击上一项">示例 4：制作菜单点击上一项</a></li></ol></li><li class="toc-level-2"><a href="#六-排错清单">六、排错清单</a><ol><li class="toc-level-3"><a href="#1-object-has-no-attribute">1. object has no attribute</a></li><li class="toc-level-3"><a href="#2-找不到物品">2. 找不到物品</a></li><li class="toc-level-3"><a href="#3-gump-按钮没反应">3. Gump 按钮没反应</a></li><li class="toc-level-3"><a href="#4-移动物品失败">4. 移动物品失败</a></li><li class="toc-level-3"><a href="#5-中文乱码">5. 中文乱码</a></li></ol></li><li class="toc-level-2"><a href="#七-推荐脚本写法习惯">七、推荐脚本写法习惯</a></li></ol></div></aside><main class="main"><article class="page"><section class="hero"><div class="hero-kicker">Technical Manual</div><h2>RazorEnhanced Python 脚本培训文档</h2><p>从基础语法、对象模型到常用接口与完整脚本场景，帮助玩家按 RA 的 Python 写法稳定编写可维护脚本。</p></section><section class="content"><h1 id="razorenhanced-python-脚本培训文档-阳光大陆-永夜再临官方qq群-757710228">RazorEnhanced Python 脚本培训文档（阳光大陆-永夜再临官方QQ群：757710228）</h1>
+<p>本文由JACK整理，面向阳光大陆玩家编写 RA Python 脚本使用学习。</p>
+<p>适用对象：</p>
+<ul>
+<li>想写自动补给、制作、整理背包、战斗辅助、采集脚本的玩家。</li>
+<li>已经会一点 Python，但不熟悉 RazorEnhanced API 的玩家。</li>
+<li>会改宏，但想把宏升级为可循环、可判断、可自动处理异常脚本的玩家。</li>
+</ul>
+<p>重要说明：</p>
+<ul>
+<li>RA 使用 IronPython，脚本里可以直接调用 <code>Player</code>、<code>Items</code>、<code>Mobiles</code>、<code>Target</code>、<code>Gumps</code>、<code>Journal</code>、<code>Misc</code> 等对象。</li>
+<li>物品 ID、颜色、序列号一般用十六进制，例如 <code>0x0E21</code>、<code>0x40012345</code>。</li>
+<li>大多数移动、使用物品、目标选择动作都要加 <code>Misc.Pause(300)</code> 到 <code>Misc.Pause(1000)</code>，否则服务端可能来不及响应。</li>
+<li>脚本运行前尽量确认背包、材料箱、目标箱已经打开或可见。</li>
+<li>下文示例以常见 UO/RA 语法为准，实际按钮 ID、物品 ID 要按服务器情况调整。</li>
+</ul>
+<h2 id="一-python-脚本基础写法">一、Python 脚本基础写法</h2>
+<h3 id="1-基本结构">1. 基本结构</h3>
+<p>用途：让脚本从 <code>main()</code> 开始执行，便于维护。</p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+
+def main():
+    Misc.SendMessage(&quot;脚本启动&quot;, 68)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>场景：所有正式脚本都建议用这种结构。</p>
+<h3 id="2-循环">2. 循环</h3>
+<p>用途：持续执行采集、制作、整理、战斗检查。</p>
+<pre><code class="language-python">while not Player.IsGhost:
+    Misc.SendMessage(&quot;循环中&quot;, 68)
+    Misc.Pause(1000)
+</code></pre>
+<p>场景：自动挖矿、自动铁匠、自动补血。</p>
+<h3 id="3-条件判断">3. 条件判断</h3>
+<pre><code class="language-python">if Player.Hits &lt; Player.HitsMax * 0.5:
+    Misc.SendMessage(&quot;血量低，准备治疗&quot;, 33)
+else:
+    Misc.SendMessage(&quot;血量安全&quot;, 68)
+</code></pre>
+<p>场景：按血量喝药、按重量丢弃成品、按材料数量补货。</p>
+<h3 id="4-列表">4. 列表</h3>
+<pre><code class="language-python">BANDAGE_IDS = [0x0E21]
+TRASH_IDS = [0x13EE, 0x1413]
+
+if item.ItemID in TRASH_IDS:
+    Items.Move(item.Serial, trash_serial, item.Amount)
+</code></pre>
+<p>场景：多个物品类型共用同一逻辑。</p>
+<h3 id="5-函数">5. 函数</h3>
+<pre><code class="language-python">def log(text, hue=68):
+    Misc.SendMessage(&quot;[脚本] &quot; + str(text), hue)
+
+log(&quot;准备开始&quot;)
+</code></pre>
+<p>场景：统一输出、统一找物、统一补材料。</p>
+<h3 id="6-异常保护">6. 异常保护</h3>
+<pre><code class="language-python">try:
+    Items.UseItem(0x40012345)
+except Exception as ex:
+    Misc.SendMessage(&quot;使用物品失败：&quot; + str(ex), 33)
+</code></pre>
+<p>场景：脚本不确定目标是否存在时，避免直接崩溃。</p>
+<h2 id="二-常用对象模型">二、常用对象模型</h2>
+<h3 id="1-item-物品对象常用属性">1. Item 物品对象常用属性</h3>
+<p>获得方式：</p>
+<pre><code class="language-python">item = Items.FindByID(0x0E21, -1, Player.Backpack.Serial, True)
+</code></pre>
+<p>常用属性：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item.Serial</code></td>
+<td>物品唯一序列号</td>
+<td><code>Items.UseItem(item.Serial)</code></td>
+<td>使用、移动、设为目标</td>
+</tr>
+<tr>
+<td><code>item.ItemID</code> / <code>item.Graphics</code></td>
+<td>物品类型 ID</td>
+<td><code>if item.ItemID == 0x0E21:</code></td>
+<td>判断绷带、矿石、成品</td>
+</tr>
+<tr>
+<td><code>item.Color</code> / <code>item.Hue</code></td>
+<td>颜色</td>
+<td><code>if item.Hue == 0:</code></td>
+<td>区分同类型不同颜色物品</td>
+</tr>
+<tr>
+<td><code>item.Amount</code></td>
+<td>堆叠数量</td>
+<td><code>Items.Move(item, chest, item.Amount)</code></td>
+<td>移动整堆材料</td>
+</tr>
+<tr>
+<td><code>item.Name</code></td>
+<td>名称</td>
+<td><code>Misc.SendMessage(item.Name)</code></td>
+<td>调试显示</td>
+</tr>
+<tr>
+<td><code>item.Container</code></td>
+<td>所在容器序列</td>
+<td><code>if item.Container == Player.Backpack.Serial:</code></td>
+<td>判断是否在背包</td>
+</tr>
+<tr>
+<td><code>item.RootContainer</code></td>
+<td>根容器</td>
+<td><code>if item.RootContainer == Player.Backpack.Serial:</code></td>
+<td>判断是否属于背包子包</td>
+</tr>
+<tr>
+<td><code>item.Contains</code></td>
+<td>容器内物品列表</td>
+<td><code>for x in bag.Contains:</code></td>
+<td>遍历箱子/背包</td>
+</tr>
+<tr>
+<td><code>item.IsContainer</code></td>
+<td>是否容器</td>
+<td><code>if item.IsContainer:</code></td>
+<td>递归搜索子包</td>
+</tr>
+<tr>
+<td><code>item.IsCorpse</code></td>
+<td>是否尸体</td>
+<td><code>if corpse.IsCorpse:</code></td>
+<td>自动开尸体</td>
+</tr>
+<tr>
+<td><code>item.OnGround</code></td>
+<td>是否在地上</td>
+<td><code>if item.OnGround:</code></td>
+<td>捡地面物品</td>
+</tr>
+<tr>
+<td><code>item.Position</code></td>
+<td>坐标</td>
+<td><code>item.Position.X</code></td>
+<td>地面距离判断</td>
+</tr>
+<tr>
+<td><code>item.Movable</code></td>
+<td>是否可移动</td>
+<td><code>if item.Movable:</code></td>
+<td>自动捡/整理</td>
+</tr>
+<tr>
+<td><code>item.Weight</code></td>
+<td>重量</td>
+<td><code>total += item.Weight</code></td>
+<td>背包重量统计</td>
+</tr>
+<tr>
+<td><code>item.Durability</code> / <code>MaxDurability</code></td>
+<td>耐久</td>
+<td><code>if item.Durability &lt; 10:</code></td>
+<td>装备耐久提醒</td>
+</tr>
+<tr>
+<td><code>item.Properties</code></td>
+<td>OPL 属性</td>
+<td><code>Items.GetPropStringList(item)</code></td>
+<td>读取装备词条</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="2-mobile-生物对象常用属性">2. Mobile 生物对象常用属性</h3>
+<p>获得方式：</p>
+<pre><code class="language-python">mob = Mobiles.FindBySerial(0x00001234)
+</code></pre>
+<p>常用属性：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mob.Serial</code></td>
+<td>生物序列号</td>
+<td><code>Player.Attack(mob.Serial)</code></td>
+<td>攻击、治疗、跟随</td>
+</tr>
+<tr>
+<td><code>mob.Name</code></td>
+<td>名称</td>
+<td><code>if "Jack" in mob.Name:</code></td>
+<td>找指定玩家/NPC</td>
+</tr>
+<tr>
+<td><code>mob.Hits</code> / <code>HitsMax</code></td>
+<td>当前/最大血量</td>
+<td><code>if mob.Hits &lt; mob.HitsMax:</code></td>
+<td>自动治疗</td>
+</tr>
+<tr>
+<td><code>mob.Mana</code> / <code>ManaMax</code></td>
+<td>魔法</td>
+<td><code>if mob.Mana &lt; 10:</code></td>
+<td>判断施法状态</td>
+</tr>
+<tr>
+<td><code>mob.Stam</code> / <code>StamMax</code></td>
+<td>体力</td>
+<td><code>if mob.Stam &lt; 20:</code></td>
+<td>判断行动能力</td>
+</tr>
+<tr>
+<td><code>mob.Notoriety</code></td>
+<td>声望颜色</td>
+<td><code>if mob.Notoriety in [3,4,5,6]:</code></td>
+<td>战斗筛选敌人</td>
+</tr>
+<tr>
+<td><code>mob.Position</code></td>
+<td>坐标</td>
+<td><code>mob.Position.X</code></td>
+<td>距离/走位</td>
+</tr>
+<tr>
+<td><code>mob.Visible</code></td>
+<td>是否可见</td>
+<td><code>if mob.Visible:</code></td>
+<td>找目标</td>
+</tr>
+<tr>
+<td><code>mob.Poisoned</code></td>
+<td>是否中毒</td>
+<td><code>if mob.Poisoned:</code></td>
+<td>解毒</td>
+</tr>
+<tr>
+<td><code>mob.Paralized</code></td>
+<td>是否麻痹</td>
+<td><code>if mob.Paralized:</code></td>
+<td>状态判断</td>
+</tr>
+<tr>
+<td><code>mob.WarMode</code></td>
+<td>是否战斗模式</td>
+<td><code>if mob.WarMode:</code></td>
+<td>战斗脚本</td>
+</tr>
+<tr>
+<td><code>mob.Backpack</code></td>
+<td>背包对象</td>
+<td><code>mob.Backpack.Serial</code></td>
+<td>NPC/尸体容器</td>
+</tr>
+<tr>
+<td><code>mob.GetItemOnLayer("RightHand")</code></td>
+<td>获取装备层物品</td>
+<td><code>weapon = mob.GetItemOnLayer("RightHand")</code></td>
+<td>判断武器</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="3-player-玩家对象常用属性">3. Player 玩家对象常用属性</h3>
+<p><code>Player</code> 代表自己，不需要查找。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Player.Serial</code></td>
+<td>自己序列号</td>
+<td><code>Target.TargetExecute(Player.Serial)</code></td>
+<td>对自己施法</td>
+</tr>
+<tr>
+<td><code>Player.Name</code></td>
+<td>角色名</td>
+<td><code>Misc.SendMessage(Player.Name)</code></td>
+<td>输出调试</td>
+</tr>
+<tr>
+<td><code>Player.Backpack</code></td>
+<td>背包 Item</td>
+<td><code>Player.Backpack.Serial</code></td>
+<td>找背包物品</td>
+</tr>
+<tr>
+<td><code>Player.Bank</code></td>
+<td>银行箱</td>
+<td><code>Player.Bank.Serial</code></td>
+<td>银行整理</td>
+</tr>
+<tr>
+<td><code>Player.Hits/HitsMax</code></td>
+<td>血量</td>
+<td><code>if Player.Hits &lt; 60:</code></td>
+<td>自动治疗</td>
+</tr>
+<tr>
+<td><code>Player.Mana/ManaMax</code></td>
+<td>蓝量</td>
+<td><code>if Player.Mana &lt; 20:</code></td>
+<td>冥想/喝药</td>
+</tr>
+<tr>
+<td><code>Player.Stam/StamMax</code></td>
+<td>体力</td>
+<td><code>if Player.Stam &lt; 20:</code></td>
+<td>喝体力药</td>
+</tr>
+<tr>
+<td><code>Player.Weight/MaxWeight</code></td>
+<td>重量</td>
+<td><code>if Player.Weight &gt; 380:</code></td>
+<td>丢弃或回城</td>
+</tr>
+<tr>
+<td><code>Player.Position</code></td>
+<td>当前位置</td>
+<td><code>Player.Position.X</code></td>
+<td>路径、地图判断</td>
+</tr>
+<tr>
+<td><code>Player.Map</code></td>
+<td>地图编号</td>
+<td><code>if Player.Map == 0:</code></td>
+<td>地图逻辑</td>
+</tr>
+<tr>
+<td><code>Player.WarMode</code></td>
+<td>战斗模式</td>
+<td><code>Player.SetWarMode(True)</code></td>
+<td>自动战斗</td>
+</tr>
+<tr>
+<td><code>Player.IsGhost</code></td>
+<td>是否死亡</td>
+<td><code>while not Player.IsGhost:</code></td>
+<td>循环停止条件</td>
+</tr>
+<tr>
+<td><code>Player.Poisoned</code></td>
+<td>是否中毒</td>
+<td><code>if Player.Poisoned:</code></td>
+<td>解毒</td>
+</tr>
+<tr>
+<td><code>Player.Buffs</code></td>
+<td>Buff 名称列表</td>
+<td><code>"Consecrate Weapon" in Player.Buffs</code></td>
+<td>判断状态</td>
+</tr>
+<tr>
+<td><code>Player.Mount</code></td>
+<td>坐骑</td>
+<td><code>if Player.Mount:</code></td>
+<td>骑乘判断</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="三-常见脚本场景模板">三、常见脚本场景模板</h2>
+<h3 id="1-背包找物品并使用">1. 背包找物品并使用</h3>
+<pre><code class="language-python">BANDAGE = 0x0E21
+
+bandage = Items.FindByID(BANDAGE, -1, Player.Backpack.Serial, True)
+if bandage:
+    Items.UseItem(bandage.Serial)
+    if Target.WaitForTarget(2000, False):
+        Target.Self()
+else:
+    Misc.SendMessage(&quot;背包没有绷带&quot;, 33)
+</code></pre>
+<p>场景：绷带治疗、使用工具、吃食物。</p>
+<h3 id="2-从材料箱补材料">2. 从材料箱补材料</h3>
+<pre><code class="language-python">INGOT = 0x1BF2
+CHEST = 0x40012345
+
+count = Items.BackpackCount(INGOT, -1)
+if count &lt; 50:
+    ingot = Items.FindByID(INGOT, -1, CHEST, True)
+    if ingot:
+        Items.Move(ingot.Serial, Player.Backpack.Serial, 500)
+        Misc.Pause(800)
+</code></pre>
+<p>场景：铁匠、裁缝、木匠自动补材料。</p>
+<h3 id="3-遍历容器内容">3. 遍历容器内容</h3>
+<pre><code class="language-python">def get_container_items(container_serial, recursive=True):
+    bag = Items.FindBySerial(container_serial)
+    if bag is None:
+        return []
+
+    result = []
+    for item in bag.Contains:
+        result.append(item)
+        if recursive and item.IsContainer:
+            result.extend(get_container_items(item.Serial, True))
+    return result
+
+for item in get_container_items(Player.Backpack.Serial):
+    Misc.SendMessage(&quot;物品：0x%X x%d&quot; % (item.ItemID, item.Amount), 68)
+</code></pre>
+<p>场景：整理背包、丢弃成品、统计材料。</p>
+<h3 id="4-选择目标箱">4. 选择目标箱</h3>
+<pre><code class="language-python">Misc.SendMessage(&quot;请选择材料箱&quot;, 68)
+chest = Target.PromptTarget(&quot;请选择材料箱&quot;, 68)
+if chest &gt; 0:
+    Items.UseItem(chest)
+    Misc.Pause(800)
+</code></pre>
+<p>场景：脚本启动时绑定材料箱、垃圾桶、目标容器。</p>
+<h3 id="5-读取-journal-判断结果">5. 读取 Journal 判断结果</h3>
+<pre><code class="language-python">Journal.Clear()
+Items.UseItem(tool.Serial)
+Misc.Pause(500)
+
+if Journal.WaitJournal([&quot;你制作了&quot;, &quot;You create&quot;], 3000):
+    Misc.SendMessage(&quot;制作成功&quot;, 68)
+elif Journal.Search(&quot;材料不足&quot;):
+    Misc.SendMessage(&quot;材料不足&quot;, 33)
+</code></pre>
+<p>场景：制作成功/失败判断、技能使用结果判断。</p>
+<h3 id="6-gump-制作按钮">6. Gump 制作按钮</h3>
+<pre><code class="language-python">Items.UseItem(tool.Serial)
+if Gumps.WaitForGump(0, 5000):
+    gid = Gumps.CurrentGump()
+    Gumps.SendAction(gid, 21)
+    Misc.Pause(800)
+</code></pre>
+<p>场景：制作上一项、点击菜单按钮。</p>
+<h3 id="7-自动攻击最近敌人">7. 自动攻击最近敌人</h3>
+<pre><code class="language-python">f = Mobiles.Filter()
+f.Enabled = True
+f.RangeMax = 10
+f.Notorieties.Add(3)  # 灰
+f.Notorieties.Add(4)  # 犯罪
+f.Notorieties.Add(5)  # 敌对
+f.Notorieties.Add(6)  # 红名
+
+enemy = Mobiles.Select(Mobiles.ApplyFilter(f), &quot;Nearest&quot;)
+if enemy:
+    Player.Attack(enemy)
+</code></pre>
+<p>场景：自动战斗辅助。</p>
+<h3 id="8-定时器防止动作过快">8. 定时器防止动作过快</h3>
+<pre><code class="language-python">if not Timer.Check(&quot;heal&quot;):
+    Timer.Create(&quot;heal&quot;, 5000)
+    Misc.SendMessage(&quot;5秒内不重复治疗&quot;, 68)
+</code></pre>
+<p>场景：喝药冷却、技能冷却、喊话间隔。</p>
+<h2 id="四-接口速查表">四、接口速查表</h2>
+<p>说明：</p>
+<ul>
+<li><code>serial</code> 可以是序列号整数，也可以是对象。</li>
+<li><code>color=-1</code> 表示任意颜色。</li>
+<li><code>container=-1</code> 表示不限容器，<code>Player.Backpack.Serial</code> 表示自己背包。</li>
+<li><code>recursive=True</code> 表示递归搜索子容器。</li>
+<li><code>delay</code> 单位一般是毫秒。</li>
+</ul>
+<h3 id="items-物品接口">Items 物品接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Items.ApplyFilter(filter)</code></td>
+<td>按过滤器返回物品列表</td>
+<td><code>items = Items.ApplyFilter(f)</code></td>
+<td>批量找地面物品、尸体、背包物品</td>
+</tr>
+<tr>
+<td><code>Items.BackpackCount(itemid, color)</code></td>
+<td>统计背包内指定物品数量</td>
+<td><code>n = Items.BackpackCount(0x1BF2, -1)</code></td>
+<td>判断材料是否不足</td>
+</tr>
+<tr>
+<td><code>Items.ContainerCount(serial, itemid, color, recursive)</code></td>
+<td>统计容器内数量</td>
+<td><code>n = Items.ContainerCount(chest, 0x1BF2, -1, True)</code></td>
+<td>材料箱库存统计</td>
+</tr>
+<tr>
+<td><code>Items.FindByID(itemid, color, container, recursive)</code></td>
+<td>找第一个指定类型物品</td>
+<td><code>bandage = Items.FindByID(0x0E21, -1, Player.Backpack.Serial, True)</code></td>
+<td>找工具、材料、药水</td>
+</tr>
+<tr>
+<td><code>Items.FindAllByID(itemids, color, container, range, considerIgnoreList)</code></td>
+<td>找多个类型的物品列表</td>
+<td><code>lst = Items.FindAllByID([0x0F7A,0x0F7B], -1, -1, 2, True)</code></td>
+<td>地面捡多种材料</td>
+</tr>
+<tr>
+<td><code>Items.FindByName(name, color, container, range, considerIgnoreList)</code></td>
+<td>按名称找物品</td>
+<td><code>rune = Items.FindByName("rune", -1, Player.Backpack.Serial, 0, True)</code></td>
+<td>找符石、特殊物品</td>
+</tr>
+<tr>
+<td><code>Items.FindBySerial(serial)</code></td>
+<td>按序列找物品</td>
+<td><code>bag = Items.FindBySerial(0x40012345)</code></td>
+<td>操作固定箱子</td>
+</tr>
+<tr>
+<td><code>Items.UseItem(itemSerial)</code></td>
+<td>双击使用物品</td>
+<td><code>Items.UseItem(horn.Serial)</code></td>
+<td>使用工具、开箱、吃药</td>
+</tr>
+<tr>
+<td><code>Items.UseItem(itemSerial, targetSerial, wait)</code></td>
+<td>使用物品并指定目标</td>
+<td><code>Items.UseItem(tool, ore, True)</code></td>
+<td>工具对材料使用</td>
+</tr>
+<tr>
+<td><code>Items.UseItemByID(itemid, color)</code></td>
+<td>按类型使用背包物品</td>
+<td><code>Items.UseItemByID(0x0F0E, -1)</code></td>
+<td>喝药</td>
+</tr>
+<tr>
+<td><code>Items.Move(source, destination, amount)</code></td>
+<td>移动物品到容器</td>
+<td><code>Items.Move(item.Serial, chest, item.Amount)</code></td>
+<td>整理背包</td>
+</tr>
+<tr>
+<td><code>Items.Move(source, destination, amount, x, y)</code></td>
+<td>移动到容器指定格子</td>
+<td><code>Items.Move(item, bag, 1, 20, 40)</code></td>
+<td>排列物品</td>
+</tr>
+<tr>
+<td><code>Items.MoveOnGround(source, amount, x, y, z)</code></td>
+<td>丢到地面坐标</td>
+<td><code>Items.MoveOnGround(item, 1, Player.Position.X, Player.Position.Y, Player.Position.Z)</code></td>
+<td>丢垃圾到地上</td>
+</tr>
+<tr>
+<td><code>Items.DropItemGroundSelf(item, amount, direction)</code></td>
+<td>丢到自己附近地面</td>
+<td><code>Items.DropItemGroundSelf(item, 1)</code></td>
+<td>快速丢弃</td>
+</tr>
+<tr>
+<td><code>Items.Lift(item, amount)</code></td>
+<td>拿起物品到手上</td>
+<td><code>Items.Lift(item, 1)</code></td>
+<td>高级拖放逻辑</td>
+</tr>
+<tr>
+<td><code>Items.DropFromHand(item, container)</code></td>
+<td>将手上物品放入容器</td>
+<td><code>Items.DropFromHand(item, bag)</code></td>
+<td>配合 Lift 使用</td>
+</tr>
+<tr>
+<td><code>Items.WaitForContents(bag, delay)</code></td>
+<td>等待容器内容加载</td>
+<td><code>Items.WaitForContents(chest, 2000)</code></td>
+<td>开箱后读取内容</td>
+</tr>
+<tr>
+<td><code>Items.OpenAt(serial, x, y)</code></td>
+<td>在指定屏幕位置打开容器</td>
+<td><code>Items.OpenAt(chest, 100, 100)</code></td>
+<td>固定箱子窗口位置</td>
+</tr>
+<tr>
+<td><code>Items.OpenContainerAt(bag, x, y)</code></td>
+<td>打开容器对象到指定位置</td>
+<td><code>Items.OpenContainerAt(bag, 100, 100)</code></td>
+<td>整理多个箱子</td>
+</tr>
+<tr>
+<td><code>Items.Close(item)</code></td>
+<td>关闭容器</td>
+<td><code>Items.Close(chest)</code></td>
+<td>清理界面</td>
+</tr>
+<tr>
+<td><code>Items.SingleClick(item)</code></td>
+<td>单击物品显示名称</td>
+<td><code>Items.SingleClick(item)</code></td>
+<td>触发名称/属性更新</td>
+</tr>
+<tr>
+<td><code>Items.WaitForProps(item, delay)</code></td>
+<td>等待属性加载</td>
+<td><code>Items.WaitForProps(item, 1000)</code></td>
+<td>读取装备属性前</td>
+</tr>
+<tr>
+<td><code>Items.GetProperties(serial, delay)</code></td>
+<td>获取属性列表</td>
+<td><code>props = Items.GetProperties(item.Serial, 1000)</code></td>
+<td>装备鉴定</td>
+</tr>
+<tr>
+<td><code>Items.GetPropStringList(serial)</code></td>
+<td>获取属性字符串列表</td>
+<td><code>lines = Items.GetPropStringList(item)</code></td>
+<td>查词条</td>
+</tr>
+<tr>
+<td><code>Items.GetPropStringByIndex(serial, index)</code></td>
+<td>获取第几行属性</td>
+<td><code>name = Items.GetPropStringByIndex(item, 0)</code></td>
+<td>读取名称行</td>
+</tr>
+<tr>
+<td><code>Items.GetPropValue(serial, name)</code></td>
+<td>按属性名取数值</td>
+<td><code>lmc = Items.GetPropValue(item, "lower mana cost")</code></td>
+<td>装备评分</td>
+</tr>
+<tr>
+<td><code>Items.GetPropValueString(serial, name)</code></td>
+<td>按属性名取字符串</td>
+<td><code>v = Items.GetPropValueString(item.Serial, "durability")</code></td>
+<td>文本属性</td>
+</tr>
+<tr>
+<td><code>Items.GetImage(itemID, hue)</code></td>
+<td>获取物品图片</td>
+<td><code>img = Items.GetImage(0x0E21, 0)</code></td>
+<td>工具窗体显示图标</td>
+</tr>
+<tr>
+<td><code>Items.GetWeaponAbility(itemId)</code></td>
+<td>获取武器特攻</td>
+<td><code>a = Items.GetWeaponAbility(weapon.ItemID)</code></td>
+<td>战斗辅助</td>
+</tr>
+<tr>
+<td><code>Items.ContextExist(item, name)</code></td>
+<td>检查右键菜单项</td>
+<td><code>idx = Items.ContextExist(item, "Open")</code></td>
+<td>上下文菜单操作</td>
+</tr>
+<tr>
+<td><code>Items.Message(item, hue, message)</code></td>
+<td>在物品头顶显示文字</td>
+<td><code>Items.Message(item, 68, "目标")</code></td>
+<td>调试标记</td>
+</tr>
+<tr>
+<td><code>Items.Color(serial, color)</code> / <code>SetColor</code></td>
+<td>本地改显示色</td>
+<td><code>Items.SetColor(item.Serial, 33)</code></td>
+<td>高亮物品</td>
+</tr>
+<tr>
+<td><code>Items.Hide(item)</code></td>
+<td>本地隐藏物品</td>
+<td><code>Items.Hide(item)</code></td>
+<td>清理视野</td>
+</tr>
+<tr>
+<td><code>Items.IgnoreTypes(itemIdList)</code></td>
+<td>忽略一组类型</td>
+<td><code>Items.IgnoreTypes([0x0EED])</code></td>
+<td>扫地过滤</td>
+</tr>
+<tr>
+<td><code>Items.Select(items, selector)</code></td>
+<td>从列表选一个</td>
+<td><code>Items.Select(items, "Nearest")</code></td>
+<td>从候选物中选最近/最优</td>
+</tr>
+<tr>
+<td><code>Items.ChangeDyeingTubColor(dyes, tub, color)</code></td>
+<td>修改染缸颜色</td>
+<td><code>Items.ChangeDyeingTubColor(dyes, tub, 1150)</code></td>
+<td>染色脚本</td>
+</tr>
+</tbody>
+</table></div>
+<p>Items.Filter 常用属性：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enabled</code></td>
+<td>是否启用过滤</td>
+<td><code>f.Enabled = True</code></td>
+<td>必须开启才按条件过滤</td>
+</tr>
+<tr>
+<td><code>Graphics</code></td>
+<td>物品类型列表</td>
+<td><code>f.Graphics.Add(0x1BF2)</code></td>
+<td>找铁锭</td>
+</tr>
+<tr>
+<td><code>Hues</code></td>
+<td>颜色列表</td>
+<td><code>f.Hues.Add(0)</code></td>
+<td>找指定颜色</td>
+</tr>
+<tr>
+<td><code>Serials</code></td>
+<td>序列号列表</td>
+<td><code>f.Serials.Add(chest)</code></td>
+<td>指定目标</td>
+</tr>
+<tr>
+<td><code>RangeMin/RangeMax</code></td>
+<td>距离范围</td>
+<td><code>f.RangeMax = 2</code></td>
+<td>找身边地面物品</td>
+</tr>
+<tr>
+<td><code>OnGround</code></td>
+<td>是否地上</td>
+<td><code>f.OnGround = 1</code></td>
+<td>捡地面物品</td>
+</tr>
+<tr>
+<td><code>IsContainer</code></td>
+<td>是否容器</td>
+<td><code>f.IsContainer = 1</code></td>
+<td>找箱子/尸体</td>
+</tr>
+<tr>
+<td><code>IsCorpse</code></td>
+<td>是否尸体</td>
+<td><code>f.IsCorpse = 1</code></td>
+<td>自动开尸体</td>
+</tr>
+<tr>
+<td><code>Movable</code></td>
+<td>是否可移动</td>
+<td><code>f.Movable = 1</code></td>
+<td>捡可移动物品</td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td>名称正则</td>
+<td><code>f.Name = "ingot"</code></td>
+<td>按名称找</td>
+</tr>
+<tr>
+<td><code>CheckIgnoreObject</code></td>
+<td>排除 Ignore</td>
+<td><code>f.CheckIgnoreObject = True</code></td>
+<td>避免重复目标</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="mobiles-生物接口">Mobiles 生物接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Mobiles.ApplyFilter(filter)</code></td>
+<td>按过滤器找生物列表</td>
+<td><code>mobs = Mobiles.ApplyFilter(f)</code></td>
+<td>找敌人、找队友、找 NPC</td>
+</tr>
+<tr>
+<td><code>Mobiles.FindBySerial(serial)</code></td>
+<td>按序列找生物</td>
+<td><code>mob = Mobiles.FindBySerial(s)</code></td>
+<td>固定目标</td>
+</tr>
+<tr>
+<td><code>Mobiles.FindMobile(graphic, notoriety, rangemax, selector, highlight)</code></td>
+<td>快速找生物</td>
+<td><code>m = Mobiles.FindMobile(-1, [6], 10, "Nearest", True)</code></td>
+<td>找最近红名</td>
+</tr>
+<tr>
+<td><code>Mobiles.Select(mobiles, selector)</code></td>
+<td>从列表选一个</td>
+<td><code>m = Mobiles.Select(mobs, "Weakest")</code></td>
+<td>选血少敌人/队友</td>
+</tr>
+<tr>
+<td><code>Mobiles.SingleClick(mobile)</code></td>
+<td>单击生物</td>
+<td><code>Mobiles.SingleClick(m)</code></td>
+<td>更新名字</td>
+</tr>
+<tr>
+<td><code>Mobiles.UseMobile(mobile)</code></td>
+<td>双击生物</td>
+<td><code>Mobiles.UseMobile(npc)</code></td>
+<td>打开 NPC 交互</td>
+</tr>
+<tr>
+<td><code>Mobiles.Message(mobile, hue, msg, wait)</code></td>
+<td>在生物头顶显示消息</td>
+<td><code>Mobiles.Message(m, 33, "敌人", False)</code></td>
+<td>调试标记</td>
+</tr>
+<tr>
+<td><code>Mobiles.WaitForProps(mobile, delay)</code></td>
+<td>等待属性</td>
+<td><code>Mobiles.WaitForProps(m, 1000)</code></td>
+<td>读取血量/属性</td>
+</tr>
+<tr>
+<td><code>Mobiles.WaitForStats(mobile, delay)</code></td>
+<td>等待状态</td>
+<td><code>Mobiles.WaitForStats(m, 1000)</code></td>
+<td>治疗前刷新血量</td>
+</tr>
+<tr>
+<td><code>Mobiles.GetPropStringList(mobile)</code></td>
+<td>获取属性文字</td>
+<td><code>lines = Mobiles.GetPropStringList(m)</code></td>
+<td>读取 OPL</td>
+</tr>
+<tr>
+<td><code>Mobiles.GetPropValue(mobile, name)</code></td>
+<td>获取属性数值</td>
+<td><code>v = Mobiles.GetPropValue(m, "strength")</code></td>
+<td>判断 NPC/怪属性</td>
+</tr>
+<tr>
+<td><code>Mobiles.ContextExist(mobile, name, showContext)</code></td>
+<td>查右键菜单项</td>
+<td><code>idx = Mobiles.ContextExist(npc, "Train", True)</code></td>
+<td>NPC 菜单</td>
+</tr>
+<tr>
+<td><code>Mobiles.GetTargetingFilter(name)</code></td>
+<td>读取 RA 目标列表过滤器</td>
+<td><code>f = Mobiles.GetTargetingFilter("敌人")</code></td>
+<td>使用已有目标列表</td>
+</tr>
+<tr>
+<td><code>Mobiles.GetTrackingInfo()</code></td>
+<td>获取追踪信息</td>
+<td><code>info = Mobiles.GetTrackingInfo()</code></td>
+<td>追踪脚本</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mobiles.Filter 常用属性：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enabled</code></td>
+<td>启用过滤</td>
+<td><code>f.Enabled = True</code></td>
+<td>必填</td>
+</tr>
+<tr>
+<td><code>RangeMax</code></td>
+<td>最大距离</td>
+<td><code>f.RangeMax = 10</code></td>
+<td>找附近敌人</td>
+</tr>
+<tr>
+<td><code>Notorieties</code></td>
+<td>声望列表</td>
+<td><code>f.Notorieties.Add(6)</code></td>
+<td>红名/灰名过滤</td>
+</tr>
+<tr>
+<td><code>Serials</code></td>
+<td>指定序列</td>
+<td><code>f.Serials.Add(serial)</code></td>
+<td>固定对象</td>
+</tr>
+<tr>
+<td><code>Bodies/Graphics</code></td>
+<td>身体/图形 ID</td>
+<td><code>f.Bodies.Add(0x0190)</code></td>
+<td>找特定怪</td>
+</tr>
+<tr>
+<td><code>Name</code></td>
+<td>名称匹配</td>
+<td><code>f.Name = "Jordan"</code></td>
+<td>找 NPC/玩家</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td>是否好友</td>
+<td><code>f.Friend = 1</code></td>
+<td>找队友</td>
+</tr>
+<tr>
+<td><code>IsGhost</code></td>
+<td>是否幽灵</td>
+<td><code>f.IsGhost = 0</code></td>
+<td>排除死人</td>
+</tr>
+<tr>
+<td><code>Poisoned</code></td>
+<td>是否中毒</td>
+<td><code>f.Poisoned = 1</code></td>
+<td>找中毒队友</td>
+</tr>
+<tr>
+<td><code>Paralized</code></td>
+<td>是否麻痹</td>
+<td><code>f.Paralized = 1</code></td>
+<td>找被控目标</td>
+</tr>
+<tr>
+<td><code>Warmode</code></td>
+<td>战斗模式</td>
+<td><code>f.Warmode = 1</code></td>
+<td>找战斗目标</td>
+</tr>
+<tr>
+<td><code>CheckLineOfSight</code></td>
+<td>视线检查</td>
+<td><code>f.CheckLineOfSight = True</code></td>
+<td>避免墙后目标</td>
+</tr>
+<tr>
+<td><code>IgnorePets</code></td>
+<td>忽略宠物</td>
+<td><code>f.IgnorePets = True</code></td>
+<td>战斗选怪</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="player-玩家接口">Player 玩家接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Player.Area()</code> / <code>Zone()</code></td>
+<td>当前区域/区域名</td>
+<td><code>Misc.SendMessage(Player.Area())</code></td>
+<td>地点判断</td>
+</tr>
+<tr>
+<td><code>Player.Attack(serial)</code></td>
+<td>攻击目标</td>
+<td><code>Player.Attack(enemy)</code></td>
+<td>战斗脚本</td>
+</tr>
+<tr>
+<td><code>Player.AttackLast()</code></td>
+<td>攻击上次目标</td>
+<td><code>Player.AttackLast()</code></td>
+<td>快速反击</td>
+</tr>
+<tr>
+<td><code>Player.AttackType(graphics, range, selector, color, notoriety)</code></td>
+<td>按类型攻击</td>
+<td><code>Player.AttackType(-1, 10, "Nearest", [], [6])</code></td>
+<td>自动攻击红名</td>
+</tr>
+<tr>
+<td><code>Player.SetWarMode(flag)</code></td>
+<td>设置战斗模式</td>
+<td><code>Player.SetWarMode(True)</code></td>
+<td>开战/收武器</td>
+</tr>
+<tr>
+<td><code>Player.BuffsExist(name, guess)</code></td>
+<td>判断 Buff</td>
+<td><code>Player.BuffsExist("Consecrate Weapon", True)</code></td>
+<td>补 Buff</td>
+</tr>
+<tr>
+<td><code>Player.BuffTime(name)</code></td>
+<td>Buff 剩余时间</td>
+<td><code>Player.BuffTime("Enemy Of One")</code></td>
+<td>控制补技能时间</td>
+</tr>
+<tr>
+<td><code>Player.GetBuffInfo(name, guess)</code></td>
+<td>获取 Buff 信息</td>
+<td><code>info = Player.GetBuffInfo("Poison", True)</code></td>
+<td>状态脚本</td>
+</tr>
+<tr>
+<td><code>Player.UseSkill(skill, target, wait)</code></td>
+<td>使用技能，可带目标</td>
+<td><code>Player.UseSkill("Anatomy", enemy, True)</code></td>
+<td>技能训练</td>
+</tr>
+<tr>
+<td><code>Player.UseSkillOnly(skill, wait)</code></td>
+<td>只使用技能</td>
+<td><code>Player.UseSkillOnly("Meditation", True)</code></td>
+<td>冥想</td>
+</tr>
+<tr>
+<td><code>Player.GetSkillValue(name)</code></td>
+<td>显示技能值</td>
+<td><code>Player.GetSkillValue("Blacksmithy")</code></td>
+<td>技能脚本判断</td>
+</tr>
+<tr>
+<td><code>Player.GetRealSkillValue(name)</code></td>
+<td>真实技能值</td>
+<td><code>Player.GetRealSkillValue("Magery")</code></td>
+<td>忽略装备加成</td>
+</tr>
+<tr>
+<td><code>Player.GetSkillCap(name)</code></td>
+<td>技能上限</td>
+<td><code>Player.GetSkillCap("Tactics")</code></td>
+<td>技能训练停止</td>
+</tr>
+<tr>
+<td><code>Player.SetSkillStatus(name, status)</code></td>
+<td>锁/升/降技能</td>
+<td><code>Player.SetSkillStatus("Focus", 0)</code></td>
+<td>技能管理</td>
+</tr>
+<tr>
+<td><code>Player.GetStatStatus(name)</code></td>
+<td>获取属性箭头</td>
+<td><code>Player.GetStatStatus("str")</code></td>
+<td>属性管理</td>
+</tr>
+<tr>
+<td><code>Player.SetStatStatus(name, status)</code></td>
+<td>设置属性箭头</td>
+<td><code>Player.SetStatStatus("dex", 1)</code></td>
+<td>属性训练</td>
+</tr>
+<tr>
+<td><code>Player.CheckLayer(layer)</code></td>
+<td>检查装备层</td>
+<td><code>Player.CheckLayer("RightHand")</code></td>
+<td>判断是否拿武器</td>
+</tr>
+<tr>
+<td><code>Player.GetItemOnLayer(layer)</code></td>
+<td>获取装备</td>
+<td><code>weapon = Player.GetItemOnLayer("RightHand")</code></td>
+<td>耐久检查</td>
+</tr>
+<tr>
+<td><code>Player.EquipItem(item)</code></td>
+<td>装备物品</td>
+<td><code>Player.EquipItem(weapon)</code></td>
+<td>自动换装</td>
+</tr>
+<tr>
+<td><code>Player.UnEquipItemByLayer(layer, wait)</code></td>
+<td>脱装备</td>
+<td><code>Player.UnEquipItemByLayer("RightHand", True)</code></td>
+<td>自动脱武器</td>
+</tr>
+<tr>
+<td><code>Player.EquipLastWeapon()</code></td>
+<td>装备上次武器</td>
+<td><code>Player.EquipLastWeapon()</code></td>
+<td>战斗切换</td>
+</tr>
+<tr>
+<td><code>Player.DistanceTo(target)</code></td>
+<td>距离目标</td>
+<td><code>Player.DistanceTo(enemy)</code></td>
+<td>判断是否靠近</td>
+</tr>
+<tr>
+<td><code>Player.InRange(entity, range)</code></td>
+<td>判断范围</td>
+<td><code>Player.InRange(enemy, 2)</code></td>
+<td>近战距离</td>
+</tr>
+<tr>
+<td><code>Player.PathFindTo(x, y, ...)</code></td>
+<td>寻路到坐标</td>
+<td><code>Player.PathFindTo(1000, 1000, 5, True)</code></td>
+<td>自动移动</td>
+</tr>
+<tr>
+<td><code>Player.Walk(direction)</code></td>
+<td>走一步</td>
+<td><code>Player.Walk("North")</code></td>
+<td>精细移动</td>
+</tr>
+<tr>
+<td><code>Player.Run(direction)</code></td>
+<td>跑一步</td>
+<td><code>Player.Run("East")</code></td>
+<td>快速移动</td>
+</tr>
+<tr>
+<td><code>Player.ToggleAlwaysRun()</code></td>
+<td>切换始终跑步</td>
+<td><code>Player.ToggleAlwaysRun()</code></td>
+<td>移动设置</td>
+</tr>
+<tr>
+<td><code>Player.ChatSay(color, msg)</code></td>
+<td>普通说话</td>
+<td><code>Player.ChatSay(68, "hello")</code></td>
+<td>自动喊话</td>
+</tr>
+<tr>
+<td><code>Player.ChatYell(color, msg)</code></td>
+<td>大喊</td>
+<td><code>Player.ChatYell(33, "help")</code></td>
+<td>求救/提示</td>
+</tr>
+<tr>
+<td><code>Player.ChatWhisper(color, msg)</code></td>
+<td>悄声</td>
+<td><code>Player.ChatWhisper(68, "hi")</code></td>
+<td>特定脚本</td>
+</tr>
+<tr>
+<td><code>Player.ChatGuild(msg)</code></td>
+<td>公会频道</td>
+<td><code>Player.ChatGuild("集合")</code></td>
+<td>团队通知</td>
+</tr>
+<tr>
+<td><code>Player.ChatParty(msg, serial)</code></td>
+<td>队伍频道</td>
+<td><code>Player.ChatParty("治疗我", 0)</code></td>
+<td>队伍脚本</td>
+</tr>
+<tr>
+<td><code>Player.ChatAlliance(msg)</code></td>
+<td>联盟频道</td>
+<td><code>Player.ChatAlliance("支援")</code></td>
+<td>联盟通知</td>
+</tr>
+<tr>
+<td><code>Player.HeadMessage(color, msg)</code></td>
+<td>自己头顶消息</td>
+<td><code>Player.HeadMessage(68, "完成")</code></td>
+<td>状态提示</td>
+</tr>
+<tr>
+<td><code>Player.MapSay(msg)</code></td>
+<td>地图说话</td>
+<td><code>Player.MapSay("标记")</code></td>
+<td>地图标记</td>
+</tr>
+<tr>
+<td><code>Player.OpenPaperDoll()</code></td>
+<td>打开纸娃娃</td>
+<td><code>Player.OpenPaperDoll()</code></td>
+<td>装备检查</td>
+</tr>
+<tr>
+<td><code>Player.GuildButton()</code> / <code>QuestButton()</code></td>
+<td>打开按钮</td>
+<td><code>Player.QuestButton()</code></td>
+<td>游戏界面交互</td>
+</tr>
+<tr>
+<td><code>Player.InvokeVirtue(virtue)</code></td>
+<td>使用美德</td>
+<td><code>Player.InvokeVirtue("Honor")</code></td>
+<td>美德技能</td>
+</tr>
+<tr>
+<td><code>Player.WeaponPrimarySA()</code></td>
+<td>使用主武器特攻</td>
+<td><code>Player.WeaponPrimarySA()</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Player.WeaponSecondarySA()</code></td>
+<td>使用副武器特攻</td>
+<td><code>Player.WeaponSecondarySA()</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Player.WeaponStunSA()</code></td>
+<td>使用眩晕</td>
+<td><code>Player.WeaponStunSA()</code></td>
+<td>PvP</td>
+</tr>
+<tr>
+<td><code>Player.WeaponDisarmSA()</code></td>
+<td>使用缴械</td>
+<td><code>Player.WeaponDisarmSA()</code></td>
+<td>PvP</td>
+</tr>
+<tr>
+<td><code>Player.WeaponClearSA()</code></td>
+<td>清除特攻</td>
+<td><code>Player.WeaponClearSA()</code></td>
+<td>状态复位</td>
+</tr>
+<tr>
+<td><code>Player.SpellIsEnabled(spell)</code></td>
+<td>法术是否可用</td>
+<td><code>Player.SpellIsEnabled("Heal")</code></td>
+<td>施法前判断</td>
+</tr>
+<tr>
+<td><code>Player.SumAttribute(name)</code></td>
+<td>统计装备属性</td>
+<td><code>Player.SumAttribute("Lower Mana Cost")</code></td>
+<td>装备评分</td>
+</tr>
+<tr>
+<td><code>Player.PartyInvite()</code></td>
+<td>邀请队伍</td>
+<td><code>Player.PartyInvite()</code></td>
+<td>队伍脚本</td>
+</tr>
+<tr>
+<td><code>Player.PartyAccept(serial, force)</code></td>
+<td>接受邀请</td>
+<td><code>Player.PartyAccept(serial, True)</code></td>
+<td>自动入队</td>
+</tr>
+<tr>
+<td><code>Player.LeaveParty(force)</code></td>
+<td>离队</td>
+<td><code>Player.LeaveParty(True)</code></td>
+<td>队伍管理</td>
+</tr>
+<tr>
+<td><code>Player.PartyCanLoot(flag)</code></td>
+<td>队伍可拾取</td>
+<td><code>Player.PartyCanLoot(True)</code></td>
+<td>队伍权限</td>
+</tr>
+<tr>
+<td><code>Player.KickMember(serial)</code></td>
+<td>踢出队伍</td>
+<td><code>Player.KickMember(serial)</code></td>
+<td>队长管理</td>
+</tr>
+<tr>
+<td><code>Player.ClearCorpseList()</code></td>
+<td>清空尸体列表</td>
+<td><code>Player.ClearCorpseList()</code></td>
+<td>打怪拾取</td>
+</tr>
+<tr>
+<td><code>Player.SetStaticMount(serial)</code></td>
+<td>设置静态坐骑</td>
+<td><code>Player.SetStaticMount(mount)</code></td>
+<td>坐骑显示</td>
+</tr>
+<tr>
+<td><code>Player.Fly(status)</code></td>
+<td>飞行状态</td>
+<td><code>Player.Fly(True)</code></td>
+<td>特殊服务器</td>
+</tr>
+<tr>
+<td><code>Player.TrackingArrow(x, y, display, target)</code></td>
+<td>追踪箭头</td>
+<td><code>Player.TrackingArrow(1000,1000,True,0)</code></td>
+<td>导航</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="target-目标接口">Target 目标接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Target.PromptTarget(message, color)</code></td>
+<td>弹出选择目标</td>
+<td><code>s = Target.PromptTarget("选箱子", 68)</code></td>
+<td>脚本绑定箱子</td>
+</tr>
+<tr>
+<td><code>Target.PromptGroundTarget(message, color)</code></td>
+<td>选择地面坐标</td>
+<td><code>p = Target.PromptGroundTarget("选地面", 68)</code></td>
+<td>采集/移动</td>
+</tr>
+<tr>
+<td><code>Target.WaitForTarget(delay, noshow)</code></td>
+<td>等待目标光标</td>
+<td><code>Target.WaitForTarget(2000, False)</code></td>
+<td>使用物品后等目标</td>
+</tr>
+<tr>
+<td><code>Target.WaitForTargetOrFizzle(delay, noshow)</code></td>
+<td>等目标或施法失败</td>
+<td><code>Target.WaitForTargetOrFizzle(3000, False)</code></td>
+<td>施法</td>
+</tr>
+<tr>
+<td><code>Target.TargetExecute(serial)</code></td>
+<td>对对象执行目标</td>
+<td><code>Target.TargetExecute(enemy)</code></td>
+<td>技能/法术目标</td>
+</tr>
+<tr>
+<td><code>Target.TargetExecute(x, y, z, staticID)</code></td>
+<td>对坐标执行目标</td>
+<td><code>Target.TargetExecute(x,y,z,0)</code></td>
+<td>采集地面</td>
+</tr>
+<tr>
+<td><code>Target.Self()</code></td>
+<td>目标自己</td>
+<td><code>Target.Self()</code></td>
+<td>自疗</td>
+</tr>
+<tr>
+<td><code>Target.Last()</code></td>
+<td>目标上次目标</td>
+<td><code>Target.Last()</code></td>
+<td>重复攻击/施法</td>
+</tr>
+<tr>
+<td><code>Target.SetLast(serial, wait)</code></td>
+<td>设置上次目标</td>
+<td><code>Target.SetLast(enemy, True)</code></td>
+<td>连续施法</td>
+</tr>
+<tr>
+<td><code>Target.GetLast()</code></td>
+<td>获取上次目标</td>
+<td><code>s = Target.GetLast()</code></td>
+<td>保存目标</td>
+</tr>
+<tr>
+<td><code>Target.ClearLast()</code></td>
+<td>清除上次目标</td>
+<td><code>Target.ClearLast()</code></td>
+<td>目标复位</td>
+</tr>
+<tr>
+<td><code>Target.GetLastAttack()</code></td>
+<td>获取上次攻击目标</td>
+<td><code>s = Target.GetLastAttack()</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Target.ClearLastAttack()</code></td>
+<td>清除上次攻击</td>
+<td><code>Target.ClearLastAttack()</code></td>
+<td>战斗复位</td>
+</tr>
+<tr>
+<td><code>Target.HasTarget(flag)</code></td>
+<td>是否有目标光标</td>
+<td><code>Target.HasTarget("Any")</code></td>
+<td>防止误点</td>
+</tr>
+<tr>
+<td><code>Target.Cancel()</code></td>
+<td>取消当前目标</td>
+<td><code>Target.Cancel()</code></td>
+<td>异常恢复</td>
+</tr>
+<tr>
+<td><code>Target.ClearQueue()</code></td>
+<td>清空目标队列</td>
+<td><code>Target.ClearQueue()</code></td>
+<td>目标队列复位</td>
+</tr>
+<tr>
+<td><code>Target.LastQueued()</code></td>
+<td>队列上次目标</td>
+<td><code>Target.LastQueued()</code></td>
+<td>连续动作</td>
+</tr>
+<tr>
+<td><code>Target.SelfQueued()</code></td>
+<td>队列目标自己</td>
+<td><code>Target.SelfQueued()</code></td>
+<td>连续自疗</td>
+</tr>
+<tr>
+<td><code>Target.ClearLastandQueue()</code></td>
+<td>清上次和队列</td>
+<td><code>Target.ClearLastandQueue()</code></td>
+<td>脚本开始前</td>
+</tr>
+<tr>
+<td><code>Target.LastUsedObject()</code></td>
+<td>上次使用物品</td>
+<td><code>s = Target.LastUsedObject()</code></td>
+<td>重复工具</td>
+</tr>
+<tr>
+<td><code>Target.TargetResource(item, resource)</code></td>
+<td>使用资源目标</td>
+<td><code>Target.TargetResource(tool, "ore")</code></td>
+<td>挖矿/伐木</td>
+</tr>
+<tr>
+<td><code>Target.TargetType(graphic, color, range, selector, notoriety)</code></td>
+<td>按类型选目标</td>
+<td><code>Target.TargetType(0x0190,-1,10,"Nearest",[6])</code></td>
+<td>战斗/技能</td>
+</tr>
+<tr>
+<td><code>Target.TargetExecuteRelative(mobile, offset)</code></td>
+<td>相对目标坐标</td>
+<td><code>Target.TargetExecuteRelative(enemy, 1)</code></td>
+<td>地面法术</td>
+</tr>
+<tr>
+<td><code>Target.GetTargetFromList(name)</code></td>
+<td>从 RA 目标列表取目标</td>
+<td><code>m = Target.GetTargetFromList("敌人")</code></td>
+<td>使用已有列表</td>
+</tr>
+<tr>
+<td><code>Target.PerformTargetFromList(name)</code></td>
+<td>执行目标列表选择</td>
+<td><code>Target.PerformTargetFromList("敌人")</code></td>
+<td>目标宏</td>
+</tr>
+<tr>
+<td><code>Target.AttackTargetFromList(name)</code></td>
+<td>攻击目标列表对象</td>
+<td><code>Target.AttackTargetFromList("敌人")</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Target.SetLastTargetFromList(name)</code></td>
+<td>设置列表对象为 last</td>
+<td><code>Target.SetLastTargetFromList("治疗目标")</code></td>
+<td>治疗/攻击</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="gumps-界面接口">Gumps 界面接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Gumps.WaitForGump(gumpIDs, delay)</code></td>
+<td>等待界面</td>
+<td><code>Gumps.WaitForGump(0, 5000)</code></td>
+<td>制作菜单、NPC 菜单</td>
+</tr>
+<tr>
+<td><code>Gumps.CurrentGump()</code></td>
+<td>当前 Gump ID</td>
+<td><code>gid = Gumps.CurrentGump()</code></td>
+<td>后续点击</td>
+</tr>
+<tr>
+<td><code>Gumps.HasGump(gumpId)</code></td>
+<td>是否存在界面</td>
+<td><code>Gumps.HasGump()</code></td>
+<td>判断菜单是否打开</td>
+</tr>
+<tr>
+<td><code>Gumps.IsValid(gumpId)</code></td>
+<td>Gump 是否有效</td>
+<td><code>Gumps.IsValid(gid)</code></td>
+<td>防止失效</td>
+</tr>
+<tr>
+<td><code>Gumps.SendAction(gumpid, buttonid)</code></td>
+<td>点击按钮</td>
+<td><code>Gumps.SendAction(gid, 21)</code></td>
+<td>制作上一项</td>
+</tr>
+<tr>
+<td><code>Gumps.SendAdvancedAction(...)</code></td>
+<td>发送按钮、开关、文本</td>
+<td><code>Gumps.SendAdvancedAction(gid, 1, [2], [1], ["abc"])</code></td>
+<td>复杂表单</td>
+</tr>
+<tr>
+<td><code>Gumps.CloseGump(gumpid)</code></td>
+<td>关闭界面</td>
+<td><code>Gumps.CloseGump(gid)</code></td>
+<td>清理界面</td>
+</tr>
+<tr>
+<td><code>Gumps.ResetGump()</code></td>
+<td>重置 Gump 状态</td>
+<td><code>Gumps.ResetGump()</code></td>
+<td>脚本开始前</td>
+</tr>
+<tr>
+<td><code>Gumps.AllGumpIDs()</code></td>
+<td>所有 Gump ID</td>
+<td><code>ids = Gumps.AllGumpIDs()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Gumps.GetGumpText(gumpid)</code></td>
+<td>获取文本列表</td>
+<td><code>txt = Gumps.GetGumpText(gid)</code></td>
+<td>判断菜单内容</td>
+</tr>
+<tr>
+<td><code>Gumps.GetGumpRawText(gumpid)</code></td>
+<td>原始文本</td>
+<td><code>raw = Gumps.GetGumpRawText(gid)</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Gumps.GetGumpRawLayout(gumpid)</code></td>
+<td>原始布局</td>
+<td><code>layout = Gumps.GetGumpRawLayout(gid)</code></td>
+<td>找按钮 ID</td>
+</tr>
+<tr>
+<td><code>Gumps.GetGumpRawData(gumpid)</code></td>
+<td>原始数据</td>
+<td><code>data = Gumps.GetGumpRawData(gid)</code></td>
+<td>高级调试</td>
+</tr>
+<tr>
+<td><code>Gumps.GetLine(gumpid, line)</code></td>
+<td>取指定行</td>
+<td><code>line = Gumps.GetLine(gid, 0)</code></td>
+<td>菜单文字判断</td>
+</tr>
+<tr>
+<td><code>Gumps.GetLineList(gumpid, dataOnly)</code></td>
+<td>取行列表</td>
+<td><code>lines = Gumps.GetLineList(gid, True)</code></td>
+<td>菜单解析</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpGetLine(line)</code></td>
+<td>上个 Gump 指定行</td>
+<td><code>Gumps.LastGumpGetLine(0)</code></td>
+<td>简单读取</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpGetLineList()</code></td>
+<td>上个 Gump 行列表</td>
+<td><code>lines = Gumps.LastGumpGetLineList()</code></td>
+<td>制作菜单预览</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpRawLayout()</code></td>
+<td>上个 Gump 布局</td>
+<td><code>Gumps.LastGumpRawLayout()</code></td>
+<td>找按钮</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpTextExist(text)</code></td>
+<td>上个 Gump 是否有文本</td>
+<td><code>Gumps.LastGumpTextExist("铁匠")</code></td>
+<td>判断菜单类型</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpTextExistByLine(line, text)</code></td>
+<td>指定行查文本</td>
+<td><code>Gumps.LastGumpTextExistByLine(2, "修理")</code></td>
+<td>精确判断</td>
+</tr>
+<tr>
+<td><code>Gumps.LastGumpTile()</code></td>
+<td>获取 tile 列表</td>
+<td><code>tiles = Gumps.LastGumpTile()</code></td>
+<td>高级解析</td>
+</tr>
+<tr>
+<td><code>Gumps.GetResolvedStringPieces(gumpid)</code></td>
+<td>解析文本片段</td>
+<td><code>pieces = Gumps.GetResolvedStringPieces(gid)</code></td>
+<td>本地化文本</td>
+</tr>
+<tr>
+<td><code>Gumps.GetTextByID(gd, id)</code></td>
+<td>从 GumpData 取文本</td>
+<td><code>Gumps.GetTextByID(gd, 1)</code></td>
+<td>自定义 Gump</td>
+</tr>
+<tr>
+<td><code>Gumps.CreateGump(movable, closable, disposable, resizeable)</code></td>
+<td>创建自定义窗口</td>
+<td><code>gd = Gumps.CreateGump(True, True, True, False)</code></td>
+<td>脚本 UI</td>
+</tr>
+<tr>
+<td><code>Gumps.SendGump(...)</code></td>
+<td>发送自定义 Gump</td>
+<td><code>Gumps.SendGump(gd, Player.Serial, 100, 100)</code></td>
+<td>脚本面板</td>
+</tr>
+<tr>
+<td><code>Gumps.AddPage(gd, page)</code></td>
+<td>添加页</td>
+<td><code>Gumps.AddPage(gd, 0)</code></td>
+<td>自定义窗口</td>
+</tr>
+<tr>
+<td><code>Gumps.AddBackground(gd,x,y,w,h,id)</code></td>
+<td>背景</td>
+<td><code>Gumps.AddBackground(gd,0,0,200,100,9270)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddAlphaRegion(gd,x,y,w,h)</code></td>
+<td>半透明区</td>
+<td><code>Gumps.AddAlphaRegion(gd,0,0,200,100)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddLabel(gd,x,y,hue,text)</code></td>
+<td>标签文字</td>
+<td><code>Gumps.AddLabel(gd,20,20,68,"状态")</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddLabelCropped(...)</code></td>
+<td>裁剪文字</td>
+<td><code>Gumps.AddLabelCropped(gd,10,10,100,20,68,"很长文字")</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddHtml(...)</code></td>
+<td>HTML 文本</td>
+<td><code>Gumps.AddHtml(gd,10,10,180,80,"&lt;basefont color=#FFFFFF&gt;说明",False,True)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddHtmlLocalized(...)</code></td>
+<td>本地化 HTML</td>
+<td><code>Gumps.AddHtmlLocalized(gd,10,10,100,20,1000000,"",0)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddButton(...)</code></td>
+<td>按钮</td>
+<td><code>Gumps.AddButton(gd,20,60,4005,4007,1,1,0)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddCheck(...)</code></td>
+<td>复选框</td>
+<td><code>Gumps.AddCheck(gd,10,10,210,211,False,1)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddRadio(...)</code></td>
+<td>单选</td>
+<td><code>Gumps.AddRadio(gd,10,30,210,211,True,2)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddTextEntry(...)</code></td>
+<td>输入框</td>
+<td><code>Gumps.AddTextEntry(gd,10,50,120,20,68,1,"")</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddImage(...)</code></td>
+<td>图片</td>
+<td><code>Gumps.AddImage(gd,10,10,0x0EED)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddImageTiled(...)</code></td>
+<td>平铺图片</td>
+<td><code>Gumps.AddImageTiled(gd,0,0,200,20,3004)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddImageTiledButton(...)</code></td>
+<td>平铺按钮</td>
+<td><code>Gumps.AddImageTiledButton(gd,...)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddItem(...)</code></td>
+<td>物品图</td>
+<td><code>Gumps.AddItem(gd,10,10,0x0E21)</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddTooltip(...)</code></td>
+<td>提示</td>
+<td><code>Gumps.AddTooltip(gd, "点击开始")</code></td>
+<td>UI</td>
+</tr>
+<tr>
+<td><code>Gumps.AddGroup(gd, group)</code></td>
+<td>控件组</td>
+<td><code>Gumps.AddGroup(gd, 1)</code></td>
+<td>单选分组</td>
+</tr>
+<tr>
+<td><code>Gumps.AddSpriteImage(...)</code></td>
+<td>精灵裁剪图</td>
+<td><code>Gumps.AddSpriteImage(gd,0,0,100,0,0,20,20)</code></td>
+<td>高级 UI</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="journal-日志接口">Journal 日志接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Journal.Clear(text)</code></td>
+<td>清空日志或移除指定文本</td>
+<td><code>Journal.Clear()</code></td>
+<td>动作前清日志</td>
+</tr>
+<tr>
+<td><code>Journal.Search(text)</code></td>
+<td>搜索文本</td>
+<td><code>Journal.Search("成功")</code></td>
+<td>判断结果</td>
+</tr>
+<tr>
+<td><code>Journal.SearchByColor(text, color)</code></td>
+<td>按颜色搜索</td>
+<td><code>Journal.SearchByColor("警告", 33)</code></td>
+<td>系统消息</td>
+</tr>
+<tr>
+<td><code>Journal.SearchByName(text, name)</code></td>
+<td>按发言人搜索</td>
+<td><code>Journal.SearchByName("hello", "Jack")</code></td>
+<td>聊天监听</td>
+</tr>
+<tr>
+<td><code>Journal.SearchByType(text, type)</code></td>
+<td>按类型搜索</td>
+<td><code>Journal.SearchByType("攻击", "System")</code></td>
+<td>系统消息</td>
+</tr>
+<tr>
+<td><code>Journal.WaitJournal(msgs, delay)</code></td>
+<td>等待文本出现</td>
+<td><code>Journal.WaitJournal(["成功","失败"], 3000)</code></td>
+<td>制作/施法结果</td>
+</tr>
+<tr>
+<td><code>Journal.WaitByName(name, delay)</code></td>
+<td>等待某人发言</td>
+<td><code>Journal.WaitByName("Jack", 5000)</code></td>
+<td>监听玩家</td>
+</tr>
+<tr>
+<td><code>Journal.FilterText(text)</code></td>
+<td>添加过滤文本</td>
+<td><code>Journal.FilterText("spam")</code></td>
+<td>减少干扰</td>
+</tr>
+<tr>
+<td><code>Journal.RemoveFilterText(text)</code></td>
+<td>移除过滤</td>
+<td><code>Journal.RemoveFilterText("spam")</code></td>
+<td>恢复</td>
+</tr>
+<tr>
+<td><code>Journal.GetLineText(text, addname)</code></td>
+<td>取匹配行</td>
+<td><code>Journal.GetLineText("成功", True)</code></td>
+<td>读取完整消息</td>
+</tr>
+<tr>
+<td><code>Journal.GetTextByColor(color, addname)</code></td>
+<td>按颜色取日志</td>
+<td><code>Journal.GetTextByColor(33, True)</code></td>
+<td>警告消息</td>
+</tr>
+<tr>
+<td><code>Journal.GetTextByName(name, addname)</code></td>
+<td>按名称取日志</td>
+<td><code>Journal.GetTextByName("Jack", True)</code></td>
+<td>聊天记录</td>
+</tr>
+<tr>
+<td><code>Journal.GetTextBySerial(serial, addname)</code></td>
+<td>按序列取日志</td>
+<td><code>Journal.GetTextBySerial(Player.Serial, True)</code></td>
+<td>自己消息</td>
+</tr>
+<tr>
+<td><code>Journal.GetTextByType(type, addname)</code></td>
+<td>按类型取日志</td>
+<td><code>Journal.GetTextByType("System", True)</code></td>
+<td>系统消息</td>
+</tr>
+<tr>
+<td><code>Journal.GetSpeechName()</code></td>
+<td>获取发言者列表</td>
+<td><code>names = Journal.GetSpeechName()</code></td>
+<td>聊天监听</td>
+</tr>
+<tr>
+<td><code>Journal.GetJournalEntry(after)</code></td>
+<td>获取日志对象</td>
+<td><code>entries = Journal.GetJournalEntry(0)</code></td>
+<td>高级记录</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="misc-杂项接口">Misc 杂项接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Misc.SendMessage(msg, color, wait)</code></td>
+<td>RA 输出消息</td>
+<td><code>Misc.SendMessage("开始", 68)</code></td>
+<td>调试/提示</td>
+</tr>
+<tr>
+<td><code>Misc.Pause(millisec)</code></td>
+<td>暂停毫秒</td>
+<td><code>Misc.Pause(800)</code></td>
+<td>等待服务器</td>
+</tr>
+<tr>
+<td><code>Misc.Beep()</code></td>
+<td>系统提示音</td>
+<td><code>Misc.Beep()</code></td>
+<td>异常提醒</td>
+</tr>
+<tr>
+<td><code>Misc.Resync()</code></td>
+<td>重新同步</td>
+<td><code>Misc.Resync()</code></td>
+<td>卡顿恢复</td>
+</tr>
+<tr>
+<td><code>Misc.Disconnect()</code></td>
+<td>断开连接</td>
+<td><code>Misc.Disconnect()</code></td>
+<td>危险保护</td>
+</tr>
+<tr>
+<td><code>Misc.FocusUOWindow()</code></td>
+<td>聚焦游戏窗口</td>
+<td><code>Misc.FocusUOWindow()</code></td>
+<td>鼠标键盘脚本</td>
+</tr>
+<tr>
+<td><code>Misc.CaptureNow()</code></td>
+<td>截图</td>
+<td><code>path = Misc.CaptureNow()</code></td>
+<td>记录异常</td>
+</tr>
+<tr>
+<td><code>Misc.RazorDirectory()</code></td>
+<td>RA 目录</td>
+<td><code>Misc.RazorDirectory()</code></td>
+<td>文件路径</td>
+</tr>
+<tr>
+<td><code>Misc.ConfigDirectory()</code></td>
+<td>配置目录</td>
+<td><code>Misc.ConfigDirectory()</code></td>
+<td>保存配置</td>
+</tr>
+<tr>
+<td><code>Misc.DataDirectory()</code></td>
+<td>数据目录</td>
+<td><code>Misc.DataDirectory()</code></td>
+<td>读写数据</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptDirectory()</code></td>
+<td>脚本目录</td>
+<td><code>Misc.ScriptDirectory()</code></td>
+<td>找同目录配置</td>
+</tr>
+<tr>
+<td><code>Misc.CurrentScriptDirectory()</code></td>
+<td>当前脚本目录</td>
+<td><code>Misc.CurrentScriptDirectory()</code></td>
+<td>配置文件</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptCurrent(fullpath)</code></td>
+<td>当前脚本名</td>
+<td><code>Misc.ScriptCurrent(True)</code></td>
+<td>日志记录</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptRun(scriptfile)</code></td>
+<td>启动脚本</td>
+<td><code>Misc.ScriptRun("辅助.py")</code></td>
+<td>多脚本协作</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptStop(scriptfile)</code></td>
+<td>停止脚本</td>
+<td><code>Misc.ScriptStop("辅助.py")</code></td>
+<td>控制脚本</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptStopAll(skipCurrent)</code></td>
+<td>停止全部脚本</td>
+<td><code>Misc.ScriptStopAll(True)</code></td>
+<td>紧急停止</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptStatus(scriptfile)</code></td>
+<td>脚本是否运行</td>
+<td><code>Misc.ScriptStatus("辅助.py")</code></td>
+<td>避免重复启动</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptSuspend(scriptfile)</code></td>
+<td>暂停脚本</td>
+<td><code>Misc.ScriptSuspend("辅助.py")</code></td>
+<td>临时暂停</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptResume(scriptfile)</code></td>
+<td>恢复脚本</td>
+<td><code>Misc.ScriptResume("辅助.py")</code></td>
+<td>恢复</td>
+</tr>
+<tr>
+<td><code>Misc.ScriptIsSuspended(scriptfile)</code></td>
+<td>是否暂停</td>
+<td><code>Misc.ScriptIsSuspended("辅助.py")</code></td>
+<td>状态判断</td>
+</tr>
+<tr>
+<td><code>Misc.SetSharedValue(name, value)</code></td>
+<td>保存共享变量</td>
+<td><code>Misc.SetSharedValue("box", chest)</code></td>
+<td>多脚本共享</td>
+</tr>
+<tr>
+<td><code>Misc.ReadSharedValue(name)</code></td>
+<td>读取共享变量</td>
+<td><code>chest = Misc.ReadSharedValue("box")</code></td>
+<td>多脚本共享</td>
+</tr>
+<tr>
+<td><code>Misc.CheckSharedValue(name)</code></td>
+<td>是否存在共享变量</td>
+<td><code>Misc.CheckSharedValue("box")</code></td>
+<td>判断配置</td>
+</tr>
+<tr>
+<td><code>Misc.RemoveSharedValue(name)</code></td>
+<td>删除共享变量</td>
+<td><code>Misc.RemoveSharedValue("box")</code></td>
+<td>清理</td>
+</tr>
+<tr>
+<td><code>Misc.AllSharedValue()</code></td>
+<td>列出共享变量</td>
+<td><code>Misc.AllSharedValue()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Misc.IgnoreObject(serial)</code></td>
+<td>忽略对象</td>
+<td><code>Misc.IgnoreObject(item)</code></td>
+<td>避免重复拾取</td>
+</tr>
+<tr>
+<td><code>Misc.UnIgnoreObject(serial)</code></td>
+<td>取消忽略</td>
+<td><code>Misc.UnIgnoreObject(item)</code></td>
+<td>恢复</td>
+</tr>
+<tr>
+<td><code>Misc.CheckIgnoreObject(serial)</code></td>
+<td>是否忽略</td>
+<td><code>Misc.CheckIgnoreObject(item)</code></td>
+<td>过滤</td>
+</tr>
+<tr>
+<td><code>Misc.ClearIgnore()</code></td>
+<td>清空忽略</td>
+<td><code>Misc.ClearIgnore()</code></td>
+<td>脚本开始</td>
+</tr>
+<tr>
+<td><code>Misc.ClearDragQueue()</code></td>
+<td>清空拖动物品队列</td>
+<td><code>Misc.ClearDragQueue()</code></td>
+<td>卡拖放恢复</td>
+</tr>
+<tr>
+<td><code>Misc.CloseBackpack()</code></td>
+<td>关闭背包</td>
+<td><code>Misc.CloseBackpack()</code></td>
+<td>清界面</td>
+</tr>
+<tr>
+<td><code>Misc.CloseMenu()</code></td>
+<td>关闭菜单</td>
+<td><code>Misc.CloseMenu()</code></td>
+<td>菜单恢复</td>
+</tr>
+<tr>
+<td><code>Misc.HasMenu()</code></td>
+<td>是否有菜单</td>
+<td><code>Misc.HasMenu()</code></td>
+<td>NPC 菜单</td>
+</tr>
+<tr>
+<td><code>Misc.WaitForMenu(delay)</code></td>
+<td>等待菜单</td>
+<td><code>Misc.WaitForMenu(2000)</code></td>
+<td>NPC 菜单</td>
+</tr>
+<tr>
+<td><code>Misc.GetMenuTitle()</code></td>
+<td>菜单标题</td>
+<td><code>Misc.GetMenuTitle()</code></td>
+<td>判断菜单</td>
+</tr>
+<tr>
+<td><code>Misc.MenuContain(text)</code></td>
+<td>菜单含文本</td>
+<td><code>Misc.MenuContain("购买")</code></td>
+<td>NPC 菜单</td>
+</tr>
+<tr>
+<td><code>Misc.MenuResponse(text)</code></td>
+<td>选择菜单项</td>
+<td><code>Misc.MenuResponse("购买")</code></td>
+<td>NPC 交互</td>
+</tr>
+<tr>
+<td><code>Misc.ContextReply(serial, response)</code></td>
+<td>回复右键菜单</td>
+<td><code>Misc.ContextReply(npc, 1)</code></td>
+<td>上下文菜单</td>
+</tr>
+<tr>
+<td><code>Misc.WaitForContext(obj, delay, show)</code></td>
+<td>等待右键菜单</td>
+<td><code>ctx = Misc.WaitForContext(npc, 2000, True)</code></td>
+<td>NPC/物品菜单</td>
+</tr>
+<tr>
+<td><code>Misc.UseContextMenu(serial, choice, delay)</code></td>
+<td>使用右键菜单文字</td>
+<td><code>Misc.UseContextMenu(npc, "Open", 2000)</code></td>
+<td>快速交互</td>
+</tr>
+<tr>
+<td><code>Misc.HasPrompt()</code></td>
+<td>是否有输入提示</td>
+<td><code>Misc.HasPrompt()</code></td>
+<td>NPC 输入</td>
+</tr>
+<tr>
+<td><code>Misc.WaitForPrompt(delay)</code></td>
+<td>等待输入提示</td>
+<td><code>Misc.WaitForPrompt(2000)</code></td>
+<td>输入文字</td>
+</tr>
+<tr>
+<td><code>Misc.ResponsePrompt(text)</code></td>
+<td>回复输入提示</td>
+<td><code>Misc.ResponsePrompt("100")</code></td>
+<td>输入数量</td>
+</tr>
+<tr>
+<td><code>Misc.CancelPrompt()</code></td>
+<td>取消输入</td>
+<td><code>Misc.CancelPrompt()</code></td>
+<td>异常恢复</td>
+</tr>
+<tr>
+<td><code>Misc.ResetPrompt()</code></td>
+<td>重置输入状态</td>
+<td><code>Misc.ResetPrompt()</code></td>
+<td>脚本开始</td>
+</tr>
+<tr>
+<td><code>Misc.HasQueryString()</code></td>
+<td>是否有确认框</td>
+<td><code>Misc.HasQueryString()</code></td>
+<td>交易/提示</td>
+</tr>
+<tr>
+<td><code>Misc.WaitForQueryString(delay)</code></td>
+<td>等待确认框</td>
+<td><code>Misc.WaitForQueryString(3000)</code></td>
+<td>确认</td>
+</tr>
+<tr>
+<td><code>Misc.QueryStringResponse(ok, response)</code></td>
+<td>回复确认框</td>
+<td><code>Misc.QueryStringResponse(True, "")</code></td>
+<td>自动确认</td>
+</tr>
+<tr>
+<td><code>Misc.Distance(x1,y1,x2,y2)</code></td>
+<td>距离</td>
+<td><code>Misc.Distance(1,1,5,5)</code></td>
+<td>坐标判断</td>
+</tr>
+<tr>
+<td><code>Misc.DistanceSqrt(p1,p2)</code></td>
+<td>精确距离</td>
+<td><code>Misc.DistanceSqrt(Player.Position, item.Position)</code></td>
+<td>距离计算</td>
+</tr>
+<tr>
+<td><code>Misc.GetWindowSize()</code></td>
+<td>游戏窗口大小</td>
+<td><code>Misc.GetWindowSize()</code></td>
+<td>鼠标脚本</td>
+</tr>
+<tr>
+<td><code>Misc.MouseLocation()</code></td>
+<td>鼠标位置</td>
+<td><code>Misc.MouseLocation()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Misc.MouseMove(x,y)</code></td>
+<td>移动鼠标</td>
+<td><code>Misc.MouseMove(100,100)</code></td>
+<td>UI 自动化</td>
+</tr>
+<tr>
+<td><code>Misc.LeftMouseClick(x,y,clientCoords)</code></td>
+<td>左键点击</td>
+<td><code>Misc.LeftMouseClick(100,100,True)</code></td>
+<td>UI 自动化</td>
+</tr>
+<tr>
+<td><code>Misc.RightMouseClick(x,y,clientCoords)</code></td>
+<td>右键点击</td>
+<td><code>Misc.RightMouseClick(100,100,True)</code></td>
+<td>UI 自动化</td>
+</tr>
+<tr>
+<td><code>Misc.SendToClient(keys)</code></td>
+<td>发送按键/命令</td>
+<td><code>Misc.SendToClient("text")</code></td>
+<td>高级操作</td>
+</tr>
+<tr>
+<td><code>Misc.OpenPaperdoll()</code></td>
+<td>打开纸娃娃</td>
+<td><code>Misc.OpenPaperdoll()</code></td>
+<td>查看装备</td>
+</tr>
+<tr>
+<td><code>Misc.NextContPosition(x,y)</code></td>
+<td>设置下个容器位置</td>
+<td><code>Misc.NextContPosition(100,100)</code></td>
+<td>开箱布局</td>
+</tr>
+<tr>
+<td><code>Misc.GetContPosition()</code></td>
+<td>获取容器位置</td>
+<td><code>Misc.GetContPosition()</code></td>
+<td>UI 布局</td>
+</tr>
+<tr>
+<td><code>Misc.ChangeProfile(name)</code></td>
+<td>切换 RA 配置</td>
+<td><code>Misc.ChangeProfile("default")</code></td>
+<td>多角色配置</td>
+</tr>
+<tr>
+<td><code>Misc.ShardName()</code></td>
+<td>当前服务器名</td>
+<td><code>Misc.ShardName()</code></td>
+<td>多服务器脚本</td>
+</tr>
+<tr>
+<td><code>Misc.IsItem(serial)</code></td>
+<td>是否物品</td>
+<td><code>Misc.IsItem(s)</code></td>
+<td>目标判断</td>
+</tr>
+<tr>
+<td><code>Misc.IsMobile(serial)</code></td>
+<td>是否生物</td>
+<td><code>Misc.IsMobile(s)</code></td>
+<td>目标判断</td>
+</tr>
+<tr>
+<td><code>Misc.GetMapInfo(serial)</code></td>
+<td>地图信息</td>
+<td><code>Misc.GetMapInfo(mapItem)</code></td>
+<td>地图脚本</td>
+</tr>
+<tr>
+<td><code>Misc.PetRename(serial, name)</code></td>
+<td>宠物改名</td>
+<td><code>Misc.PetRename(pet, "小白")</code></td>
+<td>宠物管理</td>
+</tr>
+<tr>
+<td><code>Misc.PlaySound(sound,x,y,z)</code></td>
+<td>播放声音</td>
+<td><code>Misc.PlaySound(0x005B, Player.Position.X, Player.Position.Y, Player.Position.Z)</code></td>
+<td>提醒</td>
+</tr>
+<tr>
+<td><code>Misc.AppendToFile(file,line)</code></td>
+<td>追加文件</td>
+<td><code>Misc.AppendToFile("log.txt", "hello")</code></td>
+<td>记录日志</td>
+</tr>
+<tr>
+<td><code>Misc.AppendNotDupToFile(file,line)</code></td>
+<td>不重复追加</td>
+<td><code>Misc.AppendNotDupToFile("ids.txt", str(serial))</code></td>
+<td>记录目标</td>
+</tr>
+<tr>
+<td><code>Misc.RemoveLineInFile(file,line)</code></td>
+<td>删除文件行</td>
+<td><code>Misc.RemoveLineInFile("ids.txt", str(serial))</code></td>
+<td>清配置</td>
+</tr>
+<tr>
+<td><code>Misc.DeleteFile(file)</code></td>
+<td>删除文件</td>
+<td><code>Misc.DeleteFile("tmp.txt")</code></td>
+<td>清理</td>
+</tr>
+<tr>
+<td><code>Misc.ExportPythonAPI(path, pretty)</code></td>
+<td>导出 API</td>
+<td><code>Misc.ExportPythonAPI("api.json", True)</code></td>
+<td>文档生成</td>
+</tr>
+<tr>
+<td><code>Misc.FilterSeason(enable, flag)</code></td>
+<td>季节过滤</td>
+<td><code>Misc.FilterSeason(True, 0)</code></td>
+<td>画面调整</td>
+</tr>
+<tr>
+<td><code>Misc.NoRunStealthStatus()</code></td>
+<td>潜行禁止跑状态</td>
+<td><code>Misc.NoRunStealthStatus()</code></td>
+<td>潜行脚本</td>
+</tr>
+<tr>
+<td><code>Misc.NoRunStealthToggle(enable)</code></td>
+<td>潜行禁止跑开关</td>
+<td><code>Misc.NoRunStealthToggle(True)</code></td>
+<td>潜行脚本</td>
+</tr>
+<tr>
+<td><code>Misc.LastHotKey()</code></td>
+<td>上次热键</td>
+<td><code>hk = Misc.LastHotKey()</code></td>
+<td>热键脚本</td>
+</tr>
+<tr>
+<td><code>Misc.Inspect()</code></td>
+<td>检查对象</td>
+<td><code>Misc.Inspect()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Misc.NoOperation()</code></td>
+<td>空操作</td>
+<td><code>Misc.NoOperation()</code></td>
+<td>占位</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="spells-法术接口">Spells 法术接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Spells.Cast(name, target, wait, waitAfter)</code></td>
+<td>通用施法</td>
+<td><code>Spells.Cast("Heal", Player.Serial, True, 1000)</code></td>
+<td>简单施法</td>
+</tr>
+<tr>
+<td><code>Spells.CastMagery(name, target, wait, waitAfter)</code></td>
+<td>魔法技能</td>
+<td><code>Spells.CastMagery("Greater Heal", Player.Serial, True, 1000)</code></td>
+<td>治疗</td>
+</tr>
+<tr>
+<td><code>Spells.CastChivalry(name, target, wait, waitAfter)</code></td>
+<td>骑士道</td>
+<td><code>Spells.CastChivalry("Consecrate Weapon", Player.Serial)</code></td>
+<td>战士 Buff</td>
+</tr>
+<tr>
+<td><code>Spells.CastNecro(name, target, wait, waitAfter)</code></td>
+<td>死灵</td>
+<td><code>Spells.CastNecro("Curse Weapon", Player.Serial)</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Spells.CastBushido(name, wait, waitAfter)</code></td>
+<td>武士道</td>
+<td><code>Spells.CastBushido("Confidence", True, 1000)</code></td>
+<td>战斗恢复</td>
+</tr>
+<tr>
+<td><code>Spells.CastNinjitsu(name, target, wait, waitAfter)</code></td>
+<td>忍术</td>
+<td><code>Spells.CastNinjitsu("Animal Form", Player.Serial)</code></td>
+<td>变身</td>
+</tr>
+<tr>
+<td><code>Spells.CastSpellweaving(name, target, wait, waitAfter)</code></td>
+<td>编织</td>
+<td><code>Spells.CastSpellweaving("Gift of Renewal", Player.Serial)</code></td>
+<td>Buff</td>
+</tr>
+<tr>
+<td><code>Spells.CastMysticism(name, target, wait, waitAfter)</code></td>
+<td>神秘术</td>
+<td><code>Spells.CastMysticism("Healing Stone", Player.Serial)</code></td>
+<td>辅助</td>
+</tr>
+<tr>
+<td><code>Spells.CastMastery(name, target, wait, waitAfter)</code></td>
+<td>精通</td>
+<td><code>Spells.CastMastery("Onslaught", enemy)</code></td>
+<td>战斗</td>
+</tr>
+<tr>
+<td><code>Spells.CastCleric(name, target, wait, waitAfter)</code></td>
+<td>Cleric 扩展</td>
+<td><code>Spells.CastCleric("Heal", Player.Serial)</code></td>
+<td>自定义服</td>
+</tr>
+<tr>
+<td><code>Spells.CastDruid(name, target, wait, waitAfter)</code></td>
+<td>Druid 扩展</td>
+<td><code>Spells.CastDruid("Leaf Whirlwind", enemy)</code></td>
+<td>自定义服</td>
+</tr>
+<tr>
+<td><code>Spells.CastLastSpell(target, wait)</code></td>
+<td>重复上次法术</td>
+<td><code>Spells.CastLastSpell(enemy, True)</code></td>
+<td>连续攻击</td>
+</tr>
+<tr>
+<td><code>Spells.CastLastSpellLastTarget()</code></td>
+<td>上次法术打上次目标</td>
+<td><code>Spells.CastLastSpellLastTarget()</code></td>
+<td>战斗循环</td>
+</tr>
+<tr>
+<td><code>Spells.Interrupt()</code></td>
+<td>打断施法</td>
+<td><code>Spells.Interrupt()</code></td>
+<td>危险中断</td>
+</tr>
+<tr>
+<td><code>Spells.ExportSpellsToJson()</code></td>
+<td>导出法术</td>
+<td><code>Spells.ExportSpellsToJson()</code></td>
+<td>文档/调试</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="timer-定时器接口">Timer 定时器接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Timer.Create(name, delay, message)</code></td>
+<td>创建定时器</td>
+<td><code>Timer.Create("pot", 10000)</code></td>
+<td>药水冷却</td>
+</tr>
+<tr>
+<td><code>Timer.Check(name)</code></td>
+<td>定时器是否结束</td>
+<td><code>if not Timer.Check("pot"):</code></td>
+<td>防止重复动作</td>
+</tr>
+<tr>
+<td><code>Timer.Remaining(name)</code></td>
+<td>剩余毫秒</td>
+<td><code>left = Timer.Remaining("pot")</code></td>
+<td>显示冷却</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="statics-地图静态接口">Statics 地图静态接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Statics.GetLandID(x,y,map)</code></td>
+<td>地面 ID</td>
+<td><code>id = Statics.GetLandID(x,y,Player.Map)</code></td>
+<td>判断地形</td>
+</tr>
+<tr>
+<td><code>Statics.GetLandZ(x,y,map)</code></td>
+<td>地面 Z</td>
+<td><code>z = Statics.GetLandZ(x,y,Player.Map)</code></td>
+<td>坐标目标</td>
+</tr>
+<tr>
+<td><code>Statics.GetLandName(id)</code></td>
+<td>地面名称</td>
+<td><code>Statics.GetLandName(id)</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Statics.GetLandFlag(id, flag)</code></td>
+<td>地面 flag</td>
+<td><code>Statics.GetLandFlag(id, "Wet")</code></td>
+<td>判断水面</td>
+</tr>
+<tr>
+<td><code>Statics.GetStaticsTileInfo(x,y,map)</code></td>
+<td>坐标静态列表</td>
+<td><code>tiles = Statics.GetStaticsTileInfo(x,y,Player.Map)</code></td>
+<td>采集/找门</td>
+</tr>
+<tr>
+<td><code>Statics.GetStaticsLandInfo(x,y,map)</code></td>
+<td>坐标地面信息</td>
+<td><code>info = Statics.GetStaticsLandInfo(x,y,Player.Map)</code></td>
+<td>地图判断</td>
+</tr>
+<tr>
+<td><code>Statics.GetItemData(staticID)</code></td>
+<td>物品静态数据</td>
+<td><code>data = Statics.GetItemData(0x0E21)</code></td>
+<td>物品资料</td>
+</tr>
+<tr>
+<td><code>Statics.GetTileName(id)</code></td>
+<td>tile 名称</td>
+<td><code>Statics.GetTileName(0x0E21)</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Statics.GetTileHeight(id)</code></td>
+<td>tile 高度</td>
+<td><code>Statics.GetTileHeight(0x0E21)</code></td>
+<td>走路/放置</td>
+</tr>
+<tr>
+<td><code>Statics.GetTileFlag(id, flag)</code></td>
+<td>tile flag</td>
+<td><code>Statics.GetTileFlag(0x0E21, "Container")</code></td>
+<td>类型判断</td>
+</tr>
+<tr>
+<td><code>Statics.CheckDeedHouse(x,y)</code></td>
+<td>检查房屋 deed</td>
+<td><code>Statics.CheckDeedHouse(x,y)</code></td>
+<td>房屋相关</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="pathfinding-寻路接口">PathFinding 寻路接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PathFinding.Route()</code></td>
+<td>路径配置对象</td>
+<td><code>r = PathFinding.Route()</code></td>
+<td>高级寻路</td>
+</tr>
+<tr>
+<td><code>PathFinding.Go(route)</code></td>
+<td>按 Route 走</td>
+<td><code>PathFinding.Go(r)</code></td>
+<td>自动移动</td>
+</tr>
+<tr>
+<td><code>PathFinding.PathFindTo(x,y,z)</code></td>
+<td>寻路到点</td>
+<td><code>PathFinding.PathFindTo(1000,1000,0)</code></td>
+<td>走到目标</td>
+</tr>
+<tr>
+<td><code>PathFinding.GetPath(x,y,ignoremob)</code></td>
+<td>获取路径点</td>
+<td><code>path = PathFinding.GetPath(1000,1000,True)</code></td>
+<td>自定义行走</td>
+</tr>
+<tr>
+<td><code>PathFinding.RunPath(path, timeout, debug, resync)</code></td>
+<td>跑完整路径</td>
+<td><code>PathFinding.RunPath(path, 20, False, True)</code></td>
+<td>自动跑图</td>
+</tr>
+<tr>
+<td><code>PathFinding.WalkPath(path, timeout, debug, resync)</code></td>
+<td>走完整路径</td>
+<td><code>PathFinding.WalkPath(path, 20, False, True)</code></td>
+<td>潜行/慢走</td>
+</tr>
+<tr>
+<td><code>PathFinding.Tile(x,y)</code></td>
+<td>构造路径点</td>
+<td><code>t = PathFinding.Tile(1000,1000)</code></td>
+<td>手动路线</td>
+</tr>
+</tbody>
+</table></div>
+<p>Route 常用属性：<code>X</code>、<code>Y</code>、<code>Run</code>、<code>MaxRetry</code>、<code>StopIfStuck</code>、<code>IgnoreMobile</code>、<code>UseResync</code>、<code>Timeout</code>、<code>DebugMessage</code>。</p>
+<h3 id="代理-列表接口">代理/列表接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>类</th>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Organizer</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换整理列表</td>
+<td><code>Organizer.ChangeList("矿石")</code></td>
+<td>整理物品</td>
+</tr>
+<tr>
+<td><code>Organizer</code></td>
+<td><code>RunOnce(name, source, dest, delay)</code></td>
+<td>执行一次整理</td>
+<td><code>Organizer.RunOnce("矿石", src, dst, 600)</code></td>
+<td>箱子整理</td>
+</tr>
+<tr>
+<td><code>Organizer</code></td>
+<td><code>FStart()</code> / <code>FStop()</code> / <code>Status()</code></td>
+<td>启停/状态</td>
+<td><code>Organizer.FStart()</code></td>
+<td>持续整理</td>
+</tr>
+<tr>
+<td><code>Restock</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换补货列表</td>
+<td><code>Restock.ChangeList("战士")</code></td>
+<td>补药</td>
+</tr>
+<tr>
+<td><code>Restock</code></td>
+<td><code>RunOnce(name, source, dest, delay)</code></td>
+<td>执行一次补货</td>
+<td><code>Restock.RunOnce("战士", chest, Player.Backpack.Serial, 600)</code></td>
+<td>从箱子补包</td>
+</tr>
+<tr>
+<td><code>Restock</code></td>
+<td><code>FStart()</code> / <code>FStop()</code> / <code>Status()</code></td>
+<td>启停/状态</td>
+<td><code>Restock.Status()</code></td>
+<td>自动补货</td>
+</tr>
+<tr>
+<td><code>Scavenger</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换拾取列表</td>
+<td><code>Scavenger.ChangeList("矿石")</code></td>
+<td>自动拾取</td>
+</tr>
+<tr>
+<td><code>Scavenger</code></td>
+<td><code>Start()</code> / <code>Stop()</code> / <code>Status()</code></td>
+<td>启停/状态</td>
+<td><code>Scavenger.Start()</code></td>
+<td>地面拾取</td>
+</tr>
+<tr>
+<td><code>Scavenger</code></td>
+<td><code>RunOnce(list, millisec, filter)</code></td>
+<td>执行一次拾取</td>
+<td><code>Scavenger.RunOnce(lst, 600, f)</code></td>
+<td>指定过滤拾取</td>
+</tr>
+<tr>
+<td><code>Scavenger</code></td>
+<td><code>GetScavengerBag()</code></td>
+<td>获取拾取包</td>
+<td><code>bag = Scavenger.GetScavengerBag()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Scavenger</code></td>
+<td><code>ResetIgnore()</code></td>
+<td>重置忽略</td>
+<td><code>Scavenger.ResetIgnore()</code></td>
+<td>重新扫描</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换拾尸列表</td>
+<td><code>AutoLoot.ChangeList("默认")</code></td>
+<td>打怪拾取</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>Start()</code> / <code>Stop()</code> / <code>Status()</code></td>
+<td>启停/状态</td>
+<td><code>AutoLoot.Start()</code></td>
+<td>自动拾尸</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>RunOnce(name, millisec, filter)</code></td>
+<td>执行一次拾尸</td>
+<td><code>AutoLoot.RunOnce("默认", 800, f)</code></td>
+<td>单次清尸</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>GetList(name, wantMinusOnes)</code></td>
+<td>获取列表</td>
+<td><code>lst = AutoLoot.GetList("默认", False)</code></td>
+<td>高级自定义</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>GetLootBag()</code></td>
+<td>获取拾取包</td>
+<td><code>bag = AutoLoot.GetLootBag()</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>SetNoOpenCorpse(noOpen)</code></td>
+<td>是否不开尸体</td>
+<td><code>AutoLoot.SetNoOpenCorpse(True)</code></td>
+<td>只捡已开尸体</td>
+</tr>
+<tr>
+<td><code>AutoLoot</code></td>
+<td><code>ResetIgnore()</code></td>
+<td>清忽略</td>
+<td><code>AutoLoot.ResetIgnore()</code></td>
+<td>重新清尸</td>
+</tr>
+<tr>
+<td><code>Dress</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换换装列表</td>
+<td><code>Dress.ChangeList("战斗")</code></td>
+<td>换装</td>
+</tr>
+<tr>
+<td><code>Dress</code></td>
+<td><code>DressFStart()</code> / <code>DressFStop()</code> / <code>DressStatus()</code></td>
+<td>穿装启停/状态</td>
+<td><code>Dress.DressFStart()</code></td>
+<td>一键穿装</td>
+</tr>
+<tr>
+<td><code>Dress</code></td>
+<td><code>UnDressFStart()</code> / <code>UnDressFStop()</code> / <code>UnDressStatus()</code></td>
+<td>脱装启停/状态</td>
+<td><code>Dress.UnDressFStart()</code></td>
+<td>一键脱装</td>
+</tr>
+<tr>
+<td><code>BandageHeal</code></td>
+<td><code>Start()</code> / <code>Stop()</code> / <code>Status()</code></td>
+<td>绷带治疗代理</td>
+<td><code>BandageHeal.Start()</code></td>
+<td>使用 RA 内置治疗</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>ChangeList(name)</code></td>
+<td>切换好友列表</td>
+<td><code>Friend.ChangeList("队友")</code></td>
+<td>治疗/过滤</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>AddFriendTarget()</code></td>
+<td>目标添加好友</td>
+<td><code>Friend.AddFriendTarget()</code></td>
+<td>建立列表</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>AddPlayer(list,name,serial)</code></td>
+<td>添加玩家</td>
+<td><code>Friend.AddPlayer("队友","Jack",serial)</code></td>
+<td>脚本维护列表</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>GetList(name)</code></td>
+<td>获取好友序列</td>
+<td><code>ids = Friend.GetList("队友")</code></td>
+<td>队友过滤</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>IsFriend(serial)</code></td>
+<td>是否好友</td>
+<td><code>Friend.IsFriend(m.Serial)</code></td>
+<td>不攻击队友</td>
+</tr>
+<tr>
+<td><code>Friend</code></td>
+<td><code>RemoveFriend(list, serial)</code></td>
+<td>删除好友</td>
+<td><code>Friend.RemoveFriend("队友", serial)</code></td>
+<td>列表维护</td>
+</tr>
+<tr>
+<td><code>DPSMeter</code></td>
+<td><code>Start()</code> / <code>Pause()</code> / <code>Stop()</code> / <code>Status()</code></td>
+<td>DPS 统计启停</td>
+<td><code>DPSMeter.Start()</code></td>
+<td>输出统计</td>
+</tr>
+<tr>
+<td><code>DPSMeter</code></td>
+<td><code>GetDamage(serial)</code></td>
+<td>获取伤害</td>
+<td><code>DPSMeter.GetDamage(enemy)</code></td>
+<td>伤害统计</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="vendor-商人接口">Vendor 商人接口</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Vendor.Buy(vendorSerial, itemID, amount, maxPrice)</code></td>
+<td>自动购买</td>
+<td><code>Vendor.Buy(vendor.Serial, 0x0E21, 100, 5)</code></td>
+<td>买绷带/材料</td>
+</tr>
+<tr>
+<td><code>Vendor.BuyList(vendorSerial)</code></td>
+<td>获取购买列表</td>
+<td><code>lst = Vendor.BuyList(vendor.Serial)</code></td>
+<td>查看 NPC 售卖</td>
+</tr>
+<tr>
+<td><code>Vendor.LastBuyList</code></td>
+<td>上次购买列表</td>
+<td><code>Vendor.LastBuyList</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Vendor.LastSellList</code></td>
+<td>上次出售列表</td>
+<td><code>Vendor.LastSellList</code></td>
+<td>调试</td>
+</tr>
+<tr>
+<td><code>Vendor.LastVendor</code></td>
+<td>上次商人</td>
+<td><code>Vendor.LastVendor</code></td>
+<td>连续交易</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="五-完整示例">五、完整示例</h2>
+<h3 id="示例-1-自动绷带自己">示例 1：自动绷带自己</h3>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+BANDAGE = 0x0E21
+
+def main():
+    while not Player.IsGhost:
+        if Player.Hits &lt; Player.HitsMax:
+            bandage = Items.FindByID(BANDAGE, -1, Player.Backpack.Serial, True)
+            if bandage:
+                Items.UseItem(bandage.Serial)
+                if Target.WaitForTarget(2000, False):
+                    Target.Self()
+                    Misc.SendMessage(&quot;使用绷带&quot;, 68)
+                    Misc.Pause(11000)
+            else:
+                Misc.SendMessage(&quot;没有绷带&quot;, 33)
+                Misc.Pause(3000)
+        Misc.Pause(500)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h3 id="示例-2-自动丢弃指定成品">示例 2：自动丢弃指定成品</h3>
+<pre><code class="language-python">TRASH = 0x40012345
+DUMP_IDS = [0x13EE, 0x1413]
+
+def each_container_item(container_serial, recursive=True):
+    bag = Items.FindBySerial(container_serial)
+    if bag is None:
+        return []
+
+    result = []
+    for item in bag.Contains:
+        result.append(item)
+        if recursive and item.IsContainer:
+            result.extend(each_container_item(item.Serial, True))
+    return result
+
+for item in each_container_item(Player.Backpack.Serial):
+    if item.ItemID in DUMP_IDS:
+        Items.Move(item.Serial, TRASH, item.Amount)
+        Misc.Pause(600)
+</code></pre>
+<h3 id="示例-3-找最近敌人并攻击">示例 3：找最近敌人并攻击</h3>
+<pre><code class="language-python">def find_enemy():
+    f = Mobiles.Filter()
+    f.Enabled = True
+    f.RangeMax = 10
+    f.Notorieties.Add(3)
+    f.Notorieties.Add(4)
+    f.Notorieties.Add(5)
+    f.Notorieties.Add(6)
+    f.CheckLineOfSight = True
+    return Mobiles.Select(Mobiles.ApplyFilter(f), &quot;Nearest&quot;)
+
+enemy = find_enemy()
+if enemy:
+    Player.SetWarMode(True)
+    Player.Attack(enemy)
+</code></pre>
+<h3 id="示例-4-制作菜单点击上一项">示例 4：制作菜单点击上一项</h3>
+<pre><code class="language-python">TOOL = 0x13E3
+MAKE_LAST = 21
+
+tool = Items.FindByID(TOOL, -1, Player.Backpack.Serial, True)
+if tool:
+    Items.UseItem(tool.Serial)
+    if Gumps.WaitForGump(0, 5000):
+        gid = Gumps.CurrentGump()
+        Gumps.SendAction(gid, MAKE_LAST)
+        Misc.Pause(800)
+</code></pre>
+<h2 id="六-排错清单">六、排错清单</h2>
+<h3 id="1-object-has-no-attribute">1. <code>object has no attribute</code></h3>
+<p>原因：方法名不存在或版本不支持。</p>
+<p>错误例子：</p>
+<pre><code class="language-python">Items.GetItems(Player.Backpack.Serial)
+</code></pre>
+<p>修法：</p>
+<pre><code class="language-python">bag = Items.FindBySerial(Player.Backpack.Serial)
+for item in bag.Contains:
+    Misc.SendMessage(item.Name)
+</code></pre>
+<h3 id="2-找不到物品">2. 找不到物品</h3>
+<p>检查：</p>
+<ul>
+<li>容器是否打开。</li>
+<li>物品颜色是否写错，颜色不确定用 <code>-1</code>。</li>
+<li>是否需要递归 <code>True</code>。</li>
+<li>物品是否在子包里。</li>
+</ul>
+<h3 id="3-gump-按钮没反应">3. Gump 按钮没反应</h3>
+<p>检查：</p>
+<ul>
+<li><code>Gumps.WaitForGump(0, 5000)</code> 是否成功。</li>
+<li><code>Gumps.CurrentGump()</code> 是否取到正确 ID。</li>
+<li>按钮 ID 是否是当前服务器菜单的按钮。</li>
+<li>动作后是否加了 <code>Misc.Pause(500-1000)</code>。</li>
+</ul>
+<h3 id="4-移动物品失败">4. 移动物品失败</h3>
+<p>检查：</p>
+<ul>
+<li>目标容器是否打开或可达。</li>
+<li><code>amount</code> 是否大于物品数量。</li>
+<li>角色是否超重。</li>
+<li>服务端是否限制距离。</li>
+</ul>
+<h3 id="5-中文乱码">5. 中文乱码</h3>
+<p>脚本第一行加：</p>
+<pre><code class="language-python"># -*- coding: utf-8 -*-
+</code></pre>
+<p>编辑器保存为 UTF-8。</p>
+<h2 id="七-推荐脚本写法习惯">七、推荐脚本写法习惯</h2>
+<ol>
+<li>所有常量写在脚本开头。</li>
+<li>所有序列号用 <code>0xXXXXXXXX</code> 格式。</li>
+<li>每个动作后加 <code>Misc.Pause()</code>。</li>
+<li>写 <code>log()</code> 函数统一输出。</li>
+<li>用 <code>Target.PromptTarget()</code> 让玩家选择箱子，少写死序列号。</li>
+<li>循环条件一定包含 <code>while not Player.IsGhost:</code>。</li>
+<li>查找物品前打开容器并等待。</li>
+<li>读取 Gump 前先 <code>Gumps.WaitForGump()</code>。</li>
+<li>脚本报错先看最后一行：通常就是不存在的方法、空对象或参数错。</li>
+<li>不确定对象是否存在时先判断 <code>if item is not None:</code>。</li>
+</ol></section><footer class="footer"><span>阳光大陆 · 永夜再临</span><span>官方 QQ 群：757710228</span></footer></article></main></div></body></html>
