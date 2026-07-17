@@ -2248,15 +2248,17 @@ namespace Assistant
 
             if (ifAction.Type == IfAction.ConditionType.BuffExists)
             {
-                string prefix = ifAction.BooleanValue ? "" : "Not ";
-                string buffName = string.IsNullOrEmpty(ifAction.BuffName) ? "(none)" : ifAction.BuffName;
-                return $"{prefix}BuffExists: {buffName}";
+                string prefix = ifAction.BooleanValue ? "" : "非";
+                string buffName = string.IsNullOrEmpty(ifAction.BuffName)
+                    ? "（无）"
+                    : MacroOptionLocalizer.LocalizeBuff(ifAction.BuffName);
+                return $"{prefix}增益存在: {buffName}";
             }
 
             if (ifAction.Type == IfAction.ConditionType.Skill)
             {
                 string displayValue = string.IsNullOrEmpty(ifAction.ValueToken) ? ifAction.Value.ToString() : ifAction.ValueToken;
-                return $"{ifAction.SkillName} {GetOperatorSymbol(ifAction.Op)} {displayValue}";
+                return $"{MacroOptionLocalizer.LocalizeSkill(ifAction.SkillName)} {GetOperatorSymbol(ifAction.Op)} {displayValue}";
             }
 
             if (ifAction.Type == IfAction.ConditionType.InRange)
@@ -2688,9 +2690,9 @@ namespace Assistant
                 Width = 290,
                 DropDownStyle = ComboBoxStyle.DropDownList
             };
-            cmbSkill.Items.AddRange(GetAllSkills());
+            cmbSkill.Items.AddRange(GetLocalizedSkillOptions());
             if (!string.IsNullOrEmpty(ifAction.SkillName))
-                cmbSkill.SelectedItem = ifAction.SkillName;
+                SelectLocalizedMacroOption(cmbSkill, ifAction.SkillName);
 
             // === JOURNAL TEXT (Top = 60) ===
             Label lblJournalText = new Label { Left = 20, Top = 60, Text = "日志文本:", Width = 120 };
@@ -2720,14 +2722,11 @@ namespace Assistant
                 Left = 150,
                 Top = 60,
                 Width = 290,
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Sorted = true
+                DropDownStyle = ComboBoxStyle.DropDownList
             };
-            var allBuffs = new List<string>(Player.BuffsMapping.Values);
-            allBuffs.Sort();
-            cmbBuff.Items.AddRange(allBuffs.ToArray());
+            cmbBuff.Items.AddRange(GetLocalizedBuffOptions());
             if (!string.IsNullOrEmpty(ifAction.BuffName))
-                cmbBuff.SelectedItem = ifAction.BuffName;
+                SelectLocalizedMacroOption(cmbBuff, ifAction.BuffName);
 
             Label lblBuffCheck = new Label { Left = 20, Top = 100, Text = "检查:", Width = 120 };
             ComboBox cmbBuffCheck = new ComboBox
@@ -3698,8 +3697,8 @@ namespace Assistant
                     int.TryParse(txtColor.Text, out color);
                 }
 
-                string skillName = cmbSkill.SelectedItem?.ToString() ?? "";
-                string buffName = cmbBuff.SelectedItem?.ToString() ?? "";
+                string skillName = GetLocalizedMacroOptionValue(cmbSkill);
+                string buffName = GetLocalizedMacroOptionValue(cmbBuff);
 
                 bool boolValue;
                 if (condType == IfAction.ConditionType.BuffExists)
@@ -3978,15 +3977,17 @@ namespace Assistant
 
             if (elseIfAction.Type == IfAction.ConditionType.BuffExists)
             {
-                string prefix = elseIfAction.BooleanValue ? "" : "Not ";
-                string buffName = string.IsNullOrEmpty(elseIfAction.BuffName) ? "(none)" : elseIfAction.BuffName;
-                return $"{prefix}BuffExists: {buffName}";
+                string prefix = elseIfAction.BooleanValue ? "" : "非";
+                string buffName = string.IsNullOrEmpty(elseIfAction.BuffName)
+                    ? "（无）"
+                    : MacroOptionLocalizer.LocalizeBuff(elseIfAction.BuffName);
+                return $"{prefix}增益存在: {buffName}";
             }
 
             if (elseIfAction.Type == IfAction.ConditionType.Skill)
             {
                 string displayValue = string.IsNullOrEmpty(elseIfAction.ValueToken) ? elseIfAction.Value.ToString() : elseIfAction.ValueToken;
-                return $"{elseIfAction.SkillName} {GetOperatorSymbol(elseIfAction.Op)} {displayValue}";
+                return $"{MacroOptionLocalizer.LocalizeSkill(elseIfAction.SkillName)} {GetOperatorSymbol(elseIfAction.Op)} {displayValue}";
             }
 
             if (elseIfAction.Type == IfAction.ConditionType.InRange)
@@ -6934,6 +6935,45 @@ namespace Assistant
 
             return false;
         }
+
+        private LocalizedMacroOption[] GetLocalizedSkillOptions()
+        {
+            return GetAllSkills()
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Select(name => new LocalizedMacroOption(name, MacroOptionLocalizer.LocalizeSkill(name)))
+                .OrderBy(option => option.DisplayText, StringComparer.CurrentCulture)
+                .ToArray();
+        }
+
+        private LocalizedMacroOption[] GetLocalizedBuffOptions()
+        {
+            return Player.BuffsMapping.Values
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .Select(name => new LocalizedMacroOption(name, MacroOptionLocalizer.LocalizeBuff(name)))
+                .OrderBy(option => option.DisplayText, StringComparer.CurrentCulture)
+                .ToArray();
+        }
+
+        private static void SelectLocalizedMacroOption(ComboBox comboBox, string value)
+        {
+            for (int i = 0; i < comboBox.Items.Count; i++)
+            {
+                LocalizedMacroOption option = comboBox.Items[i] as LocalizedMacroOption;
+
+                if (option != null && String.Equals(option.Value, value, StringComparison.OrdinalIgnoreCase))
+                {
+                    comboBox.SelectedIndex = i;
+                    return;
+                }
+            }
+        }
+
+        private static string GetLocalizedMacroOptionValue(ComboBox comboBox)
+        {
+            LocalizedMacroOption option = comboBox.SelectedItem as LocalizedMacroOption;
+            return option != null ? option.Value : comboBox.SelectedItem?.ToString() ?? "";
+        }
+
         private string[] GetAllSkills()
         {
             var skillNames = new List<string>();
@@ -10275,15 +10315,17 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             if (whileAction.Type == IfAction.ConditionType.BuffExists)
             {
-                string prefix = whileAction.BooleanValue ? "" : "Not ";
-                string buffName = string.IsNullOrEmpty(whileAction.BuffName) ? "(none)" : whileAction.BuffName;
-                return $"{prefix}BuffExists: {buffName}";
+                string prefix = whileAction.BooleanValue ? "" : "非";
+                string buffName = string.IsNullOrEmpty(whileAction.BuffName)
+                    ? "（无）"
+                    : MacroOptionLocalizer.LocalizeBuff(whileAction.BuffName);
+                return $"{prefix}增益存在: {buffName}";
             }
 
             if (whileAction.Type == IfAction.ConditionType.Skill)
             {
                 string displayValue = string.IsNullOrEmpty(whileAction.ValueToken) ? whileAction.Value.ToString() : whileAction.ValueToken;
-                return $"{whileAction.SkillName} {GetOperatorSymbol(whileAction.Op)} {displayValue}";
+                return $"{MacroOptionLocalizer.LocalizeSkill(whileAction.SkillName)} {GetOperatorSymbol(whileAction.Op)} {displayValue}";
             }
 
             if (whileAction.Type == IfAction.ConditionType.InRange)

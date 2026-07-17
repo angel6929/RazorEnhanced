@@ -788,6 +788,7 @@
     <Compile Include="UI\MacrosUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\MacroOptionLocalizer.cs" />
     <Compile Include="UI\Other\Hotkey.cs">
       <SubType>Form</SubType>
     </Compile>
