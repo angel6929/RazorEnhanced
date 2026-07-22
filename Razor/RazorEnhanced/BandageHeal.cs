@@ -250,14 +250,10 @@ namespace RazorEnhanced
 
             Engine.MainWindow.BandageHealAutostartCheckBox.Checked = Settings.General.ReadBool("BandageHealAutostartCheckBox");
 
-            Engine.MainWindow.BandageHealtargetComboBox.Items.Clear();
-            Engine.MainWindow.BandageHealtargetComboBox.Items.Add("Self");
-            Engine.MainWindow.BandageHealtargetComboBox.Items.Add("Target");
-            Engine.MainWindow.BandageHealtargetComboBox.Items.Add("Friend");
-            Engine.MainWindow.BandageHealtargetComboBox.Items.Add("Friend Or Self");
-            Engine.MainWindow.BandageHealtargetComboBox.Text = Settings.General.ReadString("BandageHealtargetComboBox");
+            string targetMode = Settings.General.ReadString("BandageHealtargetComboBox");
+            Engine.MainWindow.LoadBandageHealTargetOptions(targetMode);
 
-            if (Settings.General.ReadString("BandageHealtargetComboBox") == "Target")
+            if (targetMode == "Target")
             {
                 Engine.MainWindow.BandageHealsettargetButton.Enabled = true;
                 Engine.MainWindow.BandageHealtargetLabel.Enabled = true;

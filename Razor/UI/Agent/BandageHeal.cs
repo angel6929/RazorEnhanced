@@ -34,6 +34,57 @@ namespace Assistant
         internal System.Windows.Forms.Button BandageHealsettargetButton { get { return bandagehealsettargetButton; } }
         internal CheckBox BandageHealAutostartCheckBox { get { return bandagehealAutostartCheckBox; } }
 
+        /// <summary>
+        /// 绷带治疗目标的显示项。Value 保留原英文配置值，避免汉化影响配置兼容和治疗逻辑。
+        /// </summary>
+        private sealed class BandageHealTargetOption
+        {
+            internal BandageHealTargetOption(string value, string displayText)
+            {
+                Value = value;
+                DisplayText = displayText;
+            }
+
+            internal string Value { get; }
+            internal string DisplayText { get; }
+
+            public override string ToString()
+            {
+                return DisplayText;
+            }
+        }
+
+        private static readonly BandageHealTargetOption[] m_bandageHealTargetOptions =
+        {
+            new BandageHealTargetOption("Self", "自己"),
+            new BandageHealTargetOption("Target", "指定目标"),
+            new BandageHealTargetOption("Friend", "好友"),
+            new BandageHealTargetOption("Friend Or Self", "好友或自己")
+        };
+
+        internal void LoadBandageHealTargetOptions(string selectedValue)
+        {
+            BandageHealtargetComboBox.Items.Clear();
+
+            int selectedIndex = 0;
+            for (int i = 0; i < m_bandageHealTargetOptions.Length; i++)
+            {
+                BandageHealTargetOption option = m_bandageHealTargetOptions[i];
+                BandageHealtargetComboBox.Items.Add(option);
+
+                if (String.Equals(option.Value, selectedValue, StringComparison.Ordinal))
+                    selectedIndex = i;
+            }
+
+            BandageHealtargetComboBox.SelectedIndex = selectedIndex;
+        }
+
+        private string GetBandageHealTargetValue()
+        {
+            BandageHealTargetOption option = BandageHealtargetComboBox.SelectedItem as BandageHealTargetOption;
+            return option != null ? option.Value : null;
+        }
+
         private void bandagehealenableCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (World.Player != null)
@@ -87,7 +138,11 @@ namespace Assistant
         }
         private void bandagehealtargetComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (BandageHealtargetComboBox.Text == "Target")
+            string targetMode = GetBandageHealTargetValue();
+            if (String.IsNullOrEmpty(targetMode))
+                return;
+
+            if (targetMode == "Target")
             {
                 bandagehealsettargetButton.Enabled = true;
                 bandagehealtargetLabel.Enabled = true;
@@ -98,7 +153,7 @@ namespace Assistant
                 bandagehealtargetLabel.Enabled = false;
             }
 
-            RazorEnhanced.Settings.General.WriteString("BandageHealtargetComboBox", bandagehealtargetComboBox.Text);
+            RazorEnhanced.Settings.General.WriteString("BandageHealtargetComboBox", targetMode);
         }
 
         private void bandagehealsettargetButton_Click(object sender, EventArgs e)
