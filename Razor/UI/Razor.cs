@@ -8567,6 +8567,7 @@ namespace Assistant
             this.AdvancedPages.SelectedIndex = 0;
             this.AdvancedPages.Size = new System.Drawing.Size(657, 371);
             this.AdvancedPages.TabIndex = 0;
+            this.AdvancedPages.SelectedIndexChanged += new System.EventHandler(this.tabs_IndexChanged);
             // 
             // screenshotTab
             // 
@@ -8596,10 +8597,7 @@ namespace Assistant
             "png",
             "bmp",
             "gif",
-            "tif",
-            "wmf",
-            "exif",
-            "emf"});
+            "tif"});
             this.imgFmt.Location = new System.Drawing.Point(94, 202);
             this.imgFmt.Name = "imgFmt";
             this.imgFmt.Size = new System.Drawing.Size(71, 23);
@@ -8633,6 +8631,7 @@ namespace Assistant
             this.screenPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.screenPath.Location = new System.Drawing.Point(7, 14);
             this.screenPath.Name = "screenPath";
+            this.screenPath.ReadOnly = true;
             this.screenPath.Size = new System.Drawing.Size(236, 20);
             this.screenPath.TabIndex = 7;
             this.screenPath.TextChanged += new System.EventHandler(this.screenPath_TextChanged);
@@ -8680,7 +8679,7 @@ namespace Assistant
             this.screensList.Location = new System.Drawing.Point(7, 40);
             this.screensList.Name = "screensList";
             this.screensList.Size = new System.Drawing.Size(223, 147);
-            this.screensList.Sorted = true;
+            this.screensList.Sorted = false;
             this.screensList.TabIndex = 1;
             this.screensList.SelectedIndexChanged += new System.EventHandler(this.screensList_SelectedIndexChanged);
             this.screensList.MouseDown += new System.Windows.Forms.MouseEventHandler(this.screensList_MouseDown);
@@ -10086,11 +10085,16 @@ namespace Assistant
             DpsMeterGridView.Rows.Clear();
 
             // ------------------ PARAMETRI GENERALI -------------------
-            imgFmt.SelectedItem = RazorEnhanced.Settings.General.ReadString("ImageFormat");
+            string configuredImageFormat = RazorEnhanced.Settings.General.ReadString("ImageFormat");
+            if (!imgFmt.Items.Contains(configuredImageFormat))
+            {
+                configuredImageFormat = "jpg";
+                RazorEnhanced.Settings.General.WriteString("ImageFormat", configuredImageFormat);
+            }
+            imgFmt.SelectedItem = configuredImageFormat;
 
             screenPath.Text = RazorEnhanced.Settings.General.ReadString("CapPath");
             radioUO.Checked = !(radioFull.Checked = RazorEnhanced.Settings.General.ReadBool("CapFullScreen"));
-            imgFmt.SelectedItem = RazorEnhanced.Settings.General.ReadString("ImageFormat");
             dispTime.Checked = RazorEnhanced.Settings.General.ReadBool("CapTimeStamp");
             screenAutoCap.Checked = RazorEnhanced.Settings.General.ReadBool("AutoCap");
             Filters.Filter.Load();
@@ -10891,4 +10895,3 @@ namespace Assistant
         }
     }
 }
-

@@ -37,7 +37,7 @@ namespace Assistant
 
         internal void ReloadScreenShotsList()
         {
-            if (tabs.SelectedTab != screenshotTab) // No force screen update in not showing tab
+            if (tabs.SelectedTab != advancedTab || AdvancedPages.SelectedTab != screenshotTab)
                 return;
 
             ScreenCapManager.DisplayTo(screensList);
@@ -80,25 +80,29 @@ namespace Assistant
             if (screensList.SelectedIndex == -1)
                 return;
 
+            string selectedFile = screensList.SelectedItem as string;
             string file = null;
             try
             {
-                file = Path.Combine(RazorEnhanced.Settings.General.ReadString("CapPath"), screensList.SelectedItem.ToString());
+                file = Path.Combine(RazorEnhanced.Settings.General.ReadString("CapPath"), selectedFile);
                 file = Utility.GetCaseInsensitiveFilePath(file);
-            }
-            catch (Exception)
-            {
-                RazorEnhanced.UI.RE_MessageBox.Show("File Not Found",
-                    Language.Format(LocString.FileNotFoundA1, file),
-                    ok: "Ok", no: null, cancel: null, backColor: null);
-                screensList.Items.RemoveAt(screensList.SelectedIndex);
-                screensList.SelectedIndex = -1;
-                return;
-            }
+                if (!File.Exists(file))
+                    throw new FileNotFoundException("截图文件不存在。", file);
 
-            using Stream reader = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using (Stream reader = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (Image source = Image.FromStream(reader))
+                {
+                    screenPrev.Image = new Bitmap(source);
+                }
+            }
+            catch (Exception ex)
             {
-                screenPrev.Image = Image.FromStream(reader);
+                RazorEnhanced.UI.RE_MessageBox.Show("无法打开截图",
+                    $"{file}\r\n\r\n{ex.Message}",
+                    ok: "Ok", no: null, cancel: null, backColor: null);
+                if (Equals(screensList.SelectedItem, selectedFile))
+                    screensList.SelectedIndex = -1;
+                return;
             }
         }
 
@@ -106,39 +110,33 @@ namespace Assistant
         {
             if (e.Button == MouseButtons.Right && e.Clicks == 1)
             {
+                int index = screensList.IndexFromPoint(e.Location);
+                screensList.SelectedIndex = index;
+
                 ContextMenu menu = new();
-                menu.MenuItems.Add("Delete", new EventHandler(DeleteScreenCap));
-                if (screensList.SelectedIndex == -1)
+                menu.MenuItems.Add("删除", new EventHandler(DeleteScreenCap));
+                if (index == -1)
                     menu.MenuItems[menu.MenuItems.Count - 1].Enabled = false;
-                menu.MenuItems.Add("Delete ALL", new EventHandler(ClearScreensDirectory));
+                menu.MenuItems.Add("全部删除", new EventHandler(ClearScreensDirectory));
                 menu.Show(screensList, new Point(e.X, e.Y));
             }
         }
 
         private void DeleteScreenCap(object sender, System.EventArgs e)
         {
-            int sel = screensList.SelectedIndex;
-            if (sel == -1)
+            if (!(screensList.SelectedItem is string selectedFile))
                 return;
 
-            string file = Path.Combine(RazorEnhanced.Settings.General.ReadString("CapPath"), (string)screensList.SelectedItem);
+            string file = Path.Combine(RazorEnhanced.Settings.General.ReadString("CapPath"), selectedFile);
             var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Delete Confirmation",
-                 Language.Format(LocString.DelConf, file),
+                  Language.Format(LocString.DelConf, file),
                 ok: "Yes", no: "No", cancel: null, backColor: null);
-            if (dialogResult == DialogResult.No)
+            if (dialogResult != DialogResult.Yes)
                 return;
-
-            screensList.SelectedIndex = -1;
-            if (screenPrev.Image != null)
-            {
-                screenPrev.Image.Dispose();
-                screenPrev.Image = null;
-            }
 
             try
             {
                 File.Delete(file);
-                screensList.Items.RemoveAt(sel);
             }
             catch (Exception ex)
             {
@@ -156,21 +154,34 @@ namespace Assistant
             var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Delete Confirmation",
                 Language.Format(LocString.Confirm, dir),
                 ok: "Yes", no: "No", cancel: null, backColor: null);
-            if (dialogResult == DialogResult.No)
+            if (dialogResult != DialogResult.Yes)
                 return;
 
-            string[] files = Directory.GetFiles(dir, "*.jpg");
             StringBuilder sb = new();
             int failed = 0;
-            for (int i = 0; i < files.Length; i++)
+            System.Collections.Generic.List<string> files;
+
+            try
+            {
+                files = ScreenCapManager.GetScreenshotFiles(dir);
+            }
+            catch (Exception ex)
+            {
+                RazorEnhanced.UI.RE_MessageBox.Show("Unable to Read Directory",
+                    $"Unable to read:\r\n{dir}\r\nError: {ex.Message}",
+                    ok: "Ok", no: null, cancel: null, backColor: null);
+                return;
+            }
+
+            foreach (string file in files)
             {
                 try
                 {
-                    File.Delete(files[i]);
+                    File.Delete(file);
                 }
                 catch
                 {
-                    sb.AppendFormat("{0}\n", files[i]);
+                    sb.AppendFormat("{0}\n", file);
                     failed++;
                 }
             }
@@ -210,12 +221,15 @@ namespace Assistant
             if (screensList.SelectedItem is String file)
             {
                 string tostart = Path.Combine(RazorEnhanced.Settings.General.ReadString("CapPath"), file);
-                if (File.Exists(tostart))
+                if (!File.Exists(tostart))
                     return;
 
                 try
                 {
-                    Process.Start(tostart);
+                    Process.Start(new ProcessStartInfo(tostart)
+                    {
+                        UseShellExecute = true
+                    });
                 }
                 catch { }
             }

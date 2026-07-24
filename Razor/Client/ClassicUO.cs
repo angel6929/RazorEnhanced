@@ -8,6 +8,7 @@ using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -103,6 +104,48 @@ namespace Assistant
         private static OnFocusLost _onFocusLost;
         private IntPtr m_ClientWindow;
         private static bool m_Ready = false;
+
+        private delegate bool EnumWindowsCallback(IntPtr window, IntPtr parameter);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool EnumWindows(EnumWindowsCallback callback, IntPtr parameter);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool IsWindow(IntPtr window);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool IsWindowVisible(IntPtr window);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindow(IntPtr window, uint command);
+
+        [DllImport("user32.dll")]
+        private static extern uint GetWindowThreadProcessId(IntPtr window, out uint processId);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GetWindowRect(IntPtr window, out WindowRect rectangle);
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern int GetClassName(IntPtr window, StringBuilder className, int maxCount);
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        private static extern int GetWindowText(IntPtr window, StringBuilder title, int maxCount);
+
+        [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
+        private static extern int GetWindowLong(IntPtr window, int index);
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct WindowRect
+        {
+            internal int Left;
+            internal int Top;
+            internal int Right;
+            internal int Bottom;
+        }
 
         static ClassicUOClient()
         {
@@ -818,7 +861,96 @@ namespace Assistant
 
         public override IntPtr GetWindowHandle()
         {
+            if (Environment.OSVersion.Platform == PlatformID.Unix ||
+                Environment.OSVersion.Platform == PlatformID.MacOSX)
+            {
+                return m_ClientWindow;
+            }
+
+            using Process currentProcess = Process.GetCurrentProcess();
+            uint currentProcessId = (uint)currentProcess.Id;
+
+            if (IsClassicUoWindow(m_ClientWindow, currentProcessId))
+                return m_ClientWindow;
+
+            m_ClientWindow = FindClassicUoWindow(currentProcessId);
             return m_ClientWindow;
+        }
+
+        private static bool IsClassicUoWindow(IntPtr window, uint processId)
+        {
+            const uint GW_OWNER = 4;
+            const int GWL_EXSTYLE = -20;
+            const int WS_EX_TOOLWINDOW = 0x00000080;
+
+            if (!IsWindow(window) ||
+                GetWindow(window, GW_OWNER) != IntPtr.Zero ||
+                (GetWindowLong(window, GWL_EXSTYLE) & WS_EX_TOOLWINDOW) != 0)
+            {
+                return false;
+            }
+
+            GetWindowThreadProcessId(window, out uint ownerProcessId);
+            if (ownerProcessId != processId)
+                return false;
+
+            StringBuilder classNameBuffer = new(256);
+            GetClassName(window, classNameBuffer, classNameBuffer.Capacity);
+            string className = classNameBuffer.ToString();
+            if (className.StartsWith("WindowsForms10.", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            StringBuilder titleBuffer = new(256);
+            GetWindowText(window, titleBuffer, titleBuffer.Capacity);
+            return className.IndexOf("SDL", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                titleBuffer.ToString().IndexOf("ClassicUO", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static IntPtr FindClassicUoWindow(uint processId)
+        {
+            IntPtr bestWindow = IntPtr.Zero;
+            long bestScore = long.MinValue;
+
+            EnumWindowsCallback callback = (window, parameter) =>
+            {
+                if (!IsWindowVisible(window) || !IsClassicUoWindow(window, processId))
+                {
+                    return true;
+                }
+
+                if (!GetWindowRect(window, out WindowRect bounds))
+                    return true;
+
+                int width = bounds.Right - bounds.Left;
+                int height = bounds.Bottom - bounds.Top;
+                if (width <= 0 || height <= 0)
+                    return true;
+
+                StringBuilder classNameBuffer = new(256);
+                GetClassName(window, classNameBuffer, classNameBuffer.Capacity);
+                string className = classNameBuffer.ToString();
+
+                long score = (long)width * height;
+                if (className.IndexOf("SDL", StringComparison.OrdinalIgnoreCase) >= 0)
+                    score += 1L << 60;
+
+                StringBuilder titleBuffer = new(256);
+                GetWindowText(window, titleBuffer, titleBuffer.Capacity);
+                if (titleBuffer.ToString().IndexOf("ClassicUO", StringComparison.OrdinalIgnoreCase) >= 0)
+                    score += 1L << 59;
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestWindow = window;
+                }
+
+                return true;
+            };
+
+            EnumWindows(callback, IntPtr.Zero);
+            GC.KeepAlive(callback);
+            return bestWindow;
         }
 
         public override uint TotalDataIn()
