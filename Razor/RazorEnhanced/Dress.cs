@@ -264,14 +264,29 @@ namespace RazorEnhanced
 
         internal static void AddItemByTarger(Assistant.Item dressItem)
         {
-            if (dressItem.Layer != Layer.Invalid)
+            Layer layer = LayerRules.ResolveUserEquipment(dressItem, dressItem.Layer);
+
+            if (LayerRules.IsUserEquipment(layer))
             {
-                RazorEnhanced.Dress.DressItemNew toinsert = new(dressItem.Name, dressItem.Layer, dressItem.Serial, true);
+                RazorEnhanced.Dress.DressItemNew toinsert = new(
+                    dressItem.Name,
+                    layer,
+                    dressItem.Serial,
+                    true
+                );
                 RazorEnhanced.Settings.Dress.ItemInsertByLayer(Assistant.Engine.MainWindow.DressListSelect.Text, toinsert);
                 RazorEnhanced.Dress.InitGrid();
             }
             else
                 Misc.SendMessage("This item not have valid layer", false);
+        }
+
+        private static Layer ResolveDressLayer(DressItemNew item)
+        {
+            return LayerRules.ResolveUserEquipment(
+                World.FindItem(item.Serial),
+                item.Layer
+            );
         }
 
         // Undress
@@ -285,8 +300,12 @@ namespace RazorEnhanced
                     List<ushort> layertoundress = new();
                     foreach (Dress.DressItemNew item in items)
                     {
+                        Layer itemLayer = ResolveDressLayer(item);
+                        if (!LayerRules.IsUserEquipment(itemLayer))
+                            continue;
+
                         //Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(l);
-                        layertoundress.Add((ushort)item.Layer);
+                        layertoundress.Add((ushort)itemLayer);
                     }
                     RazorEnhanced.Dress.AddLog("UnDressing...");
                     Assistant.Client.Instance.SendToServerWait(new UnEquipItemMacro(layertoundress));
@@ -298,13 +317,17 @@ namespace RazorEnhanced
                         if (!item.Selected)
                             continue;
 
+                        Layer itemLayer = ResolveDressLayer(item);
+                        if (!LayerRules.IsUserEquipment(itemLayer))
+                            continue;
+
                         if (World.FindItem(item.Serial) == null)
                             continue;
 
-                        Assistant.Item itemonlayer = Assistant.World.Player.GetItemOnLayer(World.FindItem(item.Serial).Layer);
+                        Assistant.Item itemonlayer = Assistant.World.Player.GetItemOnLayer(itemLayer);
                         if (itemonlayer != null && itemonlayer.Serial == item.Serial)
                             RazorEnhanced.Items.Move(item.Serial, undressbagserial, 0);
-                        RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " on layer: " + item.Layer.ToString() + " undressed!");
+                        RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " on layer: " + itemLayer.ToString() + " undressed!");
                         Thread.Sleep(mseconds);
                     }
                 }
@@ -337,6 +360,7 @@ namespace RazorEnhanced
             Layer.Earrings,
             Layer.Arms,
             Layer.Cloak,
+            Layer.Quiver,
             Layer.OuterTorso,
             Layer.OuterLegs,
             Layer.InnerLegs,
@@ -420,7 +444,11 @@ namespace RazorEnhanced
 
                         foreach (DressItemNew item in items)
                         {
-                            var existingItem = Assistant.World.Player.GetItemOnLayer(item.Layer);
+                            Layer itemLayer = ResolveDressLayer(item);
+                            if (!LayerRules.IsUserEquipment(itemLayer))
+                                continue;
+
+                            var existingItem = Assistant.World.Player.GetItemOnLayer(itemLayer);
                             if (existingItem == null || item.Serial != existingItem.Serial)
                             {
                                 itemserial.Add((uint)item.Serial);
@@ -447,12 +475,16 @@ namespace RazorEnhanced
                         //Assistant.Item newLeft = null;
                         foreach (DressItemNew item in items)
                         {
-                            var existingItem = Assistant.World.Player.GetItemOnLayer(item.Layer);
+                            Layer itemLayer = ResolveDressLayer(item);
+                            if (!LayerRules.IsUserEquipment(itemLayer))
+                                continue;
+
+                            var existingItem = Assistant.World.Player.GetItemOnLayer(itemLayer);
                             if (existingItem == null || item.Serial != existingItem.Serial)
                             {
                                 itemserial.Add((uint)item.Serial);
                             }
-                            if (item.Layer == Layer.LeftHand)
+                            if (itemLayer == Layer.LeftHand)
                             {
                                 if (lefth == null || item.Serial != lefth.Serial)
                                 {
@@ -462,11 +494,11 @@ namespace RazorEnhanced
                                 }
                             }
 
-                            if (item.Layer == Layer.LeftHand && lefth != null && item.Serial != lefth.Serial)
+                            if (itemLayer == Layer.LeftHand && lefth != null && item.Serial != lefth.Serial)
                             {
                                 dropWeaponL = true;
                             }
-                            if (item.Layer == Layer.RightHand && righth != null && item.Serial != righth.Serial)
+                            if (itemLayer == Layer.RightHand && righth != null && item.Serial != righth.Serial)
                             {
                                 dropWeaponR = true;
                             }
@@ -501,9 +533,13 @@ namespace RazorEnhanced
                         if (!item.Selected)
                             continue;
 
+                        Layer itemLayer = ResolveDressLayer(item);
+                        if (!LayerRules.IsUserEquipment(itemLayer))
+                            continue;
+
                         if (item.Name == "UNDRESS")          // Caso undress slot
                         {
-                            Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(item.Layer);
+                            Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(itemLayer);
 
                             if (itemtomove == null)
                                 continue;
@@ -511,7 +547,7 @@ namespace RazorEnhanced
                             if (!itemtomove.Movable)
                                 continue;
 
-                            RazorEnhanced.Dress.AddLog("Item 0x" + itemtomove.Serial.Value.ToString("X8") + " on Layer: " + item.Layer.ToString() + " undressed!");
+                            RazorEnhanced.Dress.AddLog("Item 0x" + itemtomove.Serial.Value.ToString("X8") + " on Layer: " + itemLayer.ToString() + " undressed!");
                             RazorEnhanced.Items.Move(itemtomove.Serial, undressbagserial, 0);
                             Thread.Sleep(mseconds);
                         }
@@ -522,12 +558,12 @@ namespace RazorEnhanced
 
                             if (conflict)       // Caso abilitato controllo conflitto
                             {
-                                Assistant.Item itemonlayer = Assistant.World.Player.GetItemOnLayer(World.FindItem(item.Serial).Layer);
+                                Assistant.Item itemonlayer = Assistant.World.Player.GetItemOnLayer(itemLayer);
                                 if (itemonlayer != null)
                                     if (itemonlayer.Serial == item.Serial)
                                         continue;
 
-                                if (World.FindItem(item.Serial).Layer == Layer.RightHand || World.FindItem(item.Serial).Layer == Layer.LeftHand)        // Check armi per controlli twohand
+                                if (itemLayer == Layer.RightHand || itemLayer == Layer.LeftHand)        // Check armi per controlli twohand
                                 {
                                     Assistant.Item lefth = Assistant.World.Player.GetItemOnLayer(Layer.LeftHand);
                                     Assistant.Item righth = Assistant.World.Player.GetItemOnLayer(Layer.RightHand);
@@ -564,7 +600,7 @@ namespace RazorEnhanced
                                     }
                                 }
 
-                                Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(item.Layer);
+                                Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(itemLayer);
                                 if (itemtomove != null)
                                 {
                                     if (itemtomove.Serial == item.Serial)
@@ -573,28 +609,28 @@ namespace RazorEnhanced
                                     if (!itemtomove.Movable)
                                         continue;
 
-                                    RazorEnhanced.Dress.AddLog("Item 0x" + itemtomove.Serial.Value.ToString("X8") + " on Layer: " + item.Layer.ToString() + " undressed!");
+                                    RazorEnhanced.Dress.AddLog("Item 0x" + itemtomove.Serial.Value.ToString("X8") + " on Layer: " + itemLayer.ToString() + " undressed!");
                                     RazorEnhanced.Items.Move(itemtomove.Serial, undressbagserial, 0);
                                     Thread.Sleep(mseconds);
-                                    RazorEnhanced.Player.EquipItem(item.Serial);
-                                    RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + item.Layer.ToString());
+                                    RazorEnhanced.Player.EquipItem(item.Serial, itemLayer);
+                                    RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + itemLayer.ToString());
                                     Thread.Sleep(mseconds);
                                 }
                                 else
                                 {
-                                    RazorEnhanced.Player.EquipItem(item.Serial);
-                                    RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + item.Layer.ToString());
+                                    RazorEnhanced.Player.EquipItem(item.Serial, itemLayer);
+                                    RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + itemLayer.ToString());
                                     Thread.Sleep(mseconds);
                                 }
                             }
                             else
                             {
-                                Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(item.Layer);
+                                Assistant.Item itemtomove = Assistant.World.Player.GetItemOnLayer(itemLayer);
                                 if (itemtomove != null)
                                     continue;
 
-                                RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + item.Layer.ToString());
-                                RazorEnhanced.Player.EquipItem(item.Serial);
+                                RazorEnhanced.Dress.AddLog("Item 0x" + item.Serial.ToString("X8") + " Equipped on layer: " + itemLayer.ToString());
+                                RazorEnhanced.Player.EquipItem(item.Serial, itemLayer);
                                 Thread.Sleep(mseconds);
                             }
                         }

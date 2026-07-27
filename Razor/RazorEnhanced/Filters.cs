@@ -479,7 +479,6 @@ namespace RazorEnhanced
         {
             Layer.Backpack,
             Layer.Invalid,
-            Layer.FirstValid,
             Layer.RightHand,
             Layer.LeftHand,
             Layer.Shoes,
@@ -492,12 +491,12 @@ namespace RazorEnhanced
             Layer.MiddleTorso,
             Layer.Arms,
             Layer.Cloak,
+            Layer.Quiver,
             Layer.OuterTorso,
             Layer.OuterLegs,
             Layer.InnerLegs,
-            Layer.LastUserValid,
             Layer.Mount,
-            Layer.LastValid,
+            Layer.Bank,
             Layer.Hair
         };
 

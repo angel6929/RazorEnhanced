@@ -453,7 +453,19 @@ namespace RazorEnhanced
         internal override void Record_EquipRequest(Assistant.Item item, Assistant.Layer l, Assistant.Mobile m)
         {
             if (m == World.Player)
-                AddLog("Player.EquipItem(0x" + item.Serial.Value.ToString("X8") + ")");
+            {
+                Assistant.Layer effectiveLayer =
+                    LayerRules.ResolveUserEquipment(item, l);
+
+                if (effectiveLayer == Assistant.Layer.Quiver)
+                    AddLog(
+                        "Player.EquipItem(0x"
+                        + item.Serial.Value.ToString("X8")
+                        + ", \"Quiver\")"
+                    );
+                else
+                    AddLog("Player.EquipItem(0x" + item.Serial.Value.ToString("X8") + ")");
+            }
             else
                 AddLog("Player.UnEquipItemByLayer(" + l.ToString() + ")");
         }
@@ -823,7 +835,12 @@ namespace RazorEnhanced
         {
             if (m == World.Player)
             {
-                AddLog($"equipitem {item.Serial:x8} {(int)l}");
+                Assistant.Layer effectiveLayer =
+                    LayerRules.ResolveUserEquipment(item, l);
+                if (LayerRules.IsUserEquipment(effectiveLayer))
+                    AddLog($"equipitem {item.Serial:x8} {(int)effectiveLayer}");
+                else
+                    AddLog($"equipitem {item.Serial:x8}");
                 AddLog($"pause 600");
             }
             else

@@ -1175,6 +1175,7 @@ namespace RazorEnhanced
         ///    Earrings
         ///    Arms
         ///    Cloak
+        ///    Quiver
         ///    OuterTorso
         ///    OuterLegs
         ///    InnerLegs
@@ -1183,7 +1184,7 @@ namespace RazorEnhanced
         /// <param name="wait">Wait for confirmation from the server.</param>
         public static void UnEquipItemByLayer(String layer, bool wait = true)
         {
-            if (!Enum.TryParse<Layer>(layer, out Layer l))
+            if (!LayerRules.TryParseKnown(layer, out Layer l))
             {
                 Scripts.SendMessageScriptError("Script Error: UnEquipItemByLayer: " + layer + " not valid");
                 return;
@@ -1223,25 +1224,93 @@ namespace RazorEnhanced
                 return;
             }
 
-            if (item.Container == null && Assistant.Utility.Distance(item.GetWorldPosition(), World.Player.Position) > 3)
+            Layer layer = LayerRules.ResolveUserEquipment(item, item.Layer);
+            if (!LayerRules.IsKnown(layer))
             {
-                Scripts.SendMessageScriptError("Script Error: EquipItem: Item serial: (" + serial + ") too away");
+                Scripts.SendMessageScriptError("Script Error: EquipItem: Item layer is not valid");
                 return;
             }
-            Assistant.Client.Instance.SendToServerWait(new LiftRequest(item.Serial, item.Amount)); // Prende
-            Assistant.Client.Instance.SendToServerWait(new EquipRequest(item.Serial, World.Player.Serial, item.Layer)); // Equippa
+
+            EquipItem(item, layer);
+        }
+
+        /// <summary>
+        /// Equip an item on an explicit user-equipment layer.
+        /// </summary>
+        /// <param name="serial">Serial of the item to equip.</param>
+        /// <param name="layer">Layer name, including Quiver.</param>
+        public static void EquipItem(int serial, string layer)
+        {
+            if (!LayerRules.TryParseUserEquipment(layer, out Layer parsedLayer))
+            {
+                Scripts.SendMessageScriptError("Script Error: EquipItem: " + layer + " not valid");
+                return;
+            }
+
+            EquipItem(serial, parsedLayer);
+        }
+
+        internal static void EquipItem(int serial, Layer layer)
+        {
+            if (!LayerRules.IsUserEquipment(layer))
+            {
+                Scripts.SendMessageScriptError("Script Error: EquipItem: Layer is not valid");
+                return;
+            }
+
+            Assistant.Item item = World.FindItem((Assistant.Serial)serial);
+            if (item == null)
+            {
+                Scripts.SendMessageScriptError("Script Error: EquipItem: Item serial: (" + serial + ") not found");
+                return;
+            }
+
+            EquipItem(item, layer);
         }
 
         public static void EquipItem(Item item)
         {
-            Assistant.Mobile player = World.Player;
-            if (item.Container == 0 && Misc.DistanceSqrt(item.GetWorldPosition(), Position) > 3)
+            if (item == null)
             {
-                Scripts.SendMessageScriptError("Script Error: EquipItem: Item serial: (" + item.Serial + ") too away");
+                Scripts.SendMessageScriptError("Script Error: EquipItem: Item not found");
                 return;
             }
-            Assistant.Client.Instance.SendToServerWait(new LiftRequest(item.Serial, item.Amount)); // Prende
-            Assistant.Client.Instance.SendToServerWait(new EquipRequest(item.Serial, World.Player.Serial, item.AssistantLayer)); // Equippa
+
+            Layer layer = LayerRules.ResolveUserEquipment(
+                item.AsAssistant,
+                item.AssistantLayer
+            );
+            if (!LayerRules.IsKnown(layer))
+            {
+                Scripts.SendMessageScriptError("Script Error: EquipItem: Item layer is not valid");
+                return;
+            }
+
+            EquipItem(item.AsAssistant, layer);
+        }
+
+        private static void EquipItem(Assistant.Item item, Layer layer)
+        {
+            object container = item.Container;
+            bool isOnGround =
+                container == null
+                || container is Assistant.Serial serial && !serial.IsValid;
+
+            if (
+                isOnGround
+                && Assistant.Utility.Distance(item.GetWorldPosition(), World.Player.Position) > 3
+            )
+            {
+                Scripts.SendMessageScriptError(
+                    "Script Error: EquipItem: Item serial: (" + item.Serial + ") too away"
+                );
+                return;
+            }
+
+            Assistant.Client.Instance.SendToServerWait(new LiftRequest(item.Serial, item.Amount));
+            Assistant.Client.Instance.SendToServerWait(
+                new EquipRequest(item.Serial, World.Player.Serial, layer)
+            );
         }
 
         /// <summary>
@@ -1282,8 +1351,8 @@ namespace RazorEnhanced
             HashSet<ushort> layers = new();
             foreach (string layer in _layers)
             {
-                bool parseResult = Enum.TryParse<Layer>(layer, out Layer l);
-                if (!parseResult || l == Assistant.Layer.Invalid)
+                bool parseResult = LayerRules.TryParseKnown(layer, out Layer l);
+                if (!parseResult)
                 {
                     Scripts.SendMessageScriptError("Script Error: GetItemOnLayer: " + layer + " not valid");
                     return;
@@ -1304,8 +1373,8 @@ namespace RazorEnhanced
             foreach (object layer in _layers)
             {
                 string theLayer = Convert.ToString(layer);
-                bool parseResult = Enum.TryParse<Layer>(theLayer, out Layer l);
-                if (!parseResult || l == Assistant.Layer.Invalid)
+                bool parseResult = LayerRules.TryParseKnown(theLayer, out Layer l);
+                if (!parseResult)
                 {
                     Scripts.SendMessageScriptError("Script Error: GetItemOnLayer: " + layer + " not valid");
                     return;
@@ -1344,6 +1413,7 @@ namespace RazorEnhanced
         ///    Earrings
         ///    Arms
         ///    Cloak
+        ///    Quiver
         ///    OuterTorso
         ///    OuterLegs
         ///    InnerLegs
@@ -1352,7 +1422,7 @@ namespace RazorEnhanced
         /// <returns>True: the Layer is occupied by an Item - False: otherwise.</returns>
         public static bool CheckLayer(String layer)
         {
-            if (!Enum.TryParse<Layer>(layer, out Layer l))
+            if (!LayerRules.TryParseKnown(layer, out Layer l))
             {
                 Scripts.SendMessageScriptError("Script Error: CheckLayer: " + layer + " not valid");
                 return false;
@@ -1389,6 +1459,7 @@ namespace RazorEnhanced
         ///    Earrings
         ///    Arms
         ///    Cloak
+        ///    Quiver
         ///    OuterTorso
         ///    OuterLegs
         ///    InnerLegs
@@ -1397,7 +1468,7 @@ namespace RazorEnhanced
         /// <returns>Item for the layer. Return null if not found or Layer invalid.</returns>
         public static Item GetItemOnLayer(String layer)
         {
-            if (!Enum.TryParse<Layer>(layer, out Layer l))
+            if (!LayerRules.TryParseKnown(layer, out Layer l))
             {
                 Scripts.SendMessageScriptError("Script Error: GetItemOnLayer: " + layer + " not valid");
                 return null;
@@ -2944,6 +3015,7 @@ namespace RazorEnhanced
             Layer.Earrings,
             Layer.Arms,
             Layer.Cloak,
+            Layer.Quiver,
             Layer.Backpack,
             Layer.OuterTorso,
             Layer.OuterLegs,

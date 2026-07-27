@@ -48,7 +48,51 @@ namespace Assistant
         ShopSell = 0x1C,
         Bank = 0x1D,
 
-        LastValid = 0x1D
+        LastValid = 0x1D,
+
+        // Sunnyland Quiver Layer v1. 0x1E and 0x1F remain invalid/reserved.
+        Quiver = 0x20
+    }
+
+    internal static class LayerRules
+    {
+        internal static bool IsKnown(Layer layer)
+        {
+            return (layer >= Layer.FirstValid && layer <= Layer.LastValid)
+                || layer == Layer.Quiver;
+        }
+
+        internal static bool IsUserEquipment(Layer layer)
+        {
+            return (layer >= Layer.FirstValid && layer <= Layer.LastUserValid)
+                || layer == Layer.Quiver;
+        }
+
+        internal static bool TryParseKnown(string text, out Layer layer)
+        {
+            return Enum.TryParse(text, out layer) && IsKnown(layer);
+        }
+
+        internal static bool TryParseUserEquipment(string text, out Layer layer)
+        {
+            return Enum.TryParse(text, out layer) && IsUserEquipment(layer);
+        }
+
+        internal static Layer ResolveQuiverCandidate(Layer layer, bool isContainer)
+        {
+            return layer == Layer.Cloak && isContainer ? Layer.Quiver : layer;
+        }
+
+        internal static Layer ResolveUserEquipment(Item item, Layer advertisedLayer)
+        {
+            if (advertisedLayer == Layer.Quiver || item?.Layer == Layer.Quiver)
+                return Layer.Quiver;
+
+            return ResolveQuiverCandidate(
+                advertisedLayer,
+                item != null && item.IsContainer
+            );
+        }
     }
 
     public class Item : UOEntity
@@ -298,7 +342,7 @@ namespace Assistant
         {
             get
             {
-                if ((m_Layer < Layer.FirstValid || m_Layer > Layer.LastValid) &&
+                if (!LayerRules.IsKnown(m_Layer) &&
                     ((this.TypeID.ItemData.Flags & Ultima.TileFlag.Wearable) != 0 ||
                     (this.TypeID.ItemData.Flags & Ultima.TileFlag.Armor) != 0 ||
                     (this.TypeID.ItemData.Flags & Ultima.TileFlag.Weapon) != 0

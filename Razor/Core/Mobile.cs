@@ -423,7 +423,12 @@ namespace Assistant
         {
             get
             {
-                Item item = GetItemOnLayer(Layer.Cloak);
+                Item item = GetItemOnLayer(Layer.Quiver);
+
+                if (item != null)
+                    return item;
+
+                item = GetItemOnLayer(Layer.Cloak);
 
                 if (item != null && item.IsContainer)
                     return item;

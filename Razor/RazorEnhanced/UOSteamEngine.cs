@@ -2071,7 +2071,17 @@ namespace RazorEnhanced.UOS
             if (mobile == null)
                 return false;
 
-            Assistant.Layer layer = (Assistant.Layer)args[1].AsInt();
+            int rawLayer = args[1].AsInt();
+            if (
+                rawLayer < byte.MinValue
+                || rawLayer > byte.MaxValue
+                || !LayerRules.IsKnown((Assistant.Layer)(byte)rawLayer)
+            )
+            {
+                return false;
+            }
+
+            Assistant.Layer layer = (Assistant.Layer)(byte)rawLayer;
             Assistant.Item item = mobile.GetItemOnLayer(layer);
             if (item != null)
             {
@@ -3317,10 +3327,31 @@ namespace RazorEnhanced.UOS
             if (args.Length == 1 || args.Length == 2)
             {
                 uint serial = args[0].AsSerial();
-                //int layer = args[1].AsInt();
                 if (World.FindItem(serial) != null)
                 {
-                    Player.EquipItem((int)serial);
+                    if (args.Length == 1)
+                    {
+                        Player.EquipItem((int)serial);
+                    }
+                    else
+                    {
+                        int rawLayer = args[1].AsInt();
+                        if (
+                            rawLayer < byte.MinValue
+                            || rawLayer > byte.MaxValue
+                            || !LayerRules.IsKnown((Layer)(byte)rawLayer)
+                        )
+                        {
+                            return false;
+                        }
+
+                        Layer layer = (Layer)(byte)rawLayer;
+                        if (LayerRules.IsUserEquipment(layer))
+                            Player.EquipItem((int)serial, layer);
+                        else
+                            Player.EquipItem((int)serial);
+                    }
+
                     return true;
                 }
             }

@@ -443,7 +443,7 @@ namespace RazorEnhanced
                 if (items[x].Graphics == 0)
                     continue;
 
-                int amount = Items.BackpackCount(items[x].Graphics, items[x].Color);
+                int amount = Items.PlayerInventoryCount(items[x].Graphics, items[x].Color);
                 Int32.TryParse(m_panelcount[x].Text, out int oldamount);
                 m_panelcount[x].Text = amount.ToString();
 

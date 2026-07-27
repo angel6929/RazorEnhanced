@@ -92,7 +92,7 @@ namespace Assistant
                     sbitem.Append('~');
                 sbitem.Append(": ");
 
-                int amount = Items.BackpackCount(item.Graphics, item.Color);
+                int amount = Items.PlayerInventoryCount(item.Graphics, item.Color);
                 if (item.Warning && amount <= item.WarningLimit)
                 {
                     sbitem.AppendFormat("~#FF0000{0}~#~", amount);

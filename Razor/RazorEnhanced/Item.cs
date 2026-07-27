@@ -742,6 +742,7 @@ namespace RazorEnhanced
             ///     Earrings
             ///     Arms
             ///     Cloak
+            ///     Quiver
             ///     OuterTorso
             ///     OuterLegs
             ///     InnerLegs
@@ -834,8 +835,7 @@ namespace RazorEnhanced
 
                     foreach (string text in Layers)
                     {
-                        Enum.TryParse<Layer>(text, out Layer l);
-                        if (l != Assistant.Layer.Invalid)
+                        if (LayerRules.TryParseKnown(text, out Layer l))
                         {
                             list.Add(l);
                         }
@@ -2373,6 +2373,40 @@ namespace RazorEnhanced
             int amount = 0;
             foreach (Assistant.Item i in items)
                 amount += i.Amount;
+
+            return amount;
+        }
+
+        /// <summary>
+        /// Count items carried by the player in the backpack or inside the currently
+        /// equipped quiver. Nested containers are included.
+        /// </summary>
+        /// <param name="itemid">ItemID to search.</param>
+        /// <param name="color">Color to search. (default -1: any color)</param>
+        public static int PlayerInventoryCount(int itemid, int color = -1)
+        {
+            if (World.Player == null)
+                return 0;
+
+            Assistant.Item quiver = World.Player.Quiver;
+            int amount = 0;
+
+            foreach (Assistant.Item item in World.Items.Values)
+            {
+                bool inEquippedQuiver =
+                    quiver != null
+                    && item != quiver
+                    && item.IsChildOf(quiver);
+
+                if (
+                    (item.IsInBackpack || inEquippedQuiver)
+                    && item.TypeID == itemid
+                    && (color == -1 || item.Hue == color)
+                )
+                {
+                    amount += item.Amount;
+                }
+            }
 
             return amount;
         }

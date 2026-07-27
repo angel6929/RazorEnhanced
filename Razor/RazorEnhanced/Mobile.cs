@@ -344,6 +344,10 @@ namespace RazorEnhanced
                     result = Assistant.Layer.Cloak;
                     break;
 
+                case "Quiver":
+                    result = Assistant.Layer.Quiver;
+                    break;
+
                 case "OuterTorso":
                     result = Assistant.Layer.OuterTorso;
                     break;
@@ -386,6 +390,7 @@ namespace RazorEnhanced
         ///    Earrings
         ///    Arms
         ///    Cloak
+        ///    Quiver
         ///    OuterTorso
         ///    OuterLegs
         ///    InnerLegs

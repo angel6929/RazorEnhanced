@@ -444,7 +444,7 @@ namespace Assistant
 
                     Log("Dropping {0} to {1}", lr, dr.Serial);
 
-                    if (dr.Serial.IsMobile && dr.Layer > Layer.Invalid && dr.Layer <= Layer.LastUserValid)
+                    if (dr.Serial.IsMobile && LayerRules.IsUserEquipment(dr.Layer))
                         Assistant.Client.Instance.SendToServer(new EquipRequest(lr.Serial, dr.Serial, dr.Layer));
                     else
                         Assistant.Client.Instance.SendToServer(new DropRequest(lr.Serial, dr.Point, dr.Serial));
