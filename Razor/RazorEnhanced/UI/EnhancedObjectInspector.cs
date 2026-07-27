@@ -54,7 +54,6 @@ namespace RazorEnhanced.UI
         private void RefreshTimers()
         {
             timerGridView.Rows.Clear();
-            RazorEnhanced.AutoLoot.AddLog("call");
 
             foreach (var t in Timer.Timers)
             {

@@ -629,7 +629,7 @@ namespace RazorEnhanced
         {
             if (Assistant.Engine.MainWindow.AutolootCheckBox.Checked == true)
             {
-                Scripts.SendMessageScriptError("Script Error: Autoloot.Start: Autoloot already running");
+                Scripts.SendMessageScriptError("脚本错误：Autoloot.RunOnce：自动拾取已在运行");
                 return;
             }
             Dictionary<int, List<AutoLootItem>> autoLootList = Settings.AutoLoot.ItemsRead(lootListName);
@@ -645,7 +645,7 @@ namespace RazorEnhanced
             }
             else
             {
-                Scripts.SendMessageScriptError("Script Error: Autoloot.RunOnce: list specified is empty or doesn't exist");
+                Scripts.SendMessageScriptError("脚本错误：Autoloot.RunOnce：指定的列表为空或不存在");
             }
         }
 
@@ -694,7 +694,7 @@ namespace RazorEnhanced
                 }
                 return retList;
             }
-            Misc.SendMessage("Autoloot: Invalid Loot List Name", 945, true);
+            Misc.SendMessage("自动拾取：拾取列表名称无效", 945, true);
             return null;
         }
 
@@ -717,8 +717,8 @@ namespace RazorEnhanced
                 {
                     if (!lootChangeMsgSent)
                     {
-                        Misc.SendMessage("Autoloot: Invalid Bag, Switch to backpack", 945, true);
-                        AddLog("Invalid Bag, Switch to backpack");
+                        Misc.SendMessage("自动拾取：容器无效，已切换到背包", 945, true);
+                        AddLog("容器无效，已切换到背包");
                         lootChangeMsgSent = true;
                     }
                     if (World.Player == null || World.Player.Backpack == null || World.Player.Backpack.Serial == null)
@@ -732,8 +732,8 @@ namespace RazorEnhanced
             {
                 if (!lootChangeMsgSent)
                 {
-                    Misc.SendMessage("Autoloot: Invalid Bag, Switch to backpack", 945, true);
-                    AddLog("Invalid Bag, Switch to backpack");
+                    Misc.SendMessage("自动拾取：容器无效，已切换到背包", 945, true);
+                    AddLog("容器无效，已切换到背包");
                     lootChangeMsgSent = true;
                 }
                 if (World.Player == null || World.Player.Backpack == null || World.Player.Backpack.Serial == null)
@@ -752,7 +752,7 @@ namespace RazorEnhanced
         public static void Start()
         {
             if (Assistant.Engine.MainWindow.AutolootCheckBox.Checked == true)
-                Scripts.SendMessageScriptError("Script Error: Autoloot.Start: Autoloot already running");
+                Scripts.SendMessageScriptError("脚本错误：Autoloot.Start：自动拾取已在运行");
             else
             {
                 Assistant.Engine.MainWindow.SafeAction(s => s.AutolootCheckBox.Checked = true);
@@ -765,7 +765,7 @@ namespace RazorEnhanced
         public static void Stop()
         {
             if (Assistant.Engine.MainWindow.AutolootCheckBox.Checked == false)
-                Scripts.SendMessageScriptError("Script Error: Autoloot.Stop: Autoloot already sleeping");
+                Scripts.SendMessageScriptError("脚本错误：Autoloot.Stop：自动拾取当前未运行");
             else
                 Assistant.Engine.MainWindow.SafeAction(s => s.AutolootCheckBox.Checked = false);
         }
@@ -788,7 +788,7 @@ namespace RazorEnhanced
         {
             if (!UpdateListParam(listName))
             {
-                Scripts.SendMessageScriptError("Script Error: Autoloot.ChangeList: Autoloot list: " + listName + " not exist");
+                Scripts.SendMessageScriptError("脚本错误：Autoloot.ChangeList：自动拾取列表 " + listName + " 不存在");
             }
             else
             {

@@ -37,7 +37,7 @@ namespace Assistant
                 editProp.Show();
             }
             else
-                Scavenger.AddLog("Item list not selected!");
+                Scavenger.AddLog("未选择物品列表！");
         }
 
         private void scavengerAddItemTarget_Click(object sender, EventArgs e)
@@ -48,12 +48,12 @@ namespace Assistant
         internal void ScavengerAddItem()
         {
             if (showagentmessageCheckBox.Checked)
-                Misc.SendMessage("Select item to add in Scavenger list", false);
+                Misc.SendMessage("拾荒：请选择要添加到列表的物品", false);
 
             if (scavengerListSelect.Text != String.Empty)
                 Targeting.OneTimeTarget(new Targeting.TargetResponseCallback(ScavengerItemTarget_Callback));
             else
-                Scavenger.AddLog("Item list not selected!");
+                Scavenger.AddLog("未选择物品列表！");
         }
 
         private void ScavengerItemTarget_Callback(bool loc, Serial serial, Point3D pt, ushort itemid)
@@ -62,15 +62,15 @@ namespace Assistant
             if (scavengerItem != null && scavengerItem.Serial.IsItem)
             {
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("Scavenger item added: " + scavengerItem.ToString(), false);
-                Scavenger.AddLog("Scavenger item added: " + scavengerItem.ToString());
+                    Misc.SendMessage("拾荒：已添加物品：" + scavengerItem.ToString(), false);
+                Scavenger.AddLog("拾荒：已添加物品：" + scavengerItem.ToString());
                 this.Invoke((MethodInvoker)delegate { Scavenger.AddItemToList(scavengerItem.Name, scavengerItem.TypeID, scavengerItem.Hue); });
             }
             else
             {
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("Invalid target", false);
-                Scavenger.AddLog("Invalid target");
+                    Misc.SendMessage("拾荒：目标无效", false);
+                Scavenger.AddLog("拾荒：目标无效");
             }
         }
 
@@ -82,12 +82,12 @@ namespace Assistant
         internal void ScavengerSetBag()
         {
             if (showagentmessageCheckBox.Checked)
-                RazorEnhanced.Misc.SendMessage("Select Scavenger Bag", false);
+                RazorEnhanced.Misc.SendMessage("拾荒：请选择拾荒容器", false);
 
             if (scavengerListSelect.Text != String.Empty)
                 Targeting.OneTimeTarget(new Targeting.TargetResponseCallback(ScavengerItemContainerTarget_Callback));
             else
-                RazorEnhanced.Scavenger.AddLog("Item list not selected!");
+                RazorEnhanced.Scavenger.AddLog("未选择物品列表！");
         }
 
         private void ScavengerItemContainerTarget_Callback(bool loc, Assistant.Serial serial, Assistant.Point3D pt, ushort itemid)
@@ -105,15 +105,15 @@ namespace Assistant
             if (scavengerBag != null && scavengerBag.Serial.IsItem && scavengerBag.IsLootableTarget && (!bagOfSending))
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Scavenger Container set to: " + scavengerBag.ToString(), false);
-                RazorEnhanced.Scavenger.AddLog("Scavenger Container set to: " + scavengerBag.ToString());
+                    RazorEnhanced.Misc.SendMessage("拾荒容器已设置为：" + scavengerBag.ToString(), false);
+                RazorEnhanced.Scavenger.AddLog("拾荒容器已设置为：" + scavengerBag.ToString());
                 Scavenger.ScavengerBag = (int)scavengerBag.Serial.Value;
             }
             else
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Invalid Scavenger Container, set backpack", false);
-                RazorEnhanced.Scavenger.AddLog("Invalid Scavenger Container, set backpack");
+                    RazorEnhanced.Misc.SendMessage("拾荒容器无效，已改用背包", false);
+                RazorEnhanced.Scavenger.AddLog("拾荒容器无效，已改用背包");
                 Scavenger.ScavengerBag = (int)World.Player.Backpack.Serial.Value;
             }
 
@@ -156,12 +156,12 @@ namespace Assistant
         {
             if (scavengerListSelect.Text != String.Empty)
             {
-                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Delete Scavenger List?",
-                    $"Are you sure to delete this Scavenger list: \r\n{scavengerListSelect.Text}",
-                    ok: "Yes", no: "No", cancel: null, backColor: null);
-                if (dialogResult == DialogResult.Yes)
+                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("删除拾荒列表？",
+                    $"确定要删除此拾荒列表吗：\r\n{scavengerListSelect.Text}",
+                    ok: "是", no: "否", cancel: null, backColor: null);
+                if (dialogResult == DialogResult.OK)
                 {
-                    RazorEnhanced.Scavenger.AddLog("Scavenger list " + scavengerListSelect.Text + " removed!");
+                    RazorEnhanced.Scavenger.AddLog("拾荒列表 " + scavengerListSelect.Text + " 已删除！");
                     RazorEnhanced.Scavenger.ScavengerBag = 0;
                     RazorEnhanced.Scavenger.RemoveList(scavengerListSelect.Text);
                 }
@@ -175,7 +175,7 @@ namespace Assistant
             if (scavengerListSelect.Focused && scavengerListSelect.Text != String.Empty)
             {
                 Settings.Scavenger.ListUpdate(scavengerListSelect.Text, Scavenger.ScavengerDelay, Scavenger.ScavengerBag, true, Scavenger.MaxRange);
-                Scavenger.AddLog("Scavenger list changed to: " + scavengerListSelect.Text);
+                Scavenger.AddLog("拾荒列表已切换为：" + scavengerListSelect.Text);
             }
 
             Scavenger.InitGrid();
@@ -188,7 +188,7 @@ namespace Assistant
                 if (scavengerCheckBox.Checked)
                 {
                     scavengerCheckBox.Checked = false;
-                    Scavenger.AddLog("You are not logged in game!");
+                    Scavenger.AddLog("尚未登录游戏！");
                 }
                 return;
             }
@@ -198,7 +198,7 @@ namespace Assistant
                 if (scavengerCheckBox.Checked)
                 {
                     scavengerCheckBox.Checked = false;
-                    Scavenger.AddLog("Item list not selected!");
+                    Scavenger.AddLog("未选择物品列表！");
                 }
                 return;
             }
@@ -214,9 +214,9 @@ namespace Assistant
 
                 Scavenger.ResetIgnore();
                 Scavenger.AutoMode = true;
-                Scavenger.AddLog("Scavenger Engine Start...");
+                Scavenger.AddLog("拾荒引擎已启动...");
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("SCAVENGER: Engine Start...", false);
+                    Misc.SendMessage("拾荒：引擎已启动...", false);
             }
             else
             {
@@ -228,9 +228,9 @@ namespace Assistant
                 scavengerRange.Enabled = true;
 
                 Scavenger.AutoMode = false;
-                Scavenger.AddLog("Scavenger Engine Stop...");
+                Scavenger.AddLog("拾荒引擎已停止...");
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("SCAVENGER: Engine Stop...", false);
+                    Misc.SendMessage("拾荒：引擎已停止...", false);
             }
         }
 
@@ -273,7 +273,7 @@ namespace Assistant
         private void scavengerdataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells[0].Value = false;
-            e.Row.Cells[1].Value = "New Item";
+            e.Row.Cells[1].Value = "新物品";
             e.Row.Cells[2].Value = "0x0000";
             e.Row.Cells[3].Value = "0x0000";
             e.Row.Cells[4].Value = null;

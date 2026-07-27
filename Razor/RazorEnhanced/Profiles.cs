@@ -383,10 +383,10 @@ namespace RazorEnhanced
 
             // Svuoto logbox e reset select index
             //  Assistant.Engine.MainWindow.AutoLootLogBox.Items.Clear();
-            AutoLoot.AddLog("Profile Changed!");
+            AutoLoot.AddLog("配置档已切换！");
 
             Assistant.Engine.MainWindow.ScavengerLogBox.Items.Clear();
-            Scavenger.AddLog("Profile Changed!");
+            Scavenger.AddLog("配置档已切换！");
 
             Assistant.Engine.MainWindow.OrganizerLogBox.Items.Clear();
             Organizer.AddLog("Profile Changed!");

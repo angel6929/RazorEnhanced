@@ -31,12 +31,12 @@ namespace Assistant
         internal void AutolootSetBag()
         {
             if (showagentmessageCheckBox.Checked)
-                RazorEnhanced.Misc.SendMessage("Autoloot Select Loot Bag", false);
+                RazorEnhanced.Misc.SendMessage("自动拾取：请选择拾取容器", false);
 
             if (autolootListSelect.Text != String.Empty)
                 Targeting.OneTimeTarget(new Targeting.TargetResponseCallback(autoLootSetContainerTarget_Callback));
             else
-                AutoLoot.AddLog("Item list not selected!");
+                AutoLoot.AddLog("未选择物品列表！");
         }
 
         private void autoLootSetContainerTarget_Callback(bool loc, Assistant.Serial serial, Assistant.Point3D pt, ushort itemid)
@@ -54,15 +54,15 @@ namespace Assistant
             if (autoLootBag != null && autoLootBag.Serial.IsItem && autoLootBag.IsLootableTarget && (!bagOfSending))
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Autoloot Container set to: " + autoLootBag.ToString(), false);
-                RazorEnhanced.AutoLoot.AddLog("Autoloot Container set to: " + autoLootBag.ToString());
+                    RazorEnhanced.Misc.SendMessage("自动拾取容器已设置为：" + autoLootBag.ToString(), false);
+                RazorEnhanced.AutoLoot.AddLog("自动拾取容器已设置为：" + autoLootBag.ToString());
                 AutoLoot.AutoLootBag = (int)autoLootBag.Serial.Value;
             }
             else
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Invalid Autoloot Container, set backpack", false);
-                RazorEnhanced.AutoLoot.AddLog("Invalid Autoloot Container, set backpack");
+                    RazorEnhanced.Misc.SendMessage("自动拾取容器无效，已改用背包", false);
+                RazorEnhanced.AutoLoot.AddLog("自动拾取容器无效，已改用背包");
                 AutoLoot.AutoLootBag = (int)World.Player.Backpack.Serial.Value;
             }
             BeginInvoke((MethodInvoker)delegate
@@ -80,12 +80,12 @@ namespace Assistant
         internal void AutolootAddItem()
         {
             if (showagentmessageCheckBox.Checked)
-                RazorEnhanced.Misc.SendMessage("Select item to add in Autoloot list", false);
+                RazorEnhanced.Misc.SendMessage("自动拾取：请选择要添加到列表的物品", false);
 
             if (autolootListSelect.Text != String.Empty)
                 Targeting.OneTimeTarget(new Targeting.TargetResponseCallback(autoLootItemTarget_Callback));
             else
-                RazorEnhanced.AutoLoot.AddLog("Item list not selected!");
+                RazorEnhanced.AutoLoot.AddLog("未选择物品列表！");
         }
 
         private void autoLootItemTarget_Callback(bool loc, Assistant.Serial serial, Assistant.Point3D pt, ushort itemid)
@@ -94,15 +94,15 @@ namespace Assistant
             if (autoLootItem != null && autoLootItem.Serial.IsItem)
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Autoloot item added: " + autoLootItem.ToString(), false);
-                RazorEnhanced.AutoLoot.AddLog("Autoloot item added: " + autoLootItem.ToString());
+                    RazorEnhanced.Misc.SendMessage("自动拾取：已添加物品：" + autoLootItem.ToString(), false);
+                RazorEnhanced.AutoLoot.AddLog("自动拾取：已添加物品：" + autoLootItem.ToString());
                 this.Invoke((MethodInvoker)delegate { RazorEnhanced.AutoLoot.AddItemToList(autoLootItem.Name, autoLootItem.TypeID, autoLootItem.Hue); });
             }
             else
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Invalid target", false);
-                RazorEnhanced.AutoLoot.AddLog("Invalid target");
+                    RazorEnhanced.Misc.SendMessage("自动拾取：目标无效", false);
+                RazorEnhanced.AutoLoot.AddLog("自动拾取：目标无效");
             }
         }
 
@@ -121,7 +121,7 @@ namespace Assistant
                 editProp.Show();
             }
             else
-                RazorEnhanced.AutoLoot.AddLog("Item list not selected!");
+                RazorEnhanced.AutoLoot.AddLog("未选择物品列表！");
         }
 
         private void autoLootEnable_CheckedChanged(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace Assistant
             {
                 if (autoLootCheckBox.Checked)
                 {
-                    AutoLoot.AddLog("You are not logged in game!");
+                    AutoLoot.AddLog("尚未登录游戏！");
                     autoLootCheckBox.Checked = false;
                 }
                 return;
@@ -141,7 +141,7 @@ namespace Assistant
                 if (autoLootCheckBox.Checked)
                 {
                     autoLootCheckBox.Checked = false;
-                    AutoLoot.AddLog("Item list not selected!");
+                    AutoLoot.AddLog("未选择物品列表！");
                 }
                 return;
             }
@@ -157,9 +157,9 @@ namespace Assistant
 
                 AutoLoot.ResetIgnore();
                 AutoLoot.AutoMode = true;
-                AutoLoot.AddLog("Autoloot Engine Start...");
+                AutoLoot.AddLog("自动拾取引擎已启动...");
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("AUTOLOOT: Engine Start...", false);
+                    Misc.SendMessage("自动拾取：引擎已启动...", false);
             }
             else
             {
@@ -173,8 +173,8 @@ namespace Assistant
                 // Stop autoloot
                 AutoLoot.AutoMode = false;
                 if (showagentmessageCheckBox.Checked)
-                    Misc.SendMessage("AUTOLOOT: Engine Stop...", false);
-                AutoLoot.AddLog("Autoloot Engine Stop...");
+                    Misc.SendMessage("自动拾取：引擎已停止...", false);
+                AutoLoot.AddLog("自动拾取引擎已停止...");
             }
         }
 
@@ -186,7 +186,7 @@ namespace Assistant
             if (autolootListSelect.Focused && autolootListSelect.Text != String.Empty)
             {
                 Settings.AutoLoot.ListUpdate(autolootListSelect.Text, AutoLoot.AutoLootDelay, AutoLoot.AutoLootBag, true, AutoLoot.NoOpenCorpse, AutoLoot.MaxRange);
-                AutoLoot.AddLog("Autoloot list changed to: " + autolootListSelect.Text);
+                AutoLoot.AddLog("自动拾取列表已切换为：" + autolootListSelect.Text);
             }
 
             AutoLoot.InitGrid();
@@ -232,12 +232,12 @@ namespace Assistant
         {
             if (autolootListSelect.Text != String.Empty)
             {
-                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Delete AutoLoot List?",
-                    $"Are you sure to delete this AutoLoot list: \r\n{autolootListSelect.Text}",
-                    ok: "Yes", no: "No", cancel: null, backColor: null);
-                if (dialogResult == DialogResult.Yes)
+                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("删除自动拾取列表？",
+                    $"确定要删除此自动拾取列表吗：\r\n{autolootListSelect.Text}",
+                    ok: "是", no: "否", cancel: null, backColor: null);
+                if (dialogResult == DialogResult.OK)
                 {
-                    RazorEnhanced.AutoLoot.AddLog("Autoloot list " + autolootListSelect.Text + " removed!");
+                    RazorEnhanced.AutoLoot.AddLog("自动拾取列表 " + autolootListSelect.Text + " 已删除！");
                     RazorEnhanced.AutoLoot.AutoLootBag = 0;
                     RazorEnhanced.AutoLoot.AutoLootDelay = 100;
                     RazorEnhanced.AutoLoot.NoOpenCorpse = false;
@@ -290,7 +290,7 @@ namespace Assistant
         private void autolootdataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
             e.Row.Cells[0].Value = false;
-            e.Row.Cells[1].Value = "New Item";
+            e.Row.Cells[1].Value = "新物品";
             e.Row.Cells[2].Value = "0x0000";
             e.Row.Cells[3].Value = "0x0000";
             e.Row.Cells[4].Value = null;

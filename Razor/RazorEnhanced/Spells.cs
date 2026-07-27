@@ -17,12 +17,42 @@ namespace RazorEnhanced
         // functions used internally
         internal static string GuessSpellName(string originalName)
         {
+            return GuessSpellName(originalName, m_AllSpells);
+        }
+
+        internal static string GuessSpellName(string originalName, Dictionary<string, int> conversion)
+        {
+            if (String.IsNullOrWhiteSpace(originalName) || conversion == null || conversion.Count == 0)
+                return originalName;
+
+            string requestedName = originalName.Trim();
             int distance = 99;
             string closest = "";
 
-            foreach (string spell in m_AllSpells.Keys)
+            // Prefer an exact canonical name match, ignoring capitalization.
+            foreach (string spell in conversion.Keys)
             {
-                int computeDistance = UOAssist.LevenshteinDistance(spell, originalName);
+                if (String.Equals(spell, requestedName, StringComparison.OrdinalIgnoreCase))
+                    return spell;
+            }
+
+            // The client cliloc contains localized display names. Accept those names
+            // as aliases, but always return the canonical key used by the cast API.
+            foreach (KeyValuePair<string, int> entry in conversion)
+            {
+                Spell spellDefinition = Spell.Get(entry.Value);
+                if (spellDefinition == null)
+                    continue;
+
+                string localizedName = Language.GetString(spellDefinition.Name);
+                if (String.Equals(localizedName?.Trim(), requestedName, StringComparison.OrdinalIgnoreCase))
+                    return entry.Key;
+            }
+
+            // Preserve the existing typo-tolerant behavior for canonical names.
+            foreach (string spell in conversion.Keys)
+            {
+                int computeDistance = UOAssist.LevenshteinDistance(spell, requestedName);
                 if (computeDistance < distance)
                 {
                     distance = computeDistance;
@@ -32,8 +62,19 @@ namespace RazorEnhanced
 
             if (distance < 99)
                 return closest;
-            return originalName;
+            return requestedName;
 
+        }
+
+        internal static string GetCanonicalSpellName(int spellId)
+        {
+            foreach (KeyValuePair<string, int> entry in m_DefaultSpells)
+            {
+                if (entry.Value == spellId)
+                    return entry.Key;
+            }
+
+            return null;
         }
 
 
@@ -41,7 +82,7 @@ namespace RazorEnhanced
         {
             //
             bool success = false;
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_AllSpells);
             if (m_AllSpells.ContainsKey(guessedSpellName))
             {
                 success = CastOnlyGeneric(m_AllSpells, guessedSpellName, wait, waitAfter);
@@ -181,7 +222,7 @@ namespace RazorEnhanced
         {
             //
             bool success = false;
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_AllSpells);
             if (m_AllSpells.ContainsKey(guessedSpellName))
             {
                 success = CastTargetedGeneric(m_AllSpells, guessedSpellName, target, wait, waitAfter);
@@ -282,7 +323,7 @@ namespace RazorEnhanced
         /// <param name="wait">Optional: Wait server to confirm. (default: True)</param>
         public static void CastMagery(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MagerySpellName);
             bool success = CastTargetedGeneric(m_MagerySpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMagery: Invalid spell name: " + SpellName);
@@ -305,7 +346,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyMagery(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MagerySpellName);
             bool success = CastOnlyGeneric(m_MagerySpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMagery: Invalid spell name: " + SpellName);
@@ -340,7 +381,7 @@ namespace RazorEnhanced
         /// <param name="wait">Optional: Wait server to confirm. (default: True)</param>
         public static void CastNecro(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_NecroSpellName);
             bool success = CastTargetedGeneric(m_NecroSpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastNecro: Invalid spell name: " + SpellName);
@@ -363,7 +404,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyNecro(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_NecroSpellName);
             bool success = CastOnlyGeneric(m_NecroSpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastNecro: Invalid spell name: " + SpellName);
@@ -391,7 +432,7 @@ namespace RazorEnhanced
         /// <param name="wait">Optional: Wait server to confirm. (default: True)</param>
         public static void CastChivalry(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_ChivalrySpellName);
             bool success = CastTargetedGeneric(m_ChivalrySpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastChivalry: Invalid spell name: " + SpellName);
@@ -413,7 +454,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyChivalry(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_ChivalrySpellName);
             bool success = CastOnlyGeneric(m_ChivalrySpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastChivalry: Invalid spell name: " + SpellName);
@@ -439,7 +480,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyBushido(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_BushidoSpellName);
             bool success = CastOnlyGeneric(m_BushidoSpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastBushido: Invalid spell name: " + SpellName);
@@ -464,7 +505,7 @@ namespace RazorEnhanced
 
         public static void CastNinjitsu(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_NinjitsuSpellName);
             bool success = CastTargetedGeneric(m_NinjitsuSpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastNinjitsu: Invalid spell name: " + SpellName);
@@ -486,7 +527,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyNinjitsu(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_NinjitsuSpellName);
             bool success = CastOnlyGeneric(m_NinjitsuSpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastNinjitsu: Invalid spell name: " + SpellName);
@@ -519,7 +560,7 @@ namespace RazorEnhanced
         /// <param name="wait">Optional: Wait server to confirm. (default: True)</param>
         public static void CastSpellweaving(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_SpellweavingSpellName);
             bool success = CastTargetedGeneric(m_SpellweavingSpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastSpellweaving: Invalid spell name: " + SpellName);
@@ -543,7 +584,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlySpellweaving(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_SpellweavingSpellName);
             bool success = CastOnlyGeneric(m_SpellweavingSpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastSpellweaving: Invalid spell name: " + SpellName);
@@ -577,7 +618,7 @@ namespace RazorEnhanced
         /// <param name="wait">Optional: Wait server to confirm. (default: True)</param>
         public static void CastMysticism(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MysticismSpellName);
             bool success = CastTargetedGeneric(m_MysticismSpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMysticism: Invalid spell name: " + SpellName);
@@ -599,7 +640,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyMysticism(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MysticismSpellName);
             bool success = CastOnlyGeneric(m_MysticismSpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMysticism: Invalid spell name: " + SpellName);
@@ -662,7 +703,7 @@ namespace RazorEnhanced
 
         public static void CastMastery(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MasterySpellName);
             bool success = CastTargetedGeneric(m_MasterySpellName, guessedSpellName, target, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMastery: Invalid spell name: " + SpellName);
@@ -684,7 +725,7 @@ namespace RazorEnhanced
 
         internal static void CastOnlyMastery(string SpellName, bool wait, int waitAfter)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_MasterySpellName);
             bool success = CastOnlyGeneric(m_MasterySpellName, guessedSpellName, wait, waitAfter);
             if (!success)
                 Scripts.SendMessageScriptError("Script Error: CastMastery: Invalid spell name: " + SpellName);
@@ -724,7 +765,7 @@ namespace RazorEnhanced
         {
             if (RazorEnhanced.Settings.General.ReadBool("DruidClericPackets"))
             {
-                string guessedSpellName = GuessSpellName(SpellName);
+                string guessedSpellName = GuessSpellName(SpellName, m_ClericSpellName);
                 bool success = CastTargetedGeneric(m_ClericSpellName, guessedSpellName, target, wait, waitAfter);
                 if (!success)
                     Scripts.SendMessageScriptError("Script Error: CastNecro: Invalid spell name: " + SpellName);
@@ -755,7 +796,7 @@ namespace RazorEnhanced
         {
             if (World.Player == null)
                 return;
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_ClericSpellName);
 
             string spell;
             m_ClericSpellNameText.TryGetValue(guessedSpellName, out spell);
@@ -802,7 +843,7 @@ namespace RazorEnhanced
 
         public static void CastDruid(string SpellName, uint target, bool wait = true, int waitAfter = 0)
         {
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_DruidSpellName);
             if (RazorEnhanced.Settings.General.ReadBool("DruidClericPackets"))
             {
                 bool success = CastTargetedGeneric(m_DruidSpellName, guessedSpellName, target, wait, waitAfter);
@@ -836,7 +877,7 @@ namespace RazorEnhanced
             if (World.Player == null)
                 return;
 
-            string guessedSpellName = GuessSpellName(SpellName);
+            string guessedSpellName = GuessSpellName(SpellName, m_DruidSpellName);
             string spell;
             m_DruidSpellNameText.TryGetValue(guessedSpellName, out spell);
 
@@ -1332,8 +1373,7 @@ namespace RazorEnhanced
             { "ManaSpring", "[cs manaspring" },
             { "Hibernate", "[cs hibernate" },
         };
-        //private static readonly Dictionary<string, int> m_AllSpells = AllSpells();
-
+        private static readonly Dictionary<string, int> m_DefaultSpells = AllSpells();
         private static readonly Dictionary<string, int> m_AllSpells = LoadAllSpells();
 
         /// <summary>
@@ -1376,7 +1416,7 @@ namespace RazorEnhanced
             }
 
             // Fall back to default spells
-            return AllSpells();
+            return new Dictionary<string, int>(m_DefaultSpells);
         }
 
 

@@ -45,7 +45,7 @@ namespace RazorEnhanced
                         if (Utility.Distance(World.Player.Position.X, World.Player.Position.Y, item.Position.X, item.Position.Y) <= AutoLoot.MaxRange && CheckZLevel(item.Position.Z, World.Player.Position.Z))
                         {
                             RazorEnhanced.Items.WaitForContents(Items.FindBySerial(itemserial), 1000);
-                            AutoLoot.AddLog("- Refresh Corpse: 0x" + itemserial.ToString("X8"));
+                            AutoLoot.AddLog("- 刷新尸体：0x" + itemserial.ToString("X8"));
                             Thread.Sleep(AutoLoot.AutoLootDelay);
                             if (item.Updated)
                                 AutoLootSerialCorpseRefresh.TryDequeue(out itemserial);
@@ -90,13 +90,13 @@ namespace RazorEnhanced
                         {
                             if ((World.Player.MaxWeight - World.Player.Weight) < 5)
                             {
-                                RazorEnhanced.Scavenger.AddLog("- Max weight reached, Wait untill free some space");
-                                RazorEnhanced.Misc.SendMessage("SCAVENGER: Max weight reached, Wait untill free some space", true);
+                                RazorEnhanced.Scavenger.AddLog("- 已达负重上限，请先腾出空间");
+                                RazorEnhanced.Misc.SendMessage("拾荒：已达负重上限，请先腾出空间", true);
                                 Thread.Sleep(2000);
                             }
                             else
                             {
-                                RazorEnhanced.Scavenger.AddLog("- Item Match found (" + item.Serial.ToString() + ") ... Grabbing");
+                                RazorEnhanced.Scavenger.AddLog("- 找到匹配物品（" + item.Serial.ToString() + "），正在拾取");
                                 RazorEnhanced.Items.Move(item.Serial, Convert.ToInt32(Scavenger.GetScavengerBag()), 0);
                                 Thread.Sleep(Scavenger.ScavengerDelay);
                                 ScavengerSerialToGrab.TryDequeue(out itemserial);
@@ -187,13 +187,13 @@ namespace RazorEnhanced
                                 {
                                     if ((World.Player.MaxWeight - World.Player.Weight) < 5)
                                     {
-                                        RazorEnhanced.AutoLoot.AddLog("- Max weight reached, Wait untill free some space");
-                                        RazorEnhanced.Misc.SendMessage("AUTOLOOT: Max weight reached, Wait untill free some space", true);
+                                        RazorEnhanced.AutoLoot.AddLog("- 已达负重上限，请先腾出空间");
+                                        RazorEnhanced.Misc.SendMessage("自动拾取：已达负重上限，请先腾出空间", true);
                                         Thread.Sleep(2000);
                                     }
                                     else
                                     {
-                                        RazorEnhanced.AutoLoot.AddLog("- Item Match found (" + item.Name.ToString() + ") ... Looting");
+                                        RazorEnhanced.AutoLoot.AddLog("- 找到匹配物品（" + item.Name.ToString() + "），正在拾取");
                                         int lootBagOverride = data.DestContainerOverride;
                                         Assistant.Item destCont = Assistant.World.FindItem(data.DestContainerOverride);
                                         if (destCont != null)

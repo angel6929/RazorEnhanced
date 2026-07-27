@@ -199,7 +199,7 @@ namespace RazorEnhanced.UI
 
         private void scavengerpropGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Value = "New Prop";
+            e.Row.Cells[0].Value = "新属性";
             e.Row.Cells[1].Value = "0";
             e.Row.Cells[2].Value = "0";
         }

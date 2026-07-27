@@ -184,8 +184,8 @@ namespace Assistant
             else
             {
                 if (showagentmessageCheckBox.Checked)
-                    RazorEnhanced.Misc.SendMessage("Invalid Target!", false);
-                RazorEnhanced.Scavenger.AddLog("Invalid Target!");
+                    RazorEnhanced.Misc.SendMessage("无效目标！", false);
+                RazorEnhanced.BandageHeal.AddLog("无效目标！");
             }
         }
 

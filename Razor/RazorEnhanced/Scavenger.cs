@@ -426,7 +426,7 @@ namespace RazorEnhanced
         {
             if (Assistant.Engine.MainWindow.ScavengerCheckBox.Checked == true)
             {
-                Scripts.SendMessageScriptError("Script Error: Scavenger.Start: Scavenger already running");
+                Scripts.SendMessageScriptError("脚本错误：Scavenger.RunOnce：拾荒已在运行");
             }
             else
             {
@@ -453,8 +453,8 @@ namespace RazorEnhanced
                 {
                     if (!lootChangeMsgSent)
                     {
-                        Misc.SendMessage("Scavenger: Invalid Bag, Switch to backpack", 945, true);
-                        AddLog("Invalid Bag, Switch to backpack");
+                        Misc.SendMessage("拾荒：容器无效，已切换到背包", 945, true);
+                        AddLog("容器无效，已切换到背包");
                         lootChangeMsgSent = true;
                     }
                     return World.Player.Backpack.Serial.Value;
@@ -464,8 +464,8 @@ namespace RazorEnhanced
             {
                 if (!lootChangeMsgSent)
                 {
-                    Misc.SendMessage("Scavenger: Invalid Bag, Switch to backpack", 945, true);
-                    AddLog("Invalid Bag, Switch to backpack");
+                    Misc.SendMessage("拾荒：容器无效，已切换到背包", 945, true);
+                    AddLog("容器无效，已切换到背包");
                     lootChangeMsgSent = true;
                 }
                 return World.Player.Backpack.Serial.Value;
@@ -484,7 +484,7 @@ namespace RazorEnhanced
         {
             if (Assistant.Engine.MainWindow.ScavengerCheckBox.Checked == true)
             {
-                Scripts.SendMessageScriptError("Script Error: Scavenger.Start: Scavenger already running");
+                Scripts.SendMessageScriptError("脚本错误：Scavenger.Start：拾荒已在运行");
             }
             else
                 Assistant.Engine.MainWindow.SafeAction(s => s.ScavengerCheckBox.Checked = true);
@@ -497,7 +497,7 @@ namespace RazorEnhanced
         {
             if (Assistant.Engine.MainWindow.ScavengerCheckBox.Checked == false)
             {
-                Scripts.SendMessageScriptError("Script Error: Scavenger.Stop: Scavenger already sleeping");
+                Scripts.SendMessageScriptError("脚本错误：Scavenger.Stop：拾荒当前未运行");
             }
             else
                 Assistant.Engine.MainWindow.SafeAction(s => s.ScavengerCheckBox.Checked = false);
@@ -521,7 +521,7 @@ namespace RazorEnhanced
         {
             if (!UpdateListParam(listName))
             {
-                Scripts.SendMessageScriptError("Script Error: Scavenger.ChangeList: Scavenger list: " + listName + " not exist");
+                Scripts.SendMessageScriptError("脚本错误：Scavenger.ChangeList：拾荒列表 " + listName + " 不存在");
             }
             else
             {

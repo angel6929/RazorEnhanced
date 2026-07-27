@@ -163,7 +163,7 @@ namespace Assistant
                 }
             }
             else
-                RazorEnhanced.AutoLoot.AddLog("Item list not selected!");
+                RazorEnhanced.Dress.AddLog("未选择物品列表！");
         }
 
         private void dressClearListB_Click(object sender, EventArgs e)

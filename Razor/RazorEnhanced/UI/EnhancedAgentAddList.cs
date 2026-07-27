@@ -33,10 +33,10 @@ namespace RazorEnhanced.UI
             switch (agentid)
             {
                 case 1:
-                    Text = "Autoloot Add List";
+                    Text = "添加自动拾取列表";
                     break;
                 case 2:
-                    Text = "Scavenger Add List";
+                    Text = "添加拾荒列表";
                     break;
                 case 3:
                     Text = "Organizer Add List";
@@ -60,10 +60,10 @@ namespace RazorEnhanced.UI
                     Text = "Launcher Add Shard";
                     break;
                 case 10:
-                    Text = "Autoloot Clone List";
+                    Text = "克隆自动拾取列表";
                     break;
                 case 11:
-                    Text = "Scavenger Clone List";
+                    Text = "克隆拾荒列表";
                     break;
                 case 12:
                     Text = "Organizer Clone List";
@@ -151,9 +151,9 @@ namespace RazorEnhanced.UI
 
             if (fail)
             {
-                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Invalid list name",
-                        $"List name {newList} is invalid\r\nUse a different name",
-                        ok: "Ok", no: null, cancel: null, backColor: null);
+                var dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("列表名称无效",
+                        $"列表名称“{newList}”无效。\r\n请使用其他名称。",
+                        ok: "确定", no: null, cancel: null, backColor: null);
             }
             else
             {

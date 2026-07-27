@@ -392,34 +392,29 @@ namespace RazorEnhanced
             }
             else if (type == 2) // Cast Spell
             {
-                Spell s = Spell.Get(id);
-                if (id >= 1 && id <= 64)
-                    AddLog("Spells.CastMagery(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                string spellName = Spells.GetCanonicalSpellName(id);
+                if (String.IsNullOrEmpty(spellName))
+                    AddLog("ERROR Spell not known " + id);
+                else if (id >= 1 && id <= 64)
+                    AddLog("Spells.CastMagery(\"" + spellName + "\")");
                 else if (id >= 101 && id <= 117)
-                    AddLog("Spells.CastNecro(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastNecro(\"" + spellName + "\")");
                 else if (id >= 201 && id <= 210)
-                    AddLog("Spells.CastChivalry(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastChivalry(\"" + spellName + "\")");
                 else if (id >= 302 && id <= 321)
-                    AddLog("Spells.CastDruid(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastDruid(\"" + spellName + "\")");
                 else if (id >= 342 && id <= 353)
-                    AddLog("Spells.CastCleric(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastCleric(\"" + spellName + "\")");
                 else if (id >= 401 && id <= 406)
-                    AddLog("Spells.CastBushido(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastBushido(\"" + spellName + "\")");
                 else if (id >= 501 && id <= 508)
-                    AddLog("Spells.CastNinjitsu(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastNinjitsu(\"" + spellName + "\")");
                 else if (id >= 601 && id <= 616)
-                    AddLog("Spells.CastSpellweaving(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastSpellweaving(\"" + spellName + "\")");
                 else if (id >= 678 && id <= 693)
-                    AddLog("Spells.CastMysticism(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
+                    AddLog("Spells.CastMysticism(\"" + spellName + "\")");
                 else if (id >= 701 && id <= 745)
-                {
-                    if (id == 732)
-                        AddLog("Spells.CastMastery(\"Called Shot\")");
-                    else if (id == 715)
-                        AddLog("Spells.CastMastery(\"Enchanted Summoning\")");
-                    else
-                        AddLog("Spells.CastMastery(\"" + Utility.CapitalizeAllWords(Language.GetString(s.Name)) + "\")");
-                }
+                    AddLog("Spells.CastMastery(\"" + spellName + "\")");
                 else
                     AddLog("ERROR Spell not listed " + id);
             }
@@ -780,26 +775,13 @@ namespace RazorEnhanced
             }
             else if (type == 2) // Cast Spell
             {
-                Spell s = Spell.Get(id);
-                if (s != null)
-                {
-
-                    if (id >= 1 && id <= 693)
-                        AddLog("cast \"" + Language.GetString(s.Name) + "\"");
-                    else if (id >= 701 && id <= 745)
-                    {
-                        if (id == 732)
-                            AddLog("cast \"Called Shot\"");
-                        else if (id == 715)
-                            AddLog("cast \"Enchanted Summoning\"");
-                        else
-                            AddLog("cast \"" + Language.GetString(s.Name) + "\"");
-                    }
-                    else
-                        AddLog("ERROR Spell not listed " + id);
-                }
-                else
+                string spellName = Spells.GetCanonicalSpellName(id);
+                if (String.IsNullOrEmpty(spellName))
                     AddLog("ERROR Spell not known " + id);
+                else if ((id >= 1 && id <= 693) || (id >= 701 && id <= 745))
+                    AddLog("cast \"" + spellName + "\"");
+                else
+                    AddLog("ERROR Spell not listed " + id);
             }
             else // InvokeVirtue
             {
