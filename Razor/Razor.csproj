@@ -680,6 +680,7 @@
     <Compile Include="RazorEnhanced\UI\EnhancedAutolootEditItemProps.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RazorEnhanced\UI\PropertyNameLocalization.cs" />
     <Compile Include="RazorEnhanced\UI\EnhancedAutolootEditItemProps.Designer.cs">
       <DependentUpon>EnhancedAutolootEditItemProps.cs</DependentUpon>
     </Compile>

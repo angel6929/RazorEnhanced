@@ -126,7 +126,9 @@ namespace RazorEnhanced.UI
 
         private void EnhancedScavengerEditItemProps_Load(object sender, EventArgs e)
         {
-            comboboxProp.DataSource = m_default_prop;
+            comboboxProp.DisplayMember = nameof(PropertyOption.DisplayName);
+            comboboxProp.ValueMember = nameof(PropertyOption.InternalName);
+            comboboxProp.DataSource = PropertyNameLocalization.CreateDefaultOptions();
             lName.Text = m_name;
             lGraphics.Text = m_graphics;
             lColor.Text = m_color;
@@ -142,7 +144,7 @@ namespace RazorEnhanced.UI
             if (m_proplist != null)
                 foreach (AutoLoot.AutoLootItem.Property prop in m_proplist)
                 {
-                    autolootpropGridView.Rows.Add(new object[] { prop.Name, prop.Minimum.ToString(), prop.Maximum.ToString() });
+                    autolootpropGridView.Rows.Add(new object[] { PropertyNameLocalization.ToDisplayName(prop.Name), prop.Minimum.ToString(), prop.Maximum.ToString() });
                 }
 
             // Immagine
@@ -218,7 +220,7 @@ namespace RazorEnhanced.UI
                 int max = Convert.ToInt32((string)row.Cells[2].Value);
                 string propname = string.Empty;
                 if (row.Cells[0].Value != null)
-                    propname = row.Cells[0].Value.ToString();
+                    propname = PropertyNameLocalization.ToInternalName(row.Cells[0].Value.ToString());
 
                 propslist.Add(new AutoLoot.AutoLootItem.Property(propname, min, max));
             }
@@ -229,9 +231,9 @@ namespace RazorEnhanced.UI
         private void bAddProp_Click(object sender, EventArgs e)
         {
 
-            if (comboboxProp.Text != String.Empty)
+            if (comboboxProp.SelectedValue is string propname && propname != String.Empty)
             {
-                autolootpropGridView.Rows.Add(new object[] { comboboxProp.Text, "1", "1" });
+                autolootpropGridView.Rows.Add(new object[] { PropertyNameLocalization.ToDisplayName(propname), "1", "1" });
                 SaveData();
             }
         }

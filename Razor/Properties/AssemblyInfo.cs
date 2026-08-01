@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Razor Enhanced")]
 [assembly: AssemblyDescription("The bleeding edge UO tool")]
 [assembly: AssemblyCompany("Sunnyland2026")]
-[assembly: AssemblyProduct("Enhanced Razor 20260727（阳光大陆专用版）")]
+[assembly: AssemblyProduct("Enhanced Razor 20260731（阳光大陆专用版）")]
 [assembly: AssemblyTrademark("SUNNYLAND_RA_BINDING_V1_C82A3DFC_20260705")]
 [assembly: ComVisibleAttribute(false)]
 
