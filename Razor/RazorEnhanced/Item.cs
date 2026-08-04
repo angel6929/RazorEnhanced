@@ -464,6 +464,116 @@ namespace RazorEnhanced
     /// </summary>
     public class Items
     {
+        // The AutoLoot and Scavenger editors persist these canonical English names.
+        // Match their OPL cliloc numbers first so filters keep working when Cliloc.enu
+        // is translated (as it is in the Sunnyland client). Text matching remains as
+        // a fallback for shard-specific/custom properties.
+        private static readonly Dictionary<string, int[]> m_PropertyClilocNumbers = new(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Damage Increase"] = new[] { 1060401, 1060402 },
+            ["Physical Damage"] = new[] { 1060403 },
+            ["Cold Damage"] = new[] { 1060404 },
+            ["Fire Damage"] = new[] { 1060405 },
+            ["Poison Damage"] = new[] { 1060406 },
+            ["Energy Damage"] = new[] { 1060407 },
+            ["Defense Chance Increase"] = new[] { 1060408 },
+            ["Dexterity Bonus"] = new[] { 1060409 },
+            ["Enhance Potion"] = new[] { 1060411 },
+            ["Enhance Potions"] = new[] { 1060411 },
+            ["Faster Cast Recovery"] = new[] { 1060412 },
+            ["Faster Casting"] = new[] { 1060413 },
+            ["Gold Increase"] = new[] { 1060414 },
+            ["Hit Chance Increase"] = new[] { 1060415 },
+            ["Hit Cold Area"] = new[] { 1060416 },
+            ["Hit Dispel"] = new[] { 1060417 },
+            ["Hit Energy Area"] = new[] { 1060418 },
+            ["Hit Fire Area"] = new[] { 1060419 },
+            ["Hit Fireball"] = new[] { 1060420 },
+            ["Hit Harm"] = new[] { 1060421 },
+            ["Hit Life Leech"] = new[] { 1060422 },
+            ["Hit Lightning"] = new[] { 1060423 },
+            ["Hit Lower Attack"] = new[] { 1060424 },
+            ["Hit Lower Defense"] = new[] { 1060425 },
+            ["Hit Magic Arrow"] = new[] { 1060426 },
+            ["Hit Mana Leech"] = new[] { 1060427 },
+            ["Hit Physical Area"] = new[] { 1060428 },
+            ["Hit Poison Area"] = new[] { 1060429 },
+            ["Hit Stamina Leech"] = new[] { 1060430 },
+            ["Hit Point Increase"] = new[] { 1060431 },
+            ["Intelligence Bonus"] = new[] { 1060432 },
+            ["Lower Mana Cost"] = new[] { 1060433 },
+            ["Lower Reagent Cost"] = new[] { 1060434 },
+            ["Lower Requirements"] = new[] { 1060435 },
+            ["Luck"] = new[] { 1060436 },
+            ["Mage Armor"] = new[] { 1060437 },
+            ["Mana Increase"] = new[] { 1060439 },
+            ["Mana Regeneration"] = new[] { 1060440 },
+            ["Night Sight"] = new[] { 1060441 },
+            ["Reflect Physical Damage"] = new[] { 1060442 },
+            ["Stamina Regeneration"] = new[] { 1060443 },
+            ["Hit Point Regeneration"] = new[] { 1060444 },
+            ["Cold Resist"] = new[] { 1060445, 1153739 },
+            ["Energy Resist"] = new[] { 1060446, 1153738 },
+            ["Energy Resists"] = new[] { 1060446, 1153738 },
+            ["Fire Resist"] = new[] { 1060447, 1153737 },
+            ["Physical Resist"] = new[] { 1060448, 1153735 },
+            ["Poison Resist"] = new[] { 1060449, 1153736 },
+            ["Self Repair"] = new[] { 1060450 },
+            ["Air Elemental Slayer"] = new[] { 1060457 },
+            ["Arachnid Slayer"] = new[] { 1060458 },
+            ["Blood Elemental Slayer"] = new[] { 1060459 },
+            ["Demon Slayer"] = new[] { 1060460, 1060461 },
+            ["Dragon Slayer"] = new[] { 1060462 },
+            ["Earth Elemental Slayer"] = new[] { 1060463 },
+            ["Elemental Slayer"] = new[] { 1060464 },
+            ["Fire Elemental Slayer"] = new[] { 1060465 },
+            ["Gargoyle Slayer"] = new[] { 1060466 },
+            ["Lizardman Slayer"] = new[] { 1060467 },
+            ["Ogre Slayer"] = new[] { 1060468 },
+            ["Ophidian Slayer"] = new[] { 1060469 },
+            ["Orc Slayer"] = new[] { 1060470 },
+            ["Poison Elemental Slayer"] = new[] { 1060471 },
+            ["Repond Slayer"] = new[] { 1060472 },
+            ["Reptile Slayer"] = new[] { 1060473 },
+            ["Scorpion Slayer"] = new[] { 1060474 },
+            ["Snake Slayer"] = new[] { 1060475 },
+            ["Snow Elemental Slayer"] = new[] { 1060476 },
+            ["Spider Slayer"] = new[] { 1060477 },
+            ["Terathan Slayer"] = new[] { 1060478 },
+            ["Undead Slayer"] = new[] { 1060479 },
+            ["Troll Slayer"] = new[] { 1060480 },
+            ["Water Elemental Slayer"] = new[] { 1060481 },
+            ["Spell Channeling"] = new[] { 1060482 },
+            ["Spell Damage Increase"] = new[] { 1060483 },
+            ["Stamina Increase"] = new[] { 1060484 },
+            ["Strength Bonus"] = new[] { 1060485 },
+            ["Swing Speed Increase"] = new[] { 1060486 },
+            ["Fireball Charges"] = new[] { 1060487 },
+            ["Greater Healing Charges"] = new[] { 1060488, 1017330 },
+            ["Harm Charges"] = new[] { 1060489, 1017334 },
+            ["Healing Charges"] = new[] { 1060490, 1017329 },
+            ["Lightning Charges"] = new[] { 1060491 },
+            ["Magic Arrow Charges"] = new[] { 1060492 },
+            ["Balanced"] = new[] { 1072792 },
+            ["Velocity"] = new[] { 1072793 },
+            ["Splintering Weapon"] = new[] { 1112857 },
+            ["Locked Down"] = new[] { 501643 },
+            ["Locked Down & Secure"] = new[] { 501644 }
+        };
+
+        private static readonly HashSet<int> m_TotalResistClilocNumbers = new()
+        {
+            1060445,
+            1060446,
+            1060447,
+            1060448,
+            1060449,
+            1153735,
+            1153736,
+            1153737,
+            1153738,
+            1153739
+        };
 
         /// <summary>
         /// Open a container at a specific location on the screen
@@ -2094,7 +2204,13 @@ namespace RazorEnhanced
 
         public static float GetPropValue(int serial, string name)
         {
-            if (name.ToLower().Contains("total") && name.ToLower().Contains("resist"))
+            if (string.IsNullOrWhiteSpace(name))
+                return 0;
+
+            name = name.Trim();
+
+            if (name.IndexOf("total", StringComparison.OrdinalIgnoreCase) >= 0 &&
+                name.IndexOf("resist", StringComparison.OrdinalIgnoreCase) >= 0)
                 return GetTotalResistProp(serial);
 
             Assistant.Item assistantItem = World.FindItem((uint)serial);
@@ -2105,23 +2221,24 @@ namespace RazorEnhanced
                     var content = assistantItem.ObjPropList.Content;
                     if (content != null)
                     {
+                        if (m_PropertyClilocNumbers.TryGetValue(name, out int[] clilocNumbers))
+                        {
+                            for (int i = 0; i < content.Count; i++)
+                            {
+                                if (clilocNumbers.Contains(content[i].Number))
+                                    return ParsePropertyValue(content[i].Args);
+                            }
+                        }
+
+                        // Preserve support for shard-specific properties which do not
+                        // have a known canonical cliloc number.
                         for (int i = 0; i < content.Count; i++)
                         {
-                            if (!content[i].ToString().ToLower().StartsWith(name.ToLower())) // Props Name not match
+                            string propertyText = content[i].ToString();
+                            if (propertyText == null || !propertyText.StartsWith(name, StringComparison.OrdinalIgnoreCase))
                                 continue;
 
-                            if (content[i].Args == null)  // Props exist but not have value
-                                return 1;
-
-                            try
-                            {
-                                return Convert.ToSingle(Language.ParsePropsCliloc(content[i].Args), CultureInfo.InvariantCulture);
-                            }
-                            catch
-                            {
-                                return 1;  // Conversion error
-                            }
-
+                            return ParsePropertyValue(content[i].Args);
                         }
                     }
                 }
@@ -2140,6 +2257,21 @@ namespace RazorEnhanced
                 return 0;
 
             return GetPropValue(item.Serial, name);
+        }
+
+        private static float ParsePropertyValue(string args)
+        {
+            if (args == null)
+                return 1;
+
+            try
+            {
+                return Convert.ToSingle(Language.ParsePropsCliloc(args), CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                return 1;
+            }
         }
 
         // GetPropValue: Special case "Total Resist" so that items can be collected based on total resist
@@ -2161,20 +2293,17 @@ namespace RazorEnhanced
                     {
                         for (int i = 0; i < assistantItem.ObjPropList.Content.Count; i++)
                         {
-                            if (assistantItem.ObjPropList.Content[i].ToString().ToLower().Contains("resist"))
+                            var property = assistantItem.ObjPropList.Content[i];
+                            bool isKnownResist = m_TotalResistClilocNumbers.Contains(property.Number);
+                            string propertyText = isKnownResist ? null : property.ToString();
+                            bool isCustomResist = propertyText != null &&
+                                propertyText.IndexOf("resist", StringComparison.OrdinalIgnoreCase) >= 0;
+
+                            if (isKnownResist || isCustomResist)
                             {
-                                if (assistantItem.ObjPropList.Content[i].Args != null)
+                                if (property.Args != null)
                                 {
-                                    float addIt = 0;
-                                    try
-                                    {
-                                        addIt = Convert.ToSingle(Language.ParsePropsCliloc(assistantItem.ObjPropList.Content[i].Args), CultureInfo.InvariantCulture);
-                                    }
-                                    catch
-                                    {
-                                        addIt = 1;  // Conversion error
-                                    }
-                                    totalResist += addIt;
+                                    totalResist += ParsePropertyValue(property.Args);
                                 }
                             }
                         }

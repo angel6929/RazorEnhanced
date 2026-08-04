@@ -10469,7 +10469,7 @@ namespace Assistant
 
         private void razorButtonWebsite_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo p = new("https://razorenhanced.github.io/");
+            ProcessStartInfo p = new("https://ultimatools.github.io/razorenhanced.github.io/");
             try
             {
                 Process.Start(p);
