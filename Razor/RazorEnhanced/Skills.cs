@@ -1,5 +1,7 @@
 using Assistant;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RazorEnhanced
 {
@@ -7,22 +9,53 @@ namespace RazorEnhanced
     {
         internal static Dictionary<int, string> m_SkillNameById = null;
         internal static Dictionary<string, int> m_SkillNameByName = null;
+        private static Dictionary<string, int> m_SkillIdByNormalizedName = null;
+        private static Dictionary<string, int> m_SkillIdByAlias = null;
 
         internal static int GetSkillId(string skillName)
         {
-            if (m_SkillNameByName.ContainsKey(skillName))
-            {
-                return m_SkillNameByName[skillName];
-            }
+            if (string.IsNullOrWhiteSpace(skillName))
+                return -1;
+
+            if (m_SkillNameByName != null && m_SkillNameByName.TryGetValue(skillName, out int skillId))
+                return skillId;
+
+            string normalizedName = NormalizeSkillName(skillName);
+            if (m_SkillIdByNormalizedName != null && m_SkillIdByNormalizedName.TryGetValue(normalizedName, out skillId))
+                return skillId;
+
+            if (m_SkillIdByAlias != null && m_SkillIdByAlias.TryGetValue(normalizedName, out skillId))
+                return skillId;
+
             return -1;
+        }
+
+        internal static string NormalizeSkillName(string skillName)
+        {
+            if (string.IsNullOrWhiteSpace(skillName))
+                return string.Empty;
+
+            StringBuilder normalizedName = new StringBuilder(skillName.Length);
+            foreach (char character in skillName)
+            {
+                if (char.IsLetterOrDigit(character))
+                    normalizedName.Append(character);
+            }
+            return normalizedName.ToString();
+        }
+
+        private static void AddNormalizedSkillName(Dictionary<string, int> names, string skillName, int skillId)
+        {
+            string normalizedName = NormalizeSkillName(skillName);
+            if (!string.IsNullOrEmpty(normalizedName) && !names.ContainsKey(normalizedName))
+                names.Add(normalizedName, skillId);
         }
 
         internal static string GetSkillName(int skillId)
         {
-            if (m_SkillNameById.ContainsKey(skillId))
-            {
-                return m_SkillNameById[skillId];
-            }
+            if (m_SkillNameById != null && m_SkillNameById.TryGetValue(skillId, out string skillName))
+                return skillName;
+
             return null;
         }
 
@@ -91,17 +124,24 @@ namespace RazorEnhanced
             };
 
             m_SkillNameById = new Dictionary<int, string>();
-            m_SkillNameByName = new Dictionary<string, int>();
+            m_SkillNameByName = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            m_SkillIdByNormalizedName = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            m_SkillIdByAlias = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
-            // Add the standard entries by id so no duplicates
+            // Keep the built-in API names as aliases. skills.mul replaces the display
+            // names below, but existing macros and scripts may still use these names.
             foreach (var entry in defaults)
             {
                 m_SkillNameById.Add(entry.Item1, entry.Item2);
+                AddNormalizedSkillName(m_SkillIdByAlias, entry.Item2, entry.Item1);
             }
-            // add the ones from skills.mul data files (does nothing if already exists)
+            AddNormalizedSkillName(m_SkillIdByAlias, "Inscription", 23);
+
+            // Runtime names from skills.mul take priority over historical aliases.
             foreach (var skill in Ultima.Skills.SkillEntries)
             {
                 m_SkillNameById[skill.Index] = skill.Name;
+                AddNormalizedSkillName(m_SkillIdByNormalizedName, skill.Name, skill.Index);
             }
 
             // Use the resulting dictionary to populate the inverse lookup
@@ -135,6 +175,13 @@ namespace RazorEnhanced
 
         internal static int GuessSkillId(string originalName)
         {
+            if (string.IsNullOrWhiteSpace(originalName))
+                return -1;
+
+            int exactSkillId = GetSkillId(originalName);
+            if (exactSkillId != -1)
+                return exactSkillId;
+
             int distance = 99;
             int closest = -1;
 

@@ -234,7 +234,7 @@ namespace RazorEnhanced.Macros
                         whileAction.Type, whileAction.Op, whileAction.Value, whileAction.Graphic, whileAction.Color,
                         whileAction.SkillName, whileAction.ValueToken, whileAction.BooleanValue, whileAction.PresetName,
                         whileAction.BuffName, whileAction.StatType, whileAction.StatusType, whileAction.RangeMode,
-                        whileAction.RangeSerial, whileAction.RangeGraphic, whileAction.RangeColor,
+                        whileAction.RangeSerial, whileAction.RangeAlias, whileAction.RangeGraphic, whileAction.RangeColor,
                         whileAction.FindEntityMode, whileAction.FindEntityLocation, whileAction.FindContainerSerial,
                         whileAction.FindRange, whileAction.FindStoreSerial
                     );
@@ -272,7 +272,7 @@ namespace RazorEnhanced.Macros
                             loopWhileAction.Type, loopWhileAction.Op, loopWhileAction.Value, loopWhileAction.Graphic, loopWhileAction.Color,
                             loopWhileAction.SkillName, loopWhileAction.ValueToken, loopWhileAction.BooleanValue, loopWhileAction.PresetName,
                             loopWhileAction.BuffName, loopWhileAction.StatType, loopWhileAction.StatusType, loopWhileAction.RangeMode,
-                            loopWhileAction.RangeSerial, loopWhileAction.RangeGraphic, loopWhileAction.RangeColor,
+                            loopWhileAction.RangeSerial, loopWhileAction.RangeAlias, loopWhileAction.RangeGraphic, loopWhileAction.RangeColor,
                             loopWhileAction.FindEntityMode, loopWhileAction.FindEntityLocation, loopWhileAction.FindContainerSerial,
                             loopWhileAction.FindRange, loopWhileAction.FindStoreSerial
                         );
