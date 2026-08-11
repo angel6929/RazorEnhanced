@@ -1266,7 +1266,7 @@ namespace Assistant
             var macro = macros[macroListBox.SelectedIndex];
             Keys key = RazorEnhanced.HotKey.NormalKey;
 
-            if (key == Keys.None || macroHotkeyTextBox.Text == "None" || macroHotkeyTextBox.Text == string.Empty)
+            if (key == Keys.None || macroHotkeyTextBox.Text == RazorEnhanced.HotKey.KeyString(Keys.None) || macroHotkeyTextBox.Text == string.Empty)
                 return;
 
             if (!RazorEnhanced.Settings.HotKey.AssignedKey(key))

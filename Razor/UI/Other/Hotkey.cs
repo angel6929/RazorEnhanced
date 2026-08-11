@@ -15,7 +15,7 @@ namespace Assistant
 
         private void hotkeySetButton_Click(object sender, EventArgs e)
         {
-            if (hotkeytreeView.SelectedNode != null && hotkeytreeView.SelectedNode.Name != null && hotkeytextbox.Text != String.Empty && hotkeytextbox.Text != "None")
+            if (hotkeytreeView.SelectedNode != null && hotkeytreeView.SelectedNode.Name != null && hotkeytextbox.Text != String.Empty && hotkeytextbox.Text != RazorEnhanced.HotKey.KeyString(Keys.None))
             {
                 if (hotkeytreeView.SelectedNode.Name == String.Empty)
                 {
@@ -55,7 +55,7 @@ namespace Assistant
                 else
                     RazorEnhanced.HotKey.ClearKey(hotkeytreeView.SelectedNode, "General");
             }
-            hotkeytextbox.Text = Keys.None.ToString();
+            hotkeytextbox.Text = RazorEnhanced.HotKey.KeyString(Keys.None);
         }
 
         private void hotkeytreeView_AfterSelect(object sender, System.Windows.Forms.TreeViewEventArgs e)
@@ -73,7 +73,7 @@ namespace Assistant
 
         private void hotkeyMasterSetButton_Click(object sender, EventArgs e)
         {
-            if (hotkeyKeyMasterTextBox.Text != String.Empty && hotkeyKeyMasterTextBox.Text != "None")
+            if (hotkeyKeyMasterTextBox.Text != String.Empty && hotkeyKeyMasterTextBox.Text != RazorEnhanced.HotKey.KeyString(Keys.None))
             {
                 RazorEnhanced.HotKey.UpdateMaster();
                 hotkeyKeyMasterTextBox.Text = String.Empty;
