@@ -1066,7 +1066,9 @@ namespace Assistant
                 }
             }
 
-            if (i.Layer != Layer.Backpack || !isNew || ser != World.Player.Serial)
+            // Equipment packets can arrive before the player mobile is created during login.
+            // Only auto-open a newly equipped backpack after World.Player is available.
+            if (i.Layer != Layer.Backpack || !isNew || World.Player == null || ser != World.Player.Serial)
                 return;
 
             m_IgnoreGumps.Add(i);
