@@ -556,7 +556,7 @@ namespace RazorEnhanced.UOS
             m_Interpreter.RegisterCommandHandler("mapuo", MapUO); // not going to implement
             m_Interpreter.RegisterCommandHandler("clickscreen", ClickScreen);
             m_Interpreter.RegisterCommandHandler("paperdoll", Paperdoll);
-            m_Interpreter.RegisterCommandHandler("helpbutton", HelpButton); //not going to implement
+            m_Interpreter.RegisterCommandHandler("helpbutton", HelpButton);
             m_Interpreter.RegisterCommandHandler("guildbutton", GuildButton);
             m_Interpreter.RegisterCommandHandler("questsbutton", QuestsButton);
             m_Interpreter.RegisterCommandHandler("logoutbutton", LogoutButton);
@@ -4024,11 +4024,12 @@ namespace RazorEnhanced.UOS
         }
 
         /// <summary>
-        /// helpbutton  NOT IMPLEMENTED
+        /// helpbutton
         /// </summary>
         private static bool HelpButton(ASTNode node, Argument[] args, bool quiet, bool force)
         {
-            return NotImplemented(node, args, quiet, force);
+            Player.HelpButton();
+            return true;
         }
 
         /// <summary>

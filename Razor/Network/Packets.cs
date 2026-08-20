@@ -1957,6 +1957,16 @@ namespace Assistant
         }
     }
 
+    internal sealed class HelpRequest : Packet
+    {
+        internal HelpRequest()
+            : base(0x9B, 258)
+        {
+            for (int i = 0; i < 257; i++)
+                Write((byte)0x00);
+        }
+    }
+
     internal sealed class Disconnect : Packet
     {
         internal Disconnect(bool toServer = false)

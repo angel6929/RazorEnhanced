@@ -236,6 +236,7 @@ namespace RazorEnhanced.Macros
                                                                                                // REMOVE THIS LINE: Assistant.PacketHandler.RegisterClientToServerViewer(0x12, OnSkillRequestPacket);
             Assistant.PacketHandler.RegisterClientToServerViewer(0x13, OnEquipItemPacket);     // Equip item
             Assistant.PacketHandler.RegisterClientToServerViewer(0x6C, OnTargetResponsePacket); // Target response
+            Assistant.PacketHandler.RegisterClientToServerViewer(0x9B, OnHelpRequestPacket);    // Help button
             Assistant.PacketHandler.RegisterClientToServerViewer(0xBF, OnExtendedPacket);      // Extended commands
             Assistant.PacketHandler.RegisterClientToServerViewer(0xD7, OnAbilityPacket);       // Weapon abilities
 
@@ -255,6 +256,7 @@ namespace RazorEnhanced.Macros
             // REMOVE THIS LINE: Assistant.PacketHandler.RemoveClientToServerViewer(0x12, OnSkillRequestPacket);
             Assistant.PacketHandler.RemoveClientToServerViewer(0x13, OnEquipItemPacket);
             Assistant.PacketHandler.RemoveClientToServerViewer(0x6C, OnTargetResponsePacket);
+            Assistant.PacketHandler.RemoveClientToServerViewer(0x9B, OnHelpRequestPacket);
             Assistant.PacketHandler.RemoveClientToServerViewer(0xBF, OnExtendedPacket);
             Assistant.PacketHandler.RemoveClientToServerViewer(0xD7, OnAbilityPacket);
 
@@ -283,6 +285,13 @@ namespace RazorEnhanced.Macros
 
             bool accept = yesno != 0;
             RecordAction(new Actions.QueryStringResponseAction(accept, text, 10000));
+        }
+
+        public static void RecordHelpButton()
+        {
+            if (!IsRecording) return;
+
+            RecordAction(new Actions.HelpButtonAction());
         }
 
 
@@ -495,6 +504,11 @@ namespace RazorEnhanced.Macros
         {
             if (!IsRecording) return;
             // Single click handling if needed
+        }
+
+        private static void OnHelpRequestPacket(PacketReader p, PacketHandlerEventArgs args)
+        {
+            RecordHelpButton();
         }
 
         private static void OnEquipItemPacket(PacketReader p, PacketHandlerEventArgs args)

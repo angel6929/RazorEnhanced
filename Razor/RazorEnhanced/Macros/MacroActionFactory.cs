@@ -31,6 +31,7 @@ namespace RazorEnhanced.Macros.Actions
                 "drop" => new DropAction(),
                 "fly" => new FlyAction(),
                 "gumpresponse" => new GumpResponseAction(),
+                "helpbutton" => new HelpButtonAction(),
                 "invokevirtue" => new InvokeVirtueAction(),
                 "messaging" => new MessagingAction(),
                 "mount" => new MountAction(),

@@ -2850,6 +2850,14 @@ namespace RazorEnhanced
         }
 
         /// <summary>
+        /// Press the Help menu button in the paperdoll.
+        /// </summary>
+        public static void HelpButton()
+        {
+            Assistant.Client.Instance.SendToServerWait(new HelpRequest());
+        }
+
+        /// <summary>
         /// Press the Guild menu button in the paperdoll.
         /// </summary>
         public static void GuildButton()

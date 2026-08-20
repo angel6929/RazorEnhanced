@@ -484,6 +484,7 @@
     <Compile Include="RazorEnhanced\Macros\Actions\FlyAction.cs" />
     <Compile Include="RazorEnhanced\Macros\Actions\ForAction.cs" />
     <Compile Include="RazorEnhanced\Macros\Actions\GumpResponseAction.cs" />
+    <Compile Include="RazorEnhanced\Macros\Actions\HelpButtonAction.cs" />
     <Compile Include="RazorEnhanced\Macros\Actions\IfAction.cs" />
     <Compile Include="RazorEnhanced\Macros\Actions\InvokeVirtueAction.cs" />
     <Compile Include="RazorEnhanced\Macros\Actions\MessagingAction.cs" />
