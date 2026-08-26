@@ -328,6 +328,8 @@ namespace Assistant
 
         private void timertitlestatusbar_Tick(object sender, EventArgs e)
         {
+            UpdateAssistantWindowActiveState();
+
             if (Initializing || !Client.Running)
                 return;
 

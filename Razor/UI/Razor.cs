@@ -9758,6 +9758,7 @@ namespace Assistant
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Razor Enhanced {0}";
             this.Activated += new System.EventHandler(this.MainForm_Activated);
+            this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.LocationChanged += new System.EventHandler(this.MainForm_LocationChanged);
@@ -10318,7 +10319,7 @@ namespace Assistant
             }
         }
 
-        private readonly Version m_Ver = System.Reflection.Assembly.GetCallingAssembly().GetName().Version;
+        private readonly string m_Ver = Engine.Version;
 
         private uint m_OutPrev;
         private uint m_InPrev;
@@ -10376,11 +10377,36 @@ namespace Assistant
             if (!m_CanClose && Assistant.Client.Instance.ClientRunning)
             {
                 e.Cancel = true;
+                return;
             }
+
+            ClassicUOClient.SetAssistantWindowActive(false);
         }
 
         private void MainForm_Activated(object sender, System.EventArgs e)
         {
+            ClassicUOClient.SetAssistantWindowActive(true);
+        }
+
+        private void MainForm_Deactivate(object sender, System.EventArgs e)
+        {
+            UpdateAssistantWindowActiveState();
+        }
+
+        private static void UpdateAssistantWindowActiveState()
+        {
+            bool assistantWindowActive = false;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.ContainsFocus)
+                {
+                    assistantWindowActive = true;
+                    break;
+                }
+            }
+
+            ClassicUOClient.SetAssistantWindowActive(assistantWindowActive);
         }
 
         private void MainForm_Resize(object sender, System.EventArgs e)

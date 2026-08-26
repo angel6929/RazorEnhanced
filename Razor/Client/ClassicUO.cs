@@ -102,6 +102,9 @@ namespace Assistant
         private static OnDisconnected _onDisconnected;
         private static OnFocusGained _onFocusGained;
         private static OnFocusLost _onFocusLost;
+        private static MethodInfo _setAssistantWindowActiveMethod;
+        private static bool _setAssistantWindowActiveMethodResolved;
+        private static bool? _assistantWindowActive;
         private IntPtr m_ClientWindow;
         private static bool m_Ready = false;
 
@@ -223,6 +226,37 @@ namespace Assistant
 
         public static Assembly CUOAssembly { get { return System.Reflection.Assembly.GetEntryAssembly(); } }
         public static Queue<Action> CUOActionQueue { get; set; } = new Queue<Action>();
+
+        internal static void SetAssistantWindowActive(bool active)
+        {
+            if (Client.IsOSI || _assistantWindowActive == active)
+                return;
+
+            if (!_setAssistantWindowActiveMethodResolved)
+            {
+                _setAssistantWindowActiveMethod = CUOAssembly?
+                    .GetType("ClassicUO.Game.GameActions")?
+                    .GetMethod("SetAssistantWindowActive", BindingFlags.Public | BindingFlags.Static);
+                _setAssistantWindowActiveMethodResolved = true;
+            }
+
+            if (_setAssistantWindowActiveMethod == null)
+            {
+                _assistantWindowActive = active;
+                return;
+            }
+
+            try
+            {
+                _setAssistantWindowActiveMethod.Invoke(null, new object[] { active });
+                _assistantWindowActive = active;
+            }
+            catch (Exception ex)
+            {
+                Utility.Logger.Debug("Unable to update the CUO assistant-window focus state: {0}", ex);
+                _assistantWindowActive = active;
+            }
+        }
 
         public unsafe bool InitPlugin(PluginHeader* header)
         {
