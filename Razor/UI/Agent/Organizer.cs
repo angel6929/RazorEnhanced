@@ -50,7 +50,7 @@ namespace Assistant
             {
                 DialogResult dialogResult = RazorEnhanced.UI.RE_MessageBox.Show("Delete Organizer List?",
                    "Are you sure to delete this Organizer list: " + organizerListSelect.Text,
-                    ok: "Ok", no: "No", cancel: null, backColor: null);
+                    ok: "Yes", no: "No", cancel: null, backColor: null);
                 if (dialogResult == DialogResult.Yes)
                 {
                     RazorEnhanced.Organizer.AddLog("Organizer list " + organizerListSelect.Text + " removed!");
@@ -180,7 +180,7 @@ namespace Assistant
                 Organizer.AddLog("Organizer list changed to: " + organizerListSelect.Text);
             }
 
-            Organizer.InitGrid();
+            Organizer.InitGrid(organizerListSelect.Text);
         }
 
         private void organizerAddTarget_Click(object sender, EventArgs e)

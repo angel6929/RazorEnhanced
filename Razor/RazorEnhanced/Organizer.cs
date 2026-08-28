@@ -127,7 +127,14 @@ namespace RazorEnhanced
         {
             List<OrganizerList> lists = Settings.Organizer.ListsRead();
             if (lists.Count == 0)
+            {
+                Assistant.Engine.MainWindow.OrganizerListSelect.Items.Clear();
+                Assistant.Engine.MainWindow.OrganizerListSelect.SelectedIndex = -1;
+                Assistant.Engine.MainWindow.OrganizerListSelect.Text = String.Empty;
+                Assistant.Engine.MainWindow.OrganizerDataGridView.Rows.Clear();
+                OrganizerListName = String.Empty;
                 return;
+            }
 
             OrganizerList selectedList = lists[0];
             foreach (var l in lists)
@@ -143,18 +150,13 @@ namespace RazorEnhanced
 
             Assistant.Engine.MainWindow.OrganizerListSelect.Items.Clear();
             foreach (OrganizerList l in lists)
-            {
                 Assistant.Engine.MainWindow.OrganizerListSelect.Items.Add(l.Description);
 
-                if (!l.Selected)
-                    continue;
-
-                Assistant.Engine.MainWindow.OrganizerListSelect.SelectedIndex = Assistant.Engine.MainWindow.OrganizerListSelect.Items.IndexOf(l.Description);
-                OrganizerDelay = l.Delay;
-                OrganizerSource = l.Source;
-                OrganizerDestination = l.Destination;
-                OrganizerListName = l.Description;
-            }
+            Assistant.Engine.MainWindow.OrganizerListSelect.SelectedIndex = Assistant.Engine.MainWindow.OrganizerListSelect.Items.IndexOf(selectedList.Description);
+            OrganizerDelay = selectedList.Delay;
+            OrganizerSource = selectedList.Source;
+            OrganizerDestination = selectedList.Destination;
+            OrganizerListName = selectedList.Description;
         }
 
         internal static void CopyTable()
