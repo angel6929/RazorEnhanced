@@ -470,12 +470,15 @@ namespace RazorEnhanced
         // a fallback for shard-specific/custom properties.
         private static readonly Dictionary<string, int[]> m_PropertyClilocNumbers = new(StringComparer.OrdinalIgnoreCase)
         {
+            ["Antique"] = new[] { 1076187 },
+            ["Battle Lust"] = new[] { 1113710 },
             ["Damage Increase"] = new[] { 1060401, 1060402 },
             ["Physical Damage"] = new[] { 1060403 },
             ["Cold Damage"] = new[] { 1060404 },
             ["Fire Damage"] = new[] { 1060405 },
             ["Poison Damage"] = new[] { 1060406 },
             ["Energy Damage"] = new[] { 1060407 },
+            ["Chaos Damage"] = new[] { 1072846 },
             ["Defense Chance Increase"] = new[] { 1060408 },
             ["Dexterity Bonus"] = new[] { 1060409 },
             ["Enhance Potion"] = new[] { 1060411 },
@@ -499,6 +502,8 @@ namespace RazorEnhanced
             ["Hit Physical Area"] = new[] { 1060428 },
             ["Hit Poison Area"] = new[] { 1060429 },
             ["Hit Stamina Leech"] = new[] { 1060430 },
+            ["Hit Mana Drain"] = new[] { 1113699 },
+            ["Hit Fatigue"] = new[] { 1113700 },
             ["Hit Point Increase"] = new[] { 1060431 },
             ["Intelligence Bonus"] = new[] { 1060432 },
             ["Lower Mana Cost"] = new[] { 1060433 },
@@ -506,6 +511,7 @@ namespace RazorEnhanced
             ["Lower Requirements"] = new[] { 1060435 },
             ["Luck"] = new[] { 1060436 },
             ["Mage Armor"] = new[] { 1060437 },
+            ["Mage Weapon"] = new[] { 1060438 },
             ["Mana Increase"] = new[] { 1060439 },
             ["Mana Regeneration"] = new[] { 1060440 },
             ["Night Sight"] = new[] { 1060441 },
@@ -519,6 +525,7 @@ namespace RazorEnhanced
             ["Physical Resist"] = new[] { 1060448, 1153735 },
             ["Poison Resist"] = new[] { 1060449, 1153736 },
             ["Self Repair"] = new[] { 1060450 },
+            ["Skill Bonus"] = new[] { 1060451, 1060452, 1060453, 1060454, 1060455 },
             ["Air Elemental Slayer"] = new[] { 1060457 },
             ["Arachnid Slayer"] = new[] { 1060458 },
             ["Blood Elemental Slayer"] = new[] { 1060459 },
@@ -556,7 +563,30 @@ namespace RazorEnhanced
             ["Magic Arrow Charges"] = new[] { 1060492 },
             ["Balanced"] = new[] { 1072792 },
             ["Velocity"] = new[] { 1072793 },
+            ["Durability"] = new[] { 1060639 },
+            ["Gargoyles Only"] = new[] { 1111709 },
+            ["Reactive Paralyze"] = new[] { 1112364 },
+            ["Soul Charge"] = new[] { 1113630 },
+            ["Fire Eater"] = new[] { 1113593 },
+            ["Cold Eater"] = new[] { 1113594 },
+            ["Poison Eater"] = new[] { 1113595 },
+            ["Energy Eater"] = new[] { 1113596 },
+            ["Kinetic Eater"] = new[] { 1113597 },
+            ["Damage Eater"] = new[] { 1113598 },
+            ["Casting Focus"] = new[] { 1113696 },
             ["Splintering Weapon"] = new[] { 1112857 },
+            ["Brittle"] = new[] { 1116209 },
+            ["Mana Phase"] = new[] { 1116158 },
+            ["Minor Magic Item"] = new[] { 1151488 },
+            ["Lesser Magic Item"] = new[] { 1151489 },
+            ["Major Magic Item"] = new[] { 1151491 },
+            ["Lesser Artifact"] = new[] { 1151492 },
+            ["Greater Artifact"] = new[] { 1151493 },
+            ["Major Artifact"] = new[] { 1151494 },
+            ["Legendary Artifact"] = new[] { 1151495 },
+            ["Prized"] = new[] { 1154910 },
+            ["Cursed"] = new[] { 1049643 },
+            ["Use Best Weapon Skill"] = new[] { 1060400 },
             ["Locked Down"] = new[] { 501643 },
             ["Locked Down & Secure"] = new[] { 501644 }
         };
@@ -2223,11 +2253,29 @@ namespace RazorEnhanced
                     {
                         if (m_PropertyClilocNumbers.TryGetValue(name, out int[] clilocNumbers))
                         {
+                            bool selectHighestValue = name.Equals("Skill Bonus", StringComparison.OrdinalIgnoreCase);
+                            bool valueFound = false;
+                            float highestValue = 0;
+
                             for (int i = 0; i < content.Count; i++)
                             {
                                 if (clilocNumbers.Contains(content[i].Number))
-                                    return ParsePropertyValue(content[i].Args);
+                                {
+                                    float value = ParsePropertyValue(name, content[i].Args);
+
+                                    if (!selectHighestValue)
+                                        return value;
+
+                                    if (!valueFound || value > highestValue)
+                                    {
+                                        highestValue = value;
+                                        valueFound = true;
+                                    }
+                                }
                             }
+
+                            if (valueFound)
+                                return highestValue;
                         }
 
                         // Preserve support for shard-specific properties which do not
@@ -2238,7 +2286,7 @@ namespace RazorEnhanced
                             if (propertyText == null || !propertyText.StartsWith(name, StringComparison.OrdinalIgnoreCase))
                                 continue;
 
-                            return ParsePropertyValue(content[i].Args);
+                            return ParsePropertyValue(name, content[i].Args);
                         }
                     }
                 }
@@ -2272,6 +2320,22 @@ namespace RazorEnhanced
             {
                 return 1;
             }
+        }
+
+        private static float ParsePropertyValue(string name, string args)
+        {
+            if (args == null)
+                return 1;
+
+            string[] arguments = args.Split('\t');
+
+            if (name.Equals("Durability", StringComparison.OrdinalIgnoreCase))
+                return ParsePropertyValue(arguments[0]);
+
+            if (name.Equals("Skill Bonus", StringComparison.OrdinalIgnoreCase))
+                return ParsePropertyValue(arguments[arguments.Length - 1]);
+
+            return ParsePropertyValue(args);
         }
 
         // GetPropValue: Special case "Total Resist" so that items can be collected based on total resist
