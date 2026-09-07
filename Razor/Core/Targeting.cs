@@ -99,8 +99,14 @@ namespace Assistant
 
         private static void CombatantChange(PacketReader p, PacketHandlerEventArgs e)
         {
+            PlayerData player = World.Player;
+            if (player == null)
+            {
+                return;
+            }
+
             Serial ser = p.ReadUInt32();
-            if (ser.IsMobile && ser != World.Player.Serial && ser != Serial.Zero && ser != Serial.MinusOne)
+            if (ser.IsMobile && ser != player.Serial && ser != Serial.Zero && ser != Serial.MinusOne)
                 m_LastCombatant = ser;
         }
 

@@ -271,11 +271,17 @@ namespace RazorEnhanced
 
         internal static void EngineRun(Assistant.Mobile target)
         {
-            if (target.Poisoned || target.Hits * 100 / (target.HitsMax == 0 ? (ushort)1 : target.HitsMax) < m_hplimit)       // Check HP se bendare o meno.
+            Assistant.PlayerData player = World.Player;
+            if (player == null || target == null)
+                return;
+
+            int hits = target.Hits;
+            int hitsMax = target.HitsMax;
+            if (target.Poisoned || hits * 100 / (hitsMax == 0 ? 1 : hitsMax) < m_hplimit)       // Check HP se bendare o meno.
             {
                 if (RazorEnhanced.Settings.General.ReadBool("BandageHealhiddedCheckBox"))
                 {
-                    if (!World.Player.Visible)  // Esce se attivo blocco hidded
+                    if (!player.Visible)  // Esce se attivo blocco hidded
                         return;
                 }
 
@@ -287,7 +293,7 @@ namespace RazorEnhanced
 
                 if (RazorEnhanced.Settings.General.ReadBool("BandageHealmortalCheckBox"))                // Esce se attivo blocco mortal
                 {
-                    if (World.Player.Buffs.ContainsKey(BuffIcon.MortalStrike) && (target.Serial == Player.Serial))
+                    if (player.Buffs.ContainsKey(BuffIcon.MortalStrike) && (target.Serial == player.Serial))
                         return;
                 }
 
@@ -468,10 +474,11 @@ namespace RazorEnhanced
             if (!Client.Running)
                 return;
 
-            if (World.Player == null)
+            Assistant.PlayerData player = World.Player;
+            if (player == null)
                 return;
 
-            if (World.Player.IsGhost)
+            if (player.IsGhost)
                 return;
 
             Assistant.Mobile target = null;
@@ -479,7 +486,7 @@ namespace RazorEnhanced
             switch (RazorEnhanced.Settings.General.ReadString("BandageHealtargetComboBox"))
             {
                 case "Self":
-                    target = World.Player;
+                    target = player;
                     break;
                 case "Target":
                     target = Assistant.World.FindMobile(TargetSerial);
@@ -509,19 +516,24 @@ namespace RazorEnhanced
                         Mobile targ = RazorEnhanced.Mobiles.Select(friends, "Weakest");
                         if (targ == null)
                         {
-                            target = World.Player;
+                            target = player;
                         }
                         else
                         {
                             int pct_life_friend = 100;
-                            if (targ.HitsMax > 0)
+                            int friendHits = targ.Hits;
+                            int friendHitsMax = targ.HitsMax;
+                            if (friendHitsMax > 0)
                             {
-                                pct_life_friend = 100 * targ.Hits / targ.HitsMax;
+                                pct_life_friend = 100 * friendHits / friendHitsMax;
                             }
 
-                            int pct_life_me;
+                            int pct_life_me = 100;
+                            int playerHits = player.Hits;
+                            int playerHitsMax = player.HitsMax;
+                            if (playerHitsMax > 0)
                             {
-                                pct_life_me = 100 * World.Player.Hits / World.Player.HitsMax;
+                                pct_life_me = 100 * playerHits / playerHitsMax;
                             }
                             if (pct_life_friend < pct_life_me)
                             {
@@ -529,16 +541,16 @@ namespace RazorEnhanced
                             }
                             else
                             {
-                                target = World.Player;
+                                target = player;
                             }
                         }
                     }
                     break;
             }
 
-            if (target == null)         // Verifica se il target è valido
+            if (target == null || !ReferenceEquals(player, World.Player))         // Verifica se il target è valido
                 return;
-            if (!Utility.InRange(new Assistant.Point2D(Assistant.World.Player.Position.X, Assistant.World.Player.Position.Y), new Assistant.Point2D(target.Position.X, target.Position.Y), m_maxrange)) // Verifica distanza
+            if (!Utility.InRange(new Assistant.Point2D(player.Position.X, player.Position.Y), new Assistant.Point2D(target.Position.X, target.Position.Y), m_maxrange)) // Verifica distanza
                 return;
 
             EngineRun(target);

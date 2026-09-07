@@ -3484,7 +3484,13 @@ namespace Assistant
 
         private static void ServerSetWarMode(PacketReader p, PacketHandlerEventArgs args)
         {
-            World.Player.Warmode = p.ReadBoolean();
+            PlayerData player = World.Player;
+            if (player == null)
+            {
+                return;
+            }
+
+            player.Warmode = p.ReadBoolean();
         }
 
         internal static void CustomHouseInfo(PacketReader p, PacketHandlerEventArgs args)
