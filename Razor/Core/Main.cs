@@ -162,7 +162,7 @@ namespace Assistant
             {
                 if (m_Version == null)
                 {
-                    m_Version = "20260907（阳光大陆专用版）";
+                    m_Version = "20260908（阳光大陆专用版）";
                 }
 
                 return m_Version;

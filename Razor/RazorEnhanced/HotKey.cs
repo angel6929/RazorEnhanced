@@ -126,12 +126,12 @@ namespace RazorEnhanced
 
             Utility.Logger.Debug($"KeyDown {k:x}/{k}");
             Debug.WriteLine("KD Keys: 0x{0:X}", k);
-            bool hotTextFocused = false;
-            bool hotTextMasterFocused = false;
-            bool macroHotTextFocused = false;
-            Engine.MainWindow.SafeAction(s => hotTextFocused = s.HotKeyTextBox.Focused);
-            Engine.MainWindow.SafeAction(s => hotTextMasterFocused = s.HotKeyKeyMasterTextBox.Focused);
-            Engine.MainWindow.SafeAction(s => macroHotTextFocused = s.MacroHotKeyTextBox != null && s.MacroHotKeyTextBox.Focused);
+            MainForm window = Engine.MainWindow;
+            HotKeyFocusTarget focus = window?.GetHotKeyFocusForInput() ?? HotKeyFocusTarget.None;
+            int focusRevision = window?.GetHotKeyAssignmentRevision(focus) ?? 0;
+            bool hotTextFocused = focus == HotKeyFocusTarget.Normal;
+            bool hotTextMasterFocused = focus == HotKeyFocusTarget.Master;
+            bool macroHotTextFocused = focus == HotKeyFocusTarget.Macro;
             if (!hotTextFocused && !hotTextMasterFocused && !macroHotTextFocused)
             {
                 if (k == RazorEnhanced.Settings.General.ReadKey("HotKeyMasterKey"))         // Pressione master key abilita o disabilita
@@ -139,14 +139,14 @@ namespace RazorEnhanced
                     if (RazorEnhanced.Settings.General.ReadBool("HotKeyEnable"))
                     {
                         RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", false);
-                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "状态: 禁用");
+                        window?.PostHotKeyUpdate(s => s.HotKeyStatusLabel.Text = RazorEnhanced.Settings.General.ReadBool("HotKeyEnable") ? "状态: 启用" : "状态: 禁用");
                         if (World.Player != null)
                             RazorEnhanced.Misc.SendMessage("HotKey: DISABLED", 37, false);
                     }
                     else
                     {
-                        Engine.MainWindow.SafeAction(s => s.HotKeyStatusLabel.Text = "状态: 启用");
                         RazorEnhanced.Settings.General.WriteBool("HotKeyEnable", true);
+                        window?.PostHotKeyUpdate(s => s.HotKeyStatusLabel.Text = RazorEnhanced.Settings.General.ReadBool("HotKeyEnable") ? "状态: 启用" : "状态: 禁用");
                         if (World.Player != null)
                             RazorEnhanced.Misc.SendMessage("HotKey: ENABLED", 168, false);
                     }
@@ -157,20 +157,38 @@ namespace RazorEnhanced
             {
                 m_key = k;
                 //Engine.MainWindow.HotKeyTextBox.Text = KeyString(k);
-                Engine.MainWindow.SafeAction(s => s.HotKeyTextBox.Text = KeyString(k));
+                window.PostHotKeyAssignmentUpdate(HotKeyFocusTarget.Normal, focusRevision, s =>
+                {
+                    if (m_key == k)
+                    {
+                        s.HotKeyTextBox.Text = KeyString(k);
+                    }
+                });
                 return false;
             }
             else if (macroHotTextFocused)                // Macro tab hotkey assignment
             {
                 m_key = k;
-                Engine.MainWindow.SafeAction(s => s.MacroHotKeyTextBox.Text = KeyString(k));
+                window.PostHotKeyAssignmentUpdate(HotKeyFocusTarget.Macro, focusRevision, s =>
+                {
+                    if (m_key == k)
+                    {
+                        s.MacroHotKeyTextBox.Text = KeyString(k);
+                    }
+                });
                 return false;
             }
             else if (hotTextMasterFocused)                // In caso di assegnazione hotKey primaria
             {
                 m_masterkey = k;
                 //Engine.MainWindow.HotKeyKeyMasterTextBox.Text = KeyString(k);
-                Engine.MainWindow.SafeAction(s => s.HotKeyKeyMasterTextBox.Text = KeyString(k));
+                window.PostHotKeyAssignmentUpdate(HotKeyFocusTarget.Master, focusRevision, s =>
+                {
+                    if (m_masterkey == k)
+                    {
+                        s.HotKeyKeyMasterTextBox.Text = KeyString(k);
+                    }
+                });
                 return false;
             }
             else    // Esecuzine reale

@@ -1036,6 +1036,8 @@ namespace Assistant
 
         public void OnFocusGained()
         {
+            // CUO may regain focus while the Razor UI is still busy with an event.
+            Engine.MainWindow?.ClearHotKeyFocus(this, EventArgs.Empty);
         }
 
         public void OnFocusLost()

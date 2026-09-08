@@ -802,6 +802,7 @@ namespace Assistant
             m_NotifyIcon.ContextMenu.MenuItems[0].DefaultItem = true;
 
             InitializeMacroTab();
+            InitializeHotKeyFocusTracking();
         }
 
         /// <summary>
@@ -811,6 +812,7 @@ namespace Assistant
         {
             if (disposing)
             {
+                ClearHotKeyFocus(this, EventArgs.Empty);
                 if (components != null)
                 {
                     components.Dispose();

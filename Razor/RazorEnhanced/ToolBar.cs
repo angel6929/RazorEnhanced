@@ -4,6 +4,105 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+namespace Assistant
+{
+    public partial class MainForm
+    {
+        private sealed class PendingPlayerStatusUpdate
+        {
+            internal bool FullStatus;
+        }
+
+        private readonly object m_playerStatusUpdateSync = new();
+        private PendingPlayerStatusUpdate m_pendingPlayerStatusUpdate;
+
+        internal void PostPlayerStatusUpdate(bool fullStatus = false)
+        {
+            if (!fullStatus && RazorEnhanced.ToolBar.ToolBarForm == null)
+                return;
+
+            if (IsDisposed || Disposing || !IsHandleCreated)
+                return;
+
+            PendingPlayerStatusUpdate update;
+            lock (m_playerStatusUpdateSync)
+            {
+                if (m_pendingPlayerStatusUpdate != null)
+                {
+                    m_pendingPlayerStatusUpdate.FullStatus |= fullStatus;
+                    return;
+                }
+
+                update = new PendingPlayerStatusUpdate { FullStatus = fullStatus };
+                m_pendingPlayerStatusUpdate = update;
+            }
+
+            try
+            {
+                BeginInvoke(new Action(() =>
+                {
+                    bool refreshAll;
+                    lock (m_playerStatusUpdateSync)
+                    {
+                        if (m_pendingPlayerStatusUpdate != update)
+                            return;
+
+                        refreshAll = update.FullStatus;
+                        m_pendingPlayerStatusUpdate = null;
+                    }
+
+                    if (IsDisposed || Disposing || !IsHandleCreated)
+                        return;
+
+                    PlayerData player = World.Player;
+                    Form toolbar = RazorEnhanced.ToolBar.ToolBarForm;
+                    if (player != null && (toolbar == null || (!toolbar.IsDisposed && !toolbar.Disposing)))
+                    {
+                        if (refreshAll)
+                        {
+                            RazorEnhanced.ToolBar.UpdateAll();
+                        }
+                        else
+                        {
+                            RazorEnhanced.ToolBar.UpdateHits(player.HitsMax, player.Hits);
+                            RazorEnhanced.ToolBar.UpdateStam(player.StamMax, player.Stam);
+                            RazorEnhanced.ToolBar.UpdateMana(player.ManaMax, player.Mana);
+                        }
+                    }
+
+                    if (refreshAll)
+                        UpdateTitle();
+                }));
+            }
+            catch (InvalidOperationException)
+            {
+                // The form can lose its handle between the check and BeginInvoke.
+                lock (m_playerStatusUpdateSync)
+                {
+                    if (m_pendingPlayerStatusUpdate == update)
+                        m_pendingPlayerStatusUpdate = null;
+                }
+            }
+        }
+
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            if (World.Player != null)
+                PostPlayerStatusUpdate(true);
+        }
+
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            lock (m_playerStatusUpdateSync)
+            {
+                m_pendingPlayerStatusUpdate = null;
+            }
+            base.OnHandleDestroyed(e);
+        }
+    }
+}
+
 namespace RazorEnhanced
 {
     internal partial class ToolBarForm : Form

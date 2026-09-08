@@ -1262,8 +1262,11 @@ namespace Assistant
             }
 
             // Apertura automatica toolbar se abilitata
-            if (Engine.MainWindow.AutoopenToolBarCheckBox.Checked && RazorEnhanced.ToolBar.ToolBarForm == null)
-                RazorEnhanced.ToolBar.Open();
+            Engine.MainWindow.SafeAction(s =>
+            {
+                if (s.AutoopenToolBarCheckBox.Checked && RazorEnhanced.ToolBar.ToolBarForm == null)
+                    RazorEnhanced.ToolBar.Open();
+            });
 
             // Apertura automatica spellgrit se abilitata
             if (Engine.MainWindow.GridOpenLoginCheckBox.Checked)
@@ -1434,7 +1437,7 @@ namespace Assistant
             if (m == World.Player)
             {
                 // Update hits toolbar
-                RazorEnhanced.ToolBar.UpdateHits(m.HitsMax, m.Hits);
+                Engine.MainWindow?.PostPlayerStatusUpdate();
 
                 Assistant.UOAssist.PostHitsUpdate();
             }
@@ -1475,7 +1478,7 @@ namespace Assistant
             if (m == World.Player)
             {
                 // Update Stam Toolbar
-                RazorEnhanced.ToolBar.UpdateStam(m.StamMax, m.Stam);
+                Engine.MainWindow?.PostPlayerStatusUpdate();
 
                 Assistant.UOAssist.PostStamUpdate();
             }
@@ -1516,7 +1519,7 @@ namespace Assistant
             if (m == World.Player)
             {
                 // Update Mana toolbar
-                RazorEnhanced.ToolBar.UpdateMana(m.ManaMax, m.Mana);
+                Engine.MainWindow?.PostPlayerStatusUpdate();
 
                 Assistant.UOAssist.PostManaUpdate();
             }
@@ -1824,13 +1827,12 @@ namespace Assistant
             }
 
             // Update All toolbar
-            RazorEnhanced.ToolBar.UpdateAll();
+            Engine.MainWindow?.PostPlayerStatusUpdate(true);
 
             Assistant.UOAssist.PostHitsUpdate();
             Assistant.UOAssist.PostStamUpdate();
             Assistant.UOAssist.PostManaUpdate();
 
-            Engine.MainWindow.SafeAction(s => { s.UpdateTitle(); }); // update player name
         }
 
         private static void MobileUpdate(Packet p, PacketHandlerEventArgs args)

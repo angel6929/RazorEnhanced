@@ -85,7 +85,7 @@ namespace RazorEnhanced
                 }
                 if (needsCleanup)
                 {
-                    allInstances.RemoveAll(wr => wr.TryGetTarget(out var el) && el == null);
+                    allInstances.RemoveAll(wr => !wr.TryGetTarget(out _));
                 }
             }
         }

@@ -363,18 +363,28 @@ namespace Assistant
 
         internal void AddItem(Item item)
         {
-            m_Items.Add(item);
+            lock (m_Items)
+            {
+                m_Items.Add(item);
+            }
         }
 
         internal void RemoveItem(Item item)
         {
-            m_Items.Remove(item);
+            lock (m_Items)
+            {
+                m_Items.Remove(item);
+            }
         }
 
         internal override void Remove()
         {
-            List<Item> rem = new(m_Items);
-            m_Items.Clear();
+            List<Item> rem;
+            lock (m_Items)
+            {
+                rem = new(m_Items);
+                m_Items.Clear();
+            }
 
             foreach (Item r in rem)
                 r.Remove();
@@ -402,11 +412,14 @@ namespace Assistant
         {
             if (m_Items == null)
                 return null;
-            for (int i = 0; i < m_Items.Count; i++)
+            lock (m_Items)
             {
-                Item item = m_Items[i];
-                if (item.Layer == layer)
-                    return item;
+                for (int i = 0; i < m_Items.Count; i++)
+                {
+                    Item item = m_Items[i];
+                    if (item.Layer == layer)
+                        return item;
+                }
             }
             return null;
         }
