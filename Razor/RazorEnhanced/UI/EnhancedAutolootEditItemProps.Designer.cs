@@ -1,4 +1,4 @@
-﻿namespace RazorEnhanced.UI
+namespace RazorEnhanced.UI
 {
     partial class EnhancedAutolootEditItemProps
     {
@@ -65,7 +65,6 @@
             this.comboboxProp = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteRowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.razorButton1 = new System.Windows.Forms.Button();
             ColumnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -329,22 +328,22 @@
             this.deleteRowToolStripMenuItem.Text = "删除行";
             this.deleteRowToolStripMenuItem.Click += new System.EventHandler(this.deleteRowToolStripMenuItem_Click);
             // 
-            // razorButton1
+            // matchAnyPropertyCheckBox
             // 
-            this.razorButton1.Location = new System.Drawing.Point(275, 350);
-            this.razorButton1.Name = "razorButton1";
-            this.razorButton1.Size = new System.Drawing.Size(75, 25);
-            this.razorButton1.TabIndex = 5;
-            this.razorButton1.Text = "关闭";
-            this.razorButton1.UseVisualStyleBackColor = true;
-            this.razorButton1.Click += new System.EventHandler(this.razorButton1_Click);
+            this.matchAnyPropertyCheckBox = new System.Windows.Forms.CheckBox();
+            this.matchAnyPropertyCheckBox.AutoSize = true;
+            this.matchAnyPropertyCheckBox.Location = new System.Drawing.Point(24, 354);
+            this.matchAnyPropertyCheckBox.Name = "matchAnyPropertyCheckBox";
+            this.matchAnyPropertyCheckBox.TabIndex = 6;
+            this.matchAnyPropertyCheckBox.Text = "满足任意一个属性即可拾取";
+            this.matchAnyPropertyCheckBox.UseVisualStyleBackColor = true;
             // 
             // EnhancedAutolootEditItemProps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 389);
-            this.Controls.Add(this.razorButton1);
+            this.Controls.Add(this.matchAnyPropertyCheckBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -385,7 +384,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button razorButton1;
+        private System.Windows.Forms.CheckBox matchAnyPropertyCheckBox;
         private System.Windows.Forms.Button bAddProp;
         private System.Windows.Forms.ComboBox comboboxProp;
         private System.Windows.Forms.Label lColor;

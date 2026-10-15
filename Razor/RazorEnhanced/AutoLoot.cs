@@ -71,6 +71,9 @@ namespace RazorEnhanced
             [JsonProperty("Selected")]
             public bool Selected { get; set; }
 
+            [JsonProperty("MatchAnyProperty")]
+            public bool MatchAnyProperty { get; set; }
+
             private readonly List<Property> m_Properties;
             public List<Property> Properties { get { return m_Properties; } }
             public class AutoLootItemComparer : IEqualityComparer<AutoLootItem>
@@ -285,7 +288,8 @@ namespace RazorEnhanced
                         itemid = "0x" + item.Graphics.ToString("X4");
                     string lootBag = "0x" + item.LootBagOverride.ToString("X4");
 
-                    Assistant.Engine.MainWindow.AutoLootDataGridView.Rows.Add(new object[] { item.Selected.ToString(), item.Name, itemid, color, lootBag, item.Properties });
+                    int rowIndex = Assistant.Engine.MainWindow.AutoLootDataGridView.Rows.Add(new object[] { item.Selected.ToString(), item.Name, itemid, color, lootBag, item.Properties });
+                    Assistant.Engine.MainWindow.AutoLootDataGridView.Rows[rowIndex].Tag = item.MatchAnyProperty;
                 }
             }
         }
@@ -318,9 +322,9 @@ namespace RazorEnhanced
                 int lootbagOverride = Convert.ToInt32((string)row.Cells[4].Value, 16);
 
                 if (row.Cells[5].Value != null)
-                    Settings.AutoLoot.ItemInsert(Assistant.Engine.MainWindow.AutoLootListSelect.Text, new AutoLootItem((string)row.Cells[1].Value, itemID, color, check, lootbagOverride, (List<AutoLootItem.Property>)row.Cells[5].Value));
+                    Settings.AutoLoot.ItemInsert(Assistant.Engine.MainWindow.AutoLootListSelect.Text, new AutoLootItem((string)row.Cells[1].Value, itemID, color, check, lootbagOverride, (List<AutoLootItem.Property>)row.Cells[5].Value) { MatchAnyProperty = row.Tag as bool? == true });
                 else
-                    Settings.AutoLoot.ItemInsert(Assistant.Engine.MainWindow.AutoLootListSelect.Text, new AutoLootItem((string)row.Cells[1].Value, itemID, color, check, lootbagOverride, new List<AutoLootItem.Property>()));
+                    Settings.AutoLoot.ItemInsert(Assistant.Engine.MainWindow.AutoLootListSelect.Text, new AutoLootItem((string)row.Cells[1].Value, itemID, color, check, lootbagOverride, new List<AutoLootItem.Property>()) { MatchAnyProperty = row.Tag as bool? == true });
             }
             Settings.Save(); // Salvo dati
             LockTable = false;
@@ -351,10 +355,9 @@ namespace RazorEnhanced
 
                 bool.TryParse(row.Cells[0].Value.ToString(), out bool check);
 
-                if (row.Cells[4].Value != null)
-                    Settings.AutoLoot.ItemInsert(newList, new AutoLootItem((string)row.Cells[1].Value, Convert.ToInt32((string)row.Cells[2].Value, 16), color, check, Convert.ToInt32((string)row.Cells[4].Value, 16), (List<AutoLootItem.Property>)row.Cells[5].Value));
-                else
-                    Settings.AutoLoot.ItemInsert(newList, new AutoLootItem((string)row.Cells[1].Value, Convert.ToInt32((string)row.Cells[2].Value, 16), color, check, Convert.ToInt32((string)row.Cells[4].Value, 16), new List<AutoLootItem.Property>()));
+                int itemID = (string)row.Cells[2].Value == "All" ? -1 : Convert.ToInt32((string)row.Cells[2].Value, 16);
+                var properties = (List<AutoLootItem.Property>)row.Cells[5].Value ?? new List<AutoLootItem.Property>();
+                Settings.AutoLoot.ItemInsert(newList, new AutoLootItem((string)row.Cells[1].Value, itemID, color, check, Convert.ToInt32((string)row.Cells[4].Value, 16), properties) { MatchAnyProperty = row.Tag as bool? == true });
             }
 
             Settings.Save(); // Salvo dati
@@ -544,18 +547,15 @@ namespace RazorEnhanced
             {
                 Items.WaitForProps(grabItem, 1000);
 
-                bool propsOk = false;
+                bool propsOk = !autoLoootItem.MatchAnyProperty;
                 foreach (AutoLootItem.Property props in autoLoootItem.Properties) // Scansione e verifica props
                 {
                     int propsSuItemDaLootare = (int)RazorEnhanced.Items.GetPropValue(grabItem, props.Name);
-                    if (propsSuItemDaLootare >= props.Minimum && propsSuItemDaLootare <= props.Maximum)
+                    bool matches = propsSuItemDaLootare >= props.Minimum && propsSuItemDaLootare <= props.Maximum;
+                    if (autoLoootItem.MatchAnyProperty ? matches : !matches)
                     {
-                        propsOk = true;
-                    }
-                    else
-                    {
-                        propsOk = false;
-                        break; // alla prima fallita esce non ha senso controllare le altre
+                        propsOk = autoLoootItem.MatchAnyProperty;
+                        break;
                     }
                 }
 

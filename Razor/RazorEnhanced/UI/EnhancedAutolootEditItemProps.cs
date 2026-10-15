@@ -24,12 +24,20 @@ namespace RazorEnhanced.UI
                 m_color = (string)row.Cells[3].Value;
 
                 m_proplist = (List<AutoLoot.AutoLootItem.Property>)row.Cells[5].Value;
+                matchAnyPropertyCheckBox.Checked = row.Tag is bool matchAny && matchAny;
             }
+            matchAnyPropertyCheckBox.CheckedChanged += matchAnyPropertyCheckBox_CheckedChanged;
         }
 
-        private void razorButton1_Click(object sender, EventArgs e)
+        private void matchAnyPropertyCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            Close();
+            if (m_row.DataGridView == null || m_row.IsNewRow)
+            {
+                Close();
+                return;
+            }
+            m_row.Tag = matchAnyPropertyCheckBox.Checked;
+            AutoLoot.CopyTable();
         }
 
         internal static List<string> m_default_prop = new()
@@ -211,6 +219,11 @@ namespace RazorEnhanced.UI
 
         private void SaveData()
         {
+            if (m_row.DataGridView == null || m_row.IsNewRow)
+            {
+                Close();
+                return;
+            }
             List<AutoLoot.AutoLootItem.Property> propslist = new();
             foreach (DataGridViewRow row in autolootpropGridView.Rows)
             {

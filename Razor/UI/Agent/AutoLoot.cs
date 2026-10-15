@@ -113,7 +113,15 @@ namespace Assistant
                 if (autolootdataGridView.CurrentCell == null)
                     return;
 
+                autolootdataGridView.EndEdit();
                 DataGridViewRow row = autolootdataGridView.Rows[autolootdataGridView.CurrentCell.RowIndex];
+                if (row.IsNewRow)
+                {
+                    int index = autolootdataGridView.Rows.Add(new object[] { "False", "新物品", "0x0000", "0x0000", "0x00000000", new System.Collections.Generic.List<AutoLoot.AutoLootItem.Property>() });
+                    row = autolootdataGridView.Rows[index];
+                    autolootdataGridView.CurrentCell = row.Cells[1];
+                    AutoLoot.CopyTable();
+                }
                 EnhancedAutolootEditItemProps editProp = new(ref row)
                 {
                     TopMost = true
