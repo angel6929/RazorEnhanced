@@ -5,6 +5,7 @@ namespace RazorEnhanced.Macros.Actions
     public class DropAction : MacroAction
     {
         public int Serial { get; set; }
+        public int Graphic { get; set; }
         public int Container { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
@@ -37,12 +38,22 @@ namespace RazorEnhanced.Macros.Actions
 
         public override void Execute()
         {
-            if (Serial == 0) return;
+            if (!IsValid()) return;
 
-            var item = Items.FindBySerial(Serial);
+            var backpack = Graphic != 0 && Assistant.World.Player != null ? Player.Backpack : null;
+            var item = Graphic == 0
+                ? Items.FindBySerial(Serial)
+                : backpack == null ? null : Items.FindByID(Graphic, -1, backpack.Serial, true);
             if (item == null)
             {
-                Misc.SendMessage($"Item 0x{Serial:X8} not found", 33);
+                Misc.SendMessage(Graphic == 0 ? $"Item 0x{Serial:X8} not found" : $"Item type 0x{Graphic:X4} not found in backpack", 33);
+                return;
+            }
+
+            var destination = Container == -1 ? null : Items.FindBySerial(Container);
+            if (destination != null && (destination.Serial == item.Serial || destination.IsChildOf(item)))
+            {
+                Misc.SendMessage("Cannot drop an item into itself or a container it holds", 33);
                 return;
             }
 
@@ -56,18 +67,18 @@ namespace RazorEnhanced.Macros.Actions
                 if (X == -1 && Y == -1)
                 {
                     // Auto-position in container
-                    Items.Move(Serial, Container, amountToMove);
+                    Items.Move(item.Serial, Container, amountToMove);
                 }
                 else
                 {
                     // Specific position in container
-                    Items.Move(Serial, Container, amountToMove, X, Y);
+                    Items.Move(item.Serial, Container, amountToMove, X, Y);
                 }
             }
             else
             {
                 // Dropping on ground (0xFFFFFFFF)
-                Items.MoveOnGround(Serial, amountToMove, X, Y, Z);
+                Items.MoveOnGround(item.Serial, amountToMove, X, Y, Z);
                 //Items.DropItemGroundSelf(Serial, amountToMove);
             }
         }
@@ -77,11 +88,13 @@ namespace RazorEnhanced.Macros.Actions
 
         public override string Serialize()
         {
-            return $"Drop|0x{Serial:X8}|0x{Container:X8}|{X}|{Y}|{Z}|{Amount}";
+            string data = $"Drop|0x{Serial:X8}|0x{Container:X8}|{X}|{Y}|{Z}|{Amount}";
+            return Graphic == 0 ? data : $"{data}|{Graphic}";
         }
 
         public override void Deserialize(string data)
         {
+            Graphic = 0;
             var parts = data.Split('|');
             if (parts.Length >= 6)
             {
@@ -102,12 +115,17 @@ namespace RazorEnhanced.Macros.Actions
                     int.TryParse(parts[6], out int amt);
                     Amount = amt;
                 }
+
+                if (parts.Length >= 8 && int.TryParse(parts[7], out int graphic))
+                {
+                    Graphic = graphic;
+                }
             }
         }
 
         public override bool IsValid()
         {
-            return Serial != 0;
+            return Graphic == 0 ? Serial != 0 : Graphic > 0 && Graphic <= ushort.MaxValue;
         }
     }
 }

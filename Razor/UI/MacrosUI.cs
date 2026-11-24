@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using RazorEnhanced;
 using RazorEnhanced.Macros;
 using RazorEnhanced.Macros.Actions;
@@ -735,7 +735,8 @@ namespace Assistant
                     string destDisplay = dropAction.Container == unchecked((int)0xFFFFFFFF)
                         ? "Ground"
                         : $"0x{dropAction.Container:X8}";
-                    item.SubItems.Add($"Item: 0x{dropAction.Serial:X8} → {destDisplay}");
+                    string source = dropAction.Graphic == 0 ? $"0x{dropAction.Serial:X8}" : $"类型 0x{dropAction.Graphic:X4}";
+                    item.SubItems.Add($"Item: {source} → {destDisplay}");
                     item.ForeColor = Color.SaddleBrown;
                 }
                 else if (action is RazorEnhanced.Macros.Actions.FlyAction flyAction)
@@ -12766,11 +12767,11 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             var macro = macros[macroListBox.SelectedIndex];
 
-            var result = ShowDropDialog(0, 0, 0, 0);
+            var result = ShowDropDialog(new RazorEnhanced.Macros.Actions.DropAction());
 
-            if (result.success)
+            if (result != null)
             {
-                var dropAction = new RazorEnhanced.Macros.Actions.DropAction(result.serial, result.container, result.x, result.y, result.z);
+                var dropAction = result;
 
                 int insertIndex = GetInsertPosition();
                 macro.Actions.Insert(insertIndex, dropAction);
@@ -12804,42 +12805,19 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
             var action = macro.Actions[actionIndex];
 
             if (action is RazorEnhanced.Macros.Actions.DropAction dropAction)
-            {
-                var result = ShowDropDialog(dropAction.Serial, dropAction.Container, dropAction.X, dropAction.Y);
-
-                if (result.success)
-                {
-                    dropAction.Serial = result.serial;
-                    dropAction.Container = result.container;
-                    dropAction.X = result.x;
-                    dropAction.Y = result.y;
-
-                    DisplayMacroActions(macro);
-                    MacroManager.SaveMacros();
-
-                    if (actionIndex < macroActionsListView.Items.Count)
-                    {
-                        macroActionsListView.Items[actionIndex].Selected = true;
-                        macroActionsListView.EnsureVisible(actionIndex);
-                    }
-
-                    Misc.SendMessage("Drop action updated", 88);
-                }
-            }
+                EditDropAction(dropAction, macro, actionIndex);
         }
+
         private void EditDropAction(RazorEnhanced.Macros.Actions.DropAction dropAction, Macro macro, int actionIndex)
         {
-            var result = ShowDropDialog(dropAction.Serial, dropAction.Container, dropAction.X, dropAction.Y);
-
-            if (result.success)
+            var result = ShowDropDialog(dropAction);
+            if (result != null)
             {
-                dropAction.Serial = result.serial;
-                dropAction.Container = result.container;
-                dropAction.X = result.x;
-                dropAction.Y = result.y;
+                macro.Actions[actionIndex] = result;
                 RefreshAndSelectAction(macro, actionIndex);
             }
         }
+
         private bool IsSelectedActionDrop()
         {
             if (macroListBox.SelectedIndex < 0 || macroActionsListView.SelectedIndices.Count != 1)
@@ -12858,131 +12836,182 @@ string organizerName, int sourceBag, int destinationBag, int dragDelay)
 
             return false;
         }
-        private (bool success, int serial, int container, int x, int y, int z) ShowDropDialog(int serial, int container, int x, int y, int z = 0)
+        private RazorEnhanced.Macros.Actions.DropAction ShowDropDialog(RazorEnhanced.Macros.Actions.DropAction action)
         {
-            Form dialog = new Form
+            using Form dialog = new Form
             {
-                Width = 420,
-                Height = 300,
+                ClientSize = new Size(460, 250),
+                AutoScaleMode = AutoScaleMode.Font,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = "丢弃动作",
-                StartPosition = FormStartPosition.CenterScreen,
+                StartPosition = FormStartPosition.CenterParent,
                 MaximizeBox = false,
                 MinimizeBox = false
             };
 
-            Label lblSerial = new Label { Left = 20, Top = 20, Text = "物品序列号(十六进制):", Width = 120 };
-            TextBox txtSerial = new TextBox
+            var itemMode = new ComboBox { Left = 20, Top = 20, Width = 145, DropDownStyle = ComboBoxStyle.DropDownList };
+            itemMode.Items.AddRange(new object[] { "按物品序列号", "按物品类型" });
+            itemMode.SelectedIndex = action.Graphic == 0 ? 0 : 1;
+            int itemValue = action.Graphic == 0 ? action.Serial : action.Graphic;
+            var txtItem = new TextBox { Left = 175, Top = 20, Width = 155, Text = itemValue == 0 ? "" : $"0x{itemValue:X}" };
+            var btnItem = new Button { Left = 340, Top = 18, Width = 100, Text = "选择物品" };
+
+            var destination = new ComboBox { Left = 20, Top = 60, Width = 145, DropDownStyle = ComboBoxStyle.DropDownList };
+            destination.Items.AddRange(new object[] { "丢入容器", "丢到地面" });
+            destination.SelectedIndex = action.Container == -1 ? 1 : 0;
+            var txtContainer = new TextBox { Left = 175, Top = 60, Width = 155,
+                Text = action.Container == 0 || action.Container == -1 ? "" : $"0x{action.Container:X8}" };
+            var btnDestination = new Button { Left = 340, Top = 58, Width = 100 };
+
+            var lblX = new Label { Left = 20, Top = 106, Width = 25, Text = "X" };
+            var txtX = new TextBox { Left = 45, Top = 102, Width = 80, Text = (action.Container == 0 ? -1 : action.X).ToString() };
+            var lblY = new Label { Left = 155, Top = 106, Width = 25, Text = "Y" };
+            var txtY = new TextBox { Left = 180, Top = 102, Width = 80, Text = (action.Container == 0 ? -1 : action.Y).ToString() };
+            var lblZ = new Label { Left = 290, Top = 106, Width = 25, Text = "Z" };
+            var txtZ = new TextBox { Left = 315, Top = 102, Width = 80, Text = action.Z.ToString() };
+            var hint = new Label { Left = 20, Top = 142, Width = 420, Height = 38 };
+            var ok = new Button { Left = 260, Top = 198, Width = 85, Text = "确定" };
+            var cancel = new Button { Left = 355, Top = 198, Width = 85, Text = "取消", DialogResult = DialogResult.Cancel };
+
+            Assistant.Targeting.TargetResponseCallback activeTarget = null;
+            void PickTarget(bool ground, Assistant.Targeting.TargetResponseCallback callback)
             {
-                Left = 150,
-                Top = 20,
-                Width = 200,
-                Text = serial == 0 ? "" : $"0x{serial:X8}"
-            };
-            Button btnTargetItem = new Button
-            {
-                Text = "目标",
-                Left = 360,
-                Top = 18,
-                Width = 40
-            };
-            btnTargetItem.Click += (s, ev) =>
-            {
-                Misc.SendMessage("Target an item to drop...", 88);
-                Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial targetSerial, Assistant.Point3D p, ushort gfx) =>
+                if (Assistant.World.Player == null)
                 {
-                    if (targetSerial.IsValid && targetSerial != 0)
-                    {
-                        dialog.Invoke(new Action(() =>
-                        {
-                            txtSerial.Text = $"0x{(int)targetSerial:X8}";
-                        }));
-                    }
-                }));
-            };
+                    MessageBox.Show(dialog, "请先登录游戏，再选择目标。", dialog.Text);
+                    return;
+                }
 
-            Label lblContainer = new Label { Left = 20, Top = 60, Text = "容器序列号(十六进制，0xFFFFFFFF = 地面):", Width = 250 };
-            TextBox txtContainer = new TextBox
-            {
-                Left = 270,
-                Top = 60,
-                Width = 120,
-                Text = container == unchecked((int)0xFFFFFFFF) ? "0xFFFFFFFF" : (container == 0 ? "" : $"0x{container:X8}")
-            };
-            Button btnTargetContainer = new Button
-            {
-                Text = "目标",
-                Left = 400,
-                Top = 58,
-                Width = 40
-            };
-            btnTargetContainer.Click += (s, ev) =>
-            {
-                Misc.SendMessage("Target a container or ground...", 88);
-                Assistant.Targeting.OneTimeTarget(false, new Assistant.Targeting.TargetResponseCallback((bool loc, Assistant.Serial targetSerial, Assistant.Point3D p, ushort gfx) =>
+                var ui = System.Threading.SynchronizationContext.Current ?? new WindowsFormsSynchronizationContext();
+                Assistant.Targeting.TargetResponseCallback request = null;
+                request = (loc, serial, point, graphic) => ui.Post(_ =>
                 {
-                    dialog.Invoke(new Action(() =>
-                    {
-                        if (targetSerial.IsValid && targetSerial != 0)
-                            txtContainer.Text = $"0x{(int)targetSerial:X8}";
-                        else
-                            txtContainer.Text = "0xFFFFFFFF"; // ground
-                    }));
-                }));
-            };
-
-            Label lblX = new Label { Left = 20, Top = 100, Text = "X:", Width = 30 };
-            TextBox txtX = new TextBox { Left = 60, Top = 100, Width = 60, Text = x.ToString() };
-
-            Label lblY = new Label { Left = 140, Top = 100, Text = "Y:", Width = 30 };
-            TextBox txtY = new TextBox { Left = 180, Top = 100, Width = 60, Text = y.ToString() };
-
-            Label lblZ = new Label { Left = 260, Top = 100, Text = "Z:", Width = 30 };
-            TextBox txtZ = new TextBox { Left = 300, Top = 100, Width = 60, Text = z.ToString() };
-
-            Button btnOK = new Button { Text = "确定", Left = 200, Width = 80, Top = 180, DialogResult = DialogResult.OK };
-            Button btnCancel = new Button { Text = "取消", Left = 300, Width = 80, Top = 180, DialogResult = DialogResult.Cancel };
-
-            dialog.Controls.Add(lblSerial);
-            dialog.Controls.Add(txtSerial);
-            dialog.Controls.Add(btnTargetItem);
-            dialog.Controls.Add(lblContainer);
-            dialog.Controls.Add(txtContainer);
-            dialog.Controls.Add(btnTargetContainer);
-            dialog.Controls.Add(lblX);
-            dialog.Controls.Add(txtX);
-            dialog.Controls.Add(lblY);
-            dialog.Controls.Add(txtY);
-            dialog.Controls.Add(lblZ);
-            dialog.Controls.Add(txtZ);
-            dialog.Controls.Add(btnOK);
-            dialog.Controls.Add(btnCancel);
-            dialog.AcceptButton = btnOK;
-            dialog.CancelButton = btnCancel;
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                int newSerial = 0, newContainer = 0, newX = 0, newY = 0, newZ = 0;
-                string serialStr = txtSerial.Text.Replace("0x", "").Replace("0X", "").Trim();
-                if (!string.IsNullOrEmpty(serialStr))
-                    int.TryParse(serialStr, System.Globalization.NumberStyles.HexNumber, null, out newSerial);
-
-                string containerStr = txtContainer.Text.Replace("0x", "").Replace("0X", "").Trim();
-                if (containerStr.ToUpper() == "FFFFFFFF")
-                    newContainer = unchecked((int)0xFFFFFFFF);
-                else if (!string.IsNullOrEmpty(containerStr))
-                    int.TryParse(containerStr, System.Globalization.NumberStyles.HexNumber, null, out newContainer);
-
-                int.TryParse(txtX.Text, out newX);
-                int.TryParse(txtY.Text, out newY);
-                int.TryParse(txtZ.Text, out newZ);
-
-                return (true, newSerial, newContainer, newX, newY, newZ);
+                    if (dialog.Visible && activeTarget == request)
+                        callback(loc, serial, point, graphic);
+                }, null);
+                activeTarget = request;
+                Assistant.Targeting.OneTimeTarget(ground, request, () => ui.Post(_ =>
+                {
+                    if (activeTarget == request)
+                        activeTarget = null;
+                }, null));
+                Assistant.Platform.SetForegroundWindow(Assistant.Client.Instance.GetWindowHandle());
             }
-            return (false, serial, container, x, y, z);
+
+            btnItem.Click += (sender, args) =>
+            {
+                int mode = itemMode.SelectedIndex;
+                PickTarget(false, (loc, serial, point, graphic) =>
+                {
+                    var item = serial.IsItem ? Items.FindBySerial((int)serial) : null;
+                    if (item != null && itemMode.SelectedIndex == mode)
+                        txtItem.Text = mode == 0 ? $"0x{(int)serial:X8}" : $"0x{item.ItemID:X4}";
+                });
+            };
+
+            void UpdateDestination()
+            {
+                bool ground = destination.SelectedIndex == 1;
+                txtContainer.Enabled = !ground;
+                txtZ.Enabled = ground;
+                btnDestination.Text = ground ? "选择地面" : "选择容器";
+                hint.Text = ground ? "可在游戏中选取地面坐标。" : "X 和 Y 都填 -1 时，由容器自动安排位置。";
+            }
+
+            itemMode.SelectedIndexChanged += (sender, args) => txtItem.Clear();
+            destination.SelectedIndexChanged += (sender, args) =>
+            {
+                bool ground = destination.SelectedIndex == 1;
+                txtX.Text = txtY.Text = ground ? "0" : "-1";
+                txtZ.Text = "0";
+                UpdateDestination();
+            };
+            UpdateDestination();
+
+            btnDestination.Click += (sender, args) =>
+            {
+                bool ground = destination.SelectedIndex == 1;
+                PickTarget(ground, (loc, serial, point, graphic) =>
+                {
+                    if (ground != (destination.SelectedIndex == 1))
+                        return;
+
+                    if (ground && loc && !serial.IsValid)
+                    {
+                        txtX.Text = point.X.ToString();
+                        txtY.Text = point.Y.ToString();
+                        txtZ.Text = point.Z.ToString();
+                    }
+                    else if (!ground)
+                    {
+                        var container = serial.IsItem ? Items.FindBySerial((int)serial) : null;
+                        if (container != null && (container.IsContainer || container.IsCorpse))
+                            txtContainer.Text = $"0x{(int)serial:X8}";
+                        else
+                            MessageBox.Show(dialog, "请在游戏中选择一个容器。", dialog.Text);
+                    }
+                });
+            };
+
+            bool TryHex(string value, out int number)
+            {
+                value = value.Trim();
+                if (value.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+                    value = value.Substring(2);
+                return int.TryParse(value, System.Globalization.NumberStyles.HexNumber, null, out number);
+            }
+
+            RazorEnhanced.Macros.Actions.DropAction result = null;
+            ok.Click += (sender, args) =>
+            {
+                bool byType = itemMode.SelectedIndex == 1;
+                bool ground = destination.SelectedIndex == 1;
+                int container = -1;
+                int z = action.Z;
+                if (!TryHex(txtItem.Text, out int item) || (byType ? item <= 0 || item > ushort.MaxValue : !((Assistant.Serial)item).IsItem))
+                {
+                    MessageBox.Show(dialog, "请输入有效的十六进制物品编号，或在游戏中选择物品。", dialog.Text);
+                    return;
+                }
+                if (!ground && (!TryHex(txtContainer.Text, out container) || (!((Assistant.Serial)container).IsItem && !(container == action.Container && ((Assistant.Serial)container).IsMobile))))
+                {
+                    MessageBox.Show(dialog, "请输入有效的十六进制容器序列号，或在游戏中选择容器。", dialog.Text);
+                    return;
+                }
+                if (!int.TryParse(txtX.Text, out int x) || !int.TryParse(txtY.Text, out int y)
+                    || (ground && (!int.TryParse(txtZ.Text, out z) || x < 0 || x >= ushort.MaxValue
+                        || y < 0 || y >= ushort.MaxValue || z < sbyte.MinValue || z > sbyte.MaxValue))
+                    || (!ground && (x < -1 || x >= ushort.MaxValue || y < -1 || y >= ushort.MaxValue)))
+                {
+                    MessageBox.Show(dialog, "请输入有效坐标。容器自动定位时，X 和 Y 均填 -1。", dialog.Text);
+                    return;
+                }
+
+                if (!ground && !byType && item == container)
+                {
+                    MessageBox.Show(dialog, "物品和目标容器必须不同。", dialog.Text);
+                    return;
+                }
+                if (!ground && (x == -1 || y == -1))
+                    x = y = -1;
+
+                result = new RazorEnhanced.Macros.Actions.DropAction(byType ? 0 : item, container, x, y, z, action.Amount)
+                {
+                    Graphic = byType ? item : 0
+                };
+                dialog.DialogResult = DialogResult.OK;
+            };
+
+            dialog.Controls.AddRange(new Control[] { itemMode, txtItem, btnItem, destination, txtContainer,
+                btnDestination, lblX, txtX, lblY, txtY, lblZ, txtZ, hint, ok, cancel });
+            dialog.AcceptButton = ok;
+            dialog.CancelButton = cancel;
+            dialog.FormClosed += (sender, args) =>
+            {
+                if (activeTarget != null)
+                    Assistant.Targeting.CancelOneTimeTarget(activeTarget);
+            };
+            return dialog.ShowDialog(this) == DialogResult.OK ? result : null;
         }
-
-
-
     }
 }

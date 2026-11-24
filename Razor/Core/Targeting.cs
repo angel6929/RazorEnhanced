@@ -152,6 +152,12 @@ namespace Assistant
             ClearQueue();
         }
 
+        internal static void CancelOneTimeTarget(TargetResponseCallback callback)
+        {
+            if (m_Intercept && m_OnTarget == callback)
+                CancelOneTimeTarget(false);
+        }
+
         internal static void CancelOneTimeTarget(bool wait)
         {
             m_NoShowTarget = m_ClientTarget = m_HasTarget = false;
